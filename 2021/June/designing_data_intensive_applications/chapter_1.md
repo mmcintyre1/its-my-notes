@@ -1,3 +1,4 @@
+
 # Chapter 1: Reliable, Scalable, and Maintainable Applications
 
 ### Data Systems
@@ -32,11 +33,11 @@ We can group data components (databases, caches, queues, etc.) under the umbrell
 #### Human Errors
 - might be leading cause of errors
 - way around:
-	- build well-designed abstractions, APIs, and admin interfaces, make it easy to 'do the right thing'
-	- fully featured sandbox environments
-	- test thoroughly at all levels (unit tests, whole-system integration tests, manual tests)
-	- quick and easy recovery
-	- detailed and clear monitoring (telemetry)
+  - build well-designed abstractions, APIs, and admin interfaces, make it easy to 'do the right thing'
+  - fully featured sandbox environments
+  - test thoroughly at all levels (unit tests, whole-system integration tests, manual tests)
+  - quick and easy recovery
+  - detailed and clear monitoring (telemetry)
 
 ## Scalability
 the term we use to describe a system's ability to cope with increased load
@@ -56,11 +57,37 @@ the term we use to describe a system's ability to cope with increased load
 - latency: time request is waiting to be handled
 - response time: total time a client sees, so time to process (service time), queuing delays, etc
 - measuring performance
-	- we use arithmetic mean (synonymous with average), or median with percentiles
-	- p95, p99, p999 (95%, 99%, 99.9%) to reflect thresholds of percentiles past the median
-	- typically used in service level objectives (SLO) and service level agreements (SLA)
+  - we use arithmetic mean (synonymous with average), or median with percentiles
+  - p95, p99, p999 (95%, 99%, 99.9%) to reflect thresholds of percentiles past the median
+  - typically used in service level objectives (SLO) and service level agreements (SLA)
 - head of line blocking: it only takes a small number of slow responses to hold up the processing of subsequent requests
 
 ### Coping with Load
-scaling up- vertical scaling, moving to a more powerful machine
-scaling out - horizontal scaling, dstributing the load across multiple smaller machines
+- *scaling up* - vertical scaling, moving to a more powerful machine
+- *scaling out* - horizontal scaling, dstributing the load across multiple smaller machines
+  - *shared-nothing architecture* - distributing load across multiple machines
+- some systems are *elastic* (scaled automatically based on load) while some are scaled manually
+- *magic scaling sauce* - the false idea that there is a one size fits all solution to scaling
+- an architecture that scales well for a particular application is built around assumption of which operations will be common and which will be rare (load parameters)
+
+## Maintainability
+The majority of the cost of software is not in its initial development but ongoing maintenance
+
+### Operability
+make it easy for operations teams to keep systems running smoothly
+
+### Simplicity
+make it easy for new engineers to understand the system by removing complexity, or avoiding a big ball of mud
+- *accidental complexity* - complexity not inherent in the problem space but arises because of the implementation
+- an abstraction is a useful technique to hide non-important implementation details behind a façade
+
+### Evolvability
+make it easy for engineers to make changes to the system in the future (aka *extensibility*, *modifiability*, or *plasticity*
+
+## Chapter Summary
+- an application must meet various requirements to be useful
+	- *functional requirements* - what it should do, like allow data to be stored, retrieved, searched
+	- *non-functional requirements* - general properties, like reliability, compliance, scalability, maintainability
+- **Reliability** means making systems work correctly, even when faults occur. Faults can be in hardware (typically random and uncorrelated), software (bugs are typically systematic and hard to deal with), and human (who inevitability make mistakes from time to time). Fault tolerance techniques can hide certain types of faults from the end user
+- **Scalability** means having strategies for keeping performance good, even when load increases. In order to discuss scalability, we first need ways of describing load and performance quantitatively. In scalable systems, you can add processing capacity in order to remain reliable under high load.
+- **Maintainability** has many facets, but in essence it's about making life better for the engineering and operations teams who need to work with the system. Good abstractions can help reduce complexity and make the system easier to modify and adapt for new use cases. Good operability means having good visibility into the system's health, and having effective ways of managing it.
