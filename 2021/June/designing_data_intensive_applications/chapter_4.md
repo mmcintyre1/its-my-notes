@@ -13,13 +13,13 @@
         - [SOAP](#soap)
       - [RPC](#rpc)
     - [Dataflow though async messages](#dataflow-though-async-messages)
+      - [Distributed actor frameworks](#distributed-actor-frameworks)
   - [Chapter Summary](#chapter-summary)
 
 ## Formats for Encoding Data
 - Programs typically work with data in two ways:
   1. in memory: kept in objects (list, array, struct, hash table, etc.) and efficiently accessed and manipulated by CPU (typically via pointers)
   2. out of memory: you need to encode data into a self-contained sequence of bytes to write to file or send over network, etc
-
 - **encoding** - the translation of in-memory representation to byte sequence (aka *serialization* or *marshalling*), and the opposite action is *decoding* (aka *parsing*, *deserialization*, *unmarshalling*)
 
 ### Language-Specific Formats
@@ -134,4 +134,18 @@
 - In the past, message brokers were dominated by commercial enterprise (TIBCO, IBM WebSphere, webMethods), but more recently, open source impl. like RabbitMQ, ActiveMQ, HornetQ, NATS, and Apache Kafka are populate
 - They typically work like this: one process (producer) sends a message to a named queue or topic, and the broker ensures that the message is delivered to one or more consumers or subscribers to that queue or topic -- there can be many producers and consumers
 
+#### Distributed actor frameworks
+- *actor model* - programming model for concurrency in a single process. logic is encapsulated in an actor, and that sends async messages
+
 ## Chapter Summary
+- many services need to support rolling upgrades, where a new version of a service is gradually deployed to a few nodes at a time
+- rolling upgrades allow a new version of a service to be released without downtime (thus encouraging frequent small releases over rare big releases) and make deployments less risky -- these properties are hugely important for evolvability
+- during rolling upgrades (or for various other reasons) we must assume that different nodes are running different versions of our application's code -- it is important that all data flowing around the system is encoded in a way that provides backward (new code can read old data) and forward (old code can read new data) compatibility
+- there are several data encoding formats
+  - programming language-specific encodings are restricted to a single programming language and often fail to provide forward and backward compatibility
+  - textual formats like JSON, XML, and CSV are widespread, and their compatibility depends on how you use them -- they have optional schema languages, which are sometimes helpful and sometimes a hindrance, and these formats are sometimes vague about datatypes, so you have to be careful with things like numbers and binary strings
+  - binary schema-driven formats like Thrift, Protocol Buffers, and Avro allow compact, efficient encoding with clearly defined forward and backward compatible semantics -- these schemas can be useful for documentation and code generation in statically typed languages
+- there are several modes of dataflow
+  - databases, where the process writing to the database encodes the data and the process reading from the database decodes it
+  - RPC and REST APIs, where the client encodes a request, the server decodes the request and encodes a response, and the client finally decodes the response
+  - asynchronous message passing (using message brokers or actors) where nodes communicate by sending each other messages that are encoded by the sender and decoded by the recipient
