@@ -1,5 +1,27 @@
 
 # Chapter 3: Storage and Retrieval
+- [Chapter 3: Storage and Retrieval](#chapter-3-storage-and-retrieval)
+  - [Log-structured storage](#log-structured-storage)
+    - [Indexes](#indexes)
+      - [Hash Indexes](#hash-indexes)
+        - [segment files](#segment-files)
+      - [SSTables](#sstables)
+        - [LSM-Trees](#lsm-trees)
+      - [B-Trees](#b-trees)
+        - [reliability](#reliability)
+      - [B-Trees vs LSM-Trees](#b-trees-vs-lsm-trees)
+      - [Secondary Indexes](#secondary-indexes)
+      - [Storing values within the index](#storing-values-within-the-index)
+      - [Multi-column indexes](#multi-column-indexes)
+      - [Full-text search and fuzzy indexes](#full-text-search-and-fuzzy-indexes)
+      - [In memory databases](#in-memory-databases)
+      - [Transactions vs Analytics](#transactions-vs-analytics)
+      - [Data Warehouses](#data-warehouses)
+        - [Star and Snowflake Schema](#star-and-snowflake-schema)
+        - [Column Compression](#column-compression)
+        - [Vectorized Processing](#vectorized-processing)
+        - [Materialized Views](#materialized-views)
+  - [Chapter Summary](#chapter-summary)
 
 at a fundamental level, a database needs to do two things:
 

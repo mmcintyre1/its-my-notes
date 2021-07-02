@@ -1,5 +1,27 @@
 
 # Chapter 2: Data Models and Query Languages
+- [Chapter 2: Data Models and Query Languages](#chapter-2-data-models-and-query-languages)
+    - [Relational Model](#relational-model)
+    - [Document Model](#document-model)
+    - [Graph Model](#graph-model)
+      - [property graph](#property-graph)
+      - [triple-stores](#triple-stores)
+        - [semantic web](#semantic-web)
+    - [Many-to-One and Many-to-Many Relationships](#many-to-one-and-many-to-many-relationships)
+    - [Relational vs Document](#relational-vs-document)
+      - [simpler application code](#simpler-application-code)
+      - [schema flexibility](#schema-flexibility)
+      - [data locality](#data-locality)
+      - [convergence](#convergence)
+    - [Query Languages](#query-languages)
+      - [SQL](#sql)
+      - [MapReduce Querying](#mapreduce-querying)
+      - [Cypher](#cypher)
+      - [Querying Graph Models with SQL](#querying-graph-models-with-sql)
+      - [SPARQL](#sparql)
+      - [Datalog](#datalog)
+  - [Chapter Summary](#chapter-summary)
+
 Data models are perhaps the most important part of developing software -- most applications are built by layering one data model on top of another, with each layer hiding the complexity of the layers below it by providing a clean data model
 1. as an app developer, you model the real world in terms of objects or data structures, and APIs manipulate those structures
 2. when you want to store that data, you use a general-purpose data model such as JSON or XML
