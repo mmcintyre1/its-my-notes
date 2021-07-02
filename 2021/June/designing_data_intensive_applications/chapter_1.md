@@ -20,8 +20,8 @@
 
 ### Data Systems
 We can group data components (databases, caches, queues, etc.) under the umbrella of data systems instead of as separate components because
-	1. many new systems have emerged that blur the typical line (Kafka, Redis)
-	2. many use cases are covered by stitching together data components with application code
+  1. many new systems have emerged that blur the typical line (Kafka, Redis)
+  2. many use cases are covered by stitching together data components with application code
 
 ## Three concerns for software systems
 1. *Reliability*
@@ -34,7 +34,7 @@ We can group data components (databases, caches, queues, etc.) under the umbrell
 ## Reliability
 - Things that can go wrong are called faults, and a system that can withstand them is fault-tolerant or resilient
 - fault: component of system deviates from spec
-- failure: where a failure is a when the system stops providing the required service to a user
+- failure: (different from a fault) when the system stops providing the required service to a user
 - we generally prefer tolerating faults over preventing faults
 
 ### Types of Faults
@@ -42,50 +42,51 @@ We can group data components (databases, caches, queues, etc.) under the umbrell
 #### Hardware Faults
 - e.g. hard disks crash, RAM becomes faulty, etc
 	- hard disks have a mean time to failure (MTTF) of about 10 to 50 years
-	- typically we can add redundancy to a system or individual components
-	- move toward system that can tolerate loss of entire machines
+	- typically we can add redundancy to a system or individual components by adding additional hardware (additional machines, backup generators, etc)
+	- move toward systems that can tolerate loss of entire machines (Netflix's Chaos Engine takes machines offline to test recovery)
+
 #### Software Faults
 - systematic error within system
-- lots of small things can help: thinking about assumptions and interactions, process isolation, data observation
+- lots of small things can help minimize software faults: thinking about assumptions and interactions, process isolation, data observation
+
 #### Human Errors
 - might be leading cause of errors
-- way around:
+- mitigating design choices can be:
   - build well-designed abstractions, APIs, and admin interfaces, make it easy to 'do the right thing'
-  - fully featured sandbox environments
+  - use fully featured sandbox environments
   - test thoroughly at all levels (unit tests, whole-system integration tests, manual tests)
-  - quick and easy recovery
-  - detailed and clear monitoring (telemetry)
+  - make recovery quick and easy
+  - build detailed and clear monitoring (telemetry)
 
 ## Scalability
 the term we use to describe a system's ability to cope with increased load
 
 ### Describing Load
-- load on a system can be described with a few numbers which we call load parameters
+- load on a system can be described with a few numbers which we call *load parameters*
 - the best choice of load parameters depends on architecture of your system: could be requests/second, or ratio of reads/writes to a database
-- fan-out: in transaction processing systems, describes the number of requests to other services that we need to make in order to serve one incoming request
+- *fan-out*: in transaction processing systems, describes the number of requests to other services that we need to make in order to serve one incoming request
 
 ### Describing Performance
-- once you know load on a system, you can look at what happens when load increases
-- when you increase load parameter:
+- when you increase load parameters:
 	- and keep system resources the same, how is performance affected
 	- how much do you need to increase resources to keep performance the same
 - in batch processing systems (like Hadoop) we care about throughput
 - in online systems, we care about response time
-- latency: time request is waiting to be handled
-- response time: total time a client sees, so time to process (service time), queuing delays, etc
+- *latency*: time request is waiting to be handled
+- *response time*: total time a client sees, so time to process (service time), queuing delays, etc
 - measuring performance
   - we use arithmetic mean (synonymous with average), or median with percentiles
   - p95, p99, p999 (95%, 99%, 99.9%) to reflect thresholds of percentiles past the median
   - typically used in service level objectives (SLO) and service level agreements (SLA)
-- head of line blocking: it only takes a small number of slow responses to hold up the processing of subsequent requests
+- *head of line blocking*: it only takes a small number of slow responses to hold up the processing of subsequent requests (packet at front holds up a line of packets)
 
 ### Coping with Load
 - *scaling up* - vertical scaling, moving to a more powerful machine
-- *scaling out* - horizontal scaling, dstributing the load across multiple smaller machines
+- *scaling out* - horizontal scaling, distributing the load across multiple smaller machines
   - *shared-nothing architecture* - distributing load across multiple machines
 - some systems are *elastic* (scaled automatically based on load) while some are scaled manually
 - *magic scaling sauce* - the false idea that there is a one size fits all solution to scaling
-- an architecture that scales well for a particular application is built around assumption of which operations will be common and which will be rare (load parameters)
+- an architecture that scales well for a particular application is built around assumption of which operations will be common and which will be rare (informed by *load parameters*)
 
 ## Maintainability
 The majority of the cost of software is not in its initial development but ongoing maintenance
@@ -99,7 +100,7 @@ make it easy for new engineers to understand the system by removing complexity, 
 - an abstraction is a useful technique to hide non-important implementation details behind a façade
 
 ### Evolvability
-make it easy for engineers to make changes to the system in the future (aka *extensibility*, *modifiability*, or *plasticity*
+make it easy for engineers to make changes to the system in the future (aka *extensibility*, *modifiability*, or *plasticity*)
 
 ## Chapter Summary
 - an application must meet various requirements to be useful

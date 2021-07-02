@@ -24,12 +24,12 @@
   - [Chapter Summary](#chapter-summary)
 
 at a fundamental level, a database needs to do two things:
-
 1. when you give it data it should store the data
 2. when you ask it later it should give the data back to you
 
 ## Log-structured storage
 - many databases internally use a log, or append only sequence of records, to store data (different from application logs, which are typically text files emitted by an application to describe what is happening)
+> *log* used here is different than a machine-generated output explaining what is happening. log here means append only sequence of records
 
 ### Indexes
 - an *additional structure* used to efficiently find data within a database
@@ -48,15 +48,16 @@ at a fundamental level, a database needs to do two things:
 	- **concurrency control**: since writes are sequential append only, its common to only have a single writer. Data files are append only and immutable, so they can be read concurrently
 	-
 ##### segment files
-- since the log is an append-only structure, we need to keep *segment files* to prevent running out of space
+- since the log is an append-only structure, we need break it up into *segment files* to prevent running out of space
 - after a segment file reaches a certain size, we can create a new one to write to, then perform *compaction* on the older segment files, meaning, throwing away duplicate keys in the log and keeping only the most recent update
 	- older segment files are merged in the background then swapped without interruption to writes
 
 #### SSTables
-- **Sorted String Table** (SSTable) - takes the idea for hash indexes, but requires that segment files be sorted in order by key. also requires that each key only appears once in each merged segment table (because in order to do compaction, we need to mergesort, which relies on uniqueness of keys)
+- **Sorted String Table** (SSTable) - takes the idea for hash indexes, but requires that segment files be sorted in order by key. also requires that each key only appears once in each merged segment table (because in order to do compaction, we need to mergesort, which relies on uniqueness of keys when comparing one file to another)
 - keys duplicated across segment files don't matter, since most recent segment contains most up to date value per key
-- your in memory hash index can be sparse, because keys are sorted and so easy to scan (typically one index per every few kilobytes is sufficient)
+- your in-memory hash index can be sparse, because keys are sorted and so easy to scan (typically one index per every few kilobytes is sufficient)
 - you can compress blocks and then just point the index at a block, saving disk space and I/O
+
 ##### LSM-Trees
 - described in Patrick O'Neil et al *Log-Structured Merge-Tree* or LSM-tree
 - *memtable* and SSTable introduced by Google's Bigtable paper
@@ -74,11 +75,11 @@ at a fundamental level, a database needs to do two things:
 - trees are balanced, so traversal is always O(log *n*) -- most databases can fit into a B-tree that is three or four levels deep (e.g. a four-level tree of 4 KB pages with a branching factor of 500 can store 256 TB)
 
 ##### reliability
-- many B-tree impl. use write-ahead logs (WAL), aka redo logs, to persist all writes to the database in an append only log before it can be applied to pages
+- many B-tree impl. use *write-ahead logs* (WAL), aka *redo logs*, to persist all writes to the database in an append only log before it can be applied to pages
 
 #### B-Trees vs LSM-Trees
 - B-Trees need to write data twice, once to the write-ahead log and once to page
-- Log-structured indexes might write data multiple times due to repeated compaction and merging (write amplification) and is particularly concerning for SSD's, which can only overwrite blocks a limited amount of times before wearing out
+- Log-structured indexes might write data multiple times due to repeated compaction and merging (write amplification) and is particularly concerning for SSDs, which can only overwrite blocks a limited amount of times before wearing out
 - LSM-Trees typically able to sustain higher write throughput because they often have lower write amplification
 - B-Trees have keys that exist exactly one place in index, which is good for databases that want strong transactional semantics via transaction isolation and locks
 
@@ -120,7 +121,7 @@ at a fundamental level, a database needs to do two things:
 #### Data Warehouses
 - you store data in an OLAP data warehouse as it will be insulated from live transaction processing and queries won't affect live customer-facing systems
 - typically perform Extract-Transform-Load (ETL) operations to populate the database
-- Data warehouses typically sell their systems under expensive commerical licenses (e.g. Amazon RedShift is a host version of ParAccel)
+- Data warehouses typically sell their systems under expensive commercial licenses (e.g. Amazon RedShift is a host version of ParAccel)
 - Some are based on the ideas from Google's Dremel
 - many data warehouses can have hundreds of columns
 - The typical use case for OLAP queries are only accessing a small amount of many columns -- unlike OLTP systems which are *row-oriented storage*, meaning that a row is stored in contiguous bytes on disks, OLAP systems are *column-oriented storage*, which stores a column in contiguous bytes.
@@ -135,7 +136,7 @@ at a fundamental level, a database needs to do two things:
 - since there are far less distinct values in a column than there are rows, we can compress this data. a popular method is *bitmap encoding*, which details all the unique values in a column, then encodes an array of 1s and 0s for whether a row contains that value, which creates sparse data sets, which can be compressed more easily by encoding run length (how many 1s or 0s in a row)
 
 ##### Vectorized Processing
-- the query engine can take a chunk of compressed column data that fits in the CPU's L1 cache, and iterate through in a tight loop (no function calls) much more quickly than if many function calls are required, e.g. to type cast data formats
+- the query engine can take a chunk of compressed column data that fits in the CPU's L1 cache, and iterate through in a tight loop (no function calls) much more quickly than if many function calls are required, e.g. to type-cast data formats
 
 ##### Materialized Views
 - for expensive queries (like aggregation functions), it might make sense to actually store the results in a table. materialized views differ from regular views (which are just shorthand for queries) because they are an actual table stored on disk, and they need to be recomputed when the underlying data changes

@@ -22,8 +22,10 @@
       - [Datalog](#datalog)
   - [Chapter Summary](#chapter-summary)
 
-Data models are perhaps the most important part of developing software -- most applications are built by layering one data model on top of another, with each layer hiding the complexity of the layers below it by providing a clean data model
-1. as an app developer, you model the real world in terms of objects or data structures, and APIs manipulate those structures
+- Data models are perhaps the most important part of developing software -- most applications are built by layering one data model on top of another, with each layer hiding the complexity of the layers below it by providing a clean data model
+
+- Cascading levels of data models:
+1. as an app developer, you model the real world in terms of objects or data structures, and APIs used to manipulate those structures
 2. when you want to store that data, you use a general-purpose data model such as JSON or XML
 3. engineers who built the database software decided on ways of representing that general-purpose data model as bytes in memory, on disk, or on a network
 4. hardware engineers have figured out how to represent bytes in terms of electrical currents, pulses of light, etc.
@@ -35,20 +37,21 @@ Data models are perhaps the most important part of developing software -- most a
 - XML databases appeared in early 2000's but only have niche audience
 - much of the current web is based on relational model
 - *impedance mismatch* - a borrowed electronics term which can refer to the need for a translation layer to take objects generated from object-oriented paradigms and write to a relational model
-- Object-relational mapping (ORM) frameworks like ActiveRecord, Hibernate, SQLAlchemy might reduce boilerplate code for that translation layer, but they don't hide it completely
+  - Object-relational mapping (ORM) frameworks like ActiveRecord, Hibernate, SQLAlchemy might reduce boilerplate code for that translation layer, but they don't hide it completely
 
 ### Document Model
-- use cases for 'NoSQL'
-- need for greater scalability, including for very large datasets or very high write throughput
-    - preference for free and open source software
-    - specialized query operations not well supported by relational model
-    - frustration with restrictiveness of relational schemas, and desire for more expressive and dynamic data model
+- use cases for 'NoSQL':
+  - need for greater scalability, including for very large datasets or very high write throughput
+  - preference for free and open source software
+  - specialized query operations not well supported by relational model
+  - frustration with restrictiveness of relational schemas, and desire for more expressive and dynamic data model
 - *polyglot persistence*: many future use cases might employ document and relational models
 
 ### Graph Model
 - graph consists of two objects:
-    - *vertices* (aka *nodes* or *entities*)
-    - *edges* (aka *relationships* or *arcs*)
+  - *vertices* (aka *nodes* or *entities*)
+  - *edges* (aka *relationships* or *arcs*)
+- several different implementations of graph model, including property graph, triple-stores, semantic web
 
 #### property graph
 - implemented by Neo4j, Titan, and InfiniteGraph (among others)
@@ -68,19 +71,19 @@ Data models are perhaps the most important part of developing software -- most a
 #### triple-stores
 - similar to property graphs, just describes things with different words
 - all info stored as three-part statement - subject, predicate, object. e.g. JIM LIKES EGGS (JIM - subject, LIKES - predicate, EGGS - object)
+
 ##### semantic web
 - while not all triple-stores are synonymous with the semantic web, they are interlinked in many minds
 - semantic web is the idea that websites could publish machine-readable information about their sites in a consistent format to form a 'web of data' (note Berners-Lee constantly says there is no data layer for the internet)
-- *RDF* - Resource Description Framework - is positioned as that format
+- *Resource Description Framework* (RDF) - is positioned as that format
 	- Apache Jena popular tool for this
 
 ### Many-to-One and Many-to-Many Relationships
-- Storing standardized list of data, so you can join to that data and prevent duplication (normalized data)
+- Storing standardized list of data, so you can join to that data and prevent duplication (*normalized* data)
 - 1st Normal Form (NF), 2NF, 3NF, etc have little practical difference -- rule of thumb, if you are duplicating values that could be stored in one place, your schema is not normalized
 - normalizing requires a many-to-one relationship, something not supported well with document model (support for joins is weak), meaning you need to shift that logic to application code over database model logic
 
 ### Relational vs Document
-
 #### simpler application code
 - if your data is document-like, use document (*shredding* - relational technique of splitting a document-like structure into multiple tables, makes for complicated application code)
 - if you need many-to-many or joins, use relational
@@ -88,30 +91,30 @@ Data models are perhaps the most important part of developing software -- most a
 #### schema flexibility
 - *schema-on-write* (relational): structure of data is explicit and database ensures all data conforms to it
 - *schema-on-read* (document): structure of data is implicit and only interpreted when data is read
-- NOTE: `ALTER TABLE` typically fast except for MySQL, where the entire table is copied
+> NOTE: `ALTER TABLE` typically fast except for MySQL, where the entire table is copied
 
 #### data locality
 - if joins aren't required for your document, then there is a performance advantage to all data in a single document (called *storage locality*)
 - some relational databases group related data together to achieve storage locality
-    - Google's Spanner (allows schema to declare table's rows interleaved (nested) with a parents)
-    - Oracle through *multi-table index cluster tables*
-    - Bigtable (Cassandra and HBase) through *column-family*
+  - Google's Spanner (allows schema to declare table's rows interleaved (nested) with a parents)
+  - Oracle through *multi-table index cluster tables*
+  - Bigtable (Cassandra and HBase) through *column-family*
 
 #### convergence
 - many relational databases support JSON (PostGreSQL 9.3+, MySQL 5.7+)
 - many relational databases support XML (other than MySQL)
 
 ### Query Languages
-
 #### SQL
 - SQL is a *declarative* language which follows the structure of relational algebra closely
-- other declarative languages are XSL or CSS
+- other declarative languages examples: XSL, CSS
 - *imperative* languages tell the computer to perform operations in order (most programming languages)
 - declarative languages lend themselves to parallel execution
 -
 #### MapReduce Querying
 - programming model for processing large amounts of data across multiple machines created by Google
 - you specify two functions -- `map` (aka `collect`), and a `reduce` (aka `fold` or `inject`). Below is MapReduce implemented in MongoDB:
+- MongoDB allows you to embed javascript in a MapReduce query:
 ```javascript
 db.observations.mapReduce(
   function map() {
@@ -135,7 +138,8 @@ db.observations.mapReduce(
 - declarative language implemented by Neo4j and used to query property graphs
 
 #### Querying Graph Models with SQL
-- you can query graph models in SQL, it is just extremely verbose, and relies on a *recursive common table expression* `WITH RECURSIVE`
+- you can query graph models in SQL, it is just extremely verbose, and relies on a *recursive common table expression* e.g. `WITH RECURSIVE`
+- *common table expressions* - temporary data set returned by a query, which is then used by another query. It’s temporary because the result is not stored anywhere; it exists only when the query is run -- e.g. `WITH expression_name AS (CTE definition)`
 
 #### SPARQL
 - query language for triple-stores using RDF data model
