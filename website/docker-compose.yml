@@ -2,11 +2,10 @@ version: '3.7'
 
 services:
   jekyll:
-    image: jekyll/jekyll:3.8
+    image: jekyll/jekyll
     command: jekyll serve --watch --force_polling
     ports:
       - 4000:4000
     volumes:
       - .:/srv/jekyll
-      - ../articles:/srv/jekyll/articles
       - ../books:/srv/jekyll/books

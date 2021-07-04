@@ -33,6 +33,7 @@ aux_links:
   "Reading Notes on GitHub":
     - ""
 
+host: localhost
 # Footer "Edit this page on GitHub" link text
 # gh_edit_link: true # show or hide edit this page link
 # gh_edit_link_text: "Edit this page on GitHub."
