@@ -4,6 +4,7 @@ description: >-
 permalink: pretty
 baseurl: /reading-notes
 url: https://mmcintyre1.github.io
+theme: dark
 
 plugins:
   - jekyll-seo-tag
