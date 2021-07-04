@@ -1,5 +1,6 @@
 ---
 nav_exclude: true
+layout: "default"
 ---
 
 # Learning Notes
