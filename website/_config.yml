@@ -1,8 +1,8 @@
 title: Notes
 description: >-
-  Keyvan Akbary learning notes
+  Michael McIntyre Reading Notes
 permalink: pretty
-baseurl: /learning-notes
+baseurl: /reading-notes
 
 plugins:
   - jekyll-seo-tag
@@ -17,8 +17,9 @@ kramdown:
     block:
       line_numbers: false
 
+# comment out theme if deploying, or use theme for local
 # theme: just-the-docs
-remote_theme: pmarsceill/just-the-docs
+remote_theme: pmarsceill/just-the-docs@v0.2.5
 
 exclude:
   - Gemfile
@@ -33,8 +34,8 @@ titles_from_headings:
 color_scheme: custom
 
 aux_links:
-  "Learning Notes on GitHub":
-    - "//github.com/keyvanakbary/learning-notes"
+  "Reading Notes on GitHub":
+    - "https://github.com/mmcintyre1/reading-notes"
 
 # Footer "Edit this page on GitHub" link text
 # gh_edit_link: true # show or hide edit this page link
