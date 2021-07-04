@@ -1,8 +1,8 @@
 title: Notes
 description: >-
-  Michael McIntyre reading notes
+  Keyvan Akbary learning notes
 permalink: pretty
-baseurl: /reading-notes
+baseurl: /learning-notes
 
 plugins:
   - jekyll-seo-tag
@@ -15,7 +15,7 @@ kramdown:
     block:
       line_numbers: false
 
-remote_theme: pmarsceill/just-the-docs
+theme: just-the-docs
 
 exclude:
   - Gemfile
@@ -31,19 +31,34 @@ color_scheme: custom
 
 aux_links:
   "Learning Notes on GitHub":
-    - "//github.com/"
+    - "//github.com/keyvanakbary/learning-notes"
 
 # Footer "Edit this page on GitHub" link text
 # gh_edit_link: true # show or hide edit this page link
 # gh_edit_link_text: "Edit this page on GitHub."
-# gh_edit_repository: "" # the github URL for your repo
+# gh_edit_repository: "https://github.com/keyvanakbary/learning-notes" # the github URL for your repo
 # gh_edit_branch: "master" # the branch that your docs is served from
 # gh_edit_source: docs # the source that your files originate from
 # gh_edit_view_mode: "edit"
 
 defaults:
   - scope:
+      path: "articles"
+    values:
+      parent: Articles
+      nav_exclude: true
+  - scope:
       path: "books"
     values:
       parent: Books
-      nav_exclude: false
+      nav_exclude: true
+  - scope:
+      path: "talks"
+    values:
+      parent: Talks
+      nav_exclude: true
+  - scope:
+      path: "papers"
+    values:
+      parent: Papers
+      nav_exclude: true
