@@ -7,13 +7,14 @@ permalink: pretty
 # Back to top link
 back_to_top: true
 back_to_top_text: "Back to top"
-color_scheme: dark
+# color_scheme: dark
 footer_content: "Copyright &copy; 2021 Michael McIntyre. "
+# comment out theme if deploying, or use theme for local
+# theme: just-the-docs
+remote_theme: pmarsceill/just-the-docs
 
 baseurl: /reading-notes
 url: https://mmcintyre1.github.io
-
-
 
 plugins:
   - jekyll-seo-tag
@@ -28,10 +29,6 @@ kramdown:
     block:
       line_numbers: false
 
-# comment out theme if deploying, or use theme for local
-# theme: just-the-docs
-remote_theme: pmarsceill/just-the-docs@v0.2.8
-
 exclude:
   - Gemfile
   - Gemfile.lock
@@ -41,8 +38,6 @@ titles_from_headings:
   enabled:     true
   strip_title: false
   collections: false
-
-color_scheme: custom
 
 aux_links:
   "Reading Notes on GitHub":
@@ -57,23 +52,23 @@ aux_links:
 # gh_edit_view_mode: "edit"
 
 defaults:
-  - scope:
-      path: "articles"
-    values:
-      parent: Articles
-      nav_exclude: true
+  # - scope:
+  #     path: "articles"
+  #   values:
+  #     parent: Articles
+  #     nav_exclude: true
   - scope:
       path: "books"
     values:
       parent: Books
       nav_exclude: true
-  - scope:
-      path: "talks"
-    values:
-      parent: Talks
-      nav_exclude: true
-  - scope:
-      path: "papers"
-    values:
-      parent: Papers
-      nav_exclude: true
+  # - scope:
+  #     path: "talks"
+  #   values:
+  #     parent: Talks
+  #     nav_exclude: true
+  # - scope:
+  #     path: "papers"
+  #   values:
+  #     parent: Papers
+  #     nav_exclude: true
