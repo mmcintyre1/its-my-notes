@@ -7,7 +7,7 @@ permalink: pretty
 # Back to top link
 back_to_top: true
 back_to_top_text: "Back to top"
-# color_scheme: dark
+color_scheme: dark
 footer_content: "Copyright &copy; 2021 Michael McIntyre. "
 # comment out theme if deploying, or use theme for local
 # theme: just-the-docs

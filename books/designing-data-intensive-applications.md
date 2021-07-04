@@ -194,7 +194,7 @@ make it easy for engineers to make changes to the system in the future (aka *ext
 - other declarative languages examples: XSL, CSS
 - *imperative* languages tell the computer to perform operations in order (most programming languages)
 - declarative languages lend themselves to parallel execution
--
+
 #### MapReduce Querying
 - programming model for processing large amounts of data across multiple machines created by Google
 - you specify two functions -- `map` (aka `collect`), and a `reduce` (aka `fold` or `inject`). Below is MapReduce implemented in MongoDB:
@@ -631,7 +631,6 @@ at a fundamental level, a database needs to do two things:
 #### Read and Write Quorum Consistency
 - used to determine how many nodes would be required for a write to be successful
 - if there are *n* replicas, every write must be confirmed by *w* nodes to be considered successful, and we need to query *r* nodes for each read, so as long as *r* + *w* > *n* we expect an up to date value when reading
--
 
 #### Limitations of Quorum Consistency
 - even with *w* + *r* > *n*, there are edge cases where stale values might be returned
