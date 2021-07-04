@@ -9,6 +9,8 @@ plugins:
   - jekyll-default-layout
   - jekyll-optional-front-matter
   - jekyll-titles-from-headings
+  - jekyll-feed
+  - jekyll-remote-theme
 
 kramdown:
   syntax_highlighter_opts:
