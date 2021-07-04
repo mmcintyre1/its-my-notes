@@ -2,9 +2,11 @@ title: Notes
 description: >-
   Michael McIntyre Reading Notes
 permalink: pretty
+
 baseurl: /reading-notes
 url: https://mmcintyre1.github.io
-theme: dark
+
+color_scheme: custom
 
 plugins:
   - jekyll-seo-tag
