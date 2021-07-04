@@ -3,6 +3,7 @@ description: >-
   Michael McIntyre Reading Notes
 permalink: pretty
 baseurl: /reading-notes
+url: https://mmcintyre1.github.io
 
 plugins:
   - jekyll-seo-tag
@@ -19,7 +20,7 @@ kramdown:
 
 # comment out theme if deploying, or use theme for local
 # theme: just-the-docs
-remote_theme: pmarsceill/just-the-docs@v0.2.5
+remote_theme: pmarsceill/just-the-docs@v0.2.8
 
 exclude:
   - Gemfile
