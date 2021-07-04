@@ -1,4 +1,7 @@
-# Learning Notes Website
+# Reading Notes Website
+needed to run
+
+`sudo docker-compose up -d`
 
 To run a local development server
 
@@ -11,4 +14,3 @@ To build the site
 To update gems
 
     make update
-

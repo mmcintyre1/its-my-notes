@@ -10,5 +10,3 @@ services:
       - .:/srv/jekyll
       - ../articles:/srv/jekyll/articles
       - ../books:/srv/jekyll/books
-      - ../talks:/srv/jekyll/talks
-      - ../papers:/srv/jekyll/papers

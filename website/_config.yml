@@ -1,8 +1,8 @@
 title: Notes
 description: >-
-  Keyvan Akbary learning notes
+
 permalink: pretty
-baseurl: /learning-notes
+baseurl: /reading-notes
 
 plugins:
   - jekyll-seo-tag
@@ -30,8 +30,8 @@ titles_from_headings:
 color_scheme: custom
 
 aux_links:
-  "Learning Notes on GitHub":
-    - "//github.com/keyvanakbary/learning-notes"
+  "Reading Notes on GitHub":
+    - ""
 
 # Footer "Edit this page on GitHub" link text
 # gh_edit_link: true # show or hide edit this page link
@@ -43,22 +43,7 @@ aux_links:
 
 defaults:
   - scope:
-      path: "articles"
-    values:
-      parent: Articles
-      nav_exclude: true
-  - scope:
       path: "books"
     values:
       parent: Books
-      nav_exclude: true
-  - scope:
-      path: "talks"
-    values:
-      parent: Talks
-      nav_exclude: true
-  - scope:
-      path: "papers"
-    values:
-      parent: Papers
       nav_exclude: true
