@@ -15,7 +15,8 @@ kramdown:
     block:
       line_numbers: false
 
-theme: just-the-docs
+# theme: just-the-docs
+remote_theme: pmarsceill/just-the-docs
 
 exclude:
   - Gemfile
