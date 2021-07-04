@@ -6,3 +6,4 @@ gem "kramdown-parser-gfm"
 gem "jekyll-default-layout"
 gem "jekyll-optional-front-matter"
 gem "jekyll-titles-from-headings"
+gem 'github-pages', group: :jekyll_plugins
