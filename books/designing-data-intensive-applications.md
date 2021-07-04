@@ -1,5 +1,4 @@
-
-
+# Designing Data Intensive Applications
 - [Chapter 1: Reliable, Scalable, and Maintainable Applications](#chapter-1-reliable-scalable-and-maintainable-applications)
   - [Data Systems](#data-systems)
   - [Three concerns for software systems](#three-concerns-for-software-systems)
