@@ -1,5 +1,5 @@
 # Designing Data Intensive Applications
-{: .no_toc .text-delta }
+{: .no_toc }
 
 <details open markdown="block">
   <summary>
@@ -12,11 +12,13 @@
 # Chapter 1: Reliable, Scalable, and Maintainable Applications
 
 ## Data Systems
+{: .no_toc }
 We can group data components (databases, caches, queues, etc.) under the umbrella of data systems instead of as separate components because
   1. many new systems have emerged that blur the typical line (Kafka, Redis)
   2. many use cases are covered by stitching together data components with application code
 
 ## Three concerns for software systems
+{: .no_toc }
 1. *Reliability*
 	- The system should continue to work correctly even in the face of adversity
 2. *Scalability*
@@ -31,18 +33,21 @@ We can group data components (databases, caches, queues, etc.) under the umbrell
 - we generally prefer tolerating faults over preventing faults
 
 ### Types of Faults
-
+{: .no_toc }
 #### Hardware Faults
+{: .no_toc }
 - e.g. hard disks crash, RAM becomes faulty, etc
 	- hard disks have a mean time to failure (MTTF) of about 10 to 50 years
 	- typically we can add redundancy to a system or individual components by adding additional hardware (additional machines, backup generators, etc)
 	- move toward systems that can tolerate loss of entire machines (Netflix's Chaos Engine takes machines offline to test recovery)
 
 #### Software Faults
+{: .no_toc }
 - systematic error within system
 - lots of small things can help minimize software faults: thinking about assumptions and interactions, process isolation, data observation
 
 #### Human Errors
+{: .no_toc }
 - might be leading cause of errors
 - mitigating design choices can be:
   - build well-designed abstractions, APIs, and admin interfaces, make it easy to 'do the right thing'
@@ -55,11 +60,13 @@ We can group data components (databases, caches, queues, etc.) under the umbrell
 the term we use to describe a system's ability to cope with increased load
 
 ### Describing Load
+{: .no_toc }
 - load on a system can be described with a few numbers which we call *load parameters*
 - the best choice of load parameters depends on architecture of your system: could be requests/second, or ratio of reads/writes to a database
 - *fan-out*: in transaction processing systems, describes the number of requests to other services that we need to make in order to serve one incoming request
 
 ### Describing Performance
+{: .no_toc }
 - when you increase load parameters:
 	- and keep system resources the same, how is performance affected
 	- how much do you need to increase resources to keep performance the same
@@ -74,6 +81,7 @@ the term we use to describe a system's ability to cope with increased load
 - *head of line blocking*: it only takes a small number of slow responses to hold up the processing of subsequent requests (packet at front holds up a line of packets)
 
 ### Coping with Load
+{: .no_toc }
 - *scaling up* - vertical scaling, moving to a more powerful machine
 - *scaling out* - horizontal scaling, distributing the load across multiple smaller machines
   - *shared-nothing architecture* - distributing load across multiple machines
@@ -85,14 +93,17 @@ the term we use to describe a system's ability to cope with increased load
 The majority of the cost of software is not in its initial development but ongoing maintenance
 
 ### Operability
+{: .no_toc }
 make it easy for operations teams to keep systems running smoothly
 
 ### Simplicity
+{: .no_toc }
 make it easy for new engineers to understand the system by removing complexity, or avoiding a big ball of mud
 - *accidental complexity* - complexity not inherent in the problem space but arises because of the implementation
 - an abstraction is a useful technique to hide non-important implementation details behind a façade
 
 ### Evolvability
+{: .no_toc }
 make it easy for engineers to make changes to the system in the future (aka *extensibility*, *modifiability*, or *plasticity*)
 
 ## Chapter Summary
@@ -138,6 +149,7 @@ make it easy for engineers to make changes to the system in the future (aka *ext
 - several different implementations of graph model, including property graph, triple-stores, semantic web
 
 #### property graph
+{: .no_toc }
 - implemented by Neo4j, Titan, and InfiniteGraph (among others)
 - each vertex contains:
   - a unique identifier
@@ -153,31 +165,37 @@ make it easy for engineers to make changes to the system in the future (aka *ext
 - think of the graph storing two relational tables, one for vertices, one for edges
 
 #### triple-stores
+{: .no_toc }
 - similar to property graphs, just describes things with different words
 - all info stored as three-part statement - subject, predicate, object. e.g. JIM LIKES EGGS (JIM - subject, LIKES - predicate, EGGS - object)
 
 ##### semantic web
+{: .no_toc }
 - while not all triple-stores are synonymous with the semantic web, they are interlinked in many minds
 - semantic web is the idea that websites could publish machine-readable information about their sites in a consistent format to form a 'web of data' (note Berners-Lee constantly says there is no data layer for the internet)
 - *Resource Description Framework* (RDF) - is positioned as that format
 	- Apache Jena popular tool for this
 
 ### Many-to-One and Many-to-Many Relationships
+{: .no_toc }
 - Storing standardized list of data, so you can join to that data and prevent duplication (*normalized* data)
 - 1st Normal Form (NF), 2NF, 3NF, etc have little practical difference -- rule of thumb, if you are duplicating values that could be stored in one place, your schema is not normalized
 - normalizing requires a many-to-one relationship, something not supported well with document model (support for joins is weak), meaning you need to shift that logic to application code over database model logic
 
 ### Relational vs Document
 #### simpler application code
+{: .no_toc }
 - if your data is document-like, use document (*shredding* - relational technique of splitting a document-like structure into multiple tables, makes for complicated application code)
 - if you need many-to-many or joins, use relational
 
 #### schema flexibility
+{: .no_toc }
 - *schema-on-write* (relational): structure of data is explicit and database ensures all data conforms to it
 - *schema-on-read* (document): structure of data is implicit and only interpreted when data is read
 > NOTE: `ALTER TABLE` typically fast except for MySQL, where the entire table is copied
 
 #### data locality
+{: .no_toc }
 - if joins aren't required for your document, then there is a performance advantage to all data in a single document (called *storage locality*)
 - some relational databases group related data together to achieve storage locality
   - Google's Spanner (allows schema to declare table's rows interleaved (nested) with a parents)
@@ -185,17 +203,21 @@ make it easy for engineers to make changes to the system in the future (aka *ext
   - Bigtable (Cassandra and HBase) through *column-family*
 
 #### convergence
+{: .no_toc }
+Many data systems support multiple models.
 - many relational databases support JSON (PostGreSQL 9.3+, MySQL 5.7+)
 - many relational databases support XML (other than MySQL)
 
 ### Query Languages
 #### SQL
+{: .no_toc }
 - SQL is a *declarative* language which follows the structure of relational algebra closely
 - other declarative languages examples: XSL, CSS
 - *imperative* languages tell the computer to perform operations in order (most programming languages)
 - declarative languages lend themselves to parallel execution
 
 #### MapReduce Querying
+{: .no_toc }
 - programming model for processing large amounts of data across multiple machines created by Google
 - you specify two functions -- `map` (aka `collect`), and a `reduce` (aka `fold` or `inject`). Below is MapReduce implemented in MongoDB:
 - MongoDB allows you to embed javascript in a MapReduce query:
@@ -219,17 +241,21 @@ db.observations.mapReduce(
 ```
 
 #### Cypher
+{: .no_toc }
 - declarative language implemented by Neo4j and used to query property graphs
 
 #### Querying Graph Models with SQL
+{: .no_toc }
 - you can query graph models in SQL, it is just extremely verbose, and relies on a *recursive common table expression* e.g. `WITH RECURSIVE`
 - *common table expressions* - temporary data set returned by a query, which is then used by another query. It’s temporary because the result is not stored anywhere; it exists only when the query is run -- e.g. `WITH expression_name AS (CTE definition)`
 
 #### SPARQL
+{: .no_toc }
 - query language for triple-stores using RDF data model
 - similar to Cypher (Cypher borrows its pattern matching from SPARQL)
 
 #### Datalog
+{: .no_toc }
 - predates SPARQL
 - is a subset of Prolog
 - need to define rules at outset, and while it might be harder for one-off queries, rules are reusable and Datalog might fit use case if data is complex
@@ -250,6 +276,7 @@ at a fundamental level, a database needs to do two things:
 2. when you ask it later it should give the data back to you
 
 ## Log-structured storage
+{: .no_toc }
 - many databases internally use a log, or append only sequence of records, to store data (different from application logs, which are typically text files emitted by an application to describe what is happening)
 > *log* used here is different than a machine-generated output explaining what is happening. log here means append only sequence of records
 
@@ -259,6 +286,7 @@ at a fundamental level, a database needs to do two things:
 - speeds up read performance but degrades write performance (typically because index needs to be updated after every write)
 
 #### Hash Indexes
+{: .no_toc }
 - simple index of key:value pairs stored in a hash map/dictionary on disk, where each key is associated with a byte offset to lookup the value on disk
 - Bitcask, the default storage engine for Riak, does this
 - this sort of use case is well-suited for frequent updates to values and where the hash map can fit in memory
@@ -268,19 +296,22 @@ at a fundamental level, a database needs to do two things:
 	- **crash recovery**: since the hash map is in memory, restarts mean you lose the hash map. you can store version on disk to warm start the hash map
 	- **partially written records**: crashes can happen at any time, even partially through writes. Bitcask uses checksums to ignore corrupted parts of log
 	- **concurrency control**: since writes are sequential append only, its common to only have a single writer. Data files are append only and immutable, so they can be read concurrently
-	-
+
 ##### segment files
+{: .no_toc }
 - since the log is an append-only structure, we need break it up into *segment files* to prevent running out of space
 - after a segment file reaches a certain size, we can create a new one to write to, then perform *compaction* on the older segment files, meaning, throwing away duplicate keys in the log and keeping only the most recent update
 	- older segment files are merged in the background then swapped without interruption to writes
 
 #### SSTables
+{: .no_toc }
 - **Sorted String Table** (SSTable) - takes the idea for hash indexes, but requires that segment files be sorted in order by key. also requires that each key only appears once in each merged segment table (because in order to do compaction, we need to mergesort, which relies on uniqueness of keys when comparing one file to another)
 - keys duplicated across segment files don't matter, since most recent segment contains most up to date value per key
 - your in-memory hash index can be sparse, because keys are sorted and so easy to scan (typically one index per every few kilobytes is sufficient)
 - you can compress blocks and then just point the index at a block, saving disk space and I/O
 
 ##### LSM-Trees
+{: .no_toc }
 - described in Patrick O'Neil et al *Log-Structured Merge-Tree* or LSM-tree
 - *memtable* and SSTable introduced by Google's Bigtable paper
 - how do we maintain sorted order? much easier in memory than on disk
@@ -291,38 +322,46 @@ at a fundamental level, a database needs to do two things:
 	- maintain an append only log on disk that holds all writes, to recover the *memtable* in case of crash (you can delete after current *memtable* is written to disk)
 
 #### B-Trees
+{: .no_toc }
 - keeps indexes sorted by value, but instead of storing database in segment files, B-Trees store database in fixed size *blocks* or *pages*, which corresponds more closely to underlying hardware
 - you start at the root of the tree. each page contains references (like pointers but on disk) to child pages until you get to a page of individual keys (a leaf page), which either contains the value or references to the page where the value can be found
 - number of references to child pages called the *branching factor*
 - trees are balanced, so traversal is always O(log *n*) -- most databases can fit into a B-tree that is three or four levels deep (e.g. a four-level tree of 4 KB pages with a branching factor of 500 can store 256 TB)
 
-##### reliability
+##### Reliability
+{: .no_toc }
 - many B-tree impl. use *write-ahead logs* (WAL), aka *redo logs*, to persist all writes to the database in an append only log before it can be applied to pages
 
 #### B-Trees vs LSM-Trees
+{: .no_toc }
 - B-Trees need to write data twice, once to the write-ahead log and once to page
 - Log-structured indexes might write data multiple times due to repeated compaction and merging (write amplification) and is particularly concerning for SSDs, which can only overwrite blocks a limited amount of times before wearing out
 - LSM-Trees typically able to sustain higher write throughput because they often have lower write amplification
 - B-Trees have keys that exist exactly one place in index, which is good for databases that want strong transactional semantics via transaction isolation and locks
 
 #### Secondary Indexes
+{: .no_toc }
 - both log-structured and B-Trees can work as secondary indexes in addition to a primary key index. These secondary indexes don't need to be unique (unless you add that constraint)
 
 #### Storing values within the index
+{: .no_toc }
 - the value of the index might be an actual row, or it might be a reference to the row, typically stored in a *heap file* -- data in these heap files are not stored in any particular order
 - updating a value in a heap file can be efficient by overwriting the data in place (assuming the data is the same length)
 - *clustered index* - storing the row directly in the index, and secondary indexes just refer to the primary key
 - a compromise between clustered and non-clustered is a *covering index*, or *index with included columns*, which stores some of the tables columns within an index, allowing queries to be 'covered' or answered by an index alone
 
 #### Multi-column indexes
+{: .no_toc }
 - concatenated indexes used to store indexes for multiple columns, which is good for searching full index combinations, but not individual columns after the primary key
 - multi-dimensional indexes are a good way to query several columns at once, especially for geospatial data. R-Trees are typically used instead of B-Trees
 
 #### Full-text search and fuzzy indexes
+{: .no_toc }
 - Lucene is able to search for words within a certain edit distance (edit distance meaning when 1 letter has been added, removed, or replaced)
 - *Levenshtein distance* - used to figure out amount of edits required to go from one word to another
 
 #### In memory databases
+{: .no_toc }
 - we typically use disks because they are durable and cost less per gigabyte than RAM (the second argument is becoming less relevant)
 - **Memcached** - an entirely in memory cache (lost if restarted)
 - other in-memory databases aim for more durability, writing log of changes to disk, writing periodic snapshots, etc.
@@ -330,7 +369,7 @@ at a fundamental level, a database needs to do two things:
 - anti-caching approach is a way around working with datasets larger than memory, by persisting data to disk when out of memory, and bringing back into memory when used (this is similar to virtual memory and swap files at OS level)
 - new area of research - *nonvolatile memory* (NVM); still in infancy
 
-#### Transactions vs Analytics
+### Transactions vs Analytics
 
 | Property | Transaction processing systems (OLTP) | Analytics systems (OLAP) |
 |--|--|--|
@@ -340,7 +379,7 @@ at a fundamental level, a database needs to do two things:
 | What data represents | Latest state of data (current point in time) | History of events that happened over time |
 | Dataset size | Gigabytes to terabytes | Terabytes to petabytes |
 
-#### Data Warehouses
+### Data Warehouses and Column-Oriented Storage
 - you store data in an OLAP data warehouse as it will be insulated from live transaction processing and queries won't affect live customer-facing systems
 - typically perform Extract-Transform-Load (ETL) operations to populate the database
 - Data warehouses typically sell their systems under expensive commercial licenses (e.g. Amazon RedShift is a host version of ParAccel)
@@ -349,18 +388,22 @@ at a fundamental level, a database needs to do two things:
 - The typical use case for OLAP queries are only accessing a small amount of many columns -- unlike OLTP systems which are *row-oriented storage*, meaning that a row is stored in contiguous bytes on disks, OLAP systems are *column-oriented storage*, which stores a column in contiguous bytes.
 
 ##### Star and Snowflake Schema
+{: .no_toc }
 - many data warehouses use *star schema* as their data model (known as *dimensional modeling*)
 - at the center of the schema is a *fact table*, most often representing a particular event
 - some of the columns are attributes of the event, while others are foreign key references to other tables called *dimension tables*, which typically represent the who, what, where, when, how, and why of the event
 - *snowflake schema* - a variation of the star schema, but dimensions are broken even further into sub-dimensions
 
 ##### Column Compression
+{: .no_toc }
 - since there are far less distinct values in a column than there are rows, we can compress this data. a popular method is *bitmap encoding*, which details all the unique values in a column, then encodes an array of 1s and 0s for whether a row contains that value, which creates sparse data sets, which can be compressed more easily by encoding run length (how many 1s or 0s in a row)
 
 ##### Vectorized Processing
+{: .no_toc }
 - the query engine can take a chunk of compressed column data that fits in the CPU's L1 cache, and iterate through in a tight loop (no function calls) much more quickly than if many function calls are required, e.g. to type-cast data formats
 
 ##### Materialized Views
+{: .no_toc }
 - for expensive queries (like aggregation functions), it might make sense to actually store the results in a table. materialized views differ from regular views (which are just shorthand for queries) because they are an actual table stored on disk, and they need to be recomputed when the underlying data changes
 - a special use case is a *data cube*, which is a grid of aggregates based on various dimensions (e.g. product sales for a given day, also rolled to a total)
 
@@ -384,6 +427,7 @@ at a fundamental level, a database needs to do two things:
 - **encoding** - the translation of in-memory representation to byte sequence (aka *serialization* or *marshalling*), and the opposite action is *decoding* (aka *parsing*, *deserialization*, *unmarshalling*)
 
 ### Language-Specific Formats
+{: .no_toc }
 - many languages have built-in support for encoding in-memory objects to byte sequences:
   - `java.io.Serializable` for Java
   - 'Marshal` for Ruby
@@ -391,6 +435,7 @@ at a fundamental level, a database needs to do two things:
 - this languages bind you to the programming language, and instantiate arbitrary classes or execute arbitrary code, which is a security risk
 
 ### JSON, XML, and Binary Variants
+{: .no_toc }
 - JSON, XML, and CSV are textual formats and will remain valuable especially as interchange formats between organizations, but there are limitations:
   - **ambiguity around encoding numbers** - in XML and CSV, you can't distinguish between a number a string that happens to consist of digits. JSON doesn't distinguish integers and floats, and doesn't distinguish precision, which is a problem with large numbers (> 2<sup>53</sup>)
   - **binary strings** - JSON and XML have good support for Unicode character strings, but not binary strings -- binary strings are typically encoded as text using Base64, which is hacky and increases data footprint by 33%
@@ -399,11 +444,13 @@ at a fundamental level, a database needs to do two things:
 - Binary variants for XML - WBXML, Fast Infoset, etc
 
 ### Thrift and Protocol Buffers
+{: .no_toc }
 - binary encoding libraries that encode object name and type using a schema
 - Google invented Thrift, Facebook invented protobuf
 - Thrift has two encoding formats, BinaryProtocol and CompactProtocol
 
 ### Avro
+{: .no_toc }
 - started in 2009 as a subproject of Hadoop
 - has two schema languages
   - Avro interface domain language (IDL) for human editing
@@ -453,10 +500,12 @@ at a fundamental level, a database needs to do two things:
   - key idea is to make app easier to change and maintain by making services independently deployable and evolvable
 
 #### Web Services
+{: .no_toc }
 - when HTTP is used for the underlying protocol of talking to the service, it is called a *web service*
 - two popular approaches: REST and SOAP, which are almost opposite in terms of philosophy
 
 ##### REST
+{: .no_toc }
 - REST is not a protocol but a design philosophy
   - simple data formats
   - URLs for identifying resources
@@ -465,11 +514,13 @@ at a fundamental level, a database needs to do two things:
 - definition format such as OpenAPI (aka Swagger) can be used to describe RESTful APIs and produce documentation
 
 ##### SOAP
+{: .no_toc }
 - XML based protocol for making API requests, most commonly used over HTTP but comes with a complex plethora of related standards (*web service framework*, aka *WS-\**)
 - described using Web Services Description Language (WSDL), which is not designed to be human-readable
 - ostensibly standardized, but interoperability between different vendor impl. might cause problems
 
 #### RPC
+{: .no_toc }
 - many implementations of making API calls over network, all based on *remote procedure call* (RPC)
   - Enterprise JavaBeans (EJB) and Java's Remote Method Invocation (RMI) - limited to Java
   - Distributed Component Object Model (DCOM) limited to Microsoft platforms
@@ -496,6 +547,7 @@ at a fundamental level, a database needs to do two things:
 - They typically work like this: one process (producer) sends a message to a named queue or topic, and the broker ensures that the message is delivered to one or more consumers or subscribers to that queue or topic -- there can be many producers and consumers
 
 #### Distributed actor frameworks
+{: .no_toc }
 - *actor model* - programming model for concurrency in a single process. logic is encapsulated in an actor, and that sends async messages
 
 ## Chapter Summary
@@ -525,6 +577,7 @@ at a fundamental level, a database needs to do two things:
     3. *leaderless*
 
 ## Leaders and Followers
+{: .no_toc }
 - *replica* - each node that stores a copy of the database
 - every write to a database must be processed by every replica, otherwise the replica would no longer contain the same data
 
@@ -538,6 +591,7 @@ at a fundamental level, a database needs to do two things:
   - PostgreSQL (since 9.0), MySQL, Oracle Data Guard, SQL Server's AlwaysOn Availability Groups, MongoDB, RethinkDB, Espresso, Kafka and RabbitMQ highly available queues all use leader-based replication
 
 #### Asynchronous vs. Synchronous
+{: .no_toc }
 - replication to followers can either be
   - *asynchronous* - writes don't wait for replication to followers to report success to client/user
   - *synchronous* - writes replicate to all followers before reporting success
@@ -545,6 +599,7 @@ at a fundamental level, a database needs to do two things:
 - often, leader-based is also fully asynchronous, so if leader fails any writes that weren't replicated are lost
 
 #### Creating New Followers
+{: .no_toc }
 - sometimes you need to create a new follower node, but copying files or locking the database isn't desirable as this won't reflect all changes and is slow
 - a more desirable process might:
   1. take a snapshot of leader database
@@ -553,6 +608,7 @@ at a fundamental level, a database needs to do two things:
   4. once backlog of changes are processed, the follower has 'caught up'
 
 #### Node Outages
+{: .no_toc }
 - how do we achieve high availability with leader-based replication?
   - **follower failure: catch-up recovery** - a follower knows exact place in log, so if network interruptions or failures happen, follower can connect to leader after resolution and catch up
   - **leader failure: failover** - one of followers needs to be promoted to new leader, which can happen manually or automatically
@@ -567,6 +623,7 @@ at a fundamental level, a database needs to do two things:
       - determining timeout to declare leader 'dead' might lead to false positives for longer running tasks
 
 #### Replication Methods
+{: .no_toc }
 - several leader-based replication methods
   - **statement based** - leader sends SQL statements to followers (`INSERT`, `UPDATE`, `DELETE`)
     - difficult if there are non-deterministic functions (`NOW()`) or side effects (triggers, stored procedures, user-defined functions)
@@ -578,6 +635,7 @@ at a fundamental level, a database needs to do two things:
     - useful if you need more flexibility, but difficult to maintain
 
 #### Replication Lag & Types of Consistency
+{: .no_toc }
 - *read scaling architecture* - many models need only single leader and many read replicas, so you can scale those out to take increased load
 - **eventual consistency** - if app reads from async follower, sometimes that data might be out of date -- if you wait for all writes to complete all followers will eventually have up-to-date data
 - **read-after-write consistency** - when a user writes to a database, this guarantee is that if the user refreshes the page they will see their writes reflected, which might not happen if they write to one node then read from a follower that hasn't been replicated to yet
@@ -599,6 +657,7 @@ at a fundamental level, a database needs to do two things:
   - **collaborative editing** - things like Google Docs allow many people to edit a doc at once, but each local copy is a leader that replicates to all other copies -- you need to lock a doc before someone else can use it, but you can make the unit of change as small as a keystroke to limit the locks
 
 #### Handling Write Conflicts
+{: .no_toc }
 - biggest problem with multi-leader is write conflicts can occur (two leaders make conflicting writes)
 - some methods to avoid write conflicts:
 - **conflict avoidance** - simplest way to deal with conflicts is to avoid them -- you could make sure that all edits to a record go through the same leader
@@ -614,6 +673,7 @@ at a fundamental level, a database needs to do two things:
   - **operational transformation** - behind Google Docs and Etherpad
 
 #### Multi-Leader Replication Topologies
+{: .no_toc }
 - replication topology describes communication path which writes are propagated from one node to another
 - **all-to-all** - every leader sends its writes to every other leader
 - **star** - one designated root node forwards writes to all other nodes (tree)
@@ -629,10 +689,12 @@ at a fundamental level, a database needs to do two things:
   - **anti-entropy process** - some datastores have a background process that looks for differences in data between replicas and updates the stale data
 
 #### Read and Write Quorum Consistency
+{: .no_toc }
 - used to determine how many nodes would be required for a write to be successful
 - if there are *n* replicas, every write must be confirmed by *w* nodes to be considered successful, and we need to query *r* nodes for each read, so as long as *r* + *w* > *n* we expect an up to date value when reading
 
 #### Limitations of Quorum Consistency
+{: .no_toc }
 - even with *w* + *r* > *n*, there are edge cases where stale values might be returned
   - if sloppy quorum is used, *w* writes may end up on different nodes than *r* reads, so there is no guarantee of overlap
   - two concurrent writes, so it is unclear which write happened first -- if winner is picked based on timestamp, writes might be lost to clock skew
@@ -643,11 +705,13 @@ at a fundamental level, a database needs to do two things:
   - for leader-based replication, you can see how far behind a leader the replicas are as a quantitative measurement, but that is not possible with leaderless because there is no required sequence of writes
 
 #### Sloppy Quorums and Hinted Handoffs
+{: .no_toc }
 - in distributed leaderless architectures, network outages might knock off too many nodes to reach a quorum, so if a quorum can't be reached, should we:
   - **sloppy quorums** - accept writes anyway - when network connection is restored, any writes accepted on behalf of a down leader are sent to their respective home (*hinted handoffs*) -- not a quorum at all but an assurance of durability
   - return errors for all requests
 
 #### Detecting Concurrent Writes
+{: .no_toc }
 - writes can arrive in different orders on different nodes, and if each node overwrote the value for a key, the nodes would be permanently inconsistent
 - **last write wins** - you could discard concurrent writes, as long as there is a way to determine which write is more 'recent'
   - only conflict resolution supported in Cassandra, optional in Riak
@@ -690,6 +754,7 @@ at a fundamental level, a database needs to do two things:
 - main use case for partitioning is scalability -- different partitions can be placed on different nodes in *shared-nothing architecture*
 
 ### Partitioning and Replication
+{: .no_toc }
 - partitioning is normally combined with replication for fault tolerance, so copies of partitions are stored on multiple nodes
 
 ### Partitioning of Key-Value Data
@@ -699,6 +764,7 @@ at a fundamental level, a database needs to do two things:
 - you might assign values to nodes randomly, but this is disadvantageous if you want to read data since you'd need to guess what node data is on
 
 #### Partitioning by Key Range
+{: .no_toc }
 - you might partition by a continuous range of keys, from a minimum to a maximum
 - range of keys might not be evenly spaced, so partition boundaries need to adapt to data
   - partition boundaries might be chosen by an administrator or by the database itself
@@ -709,6 +775,7 @@ at a fundamental level, a database needs to do two things:
   - need to use something other than timestamp as the first element of the key
 
 #### Partitioning by Hash of Key
+{: .no_toc }
 - because of the risk of skew and hot spots, many distributed datastores use a hash function to determine partition for a given key
 - doesn't need to be cryptographically strong
   - Cassandra and MongoDB use MD5
@@ -719,6 +786,7 @@ at a fundamental level, a database needs to do two things:
 - Cassandra reaches a compromise by using *compound primary keys*, which take the first part of a key for hashing, but additional fields can be used to sort data in Cassandra's SSTables, which helps with concatenated queries (e.g. hash(user_id), timestamp would allow all updates for a particular user in a timespan)
 
 #### Skewed Workloads and Relieving Hot Spots
+{: .no_toc }
 - extreme case where all requests still routed to same partition
 - currently, most data systems can't compensate for this skewed workload, so application code needs to be written to accommodate
 - for example, you might add two digits to hot keys, then you must keep track of them to access later
@@ -730,6 +798,7 @@ at a fundamental level, a database needs to do two things:
   2. term-based-partitioning
 
 #### Partitioning Secondary Indexes by Document
+{: .no_toc }
 - primary indexes are maintained (document ids)
 - each partition is completely separate, and indexes added are *local* to the partition
 - downsides are that there is no reason that all fields with a particular value would be in the same partition, so queries would need to be sent to all partitions, which might get expensive
@@ -737,6 +806,7 @@ at a fundamental level, a database needs to do two things:
 - MongoDB, Riak, Cassandra, Elasticsearch, SolrCloud, and VoltDB all use document-partitioned secondary indexes
 
 #### Partitioning Secondary Indexes by Term
+{: .no_toc }
 - instead of a local index, we can have a *global index*, but that global index also needs to be partitioned across nodes
 - use either a hash of a term or the term itself to generate the index
 - has the benefit of making reads faster, but writes are slower and more complicated since many nodes might need to be accessed to write the index
@@ -753,28 +823,33 @@ at a fundamental level, a database needs to do two things:
   - no more data than necessary should be moved between nodes, to make rebalancing fast and minimize network and disk I/O load
 
 #### Strategies for Rebalancing
+{: .no_toc }
 - don't use modulo, since that encodes a specific number of nodes say, mod *n* means if you have n+1 nodes, all data needs to be shifted
 
 ##### Fixed Number of Partitions
+{: .no_toc }
 - practice of assigning many more partitions to each node, so any new node can 'borrow' partitions from each node until load is evenly spread
 - e.g. each node has 100 partitions, across 10 nodes, that is 1,000 partitions. if an 11th node is adding, that node can take ~9 partitions from each node
 - number of partitions is usually fixed when database is set up, making this less ideal if the size of the data set is variability (might grow much larger over time)
 - hard to achieve 'just right' partition amount
 
 ##### Dynamic Partitioning
+{: .no_toc }
 - fixed number of partitions wouldn't work well with key range partitioned databases, so dynamic partitioning might be more effective
 - when a partition grows larger than a fixed size  (HBase, default is 10GB), that partition is split and might be sent to separate nodes to balance the load
 - if partition shrinks, it might be combined with adjacent partition
 - can also be used for hash-partitioned data
 
 ##### Partitioning Proportionally to Nodes
+{: .no_toc }
 - have a fixed number of partitions per node, and those partitions grow larger with dataset size, but adding a node decreases size of partitions again
 - requires hash-based partitioning, as new node randomly takes data from other nodes, and if hash-based partitioning isn't used, this would lead to unfair splits
 
 #### Automatic or Manual Rebalancing
+{: .no_toc }
 - generally a good idea to have a human in the loop, as rebalancing is expensive and automation might be unpredictable
 
-#### Request Routing
+### Request Routing
 - how does a client know which node to send a request to (who makes the routing decision)?
 - an example of a more general problem called *service discovery*
 - a few different approaches to the problem:
@@ -811,7 +886,7 @@ at a fundamental level, a database needs to do two things:
 
 # Chapter 7: Transactions
 
-## What is a Transaction?
+### What is a Transaction?
 - many things can go wrong with modern data systems, and thinking around how to tolerate those faults is difficult
 - **transactions** are a way to group reads and writes into one unit of work that either succeeds (*commits*) or fails (*aborts*, or *rollbacks*) to simplify the programming model for applications accessing a database
 - **safety guarantees** - using transactions, applications are free to ignore certain potential error scenarios and concurrency issues because the database takes care of them
@@ -843,6 +918,7 @@ at a fundamental level, a database needs to do two things:
   - no such thing as perfect durability, since all nodes and backups could be destroyed
 
 #### Multi-object Writes
+{: .no_toc }
 - atomicity and isolation should apply when multiple objects need to be updated in a transaction, e.g. one table is updated, then another object is incremented in another table (typically achieved by explicitly wrapping SQL as a transaction e.g., `BEGIN TRANSACTION [...] COMMIT`)
 - some use cases for multi-object atomicity and isolation
   - foreign key updates
@@ -850,11 +926,13 @@ at a fundamental level, a database needs to do two things:
   - databases with secondary indexes
 
 #### Single-object Writes
+{: .no_toc }
 - databases and datastores almost universally aim to provide atomicity and isolation on the level of a single object on a single node
 - some provide more complex operations such as an increment operation (removing the need for a read, modify, write cycle)
 - also, some provide compare-and-set operations, which only allow a value to be changed if it has not been concurrently changed by someone else
 
 #### Handling Errors and Aborts
+{: .no_toc }
 - the whole point of aborts are to allow safe retries, although certain ORM tools don't allow them out of the box (Rail's ActiveRecord and Django)
 - retries aren't foolproof:
   - network might fail upon alerting the client to a successful commit,
@@ -885,6 +963,7 @@ at a fundamental level, a database needs to do two things:
 - different implementations use different terms for snapshot isolation (Oracle - *serializable*, PostgreSQL and MySQL - *repeatable read*) -- there is no agreement on what *snapshot isolation*/*repeatable read* is per SQL standard
 
 #### Lost Updates
+{: .no_toc }
 - if two writes occur concurrently, the second write might complete and clobber the first, especially in a *read-modify-write* cycle
 - one way around this is **atomic write operations**, or something like
 
@@ -902,6 +981,7 @@ UPDATE wiki_pages SET content = 'new content'
 ```
 
 #### Write Skews and Phantoms
+{: .no_toc }
 - **write skew anomaly** - two transactions (T1 and T2) concurrently read an overlapping data set (e.g. values V1 and V2), concurrently make disjoint updates (e.g. T1 updates V1, T2 updates V2), and finally concurrently commit, neither having seen the update performed by the other
 - **phantom** - where a write in one transaction changes the results of a search query in another transaction -- often occurs when a check is executed for absence of rows matching a search condition and a write adds a row matching the same condition, so there is nothing to attach a lock onto with a `SELECT FOR UPDATE` query
 
@@ -954,6 +1034,7 @@ Imagine Alice and Bob are two on-call doctors dealing with the invariant that on
   - cross-partition transactions are possible but limited
 
 ##### Stored Procedures
+{: .no_toc }
 - a way of encapsulating interactive multi-statement transactions that are often required of today's websites, or, the ability to complete multiple database queries (e.g., for an airline: query flights, book tickets, change seats, all within the same sesssion or as part of the same form submission)
 - stored procedure can execute very fast, provided all data is in memory
 - stored procedures can be difficult because:
@@ -961,6 +1042,7 @@ Imagine Alice and Bob are two on-call doctors dealing with the invariant that on
   - code running in a database is difficult to manage (debug, check in to version control, etc.)
 
 ##### Partitioning
+{: .no_toc }
 - if you can find a way of partitioning a dataset so that each transaction only needs to read and write within a single partition, each partition can have its own transaction thread
 - performance drops immensely when multiple partitions are used
 
@@ -1009,7 +1091,7 @@ Imagine Alice and Bob are two on-call doctors dealing with the invariant that on
   - **serializable snapshot isolation (SSI)** - a fairly new algorithm that avoids most of the downsides of previous approaches. uses an optimistic approach, allowing transactions to proceed without blocking. when a transaction wants to commit, it is checked, and it is aborted if the execution was not serializable.
 
 
-## Chapter 8: The Trouble with Distributed Systems
+# Chapter 8: The Trouble with Distributed Systems
 
 ### Faults and Partial Failures
 Writing a program on a single computer, things typically work or they don't. When the hardware is working, the same operation should always produce the same output (*deterministic*).
@@ -1019,6 +1101,7 @@ Computers are deliberately designed for total system failure when an internal fa
 If we are writing software to run on several computers, things are completely different. In distributed systems, there may be parts of the system that are broken in some unpredictable way, resulting in a *partial failure*. These *partial failures* tend to be *non-deterministic* and difficult to reason about.
 
 #### Cloud Computing and Supercomputing
+{: .no_toc }
 There are two spectrums on how to build large-scale computer systems:
 
 1. *high-performance computer (HPC)* - supercomputers with thousands of CPUs, used for computationally intensive scientific computing tasks
@@ -1047,6 +1130,7 @@ Many distributed systems are *shared-nothing systems*, i.e., a bunch of machines
 The internet and internal networks are *asynchronous packed networks*, meaning one node can send a message (a packet) to another node, but no guarantees when it will arrive or if it will arrive at all. If you send a request to another node and don't receive a response, it is *impossible* to tell why
 
 #### Network Faults in Practice
+{: .no_toc }
 Network faults (*network partitions* or *netsplits*) can be surprisingly common, e.g.,
 
 - EC2 has frequent transient network glitches
@@ -1055,7 +1139,8 @@ Network faults (*network partitions* or *netsplits*) can be surprisingly common,
 
 If software is put in an unanticipated situation, it might do arbitrarily unexpected things. Handling faults doesn't always mean *tolerating* them; you might just raise the error.
 
-#### Detecing Faults
+#### Detecting Faults
+{: .no_toc }
 Many systems need to automatically detect nodes:
 
 - load balancer needs to stop sending requests (take *out of rotation*)
@@ -1069,11 +1154,13 @@ Some methods of detecting a failure might be:
 - router might see that an IP address is unavailable and send an ICMP Destination Unreachable packet.
 
 #### Timeouts and Unbounded Delays
+{: .no_toc }
 How long should the timeout be? A long timeout means a long wait to see if node is dead, and a short timeout might incorrectly declare nodes dead for longer running queries. Prematurely declaring a node dead is problematic, as it might just be operating slowly under load. Declaring the node dead might cause a *cascading failure* as the system can't cope with increased load and fewer resources.
 
 Asynchronous networks have *unbounded delays*, or, there is no upper limit on time it takes for packet to arrive.
 
-##### Network Congestion and queueing
+##### Network Congestion and Queueing
+{: .no_toc }
 Variability in packet delays most often due to queueing.
 
 - If several nodes send packets simultaneously, the network switch queues them, and on a busy network, the queue might fill up (*network congestion*).
@@ -1083,9 +1170,11 @@ Variability in packet delays most often due to queueing.
 Choosing timeouts is trial and error, and the balance is between failure detection delay and risk of premature timeouts. Systems that continually measure repsonse times and variability (*jitter*) are better than manually tuning.
 
 ###### TCP vs UDP
+{: .no_toc }
 Latency sensitive applications (such as videoconferencing and VOIP) use UDP, which doesn't perform flow control or resend lost packets. UDP is good in situations where delayed data is worthless.
 
 #### Synchronous vs. Asychronous Networks
+{: .no_toc }
 A telephone network estabilishes a circuit, we say is synchronous even as the data passes through several routers as it does not suffer from queing. The maximum end-to-end latency of the network is fixed (bounded delay).
 
 A circuit is a fixed amount of reserved bandwidth which nobody else can use while the circuit is established, whereas packets of a TCP connection opportunistically use whatever network bandwidth is available.
@@ -1093,3 +1182,114 @@ A circuit is a fixed amount of reserved bandwidth which nobody else can use whil
 Using circuits for bursty data transfers wastes network capacity and makes transfer unnecessary slow. By contrast, TCP dinamycally adapts the rate of data transfer to the available network capacity.
 
 We have to assume that network congestion, queueing, and unbounded delays will happen. Consequently, there's no "correct" value for timeouts, they need to be determined experimentally.
+
+### Unreliable Clocks
+Time is tricky -- sending messages is not instantaneous, and because of delays in networks, it is difficult to determine order things happened. Also, each machine has its own clock, which is typically a hardware device: a quartz crystal oscillator, which may run faster or slower than other clocks. One way around this is to synchronize time, e.g. as used in Network Time Protocol (NTP).
+
+- **time-of-day clocks** - returns date and time according to some calendar (*wall-clock time*), and usually synced with NTP, which means if it is running faster than the server it might appear to jump back in time, meaning it isn't suitable for *elapsed time* measurements.
+- **monotonic clocks** - good for measuring *duration*, as it is always guaranteed to move forward. The value of the monotonic clock is arbitrary (it might be time since computer turned on), making it impossible to compare monotonic clock values from two computers.
+
+#### Clock Synchronization and Accuracy
+{: .no_toc }
+Quartz clocks in computers might *drift* (Google assumes clock drift of 17 seconds for a clock that is synchronized to NTP once a day). Also, a clock that is too different might refuse to sync.
+
+Leap seconds result in time dilation -- best way to deal is to *smear*, or spread out the difference over a whole day.
+
+#### Relying on Synchronized Clocks
+{: .no_toc }
+Incorrect clocks often go unnoticed, so if clock drift would affect your processes, you must carefully monitor and declare dead any resources where the clock drifts too far afield.
+
+#### Timestamps for Ordering Events
+{: .no_toc }
+**It is tempting, but dangerous to rely on clocks for ordering of events across multiple nodes.** This usually imply that _last write wins_ (LWW), often used in both multi-leader replication and leaderless databases like Cassandra and Riak, and data-loss may happen.
+
+The definition of "recent" also depends on local time-of-day clock, which may well be incorrect.
+
+_Logical clocks_, based on counters instead of oscillating quartz crystal, are safer alternative for ordering events. Logical clocks do not measure time of the day or elapsed time, only relative ordering of events. This contrasts with time-of-the-day and monotic clocks (also known as _physical clocks_).
+
+#### Clock Readings Have a Confidence Interval
+{: .no_toc }
+It doesn't make sense to think of a clock reading as a point in time, it is more like a range of times, within a confidence internval: for example, 95% confident that the time now is between 10.3 and 10.5.
+
+The most common implementation of snapshot isolation requires a monotonically increasing transaction ID.
+
+Google's Spanner implements snapshot isolation across datacenters by using clock's confidence interval. If you have two confidence internvals where
+
+```
+A = [A earliest, A latest]
+B = [B earliest, B latest]
+```
+
+And those two intervals do not overlap (`A earliest` < `A latest` < `B earliest` < `B latest`), then B definetively happened after A.
+
+Spanner deliberately waits for the length of the confidence interval before commiting a read-write transaction, so their confidence intervals do not overlap.
+
+Spanner needs to keep the clock uncertainty as small as possible, that's why Google deploys a GPS receiver or atomic clock in each datacenter.
+
+#### Process Pauses
+{: .no_toc }
+One method of determining leader in a leader-based system is for the leader to get a lease, and renew it periodically. This process might be flawed for several reasons:
+1. garbage collection might stop processing while garbage is cleaned(*stop-the-world*)
+2. virtual machines can be suspended and resumed and this pause can last for an aribtrary length of time
+3. execution might be suspended when user suspends their session (closing laptop lid)
+4. when OS switches to another thread or hypervisor to another machine, threads can be paused (*steal time*)
+5. thread paused for disk access
+6. memory access resulting in page fault (thrashing, or spending most of its time swapping pages into and out of memory)
+7. unix process can be paused via `SIGSTOP`
+
+Fairly good tools for making things thread-safe: mutexes, semaphores, atomic counters, lock-free data structures, blocking queues, etc. But these tools don't translate to dsitributed system because there is no shared memory.
+
+##### Response Time Guarantees
+{: .no_toc }
+There are systems that require software to respond before a specific _deadline_ (_real-time operating system, or RTOS_).
+
+Library functions must document their worst-case execution times; dynamic memory allocation may be restricted or disallowed and enormous amount of testing and measurement must be done.
+
+##### Limiting the Impact of Garbage Collection
+{: .no_toc }
+Garbage collection could be treated like brief planned outages. If the runtime can warn the application that a node soon requires a GC pause, the application can stop sending new requests to that node and perform GC while no requests are in progress.
+
+A variant of this idea is to use the garbage collector only for short-lived objects and to restart the process periodically. For example, Instagram turned off Python's garbage collection entirely to be more performant.
+
+### Knowledge and Truth in Distributed Systems
+{: .no_toc }
+In a distributed system, we can state the assumptions we are making about the behavior (_system model_) of a system.
+
+#### The Truth is Defined by the Majority
+{: .no_toc }
+Many distributed systems rely on _quorums_, or majority votes, to determine what the truth is, e.g., whether a node is dead. There can only be one majority at a time.
+
+##### Fencing Tokens
+{: .no_toc }
+We need to ensure that a node that is under a false belief of being "the chosen one" cannot disrupt the rest of the system
+
+_fencing token_ - a monotonically increasing token that a client needs to include to a write to a data system, which should prevent undetected lease expiry.
+
+#### Byzantine Faults
+{: .no_toc }
+_byzantine fault_ - is a condition of a computer system, particularly distributed computing systems, where components may fail and there is imperfect information on whether a component has failed.
+
+**Byzantine General Problem**
+> In its simplest form, the generals must decide only whether to attack or retreat. Some generals may prefer to attack, while others prefer to retreat. The important thing is that every general agree on a common decision, for a halfhearted attack by a few generals would become a rout, and would be worse than either a coordinated attack or a coordinated retreat.
+>
+> The problem is complicated by the presence of treacherous generals who may not only cast a vote for a suboptimal strategy, they may do so selectively. For instance, if nine generals are voting, four of whom support attacking while four others are in favor of retreat, the ninth general may send a vote of retreat to those generals in favor of retreat, and a vote of attack to the rest. Those who received a retreat vote from the ninth general will retreat, while the rest will attack (which may not go well for the attackers). The problem is complicated further by the generals being physically separated and having to send their votes via messengers who may fail to deliver votes or may forge false votes.
+
+
+## Chapter Summary
+- Whenever you try to send a packet over the network, it may be lost or arbitrarily delayed. Likewise, the reply may be lost or delayed, so if you don’t get a reply,you have no idea whether the message got through.
+- A node’s clock may be significantly out of sync with other nodes (despite your best efforts to set up NTP), it may suddenly jump forward or back in time, and relying on it is dangerous because you most likely don’t have a good measure ofyour clock’s error interval.
+- A process may pause for a substantial amount of time at any point in its execu‐tion (perhaps due to a stop-the-world garbage collector), be declared dead byother nodes, and then come back to life again without realizing that it waspaused.
+
+The fact that such partial failures can occur is the defining characteristic of distributed systems. Whenever software tries to do anything involving other nodes,there is the possibility that it may occasionally fail, or randomly go slow, or not respond at all (and eventually time out). In distributed systems, we try to build tolerance of partial failures into software, so that the system as a whole may continue functioning even when some of its constituent parts are broken.
+
+To tolerate faults, the first step is to detect them, but even that is hard. Most systems don’t have an accurate mechanism of detecting whether a node has failed, so most distributed algorithms rely on timeouts to determine whether a remote node is still available. However, timeouts can’t distinguish between network and node failures,and variable network delay sometimes causes a node to be falsely suspected of crash‐ing. Moreover, sometimes a node can be in a degraded state: for example, a Gigabit network interface could suddenly drop to 1 Kb/s throughput due to a driver bug.Such a node that is “limping” but not dead can be even more difficult to deal with than a cleanly failed node.
+
+Once a fault is detected, making a system tolerate it is not easy either: there is no global variable, no shared memory, no common knowledge or any other kind of shared state between the machines. Nodes can’t even agree on what time it is, let alone on anything more profound. The only way information can flow from one node to another is by sending it over the unreliable network. Major decisions cannot be safely made by a single node, so we require protocols that enlist help from other nodes and try to get a quorum to agree.
+
+If you’re used to writing software in the idealized mathematical perfection of a single computer, where the same operation always deterministically returns the same result,then moving to the messy physical reality of distributed systems can be a bit of a shock. Conversely, distributed systems engineers will often regard a problem as trivial if it can be solved on a single computer, and indeed a single computer can do a lot nowadays. If you can avoid opening Pandora’s box and simply keep things on a single machine, it is generally worth doing so.
+
+However, as discussed in the introduction to Part II, scalability is not the only reason for wanting to use a distributed system. Fault tolerance and low latency (by placing data geographically close to users) are equally important goals, and those things can‐not be achieved with a single node.
+
+Whether the unreliability of networks, clocks, and processes is an inevitable law of nature. We saw that it isn’t: it is possible to give hard real-time response guarantees and bounded delays in net‐works, but doing so is very expensive and results in lower utilization of hardware resources. Most non-safety-critical systems choose cheap and unreliable over expensive and reliable.
+
+Also supercomputers, which assume reliable components and thus have to be stopped and restarted entirely when a component does fail. By contrast,distributed systems can run forever without being interrupted at the service level,because all faults and maintenance can be handled at the node level—at least in theory. (In practice, if a bad configuration change is rolled out to all nodes, that will still bring a distributed system to its knees.)
