@@ -13,7 +13,8 @@ footer_content: "Copyright &copy; 2021 Michael McIntyre. "
 remote_theme: pmarsceill/just-the-docs
 color_scheme: custom-dark
 baseurl: /reading-notes
-url: https://mmcintyre1.github.io
+url: http://localhost:4000
+environment: local
 
 plugins:
   - jekyll-seo-tag

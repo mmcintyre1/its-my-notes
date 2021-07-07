@@ -275,7 +275,9 @@ DEPENDENCIES
   github-pages
   jekyll (~> 3.3)
   jekyll-default-layout
+  jekyll-feed
   jekyll-optional-front-matter
+  jekyll-remote-theme
   jekyll-titles-from-headings
   just-the-docs
   kramdown-parser-gfm
