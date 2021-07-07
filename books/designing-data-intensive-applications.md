@@ -1,10 +1,10 @@
 # Designing Data Intensive Applications
+{: .no_toc .text-delta }
 
 <details open markdown="block">
   <summary>
     Table of contents
   </summary>
-  {: .text-delta }
 1. TOC
 {:toc}
 </details>
@@ -1010,3 +1010,86 @@ Imagine Alice and Bob are two on-call doctors dealing with the invariant that on
 
 
 ## Chapter 8: The Trouble with Distributed Systems
+
+### Faults and Partial Failures
+Writing a program on a single computer, things typically work or they don't. When the hardware is working, the same operation should always produce the same output (*deterministic*).
+
+Computers are deliberately designed for total system failure when an internal fault occurs rather than producing the wrong result, because the wrong result is hard to debug.
+
+If we are writing software to run on several computers, things are completely different. In distributed systems, there may be parts of the system that are broken in some unpredictable way, resulting in a *partial failure*. These *partial failures* tend to be *non-deterministic* and difficult to reason about.
+
+#### Cloud Computing and Supercomputing
+There are two spectrums on how to build large-scale computer systems:
+
+1. *high-performance computer (HPC)* - supercomputers with thousands of CPUs, used for computationally intensive scientific computing tasks
+
+2. *cloud computing* - not well defined, but typically associated with multi-tenant datacenters, commodity computers, elastic/on-demand resource allocation, and metered billing
+
+These philosophies handle faults differently. One approach for supercomputers is if there is any fault, to fail the entire system.
+
+| Supercomputers | Cloud Computer |
+|--|--|
+| batch jobs can be started and stopped fairly easily | many internet applications are online, and any service unavailability is unacceptable |
+| built from specialized hardware and communicate through *remote direct memory access* (RDMA) so faults are infrequent | due to economies of scale can be provided at lower cost but has higher failure rates |
+| use specialized network topologies yielding higher performance | often communicate through IP and Ethernet arranged in Clos topologies that provide high bisection bandwith |
+| assume all their nodes are close | nodes might be geographically distributed |
+
+If we want to make distributed systems work, we must accept the possibility of partial failure and build fault tolerance mechanisms, i.e., to build reliable systems from unreliable components.
+
+### Unreliable Networks
+Many distributed systems are *shared-nothing systems*, i.e., a bunch of machines connected by a network without the ability to access each other's memory or disk. This has become the dominant way to build systems because:
+
+- comparatively cheap
+- requires no special hardware
+- makes use of commoditized cloud computing services
+- achieves high reliability through redundancy across multiple geographically distributed datacenters
+
+The internet and internal networks are *asynchronous packed networks*, meaning one node can send a message (a packet) to another node, but no guarantees when it will arrive or if it will arrive at all. If you send a request to another node and don't receive a response, it is *impossible* to tell why
+
+#### Network Faults in Practice
+Network faults (*network partitions* or *netsplits*) can be surprisingly common, e.g.,
+
+- EC2 has frequent transient network glitches
+- sharks could bite undersea cables
+- software upgrade for a switch could trigger a network topology reconfig
+
+If software is put in an unanticipated situation, it might do arbitrarily unexpected things. Handling faults doesn't always mean *tolerating* them; you might just raise the error.
+
+#### Detecing Faults
+Many systems need to automatically detect nodes:
+
+- load balancer needs to stop sending requests (take *out of rotation*)
+- in single leader replication, leader *failover*
+
+Some methods of detecting a failure might be:
+
+- if you send requests to a node that is running but no process is listening, the OS will close or refuse TCP connections wtih a `RST` or `FIN` packet
+- if the node's OS is still running, a script can notify other nodes about crash
+- you might be able to query the network switches themselves to detect hardware failure
+- router might see that an IP address is unavailable and send an ICMP Destination Unreachable packet.
+
+#### Timeouts and Unbounded Delays
+How long should the timeout be? A long timeout means a long wait to see if node is dead, and a short timeout might incorrectly declare nodes dead for longer running queries. Prematurely declaring a node dead is problematic, as it might just be operating slowly under load. Declaring the node dead might cause a *cascading failure* as the system can't cope with increased load and fewer resources.
+
+Asynchronous networks have *unbounded delays*, or, there is no upper limit on time it takes for packet to arrive.
+
+##### Network Congestion and queueing
+Variability in packet delays most often due to queueing.
+
+- If several nodes send packets simultaneously, the network switch queues them, and on a busy network, the queue might fill up (*network congestion*).
+- If all CPU cores are busy, the OS queues up the request.
+- TCP performs *flow control* (aka *congestion avoidance* or *backpressure*) to limit is own rate of sending to avoid over-burdening a network link or receiving node
+
+Choosing timeouts is trial and error, and the balance is between failure detection delay and risk of premature timeouts. Systems that continually measure repsonse times and variability (*jitter*) are better than manually tuning.
+
+###### TCP vs UDP
+Latency sensitive applications (such as videoconferencing and VOIP) use UDP, which doesn't perform flow control or resend lost packets. UDP is good in situations where delayed data is worthless.
+
+#### Synchronous vs. Asychronous Networks
+A telephone network estabilishes a circuit, we say is synchronous even as the data passes through several routers as it does not suffer from queing. The maximum end-to-end latency of the network is fixed (bounded delay).
+
+A circuit is a fixed amount of reserved bandwidth which nobody else can use while the circuit is established, whereas packets of a TCP connection opportunistically use whatever network bandwidth is available.
+
+Using circuits for bursty data transfers wastes network capacity and makes transfer unnecessary slow. By contrast, TCP dinamycally adapts the rate of data transfer to the available network capacity.
+
+We have to assume that network congestion, queueing, and unbounded delays will happen. Consequently, there's no "correct" value for timeouts, they need to be determined experimentally.
