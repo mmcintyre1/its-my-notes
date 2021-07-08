@@ -1293,3 +1293,43 @@ However, as discussed in the introduction to Part II, scalability is not the onl
 Whether the unreliability of networks, clocks, and processes is an inevitable law of nature. We saw that it isn’t: it is possible to give hard real-time response guarantees and bounded delays in net‐works, but doing so is very expensive and results in lower utilization of hardware resources. Most non-safety-critical systems choose cheap and unreliable over expensive and reliable.
 
 Also supercomputers, which assume reliable components and thus have to be stopped and restarted entirely when a component does fail. By contrast,distributed systems can run forever without being interrupted at the service level,because all faults and maintenance can be handled at the node level—at least in theory. (In practice, if a bad configuration change is rolled out to all nodes, that will still bring a distributed system to its knees.)
+
+
+# Chapter 9: Consistency and Consensus
+**consensus** - An important abstraction in distributed systems which means getting the nodes to all agree on something. This can be a tricky problem in the presence of network faults and process failures.
+
+## Consistency Guarantees
+When you look at two database nodes at the same time, you might see different data because write requests arrive to nodes at different times.
+
+Most databases provide *eventual consistency*, or the idea that if you stop writing and wait an unspecified amount of time, all reads will return the same value. This might also be called *convergence*.
+
+Transactions are not the same as distributed consistency models: transaction isolation is primarily about avoiding race conditions due to concurrently executing transactions, whereas distributed consistency is mostly about coordinating the state of replicats in the face of delays and faults.
+
+## Linearizability
+**linearizability** (aka *atomic consistency*, *strong consistency*, *immediate consistency*, *external consistency*) - A *recency guarantee* that a system appears as if there is only one copy of the data even if there are many, and all operations are automic.
+
+### What Makes a System Linearizable?
+{: .no_toc }
+In linearizable systems there must be some point in time at which the value for a *register* (a single object, as in a key:value, a row, a document) must atomically switch from old value to new, and if one read returns the new value, all subsequent reads must return the new value.
+
+three operations a database must have:
+- `read(x) => v` read from register `x`, return value `v`
+- `write(x, v) => r` client requests to set register `x` to `v` and returns response `r`
+- <code>cas(x, v<sub>old</sub>, v<sub>new</sub>) => r</code> an atomic compare-and-set operation. If the value of the register x equals v_old, it is atomically set to v_new. If x != v_old the registers is unchanged and it returns an error
+
+**serializability** - is an isolation property of transactions where every transaction may read or write multiple objects, and guarantees that transactions behave as if they were executed in *some* serial order
+
+**linearizability** - a recency guarantee on reads and writes of a register (single object), so it doesn't prevent problems such as write skew
+
+_strict serializability_ (aka _strong one-copy serializability_) - database rovides both linearizability and serializability
+
+### Relying on Linearizability
+{: .no_toc }
+Some systems require linearizability:
+
+- _locking and leader election_ - To ensure that there is indeed only one leader, a lock is used. It must be linearizable: all nodes must agree which nodes owns the lock; otherwise is useless. Apache Zookeeper and etcs are often used for distributed locks and leader election.
+- _constraints and uniqueness guarantees_ - in order to enforce uniqueness, system needs to be linearizable.
+- _cross-channel timing dependencies_ - if there are multiple communication channels for messages and data to travel, there might be a race condition between those two channels (think message queue and file system writes)
+
+### Implementing Linearizable Systems
+{: .no_toc }
