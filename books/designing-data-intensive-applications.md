@@ -1306,13 +1306,13 @@ Most databases provide *eventual consistency*, or the idea that if you stop writ
 Transactions are not the same as distributed consistency models: transaction isolation is primarily about avoiding race conditions due to concurrently executing transactions, whereas distributed consistency is mostly about coordinating the state of replicats in the face of delays and faults.
 
 ## Linearizability
-**linearizability** (aka *atomic consistency*, *strong consistency*, *immediate consistency*, *external consistency*) - A *recency guarantee* that a system appears as if there is only one copy of the data even if there are many, and all operations are automic.
+**linearizability** (aka *atomic consistency*, *strong consistency*, *immediate consistency*, *external consistency*) - A *recency guarantee* that a system appears as if there is only one copy of the data even if there are many, and all operations are atomic.
 
 ### What Makes a System Linearizable?
 {: .no_toc }
 In linearizable systems there must be some point in time at which the value for a *register* (a single object, as in a key:value, a row, a document) must atomically switch from old value to new, and if one read returns the new value, all subsequent reads must return the new value.
 
-three operations a database must have:
+three operations:
 - `read(x) => v` read from register `x`, return value `v`
 - `write(x, v) => r` client requests to set register `x` to `v` and returns response `r`
 - <code>cas(x, v<sub>old</sub>, v<sub>new</sub>) => r</code> an atomic compare-and-set operation. If the value of the register x equals v_old, it is atomically set to v_new. If x != v_old the registers is unchanged and it returns an error
@@ -1321,15 +1321,101 @@ three operations a database must have:
 
 **linearizability** - a recency guarantee on reads and writes of a register (single object), so it doesn't prevent problems such as write skew
 
-_strict serializability_ (aka _strong one-copy serializability_) - database rovides both linearizability and serializability
+_strict serializability_ (aka _strong one-copy serializability_) - database provides both linearizability and serializability
 
 ### Relying on Linearizability
 {: .no_toc }
 Some systems require linearizability:
 
-- _locking and leader election_ - To ensure that there is indeed only one leader, a lock is used. It must be linearizable: all nodes must agree which nodes owns the lock; otherwise is useless. Apache Zookeeper and etcs are often used for distributed locks and leader election.
-- _constraints and uniqueness guarantees_ - in order to enforce uniqueness, system needs to be linearizable.
+- _locking and leader election_ - To ensure that there is indeed only one leader, a lock is used. It must be linearizable: all nodes must agree which nodes owns the lock; otherwise its useless. Apache Zookeeper and etcd are often used for distributed locks and leader election.
+- _constraints and uniqueness guarantees_ - in order to enforce uniqueness, system needs to be linearizable
 - _cross-channel timing dependencies_ - if there are multiple communication channels for messages and data to travel, there might be a race condition between those two channels (think message queue and file system writes)
 
 ### Implementing Linearizable Systems
+{: .no_toc }
+Simplest approach would be to only have a single copy of the data, but that system wouldn't tolerate faults. The most common approach to making a system fault-tolerant is to use replication.
+
+**single-leader replication** (potentially linearizable) - if you make reads from the leader or synchronously updated followers, they have the potential to be _linearizable_, unless using snapshot isolation or due to bugs
+
+**consensus algorithms** (linearizable) - bear a resemblance to single-leader, but prevent split brain and stale replicas
+
+**multi-leader replication** (not linearizable) - concurrently process writes on multiple nodes and asynchronously replicate
+
+**leaderless replication** (probably not linearizable) - last write wins based on time of day clocks and sloppy quorums prevent linearizability
+
+### The Cost of Linearizability
+{: .no_toc }
+
+#### The CAP Theorem
+{: .no_toc }
+In the presence of network partitions (faults/interruptions), your application can either be available (but might serve nonlinearizable/stale reads) or consistent (linearizable but would send errors instead of stale data). Applications that don't need to be linearizable have a higher tolerance for consistency and availability in the presence of network partitions.
+
+Defined by Eric Brewer in 2000 as a rule of thumb, the definitions of high availability (fault tolerance) can be misleading, and CAP theorem is best avoided, although it has been historically influential and led to explosion in alternate data storage models (NoSQL).
+
+#### Linearizability and Network Delays
+{: .no_toc }
+Even RAM on a modern multi-core CPU is not linearizable.
+
+The reason for dropping linearizability is performance, not *fault-tolerance*.
+
+Response time for read and write requests is at least proportional to the uncertainty of network delays in the network, so a faster algorithm for linearizability doesn't exist, but weaker consistency models can be much faster.
+
+## Ordering Guarantees
+Ordering is a very important concept, e.g., main purpose of leader is to determine order of writes in replication log, serializability is ensuring writes in *some sequential order*, and use of timestamps is an attempt to introduce order.
+
+### Ordering and Causality
+{: .no_toc }
+Order helps preserve causality. If a system obeys the ordering imposed by causality, it is *causally consistent*.
+
+#### The causal order is not a total order
+{: .no_toc }
+A _total order_ allows any two elements to be compared (e.g., natural numbers 2<3). Math sets (e.g., {a, b}, {c, d}) are incomparable, or _partially ordered_.
+
+In linearizable systems, we have _total order_ of operations based on timing, but causality defines _partial order_, as two events are incomparable if they are concurrent.
+
+#### Linearizability is stronger than causal consistency
+{: .no_toc }
+Linearizability implies causality, but many systems that seem to require linearizability only need causal consistency. Causal consistency is the strongest consistency model that does not slow down due to network delays and remains available during network delays.
+
+In order to determine the causal ordering, the database needs to know which version of the data was read by the application. The version number from the prior operation is passed back to the database on a write.
+
+We can create sequence numbers in a total order that is consistent with causality.
+
+With a single-leader replication, the leader can simply increment a counter for each operation, and thus assign a monotonically increasing sequence number to each operation in the replication log.
+
+If there is not a single leader (multi-leader or leaderless database):
+
+Each node can generate its own independent set of sequence numbers. One node can generate only odd numbers and the other only even numbers.
+Attach a timestamp from a time-of-day clock.
+Preallocate blocks of sequence numbers.
+The only problem is that the sequence numbers they generate are not consistent with causality. They do not correctly capture ordering of operations across different nodes.
+
+There is simple method for generating sequence numbers that is consistent with causality: Lamport timestamps.
+
+Each node has a unique identifier, and each node keeps a counter of the number of operations it has processed. The lamport timestamp is then simply a pair of (counter, node ID). It provides total order, as if you have two timestamps one with a greater counter value is the greater timestamp. If the counter values are the same, the one with greater node ID is the greater timestamp.
+
+Every node and every client keeps track of the maximum counter value it has seen so far, and includes that maximum on every request. When a node receives a request of response with a maximum counter value greater than its own counter value, it inmediately increases its own counter to that maximum.
+
+As long as the maximum counter value is carried along with every operation, this scheme ensure that the ordering from the lamport timestamp is consistent with causality.
+
+Total order of oepration only emerges after you have collected all of the operations.
+
+#### Total Order Broadcast
+{: .no_toc }
+_total order broadcast_ - the problem of how to handle total order of operations in distributed systems where the throughput is more than a single leader can handle, or failover needs to happen.
+
+Total order broadcast is usually described as a protocol for exchanging messages between two nodes, and it requires that two safety properties always be satisfied:
+1. _reliable delivery_ - no message is lost: if a message is delivered to one node it is deliverd to all nodes
+2. _totally ordered delivery_ - messages are delivered to every node in the same order
+
+_state machine replication_ - if every message represents a write to the database, and every replica processes the same writes in the same order then all replicas witll remain consistent with each other.
+
+## Distributed Transactions and Consensus
+Generally, the goal of consensus is to get several nodes to agree to something. Some examples where nodes need to agree:
+- _leader election_ - deciding which node is the leader in single-leader replication schemes
+- _atomic commit_ - in database that supports transactions across several nodes or parititons, a transaction might fail on some nodes and not others
+
+> **FLP Result** - maintains that there is no algorithm that is always able to reach a consensus if there is a risk that a node might crash, but consensus is solvable if allowed to use timeouts.
+
+### Atomic Commit and Two-Phase Commit (2PC)
 {: .no_toc }
