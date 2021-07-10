@@ -11,4 +11,4 @@ services:
     volumes:
       - .:/srv/jekyll
       - ../tech_books:/srv/jekyll/tech_books
-      - ../tech_books:/srv/jekyll/other_books
+      - ../other_books:/srv/jekyll/other_books
