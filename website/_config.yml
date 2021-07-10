@@ -57,7 +57,7 @@ defaults:
       parent: Tech Books
       nav_exclude: true
   - scope:
-      path: "history_books"
+      path: "other_books"
     values:
-      parent: History Books
+      parent: Other Books
       nav_exclude: true

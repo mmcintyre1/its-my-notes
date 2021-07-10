@@ -3,4 +3,4 @@ has_children: true
 nav_order: 2
 ---
 
-# History Books
+# Other Books

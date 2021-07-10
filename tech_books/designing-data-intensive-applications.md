@@ -1548,3 +1548,6 @@ In a single-leader node, you don't need consensus on every write, but you do nee
 Tools like Zookeeper provide "outsourced" consensus, failure detection, and membership services. It is hard to use but easier than writing your own.
 
 Leaderless and multi-leader do not need global consensus.
+
+
+# Chapter 10: Batch Processing
