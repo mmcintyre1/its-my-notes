@@ -51,23 +51,13 @@ aux_links:
 # gh_edit_view_mode: "edit"
 
 defaults:
-  # - scope:
-  #     path: "articles"
-  #   values:
-  #     parent: Articles
-  #     nav_exclude: true
   - scope:
-      path: "books"
+      path: "tech_books"
     values:
-      parent: Books
+      parent: Tech Books
       nav_exclude: true
-  # - scope:
-  #     path: "talks"
-  #   values:
-  #     parent: Talks
-  #     nav_exclude: true
-  # - scope:
-  #     path: "papers"
-  #   values:
-  #     parent: Papers
-  #     nav_exclude: true
+  - scope:
+      path: "history_books"
+    values:
+      parent: History Books
+      nav_exclude: true

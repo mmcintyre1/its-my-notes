@@ -10,7 +10,5 @@ services:
       - 4000:4000
     volumes:
       - .:/srv/jekyll
-      - ../articles:/srv/jekyll/articles
-      - ../books:/srv/jekyll/books
-      - ../talks:/srv/jekyll/talks
-      - ../papers:/srv/jekyll/papers
+      - ../tech_books:/srv/jekyll/tech_books
+      - ../tech_books:/srv/jekyll/history_books
