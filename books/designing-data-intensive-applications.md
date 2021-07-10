@@ -1419,3 +1419,132 @@ Generally, the goal of consensus is to get several nodes to agree to something. 
 
 ### Atomic Commit and Two-Phase Commit (2PC)
 {: .no_toc }
+In a single node database, it is a single device, the controller of a particular disk drive, that makes a commit atomic.
+
+For multiple nodes, you can't send the commit request to everyone and hope that things succeed -- some might fail, causing nodes to become inconsistent.
+
+_two-phase commit_ is the algorithm for achieving atomic transactions across multiple nodes.
+
+_coordinator_ (aka _transaction manager_) queries _participants_ (database nodes) with a _prepare_ request. All nodes need to reply that they are ready to commit. If any participant says no, the commit fails.
+
+The process:
+1. application requests a globally unique transaction ID from the coordinator
+2. application begins a single node transaction
+3. when the application is ready to commit, the coordinator sends prepare requests (with transaction id)
+4. participants ensure they can commit
+5. when coordinator has received all responses, it makes a decision
+6. once coordinator's decision is written to disk, the commit or abort is sent to all participants -- if any participants time out, the coordinator must try forever until success.
+
+#### coordinator failure
+{: .no_toc }
+If the coordinator fails before sending the prepare requests, then the transaction is aborted. But if it fails after committing but before sending the confirmation, participants are _in doubt_ or _uncertain_, and the coordinator must recover for the 2PC to work.
+
+#### three-phase commit
+{: .no_toc }
+A two-phase commit is called a _blocking_ atomic commit protocol because it might get stuck on coordinator. A nonblocking atomic commit requires a _perfect failure detector_, aka a reliable mechanism to detect whether a node has crashed or not.
+
+### Distributed Transactions in Practice
+{: .no_toc }
+Some implementations of 2PC carry heavy performance penalty (MySQL reported to be 10 times slower than single-node transactions)
+
+There are two different types of distributed transactions:
+1. _database-internal distributed transactions_, where transaction is internal to nodes of a database all running the same software, and these can work very well
+2. _heterogeneous distributed transactions_, where participants are two or more technlogies -- these are much less performant
+
+#### exactly-once message processing
+{: .no_toc }
+Message brokers leverage this atomic commit to ensure that a message is only delivered once, and any failures are aborted. Thus we can ensure a message is _effectively_ processed only once.
+
+#### XA transactions
+{: .no_toc }
+_X/Open XA_ (_Extended Architecture_) is a standard for implementing two-phase commit across heterogeneous technologies. It is a C API.
+
+XA assumes that application uses a network driver or client library to communicate with downstream consumers, and leverages that to ensure atomic commits. Commits/aborts are saved to the local disk where the 2PC is coordinated, so if that server dies, it needs to be restarted if participants are in doubt.
+
+#### holding locks when in doubt
+{: .no_toc }
+The reason we can't ignore participants _in doubt_ is because of locking. Databases typically take a row level exclusive lock on any row they update, and won't release until the transaciton commits or aborts, and depending on the database other transactions may be blocked from reading.
+
+#### recovering from coordinator failure
+{: .no_toc }
+Typically, coordinators resume and clean up any in doubt participants, but sometimes, there are _orphaned_ in doubt participants because the coordinator didn't resume cleanly.
+
+Only way to clean up is for the administrator to manually clean up.
+
+#### limitations of distributed transactions
+{: .no_toc }
+Coordinators themselves are like a database and represent a single point of failure, and many coordinator implementations aren't highly available by default.
+
+Many applications are stateless (as preferred by HTTP), but coordinators are typically implemented in the application code and thus change that calculus.
+
+XA needs to be compatible with many data systems and is thus a lowest common denominator incapable of dealing with specialized problems like deadlocks.
+
+Distributed transactions have a tendency of amplifying failure.
+
+### Fault-Tolerant Consensus
+{: .no_toc }
+Consensus can be framed like one or more node _proposes_ values, and the consensus algorithm _decides_ on values. For _uniform consensus_, you need:
+- *uniform agreement* - no two nodes decide differently
+- *integrity* - no node decides twice
+- *validity* - nodes can only decide on values proposed
+- *termination* - every node that doesn't crash immediately decides on values
+
+The best-known fault-tolerant consensus algorithms (Viewstamped Replication, Paxos, Raft, and Zab), agree on a sequence of events instead of the uniform consensus above, and are thus total broadcast algorithms. Total order broadcast requires messages to be delivered exactly once, in the same order, to all nodes.
+
+So total order broadcast is equivalent to repeated rounds of consensus:
+- Due to agreement property, all nodes decide to deliver the same messages in the same order.
+- Due to integrity, messages are not duplicated.
+- Due to validity, messages are not corrupted.
+- Due to termination, messages are not lost.
+
+#### limitations of consensus
+{: .no_toc }
+The process by which nodes vote on proposals before they are decided is a kind of synchronous replication, which is often less than ideal.
+
+Many consensus algorithms assume a fixed set of nodes to participate in voting so unless you have _dynamic membership_ or can't add nodes without changing the algorithm.
+
+Consensus systems rely on timeouts to detect failed nodes, but in systems with high latency (geopgraphically distributed systems) nodes falsely think leader has failed.
+
+Consensus algorithms are also sensitive to network delays, where leaders bounce from leader to dead frequently.
+
+### Membership and Coordination Services
+{: .no_toc }
+Zookeeper and etcd are described as "distributed key-value stores" or "coordination and configuration services".
+
+They are rarely consumed directly, but HBase, Hadoop YARN, OpenStack Nova, and Kafka rely on them in the background.
+
+Zookeeper based on Google's Chubby lock service, and implements the following features which makes it suited for distributed coordination:
+- _linearizable atomic operations_
+- _total ordering of operations_
+- _failure detection_
+- _change notifications_
+
+Zookeeper, etcd, and Consul are used for _service discovery_, to find out which IP address you need to connect to to reach a particular service, but DNS is also typically used for this purpose.
+
+These services also can be used as _membership services_, which determines which node is alive and which isn't.
+
+## Chapter Summary
+Linearizability is a popular consistency model -- its goal is to make replicated data appear as if there is only a single copy, and to make all operations on it atomic. This makes databases work like a variable in a single-threaded application, which makes it slow, especially in environments with large network delays.
+
+Causality is a weaker consistency model than linearizability that just needs to respect cause and effect ordering, like a version history timeline with branching and merging. Causal consistency does not have coordination overhead of linearizability and is less sensitive to network problems. With causal consistency, there might still be problems with concurrent writes and uniqueness, so consensus might be required.
+
+Consensus requires all nodes to agree, and that agreement is irrevocable. There are many problems that can be reduced to consensus:
+- _linearizable compare-and-set registers_ - the register needs to atomically decide whether to set its value based on whether its current value equals the parameter given in the operation
+- _atomic transaction commit_ - a database must decide whetehr to commit or abort a distributed transaction
+- _total order broadcast_ - the messaging system must decide on the order in which to deliver messages
+- _locks and leases_ - when several clients try to get lease/lock, the lock decides which one successfully acquired it
+- _membership/coordination service_ - given a failure detector (timeouts) the system must decide which nodes are alive and which are dead because their session timed out
+- _uniqueness constraint_ - constraint must decide which write to allow and which should fail constraint violation
+
+In a single-leader database or a single node, these are easy. All power is in that single leader or single node.
+
+If leader fails, there are three ways to handle that problem:
+1. wait for the leader to recover
+2. manually fail over by choosing a new leader node
+3. use an algorithm to automatically choose a new leader
+
+In a single-leader node, you don't need consensus on every write, but you do need it to choose a new leader.
+
+Tools like Zookeeper provide "outsourced" consensus, failure detection, and membership services. It is hard to use but easier than writing your own.
+
+Leaderless and multi-leader do not need global consensus.
