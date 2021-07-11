@@ -221,7 +221,8 @@ Many data systems support multiple models.
 - programming model for processing large amounts of data across multiple machines created by Google
 - you specify two functions -- `map` (aka `collect`), and a `reduce` (aka `fold` or `inject`). Below is MapReduce implemented in MongoDB:
 - MongoDB allows you to embed javascript in a MapReduce query:
-```javascript
+
+```js
 db.observations.mapReduce(
   function map() {
     // this function returns a key and a value to be passed to
@@ -238,6 +239,7 @@ db.observations.mapReduce(
     query: {family: "Sharks"},
     out: "monthlySharkReport"
   }
+)
 ```
 
 #### Cypher
@@ -1769,3 +1771,6 @@ Distributed batch processing engines have restricted programming model: callback
 Code doesn't need to worry about implementing fault-tolerance mechanisms, and these semantics are much stronger than in online services.
 
 The distinguishing feature of batch processing is that it reads some input data and produces output data without modifying the input data. The output is _derived_ from input. Also, the input data is _bounded_; it has a known, fixed size, and the job knows when it is done. This is contrasted to stream processing, which is _unbounded_.
+
+
+# Chapter 11: Stream Processing
