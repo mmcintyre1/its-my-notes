@@ -1774,3 +1774,190 @@ The distinguishing feature of batch processing is that it reads some input data 
 
 
 # Chapter 11: Stream Processing
+A "stream" typically means data that is made avaialable incrementally over time: `stdin` and `stdout` in Unix, lazy lists, filesystem APIs (like Java's `FileInputStream`), TCP connections, etc.
+
+_event streams_ are mechanisms of data management, the unbounded, incrementally processed counterpart to batch data.
+
+## Transmitting Event Streams
+Instead of files for batch processing, event streams process _events_, or small, self-contained, immutable objects (might be text, or JSON, or a binary string) containing details of something that happened at some point in time, typically packaged with some sort of timestamp, e.g., an action a user took.
+
+An event is generated once by a _producer_ (aka _publisher_ or _sender_), and processed by multiple _consumers_ (aka _subscribers_ or _recipients_), and related records are grouped together in a _stream_ or _topic_.
+
+Instead of polling the consumers for new events (which gets expensive), consumers are notified when new events occur.
+
+### Messaging Systems
+{: .no_toc }
+A _messaging system_ might be used; producers send messages to this service and then consumers are notified. This is referred to as a _publish/subscribe_ model.
+
+1. what happens if the producers send messages faster than the producers can process them?
+   1. the system can drop messages
+   2. the system can buffer messages in a queue -- what happens as the queue grows is up to the system (written to disk, crash, etc.)
+   3. the system can apply _backpressure_ (_flow control_), blocking the producer from sending more messages
+2. what happens if nodes crash or temporarily go offline?
+   1. durability might be required (replication to disk), but if you can afford to lose messages you might have higher throughput and lower latency
+
+#### direct messaging from producers to consumers
+{: .no_toc }
+Some data systems don't use a message system:
+- UDP multicast for low latency applications (financial data)
+- Brokerless messaging libraries like ZeroMQ and nanomsg, over TCP or IP multicast
+- StatsD and Brubeck use UDP
+- webhooks (consumer exposes a service over the network and producers make a direct HTTP or RPC request upon an event)
+
+#### message broker
+{: .no_toc }
+You can also send messages through a message broker, which acts like a database optimized for handling message streams. Consumers are asynchronous; a producer sends a message and the message broker only returns a message when the message is queued, not consumed.
+
+Message brokers are like databases, and can even implement 2PC through XA or JTA, but they are different from databases:
+- databases keep data until it is explicitly deleted whereas message brokers typically delete messages after successful delivery
+- message brokers assume their workload is fairly small, but if a substantial number of messages need to buffer, each individual message takes longer to process and the throughput may degrade
+- databases offer secondary indexes while message brokers allow consumers to subscribe to a subset of messages based on a pattern
+- databases support arbitrary queries but message brokers do not
+
+#### multiple consumers
+{: .no_toc }
+When multiple consumers read messages, there are two main patterns:
+- **load balancing** - each message is delivered to one consumer to process
+- **fan-out** - each message is delivered to all consumers
+
+#### acknowledgments and redelivery
+{: .no_toc }
+Consumers may crash at any time, so message brokers use _acknowledgments_ where a client must explicitly tell the broker when it has finished processing a message and the broker will remove it from the queue. When combined with load balancing, this redelivery feature might not preserve the ordering of messages.
+
+### Partitioned Logs
+{: .no_toc }
+With databases and filesystems, everything that is written to the database or the file is expected to be permenantly recorded, but with messages and message brokers, the act of receiving a message is destructive if the acknowledgment causes the message to be deleted from the queue. _Log-based message brokers_ are a hybrid between the two paradigms.
+
+A log is an append-only sequence of records on disk, so a message broker can be implemented where a producer appends records to a log, and a consumer reads from that log. To achieve higher throughput than a single disk can offer, the log can be partitioned, and within each partition, the broker assigns a monotonically increasing sequence number (_offset_), so messages within the partition are totally ordered, but not so across partitions.
+
+Apache Kafka, Amazon Kinesis Streams, and Twitter's DistributedLog are log-based message brokers. This is contrasted to the JMS/AMQP style message broker system (e.g., RabbitMQ).
+
+The log-based approach trivially supports fan-out, since any consumer could subscribe to the log, but load balancing is a little different (typically attained by assigning a partition to a particular consumer). This has the downsides that the number of nodes consuming a topic can be at most the number of log partitions, and if a single message is slow all other messages are blocked (_head of line blocking_).
+
+The offset makes it easy to tell which records have been processed, and this offset works very similarly to the _log sequence number_ from single-leader replication (if a follower becomes disconected, the log sequence number tells it where to begin catching up when it reconnects). The message broker behaves like a leader database, and the consumer a follower.
+
+#### buffer disk usage
+{: .no_toc }
+Eventually, the log will run out of disk space, so older logs segments need to be removed by implementing a bounded-size buffer that discards old messages when it gets full (_circular buffer_ or _ring buffer_). E.g., the average hdd is 6 TB, and the average write is 150 MB/s, which means it would take ~11 hours to fill the disk.
+
+If a consumer falls so far behind that the messages are no longer on disk, those messages will be lost, but you can monitor a consumer and raise an alert if they fall too far behind. You can also add consumers for different purposes without worrying about affecting throughput, as consumers are only reading from the log.
+
+## Databases and Streams
+An event is a record of a thing happening, and that thing might be a _write to a database_, meaning that streams and databases are fundamentally similar. For example, a replication log is a stream of database write events. The followers follow that stream to ensure their copy is up to date with the producer.
+
+### Keeping Systems in Sync
+{: .no_toc }
+There is no single system that can satisfy all data storage, querying, and processing needs, but the sprawl of services need to be kept in sync. Sometimes, batch processes are used to keep different systems in sync (data warehouses). Another method is to use _dual writes_ where application code explicitly writes to each data system when data changes. With dual writes there are race conditions that might happen to cause systems to be permenantly out of sync with each other, and you need concurrency mechanisms to detect what would otherwise be a silent failure.
+
+In a single-leader system, the state machine replication approach (if every follower processes events in the same order as the leader, than every replica will end up in the same final state) works, but with disparate systems there might be many leader-followers. Ideally we'd be able to make the database the leader, then everything else the follower (search index, cache, etc.)
+
+### Change Data Capture
+{: .no_toc }
+_change data capture_ (CDC) is the process of observing all data changes written to the system of record database and extracting them in a form that can be replicated to other derived data systems. All changes made to the system of record database are reflected in the derived data systems.
+
+You could implement CDC with database triggers, but these are slow and brittle. LinkedIn's Database, Facebook's Wormhole, and Yahoo's Sherpa use this idea at a large scale. Bottled Water implements CDC for PostgreSQL using an API that decodes the write-ahead log, Maxwell and Debezium do something similar for MySQL with the binlog, Mongoriver reads the MongoDB oplog, and GoldenGate provides similar facilities for Oracle.
+
+If you have a log of all changes you could recreate the entire database, but this might take too long and take up too much space, so its best to work off a snapshot. Every time you add a new derived data system you'd need to go through the snapshot process, but _log compaction_ helps. If you store every update with a primary key, and the most recent update replaces the previous, you can scan the entire log and just pull out most recent values for a key. Log compaction is supported by Apache Kafka.
+
+Databases are beginning to support CDC as a first-class interface. RethinkDB allows queries to subscribe to notifications when the results of a query change. Firebase and CouchDB provide synchronization, and VoltDB allows transactions to continuously export data from a database as a stream. Kafka Connect tries to integrate CDC tools for many database systems.
+
+### Event Sourcing
+{: .no_toc }
+CDC is similar to domain-driven design's (DDD) idea of event sourcing. CDC uses the database in a mutable way, updating and deleting records as needed, but event sourcing, the application logic is built on the basis of immutable events that are written to an event log, and updates and deletes are discouraged.
+
+Event sourcing is powerful for data modelling: user's actions are immutable events, instead of recording the effect of those actions on a mutable database. This makes updating applications easier and helps debugging, as well as limits application bugs.
+
+For example, the event "student canceled their course enrolment" clearly expresses intent of a single action in a neutral way, while side effects "one entry was deleted from the enrolments table, one cancellation was added to the student feedback table" embed a lot of assumptions about how the data is going to be used. If a new event is added, say, "next person in queue is added to class", event sourcing makes it easier to chain the behavior to the current event.
+
+Since events are typically modelled at a higher level, later events typically don't overwrite previous events, so log compaction is not possible in the same way.
+
+#### commands and events
+{: .no_toc }
+When a request from a user first arrives, it is a *command*, and when it is successful it becomes an *event*. When an *event* is generated, it becomes a *fact*.
+
+### State, Streams, and Immutability
+{: .no_toc }
+The *changelog* represents the evolution of state over time. If you consider the log of events to be the system of record, and any mutable state as being derived from it, it becomes easier to reason about the flow of data through a system.
+
+Immutability in databases can be seen in accounting in an append-only _ledger_ -- if there is a mistake, data isn't erased, but a compensating action (e.g., a refund) is added. This is important for auditability.
+
+If you separate mutable state from immutable events, you can derive several different read-oriented representations of the same log of events.
+
+_command query responsibility segregation_ (CQRS) - separating the form in which the data is written from the form in which the data is read. There is a fallacy that data must be written in the same form in which it is read, e.g., it is entirely reasonable to denormalize data that is being read.
+
+The biggest downside to event sourcing and change data capture is that consumers of the event log are asynchronous, so reads after write consistency might not be guaranteed. You might need to implement synchronous, atomic commits to read consumers. On the flipside, concurrency control is simplified by a single event log, as multi-object writes become less prevalent. If the event log and the application state are partitioned the same way, you don't need concurrency control, as there is just a single threaded log consumer.
+
+Use cases for immutable data depend on the data set. If you have data that mostly grows, then it is easier to be immutable, but if your dataset is frequently updates and deletes, the immutable event log would grow prohibitively large.
+
+Sometimes you might need to permenantly delete data, not just tombstone it. Dataomic calls this _excision_, and the VCS Fossil calls this _shunning_. Deleting data is very hard.
+
+## Processing Streams
+What can you do once you've set up a stream?
+1. take the data in the events and write it to a database, cache, search index, etc, from where it can be queried by other clients
+2. you can push the events to users, like email or push notifications
+3. you can process input streams to produce output streams
+
+A piece of code that processes streams is an _operator_ or a _job_. Because streams are unbounded and never end, sorting doesn't make sense, and fault-tolerance mechanisms need to change as jobs can't be cleanly retried.
+
+### Uses of Stream Processing
+{: .no_toc }
+**complex event processing** (CEP) is an approach for analyzing event streams, and is geared for pattern matching, allowing you to specify rules to search for certain patterns of events in a stream. CEP systems use a high-level declarative language (like SQL or a GUI) to describe a pattern of events, and when it is detected, a _complex event_ is created with details of the event. Reverses the standard data model - queries are long lived and data is transient.
+
+**stream analytics** slightly different from CEP and geared towards aggregations and statistical metrics over a large number of events, e.g., measuring the rate of some type of event, or calculating the rolling average over some time period. These often use probablistic algorithms such as Bloom filters for set membership, HyperLogLog for cardinality estimation, and various percentile estimation algos. Many stream processing framworks are designed with analytics in mind: Apache Storm, Spark Streaming, Flink, Concord, Samza, and Kafka Streams.
+
+**materialized views** caches, search indexes, and data warehouses can be thought of as materialized views on the original log
+
+**search on streams** - you can create a query and run a stream through this query (similar to CEP). You can get speed increases by indexing the query as well.
+
+### Reasoning About Time
+{: .no_toc }
+In a batch process, the time at which the process is run has nothing to do with the time at which the events actually occurred.
+
+Many stream processing frameworks use the local system clock on the processing machine (processing time) to determine windowing. It is a simple approach that breaks down if there is any significant processing lag.
+
+Confusing event time and processing time leads to bad data. Processing time may be unreliable as the stream processor may queue events, restart, etc. It's better to take into account the original event time to count rates. You can never be sure when you have received all the events.
+
+You can time out and declare a window ready after you have not seen any new events for a while, but it could still happen that some events are delayed due a network interruption. You need to be able to handle such stranggler events that arrive after the window has already been declared complete.
+
+You can ignore the stranggler events, tracking the number of dropped events as a metric. Publish a correction, an updated value for the window with stranglers included. You may also need to retrat the previous output.
+
+To adjust for incofrrect device clocks, one approach is to log three timestamps:
+- The time at which the event occurred, according to the device clock
+- The time at which the event was sent to the server, according to the device clock
+- The time at which the event was received by the server, according to the server clock.
+- You can estimate the offset between the device clock and the server clock, then apply that offset to the event timestamp, and thus estimate the true time at which the event actually ocurred.
+
+Several types of windows are in common use:
+- **Tumbling window**: Fixed length. If you have a 1-minute tumbling window, all events between 10:03:00 and 10:03:59 will be grouped in one window, next window would be 10:04:00-10:04:59
+- **Hopping window**: Fixed length, but allows windows to overlap in order to provide some smoothing. If you have a 5-minute window with a hop size of 1 minute, it would contain the events between 10:03:00 and 10:07:59, next window would cover 10:04:00-10:08:59
+- **Sliding window**: Events that occur within some interval of each other. For example, a 5-minute sliding window would cover 10:03:39 and 10:08:12 because they are less than 4 minutes apart.
+- **Session window**: No fixed duration. All events for the same user, the window ends when the user has been inactive for some time (30 minutes). Common in website analytics
+
+### Stream Joins
+{: .no_toc }
+Same use cases for joining data in streams as there is in batch processing, but the fact that streams are unbounded makes joins more difficult.
+
+- **stream-stream join (_window join_)**: say you need to bring together clickstream data (e.g., search and click action). a stream processor needs to maintain state, e.g., all click data for the last hour, and if there is a matching click event after a search or not.
+- **stream-table join (_stream enrichment_)**: if we need to add in additional data otherwise missing from an event stream. similar to a hash join, where a local copy of a database is kept in memory. since streams are long-lived, you could use change data capture to keep that in memory or on disk index up to date with updates to the source of record data.
+- **table-table join (_materialized view maintenance_)**: stream needs to maintain a join of two disparate tables for the stream to access
+
+#### time dependence of joins
+{: .no_toc }
+If state changes over time, and you join with some state, what point in time do you use for the join? If the ordering of events is undetermined, the join becomes non-deterministic, which in data warehousing is called _slowly changing dimension_ (SDC) and might be addressed by using a unique identifier for a particular version of the joined data.
+
+### Fault Tolerance
+{: .no_toc }
+Batch processes can be retried, but what about streams? _exactly once_ semantics mean that a record appears to be processed effectively once.
+
+#### microbatching and checkpointing
+{: .no_toc }
+**microbatching** - breaking the stream into small blocks and treating each block like a mini batch. There is scheduling and coordination overhead.
+**checkpointing** - used be Apache Flink, generates rolling checkpoints and stores them to durable storage
+
+In order to give the appearance of exactly-once processing, need to ensure that all outputs and side effects of processing an event take place only if processing is successful.
+
+#### idempotence
+{: .no_toc }
+you might also rely on idempotence, or, if you perform an operation multiple times, it has the same effect as if you performed it only once. even if an operation isn't idempotent by default, you can likely make it so by keeping metadata.
+
+## Chapter Summary
