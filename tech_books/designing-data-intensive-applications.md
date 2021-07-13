@@ -1961,3 +1961,28 @@ In order to give the appearance of exactly-once processing, need to ensure that 
 you might also rely on idempotence, or, if you perform an operation multiple times, it has the same effect as if you performed it only once. even if an operation isn't idempotent by default, you can likely make it so by keeping metadata.
 
 ## Chapter Summary
+Streaming is very similar to batch processing, but done continuously on unbounded streams rather than fixed-size input. Message brokers and event logs serve as the streaming equivalent of a filesystem.
+
+Two types of message brokers:
+1. **AMQP/JMS-style message broker** - broker assigns individual messages to consumers, consumers acknowledge messages, then messages are deleted from the broker. this style is useful when exact order of messages doesn't matter, and you don't need to return to anything that was already read in the past
+2. **log-based message broker** - broker assigns all messages in a partition to the same consumer node, always delivers messages in the same order. parallelism is achieved through partitioning, and consumers track progress by checkpointing the offest of the last message they have processed. broker retains messages on disk, so you can jump back to old messages.
+
+log-based approach is similar to replication logs for database storage.
+
+streams might come from user activity, events, sensors providing periodic readings, and data feeds -- we can also think of writes to a database like a stream, and log compaction allows the database to keep a full copy of the contents of a database.
+
+When we represent databases as streams, we can start to integrate data systems: caches, search indexes, and analytics systems are derived data systems from the system of record, the database.
+
+There are several purposes of stream processing:
+- **complex event processing** - searching for event patterns
+- **stream analytics** - computing windowed aggregation
+- **materialized views** - keeping derived data systems up to date
+
+Time is difficult to reason about in streams because of a difference in processing time and event timestamps, and the problem of dealing with straggler events that arrive after you thought your window was complete.
+
+There are at least 3 types of joins that may appear in stream processes:
+1. **stream-stream joins**
+2. **stream-table joins**
+3. **table-table joins**
+
+# Chapter 12: The Future of Data Systems
