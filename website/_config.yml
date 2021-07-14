@@ -61,3 +61,8 @@ defaults:
     values:
       parent: Other Books
       nav_exclude: true
+  - scope:
+      path: "quotes"
+    values:
+      parent: Quotes
+      nav_exclude: true
