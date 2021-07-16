@@ -1986,3 +1986,146 @@ There are at least 3 types of joins that may appear in stream processes:
 3. **table-table joins**
 
 # Chapter 12: The Future of Data Systems
+## Data Integration
+For every problem, there might be several solutions. Even if you understand usage patterns, data is used in different ways, and you end up having to cobble together several different pieces of software.
+### Combining Specialized Tools by Deriving Data
+{: .no_toc }
+
+#### reasoning about dataflows
+{: .no_toc }
+When copies of the same data need to be stored in several storage systems, you need to be very clear about inputs and outputs. Where is data written first, what is derived from what?
+
+Imagine a system that uses writes to a database to then use change data capture to create an index. If the index is derived solely from database writes, you can be sure the index is derived solely from system of record, as writing to the database is the only way to supply new inputs. But if you can update the database also through the index, you have problems of concurrent writes, and no system of record. Funnelling all inputs through a single system is an application of state machine replication.
+
+#### derived data vs distributed transactions
+{: .no_toc }
+Distributed transactions decide on an ordering of writes by using locks for mutual exclusion, while CDC and event sourcing (derived data) use a log for ordering. Distributed transactions use atomic commit to ensure exactly once semantics, while log-based systems are based on deterministic retry and idempotence.
+
+Biggest difference between the two approaches are that transaction systems provide linearizability which provide useful consistency guarantees if needed (read your own writes).
+
+In the absence of widespread support for a good distributed transaction protocol (XA has poor fault tolerance and performance characteristics), log-based derived data is the most promising approach for integrating different data systems.
+
+#### limits of total ordering
+{: .no_toc }
+However, as systems are scaled towards bigger and more coplex worloads, limitiations emerge:
+- Constructing a totally ordered log requires all events to pass through a single leader node that decides on the ordering, and you need to partition if the load is too large, making ordering ambiguous
+- An undefined ordering of events that originate on multiple datacenters.
+- When two events originate in different services, there is no defined order for those events.
+- Some applications maintain client-side state. Clients and servers are very likely to see events in different orders.
+
+Deciding on a total order of events is known as _total order broadcast_, which is equivalent to consensus. It is still an open research problem to design consensus algorithms that can scale beyond the throughput of a single node.
+
+#### ordering events to capture causality
+{: .no_toc }
+If there is no causal link between events, no need for total order since writes can happen concurrently, or objects can be updated per key on a partition.
+
+### Batch and Stream Processing
+{: .no_toc }
+The goal of data integration is that data ends up in the right form in the right places. The outputs of batch and stream processes are derived datasets, e.g., search indexes, materialized views, recommendations to show users, aggregate metrics, etc.
+
+Main difference is that stream processing operates on unbounded datasets.
+
+Batch processing has functional flavor: deterministic, pure functions whose output depends only on the input and no side effects other than explicit outputs, inputs as immutable and outputs as append-only. Stream processing extends operators to allow managed, fault-tolerant state.
+
+#### reprocessing data for application evolution
+{: .no_toc }
+Reprocessing allows for the evolution of applications, as it is possible to restructure a dataset based on a completely different model. Derived views allow gradual evolution, and gradual migration allows every stage to be easily reversible.
+
+#### lambda architecture
+{: .no_toc }
+Combines batch and stream processing. The core idea is that incoming data should be recorded by appending immutable events to an always-growing dataset, and from these events, read-optimized views are derived, or running two systems in parallel.
+
+The stream processor consumes the events and produces a quick approximate update to the view, then the batch processor later consumes the _same_ events and produces the corrected version of the derived view.
+
+The downsides:
+- maintaining both batch and stream logic is significant extra effort
+- since stream and batch produce separate outputs, they need to be merged to respond to user requests
+- reprocessing the entire dataset is expensive, so the batch processor runs on incremental updates, which might run into time problems (straggler events, etc)
+
+## Unbundling Databases
+Batch and stream processors are like elaborate implementations of triggers, stored procedures, and materialised view maintenance routines. The derived data systems they maintain are like different index types.
+
+There are two avenues by which different storage and processing tools can nevertheless be composed into a cohesive system:
+- **Federated databases** _unifying reads_: unifying reads. It is possible to provide a unified query interface to a wide variety of underlying storate engines and processing methods, this is known as federated database or polystore. An example is PostgreSQL's foreign data wrapper.
+- **Unbundled databases** _unifying writes_: unifying writes. When we compose several storage systems, we need to ensure that all data changes end up in all the right places, even in the face of faults, it is like unbundling a database's index-maintenance features in a way that can synchronise writes across disparate technologies.
+
+unifying writes to several storage systems in sync is the harder engineering problem.
+
+Synchronising writes requires distributed transactions across heterogeneous storage systems which may be the wrong solution. An asynchronous event log with idempotent writes is a much more robust and practical approach.
+
+The big advantage is *loose coupling* between various components:
+
+- Asynchronous event streams make the system as a whole more robust to outages or performance degradation of individual components.
+- Unbundling data systems allows different software components and services to be developed, improved and maintained independently from each other by different teams.
+
+If there is a single technology that does everything you need, you're most likely best off simply using that product rather than trying to reimplement it yourself from lower-level components. The advantages of unbundling and composition only come into the picture when there is no single piece of software that satisfies all your requirements.
+
+#### separation of application code and state
+{: .no_toc }
+It makes sense to have some parts of a system that specialize in durable data storage, and other parts that specialize in running application code. The two can interact while still remaining independent.
+
+The trend has been to keep stateless application logic separate from state management (databases): not putting application logic in the database and not putting persistent state in the application.
+
+Dataflow, interplay between state changes and application code
+Instead of treating the database as a passive variable that is manipulated by the application, application code responds to state changes in one place by triggering state changes in another place.
+
+#### stream processors and services
+{: .no_toc }
+A customer is purchasing an item that is priced in one currency but paid in another currency. In order to perform the currency conversion, you need to know the current exchange rate.
+
+This could be implemented in two ways:
+- **Microservices approach**, the code that processes the purchase would probably wuery an exchange-rate service or a database in order to obtain the current rate for a particular currency.
+- **Dataflow approach**, the code that processes purchases would subscribe to a stream of exchange rate updates ahead of time, and record the current rate in a local database whenever it changes. When it comes to processing the purchase, it only needs to query the local database.
+
+The dataflow is not only faster, but it is also more robust to the failure of another service.
+
+### Observing Derived State
+{: .no_toc }
+Break the data flow into two paths: _write path_ and the _read path_. Write path is eagerly evaluated (as it comes in), and read path is lazily evaluated (as it is needed).
+
+#### materialized views and caching
+{: .no_toc }
+A full-text search index is a good example: the write path updates the index, and the read path searches the index for keywords.
+
+If you don't have an index, a search query would have to scan over all documents, which is very expensive. No index means less work on the write path (no index to update), but a lot more work on the read path.
+
+Another option would be to precompute the search results for only a fixed set of the most common queries. The uncommon queries can still be served from the inxed. This is what we call a cache although it could also be called a materialised view.
+
+#### read are events too
+{: .no_toc }
+It is also possible to represent read requests as streams of events, and send both the read events and write events through a stream processor; the processor responds to read events by emiting the result of the read to an output stream.
+
+It would allow you to reconstruct what the user saw before they made a particular decision.
+
+Enables better tracking of casual dependencies.
+
+## Aiming for Correctness
+If your application can tolerate occasionally corrupting or losing data in unpredictable ways, life is a lot simpler. If you need stronger assurances of correctness, the serializability and atomic commit are established approaches.
+
+While traditional transaction approach is not going away, there are some ways of thinking about correctness in the context of dataflow architectures.
+
+#### the end-to-end argument for databases
+{: .no_toc }
+Bugs occur, and people make mistakes. Favor immutable and append-only data, because it is easier to recover from such mistakes.
+
+We've seen the idea of _exactly-once_ (or _effectively-once_) semantics. If something goes wrong while processing a message, you can either give up or try again. If you try again, there is the risk that it actually succeeded the first time, the message ends up being processed twice.
+
+Exactly-once means arranging the computation such that the final effect is the same as if no faults had occurred.
+
+One of the most effective approaches is to make the operation idempotent, to ensure that it has the same effect, no matter whether it is executed once or multiple times. Idempotence requires some effort and care: you may need to maintain some additional metadata (operation IDs), and ensure fencing when failing over from one node to another.
+
+Two-phase commit unfortunately is not sufficient to ensure that the transaction will only be executed once.
+
+#### operation identifiers
+{: .no_toc }
+You need to consider end-to-end flow of the request.
+
+You can generate a unique identifier for an operation (such as a UUID) and include it as a hidden form field in the client application, or calculate a hash of all the relevant form fields to derive the operation ID. If the web browser submits the POST request twice, the two requests will have the same operation ID. You can then pass that operation ID all the way through to the database and check that you only ever execute one operation with a given ID. You can then save those requests to be processed, uniquely identified by the operation ID.
+
+Is not enough to prevent a user from submitting a duplicate request if the first one times out. Solving the problem requires an end-to-end solution: a transaction indentifier that is passed all the way from the end-user client to the database.
+
+Low-level reliability mechanisms such as those in TCP, work quite well, and so the remaining higher-level faults occur fairly rarely.
+
+Transactions have long been seen as a good abstraction, they are useful but not enough.
+
+It is worth exploring F=fault-tolerance abstractions that make it easy to provide application-specific end-to-end correctness properties, but also maintain good performance and good operational characteristics.
