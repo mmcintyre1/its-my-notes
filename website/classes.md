@@ -1,6 +1,6 @@
 ---
 has_children: true
-title: Quotes
+title: Classes
 nav_order: 3
 ---
 
