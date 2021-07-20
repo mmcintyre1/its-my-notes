@@ -12,4 +12,5 @@ services:
       - .:/srv/jekyll
       - ../tech_books:/srv/jekyll/tech_books
       - ../quotes:/srv/jekyll/quotes
+      - ../classes:/srv/jekyll/classes
       - ../other_books:/srv/jekyll/other_books
