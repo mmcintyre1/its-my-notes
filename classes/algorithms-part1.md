@@ -451,8 +451,8 @@ e.g., a String uses 2N + 64 (16 for object, 8 for reference to array, 2N + 24 fo
 
 3. **Egg drop.** Suppose that you have an nn-story building (with floors 1 through _n_) and plenty of eggs. An egg breaks if it is dropped from floor _T_ or higher and does not break otherwise. Your goal is to devise a strategy to determine the value of  _T_ given the following limitations on the number of eggs and tosses:
 
-- Version 0: 1 egg, $$ \le $$ T≤T tosses.
-- Version 1:  $$ \sim 1 \lg $$ n eggs and $$ \sim 1 \lg $$ tosses.
-- Version 2: $$ \sim \lg $$ T eggs and  $$ \sim $$ 2 $$ \lg $$ T tosses.
-- Version 3: 22 eggs and $$ \sim $$ 2 $ \sqrt $$ n tosses.
-- Version 4: 22 eggs and  $$ \le $$ c $$ \sqrt $$ T tosses for some fixed constant c.
+- Version 0: 1 egg, $$ T \le T $$ tosses.
+- Version 1:  $$ \sim 1 \lg n $$ eggs and $$ \sim 1 \lg $$ tosses.
+- Version 2: $$ \sim \lg T $$ eggs and  $$ \sim 2 \lg T$$ tosses.
+- Version 3: 22 eggs and $$ \sim 2 \sqrt n $$ tosses.
+- Version 4: 22 eggs and  $$ \le c \sqrt T $$ tosses for some fixed constant c.
