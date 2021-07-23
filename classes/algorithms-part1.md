@@ -244,3 +244,215 @@ likelihood of percolation depends on probability, and we cannot figure this out 
 monte carlo simulations (relies on repeated random siumlation to get numerical results) can be used to add random open sites (increasing p) until top connects to bottom. One way to check is to check all top against all bottom, but this is n<sup>2</sup>. A more performant way would be to create a simulated 'top' spot and a simulated bottom, and check only those two (top could be 0, bottom is _n_ * _n_ + 1)
 
 percolation threshold ends up being 0.592746 for large lattices.
+
+## Analysis of Algorithms
+[more information](https://algs4.cs.princeton.edu/14analysis/)
+
+Why do we analyze algorithms?
+- predict performance
+- compare algorithms
+- provide guarantees
+- understand theoretical basis
+- **primary practical purpose** - avoidance of performance bugs
+
+### Some algorithmic successes
+{: .no_toc }
+#### Discrete Fournier transforms
+{: .no_toc }
+- break down waveform of _N_ samples into periodic components
+- brute force is n<sup>2</sup>
+- FFT algorithm is _N_ _log_ _N_
+- works for DVD, JPEG, MRI, astrophysics
+
+#### n-body simulation
+{: .no_toc }
+- simulate gravitational interactions among _N_ bodies
+- brute force is n<sup>2</sup>
+- Barnes-Hut algorithm _N_ _log_ _N_
+
+### Scientific Method
+{: .no_toc }
+- **Observe** some feature of the natural world
+- **Hypothesize** a model that is consistent with the observations
+- **Predict** events using the hypothesis
+- **Verify** the predictions by making further observations
+- **Validate** by repeating until the hypothesis and observations agree
+
+Principles:
+- Experiments must be **reproducible**
+- Hypotheses must be **falsifiable**
+
+### 3-Sum
+Given _N_ distinct integers, how many triples sum to exactly zero?
+
+brute force method:
+```java
+public class ThreeSum {
+    public static int count(int[] a) {
+        int N = a.length;
+        int count = 0;
+        for (int i = 0; i < N; i++) {
+            for (int j = i + 1; j < N; j++) {
+                for (int k = j + 1; k < N; k++) {
+                    if (a[i] + a[j] + a[k] == 0) {
+                        count++;
+                    }
+                }
+            }
+        }
+        return count;
+    }
+
+    public static void main(String[] args) {
+        int[] a = In.readInts(args[0]);
+        StdOut.println(count(a));
+    }
+}
+```
+
+How to time a program?
+- manually
+- automatically - `StopWatch()` in Java standard library
+
+You can plot on a log-log plot, then run a regression (fit a straight line through data points)
+
+### Mathematical Model
+total running time is sum of cost X frequency for all operations
+
+we can test cost of operations, which varies by computer, but more interesting to the study of algorithms is frequency of operations.
+
+Simplifications
+cost model
+Turing recommended only counting the number of multiplications and recordings (the operations that are most expensive)
+
+tilde notation
+ignore lower order terms
+- when N is large, terms are negligible
+- when N is small, we don't care
+
+### Common Order of Growth Classifications
+
+| order of growth | name | typical code framework | description  | example  | T(2N) / T(N) |
+|---|---|-|------|---------|-----|
+| 1  | constant  | `a = b + c` | statement   | add two numbers   | 1   |
+| logN   | logarithmic  | while (N  > 1)<br>   { N = N / 2; ...  }| divide in half     | binary search     | ~1 |
+| N  | linear       | for (int i = 0; i < N; i++)<br>&nbsp;{ ... } | loop  | find the maximum  | 2            |
+| N log N | linearithmic | mergesort  | divide and conquer | mergesort         | ~2           |
+| N<sup>2</sup>   | quadratic    | for (int i = 0; i < N; i++)<br>&nbsp;for (int j = 0; j < N; j++) <br>&nbsp;{ ... } | double loop    | check all pairs   | 4   |
+| N<sup>3</sup>   | cubic  | for (int i = 0; i < N; i++)<br>&nbsp;for (int j = 0; j < N; j++)<br>&nbsp;&nbsp;for (int k = 0; k < N; k++)<br>&nbsp;&nbsp;&nbsp;{ ... } | triple loop  | check all triples | 8  |
+| 2<supN</sup>    | exponential  | combinatorial search  | exhaustive search  | check all subsets | T(N)  |
+
+For practical implications, we need linear or linearithmic algorithms to keep pace with Moore's Law.
+
+We can look at binary search for an example.
+
+### Binary Search
+Given a sorted aray and a key, find the index of the key in the array.
+
+Interesting tidbit, but there was a bug discovered in Java's implementation of binary search in 2006.
+
+recursive implementation:
+```java
+int binarySearch(int arr[], int l, int r, int x)
+{
+    if (r >= l) {
+        int mid = l + (r - l) / 2;
+        if (arr[mid] == x) return mid;
+        if (arr[mid] > x) return binarySearch(arr, l, mid - 1, x);
+        return binarySearch(arr, mid + 1, r, x);
+    }
+    return -1;
+}
+```
+
+We can also use binary search to speed up the 3 sum problem to n<sup>2</sup> log _n_ speed, as so:
+
+```java
+    public static int count(int[] a) {
+        int n = a.length;
+        Arrays.sort(a);
+        if (containsDuplicates(a)) throw new IllegalArgumentException("array contains duplicate integers");
+        int count = 0;
+        for (int i = 0; i < n; i++) {
+            for (int j = i+1; j < n; j++) {
+                int k = Arrays.binarySearch(a, -(a[i] + a[j]));
+                if (k > j) count++;
+            }
+        }
+        return count;
+    }
+```
+
+### types of analyses
+{: .no_toc }
+- **best case** lower bound on cost
+- **worst case** upper bound on cost
+- **average case** expected cost for random input
+
+how to choose input model?
+- design for worst case
+- OR randomize input
+
+goals: establish difficulty of problem and develop optimal algorithms
+approach: suppress details in analysis and eliminate variability in input model by focusing on worst case
+
+### algorithm models
+{: .no_toc }
+
+- **Tilde** -- provide approximate model
+- **Big Theta** -- classify algorithms
+- **Big Oh**-- develop upper bounds
+- **Big Omega** -- develop lower bounds
+
+### memory usage
+{: .no_toc }
+
+**primitives**
+
+| type | bytes |
+| - | - |
+| boolean | 1 |
+| byte | 1 |
+| char | 2 |
+| int | 4 |
+| float | 4 |
+| long | 8 |
+| double | 8 |
+
+**one-dimensional arrays**
+
+| type | bytes |
+| - | - |
+| char[] | 2N +  24 |
+| int[] | 4N +  24 |
+| double[] | 8N +  24 |
+
+**two-dimensional arrays**
+
+| type | bytes |
+| - | - |
+| char[][] | ~2 M N |
+| int[][] | ~4 M N |
+| double[][] | ~8 M N |
+
+objects take up 16 bytes, references 8 bytes, and each object has padding so it is a multiple of 8 bytes.
+
+e.g., a Date object uses 32 bytes (4 x 3 for int, 16 object, rounded up to 32)
+e.g., a String uses 2N + 64 (16 for object, 8 for reference to array, 2N + 24 for char array, 12 for offset, count, and hash, and 4 for padding)
+
+### questions
+
+1. **3-SUM in quadratic time** Design an algorithm for the 3-SUM problem that takes time proportional to n<sup>2</sup> 2 in the worst case. You may assume that you can sort the nn integers in time proportional to n<sup>2</sup> or better.
+
+2. **Search in a bitonic array.** An array is bitonic if it is comprised of an increasing sequence of integers followed immediately by a decreasing sequence of integers. Write a program that, given a bitonic array of nn distinct integer values, determines whether a given integer is in the array.
+
+- Standard version: Use ~ 3 lg _n_ compares in the worst case.
+- Signing bonus: Use ~ 2 lg _n_compares in the worst case (and prove that no algorithm can guarantee to perform fewer than ~ 2 lg _n_ compares in the worst case).
+
+3. **Egg drop.** Suppose that you have an nn-story building (with floors 1 through _n_) and plenty of eggs. An egg breaks if it is dropped from floor _T_ or higher and does not break otherwise. Your goal is to devise a strategy to determine the value of  _T_ given the following limitations on the number of eggs and tosses:
+
+- Version 0: 1 egg, $$ \le $$ T≤T tosses.
+- Version 1:  $$ \sim 1 \lg $$ n eggs and $$ \sim 1 \lg $$ tosses.
+- Version 2: $$ \sim \lg $$ T eggs and  $$ \sim $$ 2 $$ \lg $$ T tosses.
+- Version 3: 22 eggs and $$ \sim $$ 2 $ \sqrt $$ n tosses.
+- Version 4: 22 eggs and  $$ \le $$ c $$ \sqrt $$ T tosses for some fixed constant c.
