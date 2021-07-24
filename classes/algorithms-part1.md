@@ -456,3 +456,124 @@ e.g., a String uses 2N + 64 (16 for object, 8 for reference to array, 2N + 24 fo
 - Version 2: $$ \sim \lg T $$ eggs and  $$ \sim 2 \lg T$$ tosses.
 - Version 3: 22 eggs and $$ \sim 2 \sqrt n $$ tosses.
 - Version 4: 22 eggs and  $$ \le c \sqrt T $$ tosses for some fixed constant c.
+
+## Bags, Stacks & Queues
+fundamental data types, operations of *insert*, *remove*, *iterate*.
+
+Stack - last in, first out (push, pop)
+Queue - first in,  first out (enqueue, dequeue)
+
+### Stacks
+
+```java
+public class LinkedStack<Item> {
+  private Node first = null;
+
+  private class Node {
+    Item item;
+    Node next;
+  }
+
+  public boolean isEmpty() {
+    return first == null;
+  }
+
+  public void push(Item item) {
+    Node oldfirst = first;
+    first = new Node();
+    first.item = item;
+    first.next = oldfirst;
+  }
+
+  public Item pop() {
+    Item item = first.item;
+    first = first.next;
+    return item;
+  }
+}
+```
+
+```java
+pulbic class FixedCapacityStackOfStrings {
+  private String[] s;
+  private int N = 0;
+
+  public FixedCapacityStackOfStrings(int capacity) {
+    s = new String[capacity];
+  }
+
+  public boolean isEmpty() {
+    return N == 0;
+  }
+
+  public void push(String item) {
+    s[N++] = item;
+  }
+
+  // prevents loitering
+  public String pop() {
+    String item = s[--N];
+    s[N] = null;
+    return item;
+  }
+}
+```
+
+how do you prevent array capacity overflow?
+
+**repeated doubling** -- when array hits capacity, create a new one of twice the length. You can add a custom `resize()` function when the original stack is full.
+
+If array is 1/4 full, you can shrink to half the size.
+
+For stacks, should we use linked list or resizing array?
+
+linked list: every operation takes constant time in the worst case but uses extra time and space to deal with the links
+
+resizing array: every operation takes constant amortized time and less wasted space
+
+### Queues
+```java
+public class LinkedQueueOfStrings {
+  private Node first, last;
+
+  private class Node {
+    String item;
+    Node next;
+  }
+
+  public boolean isEmpty() {
+    return first == null;
+  }
+
+  public void enqueue(String item) {
+    Node oldlast = last;
+    last = new Node();
+    last.item = item;
+    last.next = null;
+    if (isEmpty()) first = last;
+    else           oldlast.next = last;
+  }
+
+  public String dequeue() {
+    String item = first.item;
+    first = first.next;
+    if isEmpty() last = null;
+    return item;
+  }
+}
+```
+
+### Bags
+Like queue and stack, but no `pop()` or `dequeue()` methods, as order doesn't matter.
+
+### Implementations of Stacks
+
+### Questions
+1. Question 1
+Queue with two stacks. Implement a queue with two stacks so that each queue operations takes a constant amortized number of stack operations.
+
+2. Question 2
+Stack with max. Create a data structure that efficiently supports the stack operations (push and pop) and also a return-the-maximum operation. Assume the elements are real numbers so that you can compare them.
+
+3. Question 3
+Java generics. Explain why Java prohibits generic array creation.
