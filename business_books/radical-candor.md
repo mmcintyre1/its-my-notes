@@ -294,3 +294,145 @@ If you are a women who is told you are abrasive:
 Skip level meetings are a good way to understand how your direct reports are managing. You set up a meeting with your direct reports direct reports to understand how they might be managing, to solicit honest feedback.
 
 ## Chapter 7: Team
+This chapter is all about creating a team where everyone loves their job and loves working together.  You can build a team like that if you have career conversations with each of the people on your team, create growth-management plans for each person who works for you once a year, hire the right people, fire the appropriate people, promote the right people, and reward the people who are doing great work but who shouldn’t be promoted, and offer yourself as a partner to your direct reports.
+
+### Career Conversations
+{: .no_toc }
+When rolling out radical candor to your teams, this is the very first thing you should do. It’s your job to understand people’s motivations and ambitions to help them take a step in the direction of their dreams.  This all boils down to giving a damn, and companies can’t give a damn about people – only bosses can.
+
+#### Conversation One: Life Story
+{: .no_toc }
+- Learn what motivates them. Starting from Kindergarten, have them tell you about their life, then focus on moments of change. Values are often revealed in moments of change. Pull out what you see as their motivators and ask them to affirm your understanding.
+- There may be times when you touch on something too personal.  It’s okay to drop it if they seem uncomfortable.
+
+#### Conversation Two: Dreams
+{: .no_toc }
+- What do they want to achieve at the apex of their career?  How do they imagine life at its best?
+
+#### Conversation Three: Eighteen-month plan
+{: .no_toc }
+- Guide them, don’t do it for them.  Here are some questions they can ask themselves: What do I need to learn in order to move in the direction of my dreams?  How should I prioritize the things I need to learn?  Whom can I learn from?
+- Once you get to the bottom of it all, make a list of how the person’s role can change to help them learn the skills needed to achieve each dream; whom they can learn from; and classes they could take or books they could read.  Then, next to each item, note who does what by when – and make sure you have some action items.
+
+### Growth Management.
+{: .no_toc }
+Figure out who needs what opportunities, and how you’re going to provide them.  Make sure you understand how each person’s aspirations are lining up with the needs of the team, and help them come up with a growth-management plan for each person.
+**Growth Management Plans**
+- Three to five bullet points – don’t spend more than fifteen minutes on these.  You should know them well enough by now to do this quickly.
+
+### Hiring
+{: .no_toc }
+You’re building a team that needs a good balance of rock stars and superstars.  Don’t forget that when hiring. **Process**
+- Job description: define team “fit” as rigorously as you define “skills” to minimize bias o Blind skills assessments can also minimize bias.
+- Use the same interview committee for multiple candidates, to allow for meaningful comparisons. Usually composed of about four people.
+- Casual interviews reveal more about team fit than formal ones.  In unguarded moments, candidates will do or say revealing things.
+- Jot down your thoughts right away.
+- In person debrief/decision – don’t make an offer if you’re not dying to hire them
+
+### Firing
+{: .no_toc }
+Firing people is never easy, but sometimes it’s very necessary.
+- Don’t wait too long.  This is the only way to be fair to the person who’s failing, yourself, the company, and especially to the people who are performing really well.
+- Don’t make the decision unilaterally. Avoid making decisions out of anger or frustration. Getting outside input can help prevent this.
+- Give a damn. Fire people with humility. Remember that the reason your firing them is not because they suck, it’s because the job you gave them sucks for them.
+- Follow up. Email people about a month later to check in. You may never hear back, and that’s okay.
+
+**Reward your rock stars**
+- Avoid promotion/status obsession. Praise the things you want more of in creative ways. Good work should not always be rewarded with a new management role, especially for rock stars.
+- Gurus. If you have someone with a niche area of expertise, allow them to be the go-to person for this area.  You might even allow them to spend work hours developing a class.
+- Public presentations.  This is an easy way to help people feel seen and heard, while allowing them to explain the work they do to their colleagues.
+
+### Management is a partnership
+{: .no_toc }
+
+![Radical Candor Management is a Partnership](./assets/radical-candor-mgmt-partnership.png)
+
+
+## Chapter 8: Results
+This all sounds like a ton of work, but the idea is to create a culture where people communicate with each other, and problems solve themselves. This frees up time and energy for you to focus on your team getting great results!
+
+### How to Operationalize the GSD Wheel
+{: .no_toc }
+
+### 1:1 Conversations
+{: .no_toc }
+
+Employees set the agenda, you listen and help them clarify.  These meetings give perspective on what’s working and what’s not working, and allows you to get to know your direct reports better.  Listen and clarify to understand what direction each person working for you wants to head in, and what is blocking them.
+
+#### Tips for 1:1s
+{: .no_toc }
+- **Mind-set** Quit thinking of them as meetings, and more as lunch or coffee to get to know someone better.
+- **Frequency** This depends on how many direct reports you have.  The goal is to meet with each for fifty minutes each week.  If you have more than five direct reports, you may need to have 1:1s for twenty-five minutes every other week.  If you have too many direct reports, start thinking of ways to give leadership opportunities.
+- **Show up!** You’re only going to have seven or eight of these per quarter, so DO NOT CANCEL.
+- **Your direct report’s agenda, not yours** This way, you are listening to what matters to them.  Set some basic expectations for how they deliver the agenda – night before, written out, or not written out at all. (Realistically, will you look at it if you have them send it to you the day before?)
+- **Ask good follow-up questions** Show that you’re really interested, but don’t become a micromanager.
+- **Encourage new ideas in the 1:1**  New ideas are fragile, so invite these ideas so you might help them clarify their thinking and understanding before communicating these ideas to others.
+
+#### Signs from 1:1s that you’re failing as a boss
+{: .no_toc }
+- **Cancellations** This is a sign your partnership isn’t that meaningful, or that you’ve been using the meeting inappropriately.
+- **Updates** Don’t waste this time letting people give updates that could be emailed to you.
+- **Good news only** This is a sign people don’t feel comfortable coming to you with their problems or think you can’t help.  Specifically ask for bad news.
+- **No criticism** If they don’t criticize you, beware.
+- **No agenda** If they keep forgetting to have an agenda, they may be overwhelmed, or may not understand the purpose of the meeting, or they may not think it’s useful at all. Be direct but polite when addressing this.
+
+### Staff Meetings
+{: .no_toc }
+An effective staff meeting has three goals: it reviews how things have gone the previous week, allows people to share important updates, and forces the team to clarify the most important decisions and debates for the coming week. Here’s a sample agenda:
+- **Learn**: review key metrics (twenty minutes)
+  - What went well this week and why?  What went badly?
+- **Listen**: put updates in a shared document (fifteen minutes)
+  - Keep everyone aware of what’s going on so they’re not blindsided and won’t do work someone else is already doing.
+  - Study hall snippets: give 5-7 minutes at the beginning of the meeting for everyone to write down what they’re working on, then 5-7 minutes to pass it around.  This will save you time in the long run.
+- **Clarify**: identify key decisions and debates (thirty minutes)
+  - Remember to separate big debate meetings and big decision meetings, and identify owners for each of these.  Identify a group of people who have to be there, but ideally anyone who wants to attend them should be free to.
+
+### Think Time
+{: .no_toc }
+Block some time on your calendar just to think every day, and don’t cancel this time for anything!  If you don’t do this, the only time you will have to clarify your thinking is at home when you should be sleeping. Hold this blocked think time sacred and get really, seriously angry if anyone tries to schedule over it.  Encourage your team to do the same.
+
+### “Big Debate” Meetings
+{: .no_toc }
+
+Make it clear that you’re debating, not deciding!  There are three purposes of these meetings:
+1. They lower tension.
+   - Self-organizing criticality: a lot of little corrections create stability but one huge correction creates catastrophe.
+2. They allow you to slow down key decisions when appropriate.
+3. They foster a larger culture of debate.
+
+Ask your team to switch roles halfway through the debate, which makes sure people are listening to each other and trying to come up with the best solution.
+
+#### Product of these meetings:
+{: .no_toc }
+- Careful summary of the facts and issues that emerged
+- Clearer definition of the choices going forward
+- Recommendation to keep debating or to move on to a decision (NOT a recommendation for what the decision should be)
+### “Big Decision” Meetings
+{: .no_toc }
+Make very clear to your team that the decisions of this meeting are FINAL, otherwise they’ll just keep appealing them and debating into perpetuity. Feel free to either attend the meeting or let the decider know you have veto power – use it VERY sparingly.
+#### Product of this meeting:
+{: .no_toc }
+- Careful summary of the meeting distributed to all relevant parties
+
+All-Hands Meeting Now that a decision has been made by the relevant parties, it’s time to bring others along.  These meetings have two parts:
+1. Presentation
+   1. To persuade people the company is making good decisions and headed in the right direction
+   2. Focus on one or two initiatives
+   3. These are given by the team working on the initiative, not the boss
+2. Q&A
+   1. This allows leaders to hear dissent and address it head-on. The answers to these questions are usually more persuasive than the presentations.
+   2. This portion should be handled by the CEO/founders. There is a real power in explaining important decisions and encouraging dissent.
+
+### Execution Time (No Meeting Time)
+{: .no_toc }
+Be absolutely ruthless about making sure your team has time to execute.  Encourage them to block execution time just like they would block think time.
+
+### Kanban Boards
+{: .no_toc }
+This is a great way to create a visible workflow so nothing falls through the cracks.  It’s a board with three columns: To Do, In Progress, and Done.  Then, buy a bunch of post-its and assign each person a color.  They can then put their tasks and move them around on the board, which will help you see who is really driving results and who’s just along for the ride.
+
+### Walk Around.
+{: .no_toc }
+Spend time with the people on your team simply by walking around and asking what they’re working on.  This is a great way to connect with the whole company, not just your direct reports.  You’re going to notice things you wouldn’t have otherwise noticed:
+- They’ll help you find the devil in the details.  You don’t want to be the last person to know when there’s an issue.
+- Being aware of these problems allows you to roll up your sleeves and fix them, squashing the “that’s beneath me” mentality bosses often get.
