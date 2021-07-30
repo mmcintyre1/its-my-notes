@@ -8,4 +8,5 @@ gem "jekyll-optional-front-matter"
 gem "jekyll-titles-from-headings"
 gem "jekyll-feed"
 gem "jekyll-remote-theme"
+gem 'jekyll-spaceship'
 gem 'github-pages', group: :jekyll_plugins

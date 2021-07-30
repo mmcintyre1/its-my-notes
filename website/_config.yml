@@ -22,6 +22,7 @@ plugins:
   - jekyll-titles-from-headings
   - jekyll-feed
   - jekyll-remote-theme
+  - jekyll-spaceship
 
 kramdown:
   syntax_highlighter_opts:
