@@ -146,5 +146,19 @@ Unix chose to make IO devices plugins (polymorphism allows things to becomes plu
 In typical calling tree, high level functions call mid level functions, which call low level functions, etc. The caller was forced to mention the name of the module that contained the callee, meaning that the flow of control was dictated by the behavior of the system.
 
 ```plantuml!
-Bob -> Alice : hello world
+allow_mixing
+
+interface interface {
++F()
+}
+
+class ML1 {
++F()
+}
+
+component HL1
+
+HL1 -r-> interface
+ML1 -u-|> interface
+HL1 .d.> ML1
 ```
