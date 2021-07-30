@@ -282,7 +282,7 @@ PLATFORMS
 
 DEPENDENCIES
   github-pages
-  jekyll (~> 3.3)
+  jekyll
   jekyll-default-layout
   jekyll-feed
   jekyll-optional-front-matter
