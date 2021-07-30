@@ -4,6 +4,7 @@ This is a place where I write about things I've learned about. My so-called know
 
 ### Tech Books
 * [Designing Data-Intensive Applications](tech_books/designing-data-intensive-applications.md) by **Martin Kleppmann**, 2015.
+* [Clean Architecture](/tech_books/clean-architecture.md) by **Robert Martin**, 2017
 
 ### Business Books
 * [Radical Candor](business_books/radical-candor.md) by **Kim Scott**, 2018.
