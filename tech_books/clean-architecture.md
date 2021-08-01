@@ -9,7 +9,8 @@
 {:toc}
 </details>
 
-## Chapter 1: What is Design and Architecture?
+## Part I: Introduction
+### Chapter 1: What is Design and Architecture?
 Traditionally, architecture seems to imply high level details, while design is low-level structures and details, but little details support high-level details-- it's all part of the same whole of the system.
 
 **The goal of software architecture is to minimize the human resources required to build and maintain the required system.**
@@ -22,13 +23,13 @@ Developers tell themselves two lies:
 
 "The only way to go fast is to go well".
 
-### Summary
+#### Summary
 {: .no_toc }
 Avoid overconfidence and take software design seriously.
 
 In order to take software design seriously, you need to know what good design and architecture is -- you need to know attributes of a system that minimizes effort and maximizes productivity.
 
-## Chapter 2: A Tale of Two Values
+### Chapter 2: A Tale of Two Values
 Every software system provides two different values to stakeholders:
 
 **Behavior**
@@ -54,20 +55,21 @@ Is a system working (behavior) or the ease of change (architecture) more importa
 
 Business managers are not equipped to evaluate the importance of architecture, so it is responsibility of software dev team to assert importance of architecture over urgency of features.
 
-## Chapter 3: Paradigm Overview
+## Part II: Programming Paradigms
+### Chapter 3: Paradigm Overview
 
-### Structured Programming
+#### Structured Programming
 {: .no_toc }
 - discovered by Edsger Wybe Dijkstra in 1968
 - `goto` statements harmful to program structure, replace with `if/then/else` and `do/while/until` constructs
 - _"Structured programming imposes discipline on the direct transfer of control"_
 
-### Object-Oriented Programming
+#### Object-Oriented Programming
 {: .no_toc }
 - discovered by Ole Johan Dahl and Kristen Nygaard in 1966
 - _"Object-oriented programming imposes discipline on the indirect transfer of control"_
 
-### Functional Programming
+#### Functional Programming
 {: .no_toc }
 - discovered before computers by Alonzo Church who in 1936 invented $ \lambda$-calculus (lambda calculus)
 - typically no assignment statements
@@ -75,13 +77,13 @@ Business managers are not equipped to evaluate the importance of architecture, s
 
 Patterns typically _take_ something away and are negative in intent, meaning there likely isn't anything else to take away and there won't be any other paradigms. All three were invented before 1968 and there's been nothing since.
 
-### Summary
+#### Summary
 {: .no_toc }
 - we use polypmorphism to cross architectural boundaries
 - we use functional programming to impose discipline on the location of and access to data
 - we use structured programming as the algorithmic foundation of our modules
 
-## Chapter 4: Structured Programming
+### Chapter 4: Structured Programming
 Dijkstra saw that programming was hard, and the cognitive load was too high to keep all details in mind at once. His answer was to use the mathematical discipline of _proof_, or the idea of using composable elements to create programs.
 
 The use of `goto` prevented a program from being able to be decomposed recursively, and that good uses of `goto` really corresponded to `if/then/else` or `do/while` control structures.
@@ -96,7 +98,7 @@ Dijkstra: "Testing shows the presence, not the absence, of bugs".
 
 Structured programming allows us to decompose a program into small provable functions that are falsifiable, i.e., testable.
 
-### Summary
+#### Summary
 {: .no_toc }
 Ability to create falsifiable units of programming that makes structured programming valuable today, and the reason unrestrained `goto`s aren't used.
 
@@ -104,12 +106,12 @@ Functional decomposition is great practice.
 
 Software is like a science, from low to high level, and is driven by falsifiability. Architects define modules, components, and services that are easily testable (falsifiable), using restrictive disciplines.
 
-## Chapter 5: Object-Oriented Programming
+### Chapter 5: Object-Oriented Programming
 What is OOP? Some say "combo of data and function", but that implies that `o.f()` is different from `f(o)` , which is absurd. Others say it is a way to model real world, but this is too loose and evasive.
 
 Many say it is attributes of _polymorphism_, _encapsulation_, and _inheritance_.
 
-### Encapsulation
+#### Encapsulation
 {: .no_toc }
 Being able to draw a cohesive line around data and functions, seen as private data members and public functions of a class.
 
@@ -117,13 +119,13 @@ Perfect encapsulation exists in C, a non-OO language. Data structures and functi
 
 Introducing `public`, `private`, and `protected` keywords a way to regain encapsulation, but this is a hack. **Many OO languages have little or no encapsulation.**
 
-### Inheritance
+#### Inheritance
 {: .no_toc }
 Inheritance is simply the redeclaration of a group of variables and functions within an enclosing scope.
 
 OO languages allow for easier inheritance that isn't a workaround, as well as multiple inheritance, but this functionality exists in non-OO languages
 
-### Polymorphism
+#### Polymorphism
 {: .no_toc }
 Giving a single interface to entities of different types (think, file interface in Unix)
 
@@ -141,9 +143,10 @@ Polymorphism is an application of pointers to functions, which have been in use 
 
 Unix chose to make IO devices plugins (polymorphism allows things to becomes plugins to the source code) because _device independent_ programs are more adaptable. For example, punch cards to magnetic tape. Most OS's implement this device independence.
 
-### Dependency Inversion
+#### Dependency Inversion
 {: .no_toc }
 In typical calling tree, high level functions call mid level functions, which call low level functions, etc. The caller was forced to mention the name of the module that contained the callee, meaning that the flow of control was dictated by the behavior of the system.
+
 
 ```plantuml!
 allow_mixing
@@ -162,3 +165,124 @@ HL1 -r-> interface
 ML1 -u-|> interface
 HL1 .d.> ML1
 ```
+
+Polymorphism means any source code dependency, no matter where it is, can be inverted. What this means is that working in systems written in OO languages have _absolute control_ over direction of all source code dependencies.
+
+```plantuml!
+[UI] -l-> [Business Rules]
+[Database] -r-> [Business Rules]
+[Business Rules] .l.> [UI]
+[Business Rules] .r.> [Database]
+```
+
+Database and UI depend on the Business Rules, and from here components can be _deployed independently_.
+
+#### Summary
+{: .no_toc }
+OO is the ability, through the use of polymorphism, to gain absolute control over every source code dependency in the system. Architect can create plugin architecture where modules that contain high-level policies are independent of modules that contain low-level details, and all these modules can be deployed independently.
+
+### Chapter 6: Functional Programming
+We might write a program to compute squares in Java like this:
+```java
+for (int i=0; i <25; i ++>) {
+  System.out.println(i*i);
+}
+```
+
+In Clojure, a derivative of Lisp, it'd look like this:
+```clojure
+(println (take 25 (map (fn [x] (* x x)) (range))))
+```
+
+The key to functional programming is that variables do not vary (are immutable). In Java, the `i` variable mutates.
+
+#### Immutability and Architecture
+{: .no_toc }
+All race conditions, deadlock conditions, and concurrent update problems are due to mutable variables, and if no variable is ever updated you can't have these concurrency problems.
+
+We might be able to make everything immutable, if we had infinite storage and infinite processing power.
+
+One compromise is to split mutable and immutable components, and to protect the mutable component by using a transaction or retry-based memory in front of that mutable component.
+
+```plantuml!
+[Immutable Component 1] -d-> [Mutable Component 1]
+[Immutable Component 2] -d-> [Mutable Component 1]
+[Immutable Component 3] -d-> [Mutable Component 1]
+[Mutable Component 1] <-d-> [Transactional Memory]
+```
+
+Architects should push as much processing as possible to immutable components.
+
+#### Event Sourcing
+{: .no_toc }
+Store only the transactions, and re-compute the state as needed. For example, banks store withdrawals and debits, and if the account balance is needed, all the debits and withdrawals are tallied. Nothing is ever deleted or updated, instead of CRUD we have CR.
+
+This is the way source control system works.
+
+#### Summary
+{: .no_toc }
+Each paradigm takes something away. We have learned what not to do, but software is not a rapidly advancing tech, and the rules are the same as they were in 1946. Software is still composed of sequence, selection, iteration, and indirection.
+
+## Part III: Design Principles
+SOLID principles tell us how to arrange functions and data into classes. The goal of the principles is the creation of mid-level software structures that:
+- tolerate change
+- are easy to understand
+- are the basis of components that can be used in many software systems
+
+### SOLID Principles
+{: .no_toc }
+**SRP**: The Single Responsibility Principle
+- each software module has one, and only one, reason to change
+
+**OCP**: The Open-Closed Principle
+- systems should be easy to amend by adding new code, not changing existing code
+
+**LSP**: The Liskov Substitution Principle
+- to build a software system from interchangeable parts, those parts must adhere to a contract that allows those parts to be substituted for one another
+
+**ISP**: The Interface Segregation Principle
+- avoid depending on things you don't use
+
+**DIP**: The Dependency Inversion Principle
+- code that implements high-level policy should not depend on the code that implements low-level details but rather should rely on policies
+
+### Chapter 7: SRP: Single Responsibility Principle
+_"A module should be responsible to one, and only one, actor."_
+
+A module is a cohesive set of functions and data, typically a source file.
+
+Best to look at symptoms of violating this principle.
+#### Symptom 1: Accidental Duplication
+{: .no_toc }
+```plantuml!
+allow_mixing
+left to right direction
+
+class Employee {
+  +calculatePay();
+  +reportHours();
+  +save();
+}
+
+actor accounting
+actor humanresources
+actor dbas
+
+accounting --> Employee
+humanresources --> Employee
+dbas --> Employee
+```
+
+Three different actors responsible for three different methods - accounting department for `calculatePay()`, human resources for `reportHours()`, and DBAs for `save()`. If two methods rely on the same underlying algorithm, changing it will change its affect on both methods, which might cause problems.
+
+#### Symptom 2: Merges
+{: .no_toc }
+If there are two actors that need to change a source file and those file changes need to be merged together, this is a symptom of violation of SRP.
+
+There are a few solutions to this problem, and they all involve separating the code from the single class. We could create three classes, one for each method, and then thread them together using the _Facade_ pattern.
+
+#### Summary
+{: .no_toc }
+SRP is about functions and classes, but it appears at two more levels:
+- at components, it becomes Common Closure Principle
+- at architectural, it is Axis of Change (responsible for creating Architectural Boundaries)
