@@ -286,3 +286,60 @@ There are a few solutions to this problem, and they all involve separating the c
 SRP is about functions and classes, but it appears at two more levels:
 - at components, it becomes Common Closure Principle
 - at architectural, it is Axis of Change (responsible for creating Architectural Boundaries)
+
+### Chapter 8: OCP: The Open-Closed Principle
+_"A software artifact should be open for extension but closed for modification"_
+
+The behavior of a software artifact should be extendible without having to modify that artifact.
+
+When we design architecture, we want component relationships to be unidirectional, and components that should be protected from change should be depended on by lower level components, i.e., if component A should be protected from changes in component B, component B should rely on component A.
+
+At the architectural level, we separate functionality based on how, why, and when things change, and then organize that separated functionality into a hierarchy of components. High-level components are protected from changes made to low-level components.
+
+#### Summary
+{: .no_toc }
+The goal of OCP, one of the driving forces behind architecture of systems, is to make the system easy to extend without incurring a high impact of change. We partition the system into components, and arrange those components in a dependency hierarchy that protects higher-level components from changes in lower-level components.
+
+### Chapter 9: LSP: The Liskov Substitution Principle
+
+_"What is wanted here is something like the following substituion property: If for each object `o1` of type `S` there is an object `o2` of type `T` such that for all programs `P` defined in terms of `T`, the behavior of `P` is unchanged when `o1` is substituted for `o2` then `S` is a subtype of `T`."_
+
+The following design conforms to LSP because Billing does not depend in any way on the two subtypes of License.
+
+```plantuml!
+object Billing
+
+interface License {
++calcFee
+}
+
+object PersonalLicense
+object BusinessLicense
+
+Billing -r-> License
+PersonalLicense -u-> License
+BusinessLicense -u-> License
+```
+
+The canonical violation of LSP, the Square/Rectangle problem below:
+```plantuml!
+object User
+
+class Rectangle {
++setH
++setW
+}
+
+class Square {
++setSide
+}
+
+User -r-> Rectangle
+Square -u-|> Rectangle
+```
+
+#### Summary
+{: .no_toc }
+LSP should be extended to the level of architecture. Violating substitutability can cause a system's architecture to be polluted with a significant amount of extra mechanisms.
+
+### Chapter 10: ISP: Interface Segregation Principle
