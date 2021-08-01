@@ -12,7 +12,7 @@ footer_content: "Copyright &copy; 2021 Michael McIntyre. "
 # theme: just-the-docs
 remote_theme: pmarsceill/just-the-docs
 color_scheme: custom-dark
-baseurl: /reading-notes
+baseurl: /learnings
 url: https://mmcintyre1.github.io
 
 plugins:
