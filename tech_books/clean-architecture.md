@@ -322,6 +322,7 @@ BusinessLicense -u-> License
 ```
 
 The canonical violation of LSP, the Square/Rectangle problem below:
+
 ```plantuml!
 object User
 
@@ -343,3 +344,32 @@ Square -u-|> Rectangle
 LSP should be extended to the level of architecture. Violating substitutability can cause a system's architecture to be polluted with a significant amount of extra mechanisms.
 
 ### Chapter 10: ISP: Interface Segregation Principle
+_"No client should be forced to depend on methods it does not use."_
+
+Source code dependencies are often language dependent: in statically typed languages like Java, programmers declare source code dependencies, and changes would force recompile and redeploy. In dynamically typed languages like Python and Ruby, these dependencies are inferred at runtime and thus allow more flexible and loosely coupled systems to be created.
+
+ISP still has architectural ramifications, however: imagine System S implementing Framework F on top of Database D. Changes to Framework F, even if System S doesn't use them, might require redeploys to Database D and System S.
+
+### Chapter 11: DIP: The Dependency Inversion Principle
+_"The most flexible systems are those in which source code dependencies only refer to abstractions, not concretions."_
+
+While we can't completely avoid relying on concretions (`String` in Java, for example), we should be worried about _volatile_ concrete elements, those subject to frequent change. We can rely on stable abstractions and reduce the volatility of interfaces by adding functionality to implementations without making changes to interfaces.
+
+This boils down to a specific set of coding practices:
+- **Don't refer to volatile concrete classes** - refer to abstract classes instead
+- **Don't derive from volatile concrete classes** - corollary of previous rule
+- **Don't override concrete functions** - concrete functions require source code dependencies, and overriding them does not eliminate those dependencies, you inherit them
+- **Never mention the name of anything concrete and volatile** - a restatement of the principle itself
+
+We use _Factories_ to manage the dependency and create the class. This allows us to separate the system into two components, one concrete, the other abstract.
+
+#### Summary
+{: .no_toc }
+DIP is the most visible organizing principle in architecture diagrams, and the separation between concrete and abstract will inform all diagrams. The _Dependency Rule_ is the way in which dependencies cross from concrete to more abstract in a single direction.
+
+## Part IV: Component Principles
+
+### Chapter 12: Components
+**Components are the units of deployment.** jar files in java, gem files in Ruby, DLL in .NET. In compiled languages, they are aggregation of binary files, and in interpreted languages they are aggregations of source files.
+
+Well-designed components retain the ability to be independently deployable and thus independently developable.
