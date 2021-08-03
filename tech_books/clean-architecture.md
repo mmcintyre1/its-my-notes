@@ -475,3 +475,34 @@ Best components are maximally stable and abstract, and maximally unstable and co
 ## Part V: Architecture
 
 ### Chapter 15: What is Architecture?
+A software architect is a programmer, the best programmer, and they continue to take programming tasks, because it is important they experience the problems they are creating for the rest of programmers.
+
+The architecture of a software system is the shape given to that system by those who build it, and the purpose of the shape is to facilitate the _development_, _deployment_, _operation_, and _maintenance_ of the software system.
+
+_"The strategy behind that facilitation is to leave as many options open as possible for as long as possible."_
+
+The primary purpose of architecture is to support the life cycle of the system, and good architecture makes the system easy to understand, easy to develop, easy to maintain, and easy to deploy, to minimize lifetime cost and maximize programmer productivity.
+
+#### development
+{: .no_toc }
+systems need to be easy to develop, and this ease is dictated by different team structures. small teams might be predisposed to a monolith, while distributed teams to microservices.
+
+#### deployment
+{: .no_toc }
+a goal of architecture should be to make sure a system is deployable with a single action
+
+some things might leave a system easy to develop but hard to deploy: e.g., microservices
+
+#### operation
+{: .no_toc }
+it is easier to scale out hardware to help operation, so its impact on architecture is less pronounced. hardware is cheap and people are expensive.
+
+The architecture of a system makes the operation of the system readily apparent to the developers; it should reveal operation.
+
+#### maintenance
+{: .no_toc }
+likely the most costly aspect of software systems, and the primary cost is _spelunking_ (digging through existing software, trying to find the best place and strategy to add a new feature or repair a defect) and risk.
+
+Software has two types of value: behavior and structure. We keep software soft by leaving as many options open as possible. The details we leave open are the ones that don't matter.
+
+Every software system can be decomposed into two major elements: **policy** and **details**. Policy is where the value of the system lives, details enable computers or humans to communicate with policy, and the goal of architect is to make a system that recognizes policy as most essential, and ensures details are irrelevant to that policy. These details can be delayed and deferred, e.g., what database, whether REST compliant, web server, etc.
