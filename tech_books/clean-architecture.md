@@ -373,3 +373,105 @@ DIP is the most visible organizing principle in architecture diagrams, and the s
 **Components are the units of deployment.** jar files in java, gem files in Ruby, DLL in .NET. In compiled languages, they are aggregation of binary files, and in interpreted languages they are aggregations of source files.
 
 Well-designed components retain the ability to be independently deployable and thus independently developable.
+
+### Chapter 13: Component Cohesion
+Three principles of component cohesion:
+1. **The Reuse/Release Equivalence Principle** (REP)
+- people who want to reuse software components can not and will not do so unless those components are tracked through a release process and are given release numbers, and developers might choose to upgrade or not based on change log
+- from arch. view, classes and modules that are formed into a component must belong to a cohesive group; grouped classes and modules should be releasable together
+
+2. **The Common Closure Principle** (CCP)
+- _"Gather into components those classes that change for the same reasons and at the same times. Separate into different components those classes that change at different times and for different reasons."_
+- most of the time maintainability is more important than reusability, so gathering components that change at the same time together enhances maintainability
+- SRP restated for components, as well as Open Closed principle (open for extension but closed for modification)
+
+3. **The Common Reuse Principle** (CRP)
+- Classes and modules that tend to be reused together belong in the same component
+- CRP tells us more about which classes _shouldn't_ be part of a component -- if classes and modules are together, they should be inseparable. \
+- _"Don't depend on things you don't need"_
+
+#### Tension Diagram for Component Cohesion
+These principles are often in contention.
+![Tension Diagram for Component Cohesion](./assets/clean-architecture-tension-diagram-for-component-cohesion.png)
+
+### Chapter 14: Component Coupling
+#### The Acyclic Dependencies Principle
+{: .no_toc }
+In the past, there was an idea to allow relative isolation for developers to work collaboratively which was to defer that integration until the end of the week, i.e., _a weekly build_. Eventually, the integration time creeps earlier in the week, and the build schedule grows, and this is not ideal.
+
+A solution to the above would be to partition development into releasable components owned by a single dev or a team of devs, so consuming teams might choose whether they want to update their used components.
+
+Integration now happens in small increments, and no team is at the mercy of others; integration can be continuous.
+
+In order to make this work, you need to manage the _dependency structure_, and there can be no cycles; regardless of what component you end up at, it is impossible to follow the dependency tree and end up at the original component. We need a _directed acyclic graph_ (DAG).
+
+We know how to build systems when we understand the dependencies between its parts.
+
+With cycles in the dependency graph, it is very difficult to work out order in which you must build components.
+
+There are two ways we could break the cycle:
+1. Use the dependency inversion principle (DIP) to create an interface of the used methods
+2. create a new component with the classes that the two components depend on
+
+As systems grow, these dependencies will appear; the component structure can't be designed from the top down. We have come to expect that large-grained decompositions like components, will also be high-level functional decompositions.
+
+> Decomposition in computer science, also known as factoring, is breaking a complex problem or system into parts that are easier to conceive, understand, program, and maintain.
+
+In reality, component dependency diagrams have little to do with the function of a system, they are merely describing _buildability_ and _maintainability_.
+
+One of the overriding concerns is the isolation of volatility: we don't want frequently changing components to affect stable, high-value components. We don't want to change business rules because our GUI changes.
+
+This process needs to happen after we've built the system a bit: we don't know about common closure, we don't know about reusable elements, and we almost certainly would create dependency cycles.
+
+#### Stable Dependencies Principle
+{: .no_toc }
+Ensures that modules that are intended to be easy to change are not depended on by modules that are harder to change.
+
+**Stability** is related to the amount of work required to make a change.
+
+```plantuml!
+[A] -d-> [X]
+[B] -d-> [X]
+[C] -d-> [X]
+```
+
+Component X is stable, because three components depend on it. X is _responsible_ for three components, but depends on none, so it is _independent_.
+
+```plantuml!
+[Y] -d-> [A]
+[Y] -d-> [B]
+[Y] -d-> [C]
+```
+
+Component Y is very unstable. No components depend on it, so it is irresponsible, and it is dependent. Changes may come from three external sources.
+
+**Stability Metrics**
+We can count the dependencies coming in and going out of a component, and this is the _positional_ stability of the component
+- _Fan-in_: incoming dependencies
+- _Fan-out_: outgoing dependencies
+- _Instability_: $ \int_0^1 I = Fanout \div (Fanin + Fanout) $
+
+When I is equal to 1, no other component depends on this component -- it is irresponsible and dependent, meaning there is no reason not to change it if needed
+
+When I  is equal to 0, it means the component is depended on by other components but does not itself depend on other components. It is responsible and independent (and stable) -- lots of dependents make it hard to change and nothing forces it to change.
+
+I metric of a component should be larger than the I metrics of the components that it depends on, that it should decrease in the direction of the dependency.
+
+Changeable components on top and stable components on bottom.
+
+#### The Stable Abstractions Principle
+{: .no_toc }
+_"A component should be as abstract as it is stable"_
+
+- $ Nc $: the number of classes in the component
+- $ Na $: the number of abstract classes and interfaces in the component
+- $ A $: abstractness.$ A = Na \div Nc $
+
+Best components are maximally stable and abstract, and maximally unstable and concrete.
+
+- **Zone of Pain** - highly stable, concrete -- if these components are volatile (need to be changed often), this is painful
+- **Zone of Uselessness** - maximally abstract but no dependents -- these components are useless
+
+## Part V: Architecture
+
+### Chapter 15: What is Architecture?
