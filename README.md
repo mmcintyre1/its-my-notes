@@ -10,7 +10,7 @@ This is a place where I write about things I've learned about. My so-called know
 * [Radical Candor](business_books/radical-candor.md) by **Kim Scott**, 2018.
 
 ### Classes
-* [Algorithsm, Part I](classes/algorithms-part1.md) by **Robert Sedgewick, Kevin Wayne offered through Coursera**, 2021.
+* [Algorithms, Part I](classes/algorithms-part1.md) by **Robert Sedgewick, Kevin Wayne offered through Coursera**, 2021.
 
 ### Other Books
 * [The Three Kingdoms, Part 1](other_books/the-three-kingdoms-vol-1.md) by **Luo Guanzhong, Yu Sumei (t)**, 1522, 2014.
