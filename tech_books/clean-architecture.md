@@ -506,3 +506,126 @@ likely the most costly aspect of software systems, and the primary cost is _spel
 Software has two types of value: behavior and structure. We keep software soft by leaving as many options open as possible. The details we leave open are the ones that don't matter.
 
 Every software system can be decomposed into two major elements: **policy** and **details**. Policy is where the value of the system lives, details enable computers or humans to communicate with policy, and the goal of architect is to make a system that recognizes policy as most essential, and ensures details are irrelevant to that policy. These details can be delayed and deferred, e.g., what database, whether REST compliant, web server, etc.
+
+### Chapter 16: Independence
+Good architecture must support:
+- use cases and operation of the system
+- maintenance of the system
+- development of the system
+- deployment of the system
+
+#### Use Cases
+{: .no_toc }
+Architecture must support intent of the system. Architecture does not wield much influence over _behavior_, so best thing architecture can do is clarify and expose intent of the system and make it visible at the architectural level.
+
+These exposed elements will be classes or functions that have prominent positions within architecture and will be clearly named to describe that.
+
+#### Operation
+{: .no_toc }
+A system must be structured to allow its operation, whether that is 100,000 customer orders per second or 2,000 records per second throughput. It is best to leave open decisions on system structure (monolith, microservices).
+
+#### Development
+{: .no_toc }
+_"Any organization that designs a system will produce a design whose structure is a copy of the organization's communication structure"_ - Conway's Law
+
+A system that must be developed by an organization with many teams and many concerns must have an architecture that facilitates independent actions by those teams.
+
+#### Deployment
+{: .no_toc }
+The goal is "immediate deployment", achieved through the proper partitioning and isolation of the components of the system.
+
+A good architecture supports use cases and balances that with a component structure that mutually satisfies them all. This is hard because all use cases are not known, so leaving the system open to change in all the ways it must change is important.
+
+#### Decoupling Layers
+{: .no_toc }
+Use SRP and CCP to separate components that change for different reasons and collect what changes for the same reasons, and divide those into decoupled horizontal layers.
+
+#### Decoupling Use Cases
+{: .no_toc }
+Group together use cases in the same way we did for components, and make those the vertical slices across your horizontal layers. We shouldn't have to modify use cases, just add more.
+
+Then, we can choose a decoupling mode -- is it service-oriented architecture (SOA)? What needs to be run in the same address space, what can be separated to a different service? This option can be left open.
+
+If decoupling is done well, it should be easy to hot-swap components in the live system. Adding a new use case should be as simples as adding a new jar file or service to the system.
+
+Be wary of true duplication vs false duplication. If you have a change that needs to be reflected in all its duplicated elements, that is true duplication, but if you build an abstraction over duplicated code that is really two separate entities that evolve along separate paths, this is accidental duplication and can be largely ignored.
+
+#### Decoupling Modes
+{: .no_toc }
+- **Source level** - we can control dependencies between source code modules so changes to one don't force changes or recomp. to others
+- **Deployment level** - decoupled components are partitioned into independently deployable units such as jar files, gem files, or dlls
+- **Service level** - reduce dependencies down to data structures and only communicate through network packets
+
+How to choose? One method is to decouple at the service-level by default, but this is often a waste in effort, memory, and cycles (the first being most expensive).
+
+Good architecture protects the majority of the source code from these changes, and leaves the option open as long as possible.
+
+### Chapter 17: Boundaries: Drawing Lines
+Software architecture is the art of drawing boundaries that separate software elements from one another and restrict one side from knowing about those on the other. Coupling saps human resources required to build systems.
+
+Draw lines between things that matter and things that do not. E.g., the database doesn't matter to the GUI, so there should be a line between the two.
+
+Some have thought that the database is the embodiment of the business rules, but that is false. The database is a tool that the business rules use _indirectly_. All the business rules need to know about is that there is a set of functions to fetch/save data.
+
+```plantuml!
+allow_mixing
+component BusinessRules
+interface DatabaseInterface
+component DatabaseAccess
+database Database
+
+BusinessRules -d-> DatabaseInterface
+DatabaseAccess -u-|> DatabaseInterface
+DatabaseAccess -r-> Database
+```
+
+We can draw a line across the inheritance relationship, just below the DatabaseInterface. The Database could be implemented with Oracle or MySQL or Couch or Datomic or flat files, and the business rules don't care.
+
+Also worth noting, _IO is irrelevant_.
+
+This is all a _plugin architecture_, or the idea that we could swap layers as plugins to business rules.
+
+#### Summary
+{: .no_toc }
+To draw boundary lines in software architecture, you first partition the system into components. Some of those components are core business rules, others are plugins that contain necessary functions that are not related to the core business. Then you arrange the code in those components such that the arrows between them point in one direction -- toward the core business.
+
+### Chapter 18: Boundary Anatomy
+**monolith** - the simplest and most common architectural boundary, simply disciplined segregation of functions and data within a single processor and a single address space. From a deployment view, this is a single executable file.
+
+Even in a monolith, OO paradigms allow us to decouple classes and function calls; dependencies cross boundaries _towards the higher-level component_.
+
+### Chapter 19: Policy and Level
+Software systems are statements of policy: a program is a detailed description of the policy by which inputs are transformed to outputs.
+
+Within a system are many smaller statements of policy, and architecture is separating those policies and regrouping based on the ways that they change, often in a directed acyclic graph, and the direction of those dependencies is based on the level of the components they connect. Low-level components to depend on high-level components.
+
+A definition of level would be distance from the inputs and outputs. Higher level policies that are farthest from the inputs and outputs tend to change less frequently and for more important reasons, while lower level policies change more frequently and with more urgency but for less important reasons.
+
+### Chapter 20: Business Rules
+If we divide our apps into business rules and plugins, what is a business rule? Simply they are rules or procedures that make or save money. They would make or save the business money even if implemented manually. E.g., a bank charging N% interest on a loan. These are _Critical Business Rules_, because they are critical to the business itself. These items typically need data, called _Critical Business Data_. Bounded together, they are an object called an _Entity_.
+
+```plantuml!
+class Loan {
+  + principle
+  + rate
+  + period
+  + makePayment()
+  + applyInterest()
+  + chargeLateFee()
+}
+```
+
+We can see Critical Business Data and Critical Business Rules together in the above class, although it doesn't have to be a class -- it could be any object.
+
+Sometimes, business rules might only save money when used in an automated way. This is a _use case_, or a description of the way an automated system would be used. Use cases control when Critical Business Rules within entities are invoked. These use cases use the Request and Response model, where a use case accepts simple request data structures for its input and returns simple response data structures as its output.
+
+### Chapter 21: Screaming Architecture
+If you look at a home, or a library, the architecture screams the function. A software application should scream about the use cases of the application.
+
+A good architecture allows decisions about frameworks, databases, web servers, and other environmental issues and tools to be deferred and delayed.
+
+Also, the Web is an IO device, not an architecture.
+
+Frameworks are tools, not ways of life.
+
+If your system architecture is all about use cases, you should be able to unit test all those use cases without any frameworks in place.
