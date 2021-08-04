@@ -8,3 +8,6 @@
 
 > When the facts change, I change my mind.
 - John Maynard Keynes
+
+> Any organization that designs a system (defined broadly) will produce a design whose structure is a copy of the organization's communication structure.
+- Mel Conway, _How Do Committees Invent?_, 1968
