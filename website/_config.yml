@@ -68,6 +68,11 @@ defaults:
       parent: Other Books
       nav_exclude: true
   - scope:
+      path: "articles"
+    values:
+      parent: Articles
+      nav_exclude: true
+  - scope:
       path: "classes"
     values:
       parent: Classes

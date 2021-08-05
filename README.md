@@ -19,6 +19,8 @@ This is a place where I write about things I've learned about. My so-called know
 ### Favorite Quotes
 * [My Favorite Quotes](quotes/quotes.md)
 
+### Articles
+
 
 ### To Read
 [Getting the Best Employee Ideas](https://hbr.org/2008/02/getting-the-best-employee-idea)
