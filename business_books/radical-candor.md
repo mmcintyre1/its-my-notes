@@ -407,9 +407,11 @@ Ask your team to switch roles halfway through the debate, which makes sure peopl
 - Careful summary of the facts and issues that emerged
 - Clearer definition of the choices going forward
 - Recommendation to keep debating or to move on to a decision (NOT a recommendation for what the decision should be)
+
 ### “Big Decision” Meetings
 {: .no_toc }
 Make very clear to your team that the decisions of this meeting are FINAL, otherwise they’ll just keep appealing them and debating into perpetuity. Feel free to either attend the meeting or let the decider know you have veto power – use it VERY sparingly.
+
 #### Product of this meeting:
 {: .no_toc }
 - Careful summary of the meeting distributed to all relevant parties
