@@ -629,3 +629,76 @@ Also, the Web is an IO device, not an architecture.
 Frameworks are tools, not ways of life.
 
 If your system architecture is all about use cases, you should be able to unit test all those use cases without any frameworks in place.
+
+### Chapter 22: The Clean Architecture
+Most architectures try to achieve the same thing, _separation of concerns_, through dividing the system into layers that have the following characteristics:
+- independent of frameworks
+- testable
+- independent of the UI
+- independent of the database
+- independent of any external agency
+
+![Clean Architecture](assets/clean-architecture-circles.jpg)
+
+The further in you move, the higher level the software is.
+
+_"Source code dependencies must point only inward, toward higher-level policies."_
+
+**entities** - describe enterprise-wide Critical Business Rules; can be object with methods, or set of data structures and functions
+**use cases** - contains application specific business rules, encapsulating and implementing all the use cases of the system
+**interface adapters** - converts data from a format most useful for use cases and identities to a format for some external agency
+**framework and drivers** - this is where all the details go, and there isn't much code here other than glue code
+
+isolated, simple data structures are passed across the boundaries -- we don't want the data structures to have any sort of dependency that violates the dependency rule.
+
+### Chapter 23: Presenters and Humble Objects
+**The Humble Object Pattern** - originally used by unit testers to split the hard to test behaviors from the easy to test behaviors. we can use that to split into two modules or classes, the hard to test (humble) and the easy.
+
+The GUI is hard to test, but the functionality isn't. So splitting them gives us the Presenter and the View.
+
+Code in the hard to test object (humble) is as simple as possible. The Presenter is the testable object. In this scenario, its role is to format data for presentation so the View can simply move it to screen. Everything that appears on the screen is presented as a string, a boolean, or an enum.
+
+Where do ORMs belong? In the database layer, between gateway interfaces and the database.
+
+### Chapter 23: Partial Boundaries
+Proper boundaries are expensive to create -- you need to create reciprocal `Boundary` interfaces, `Input` and `Output` data structures, and all the dependency management to ensure the two sides are independently compilable and deployable. We can create partial boundaries to give us flexibility later (this might be a violation of agile's YAGNI - you ain't gonna need it).
+
+Do all the work of creating the boundary but then keep it in the same component. Requires same amount of code, but not of administration of multiple components.
+
+Another pattern is the _Strategy_ pattern, or getting the boundary behavior at runtime.
+
+Another pattern might be the _Façade_ pattern, which sacrifices dependency inversion, where the Façade deploys service calls to classes the Client is not supposed to access.
+
+#### Summary
+{: .no_toc }
+Three ways to implement boundary:
+1. partial boundary
+2. one-dimensional boundary
+3. façade
+
+each boundary can be degraded if that boundary never materializes. It is a function of an architect to decide where boundaries might one day exist.
+
+### Chapter 26: Layers and Boundaries
+It's easy to think a system is comprised of only three systems: UI, Business Rules, and Database, but there is more.
+
+### Chapter 27: The Main Component
+Think of `Main` as a plugin to the application that sets up initial conditions and configurations, gathers all the outside resources, and then hands control over to the high-level policy of the application. There might be a `Main` plugin for dev, for test, for production. If we think of `Main` sitting behind an architectural boundary, configuration becomes a lot easier to reason about.
+
+### Chapter 28: Services Great and Small
+Service-oriented and microservice architecture are popular in part because:
+- services seem strongly decoupled from each other
+- services appear to support independence of development and deployment
+
+Using services isn't an "architecture". An architecture is defined by the boundaries that separate high-level policy from low-level details. Services might be _part_ of an architecture, but they don't define it.
+
+#### the decoupling fallacy
+{: .no_toc }
+It is a myth that services are fully decoupled. They might share resources within a processor or on a network, and they are certainly coupled by the data they share. If a new field is added to a data record passed between services, the receiving service needs to be changed.
+
+Additionally, while interfaces are well-defined, so are they between functions. Services aren't any more rigorously defined.
+
+#### the fallacy of independent development and deployment
+{: .no_toc }
+Teams can be solely responsible for writing, maintaining, and operating the service as part of a dev-ops strategy, and this is scalalable. This is only partially true.
+1. large orgs can be built on monoliths and component-based systems as well as service based
+2. services cannot always be independently developed, deployed, and operated (based on decoupling fallacy)
