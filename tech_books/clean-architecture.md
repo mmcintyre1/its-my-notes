@@ -746,3 +746,20 @@ You can use the framework, but try not to couple completely to it. Inject it int
 
 ### Chapter 33: A Use Case
 No notes for this chapter.
+
+### Chapter 34: The Missing Chapter
+4 ways to package your application:
+1. **Package by Layer**
+  - traditional horizontal-layered application
+  - layers only depend on lower adjacent layer
+  - good way to start a project, but problems are 1) you probably need to increase modularizing 2) it doesn't scream its architecture
+2. **Package by Feature**
+   - switch from horizontal to vertical layering
+   - closer to screaming architecture, but still problematic
+3. **Ports and Adapters**
+   - like hexagonal, or boundaries, controllers, and entities architecture patterns
+   - business-domain-focused code is independent and separate from technical implementation details such as frameworks and databases
+   - inside contains domain concepts expressed in ubiquitous domain language, and the outside depends on the inside by never the other way around
+4. **Package by Component**
+   - an additional way of packaging
+   - bundle up business logic and persistence code into single element, which is a mechanism to enforce certain access schemes (i.e., a controller not accessing a persistence layer around the service layer)
