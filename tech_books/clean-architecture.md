@@ -702,3 +702,47 @@ Additionally, while interfaces are well-defined, so are they between functions. 
 Teams can be solely responsible for writing, maintaining, and operating the service as part of a dev-ops strategy, and this is scalalable. This is only partially true.
 1. large orgs can be built on monoliths and component-based systems as well as service based
 2. services cannot always be independently developed, deployed, and operated (based on decoupling fallacy)
+
+### Chapter 28: The Test Boundary
+_Tests are part of the system_. From an architectural standpoint, all tests are the same. We can think of tests as the outermost circle, and they follow the Dependency principle, as in, their dependencies point inward.
+
+Tests tend to be tightly coupled to system code, so changes to common systems can cause hundreds or even thousands of tests to fail, called the _Fragile Tests Problem_, which has the effect of making the system rigid because people resist changes so tests don't fail. Design for testability -- don't depend on volatile things, so build a system so tests don't rely on volatile things.
+
+One way to achieve this is to build a testing API so tests can verify business rules. This API will be a superset of _interactors_ and _interface adapters_. We want to decouple the structure of the tests from the structure of the application.
+
+This avoids the _structural_ coupling of test and application.
+
+Tests must be well-designed if they are to provide the desired benefits of stability and regression, and those tests that are not designed as part of the system tend to be fragile and difficult to maintain.
+
+### Chapter 29: Clean Embedded Architecture
+_"Although software does not wear out, firmware and hardware become obsolete, thereby requiring software modifications."_
+
+## Part V: Details
+
+### Chapter 30: The Database is a Detail
+"From an architectural view, the database is a non-entity -- it is a detail that does not rise to the level of an architectural element." This doesn't mean data models are details; those are highly significant to architecture.
+
+Edgar Codd defined the principles of relational databases in 1970, and its very valuable technology.
+
+Accessing things on memory is hard. Data access takes milliseconds, meaning you need indexes, caches, and query optimizers for fast and efficient access of data. This has taken two dominant forms: **file systems** and **relational database management systems (RDBMS)**. File systems are document based, and they work well when you need to find a file by name but not search its contents. Databases are content based, and are good if you need to find a record by content.
+
+Once disks go away, all data will be stored in RAM. The format it takes on RAM will be the format all programmers are used to and what data from tables is turned into: stacks, queues, linked lists, hash tables, trees, etc.
+
+What about performance? When it comes to data storage, that concern can be encapsulated and separated from business rules. Efficient data access and storage is a low level concern.
+
+The data is significant. The database is a detail.
+
+### Chapter 31: The Web is a Detail
+Abstracting the business rules from the UI and web isn't easy, but it can be done.
+
+### Chapter 32: Frameworks are Details
+Frameworks are popular and useful, but they are not architectures.
+
+The relationship between you and the framework author is asymmetric -- you rely entirely on the framework and they don't know you exist.
+
+This is a weird chapter full of parasitic references of invasion.
+
+You can use the framework, but try not to couple completely to it. Inject it into your Main component but leave it there.
+
+### Chapter 33: A Use Case
+No notes for this chapter.
