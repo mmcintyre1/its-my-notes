@@ -18,5 +18,5 @@ Beyond that, the dialogue can't make up its mind between real speech and literar
 
 ## Any other reading
 ---
-[Passing For White, a Literary History](https://lithub.com/passing-for-white-a-literary-history/)
-_Passing_, by **Nella Larsen**, 1929.
+- [Passing For White, a Literary History](https://lithub.com/passing-for-white-a-literary-history/)
+- _Passing_, by **Nella Larsen**, 1929.
