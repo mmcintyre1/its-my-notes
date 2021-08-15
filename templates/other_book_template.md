@@ -6,6 +6,9 @@
 ## One key takeaway
 ---
 
+## Summary
+---
+
 ## How was the book
 ---
 
