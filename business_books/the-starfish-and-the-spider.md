@@ -69,7 +69,7 @@ The book jumps through a few historical examples of some centralized and decentr
 
 ## How was the book
 ---
-The book is a good approximation of Gladwellian, which is to say, strings together history and pop psychology to say something relatively superficial about psychology or sociology. The book has a few ideas floating around -- this idea of a catalyst has been talked about before. Gladwell called them connectors
+
 
 ## Any other reading
 ---
