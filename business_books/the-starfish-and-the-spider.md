@@ -1,3 +1,7 @@
+---
+last_modified_date: "2021-08-18 23:08:59.558224"
+---
+
 # The Starfish and the Spider
 _The Unstoppable Power of Leaderless Organizations_
 
