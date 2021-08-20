@@ -9,12 +9,10 @@ back_to_top: true
 back_to_top_text: "Back to top"
 
 # Footer "Edit this page on GitHub" link text
-gh_edit_link: true # show or hide edit this page link
-gh_edit_link_text: "Edit this page on GitHub."
 footer_content: "Copyright &copy; 2021 Michael McIntyre. "
-show_last_edit_time: true
+last_edit_timestamp: true
 last_edit_time_format: "%b %e %Y at %I:%M %p"
-# gh_edit_repository: "https://github.com/keyvanakbary/learning-notes" # the github URL for your repo
+# gh_edit_repository: "https://github.com/" # the github URL for your repo
 # gh_edit_branch: "master" # the branch that your docs is served from
 # gh_edit_source: docs # the source that your files originate from
 # gh_edit_view_mode: "edit"
