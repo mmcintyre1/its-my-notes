@@ -1,3 +1,8 @@
+---
+last_modified_date: "2021-06-28 19:40:54.029576"
+nav_order: 103
+---
+
 # The Three Kingdoms, Volume 1: The Sacred Oath
 
 Chapter 27, Guan Yu the Beautiful Beard Travels a Thousand Li  And Slays Six Officers at Five Passes  - This would be a great movie, along the lines of Kill Bill (in fact, the plots are so similar one might've inspired the other). Guan Yu, separated from his oath-bound brother and leader Liu Bei, has taken up with Cao Cao, fearing his brother dead. Guan Yu keeps telling Cao Cao that he would go to Liu Bei when he finds him, but it turns out Liu Bei is with Yang Shao, Cao Cao's rival. Guan Yu leaves at once, with Cao Cao's passive blessing, but six officers block his path. Guan Yu, riding the unrivaled Red Hare and donning his Green Dragon Crescent Blade, smites each warrior who stands in his way to be reunited with Liu Bei, who has since departed from Yang Shao.

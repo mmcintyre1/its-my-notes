@@ -1,3 +1,7 @@
+---
+last_modified_date: "2021-08-07 19:40:54.029576"
+nav_order: 101
+---
 # Clean Architecture
 {: .no_toc }
 
