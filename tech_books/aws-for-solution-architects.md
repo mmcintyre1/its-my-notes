@@ -212,3 +212,66 @@ alternatives
 - spending forever planning or migrating small things might make interest wane
 6. **outdated rules and regulations**
 - some industries are difficult to disrupt because older regulations exist, e.g., real estate requiring wet signatures
+
+# 3: Storage in AWS
+## Amazon Elastic Block Storage (EBS)
+hard drive for a server, and can easily detach from one server and attach to another, and useful for persistent data, in comparison to the ephemeral data of an EC2 instance. replicated by design, so no need to set up a RAID or another redundancy strategy.
+
+Snapshots are iterative and stored on S3. They can be compressed, mirrored, transferred across AWS AZs (by Amazon Data Lifecycle Manager). Stored as Amazon Machine Images (AMI) so they can be used to launch an EC2 instance.
+
+using Elastic File Storage (EFS), you can attach the block storage device to multiple EC2 instances
+
+Amazon provides 99.999% availability
+
+- **General-purpose Solid State Devices (SSDs)**
+  - solid balance of cost and performance
+  - useful for virtual desktops, development and staging environments, application developmenet
+- **Provisioned IOPS SSD**
+  - provisioned inputs and outputs per second ideal for mission critical apps
+  - business applications, production databases
+- **Throughput Optimized HDD**
+  - good value and reasonable cost for workloads that need high performance and high throughput
+  - big data, log processing, streaming applications, data warehouse applications
+- **Cold HDD**
+  - optimize cost with large volumes of data
+  - data the is infrequently accessed
+
+## Amazon Elastic File System (EFS)
+Implements a fully managed Network File System (NFS), and several EC2 instances can be mounted to an EFS volume at the same time.
+
+Often used for:
+- hosting content management systems
+- hosting CRM applications that need to be hosted within an AWS data center but need to be managed by customer
+
+## Simple Storage Service (S3)
+Object storage, and AWS's second oldest product, right after EC2. Time To First Byte (TTFB) used to measure performance of a service.
+
+![S3 Performance Chart](assets/aws-for-solution-architects-s3-performance.jpg)
+
+### Comparison of Storage
+{: .no_toc}
+![Storage Comparison](assets/aws-for-solution-architects-storage.png)
+
+### Enhancing S3 performance
+{: .no_toc}
+You should be cognizant of where users are going to access content and design around that.
+
+One way is to scale horizontally -- S3 allows as many connections to an S3 bucket as possible.
+
+#### CloudFront
+{: .no_toc}
+A Content Delivery Network (CDN) that caches S3 content to be served across disperse geographic regions with thousands of Points of Presence (PoP).
+
+#### ElastiCache
+{: .no_toc}
+Managed AWS service that allows you to store objects in memory rather than disk. When retrieving objects, need to check the cache first then S3.
+
+#### Elemental MediaStore
+{: .no_toc}
+Supports transfer of video files.
+
+#### S3 Transfer Acceleration
+{: .no_toc}
+Can achieve single-digit millisecond using CloudFront edge locations to accelerate data transfer over long distances. Useful for transferring data over AWS Regions.
+
+[S3 best practices](https://docs.aws.amazon.com/AmazonS3/latest/userguide/security-best-practices.html)

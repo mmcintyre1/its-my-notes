@@ -22,7 +22,7 @@ This is a place where I write about things I've learned about. My so-called know
 * [My Favorite Quotes](quotes/quotes.md)
 
 ### Articles
-* [The Anatomy of an Amazon 6 pPger](articles/anatomy-of-an-amazon-6-pager.md) by **Jesse Freeman**, 2020.
+* [The Anatomy of an Amazon 6 Pager](articles/anatomy-of-an-amazon-6-pager.md) by **Jesse Freeman**, 2020.
 
 ### To Read
 [Getting the Best Employee Ideas](https://hbr.org/2008/02/getting-the-best-employee-idea)
