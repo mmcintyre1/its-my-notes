@@ -275,3 +275,5 @@ Supports transfer of video files.
 Can achieve single-digit millisecond using CloudFront edge locations to accelerate data transfer over long distances. Useful for transferring data over AWS Regions.
 
 [S3 best practices](https://docs.aws.amazon.com/AmazonS3/latest/userguide/security-best-practices.html)
+
+# 4: Cloud Computing
