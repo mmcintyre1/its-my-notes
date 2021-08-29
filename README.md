@@ -9,7 +9,8 @@ This is a place where I write about things I've learned about. My so-called know
 
 ### Business Books
 * [Radical Candor](business_books/radical-candor.md) by **Kim Scott**, 2018.
-
+* [The Alliance](business_books/radical-candor.md) by **Ben Casnocha, Chris Yeh, Reid Hoffman**, 2014.
+* [The Starfish and the Spider](business_books/the-starfish-and-the-spider.md) by **Rod Beckstrom, Ori Brafman**, 2006.
 ### Classes
 * [Algorithms, Part I](classes/algorithms-part1.md) by **Robert Sedgewick, Kevin Wayne offered through Coursera**, 2021.
 
@@ -17,12 +18,17 @@ This is a place where I write about things I've learned about. My so-called know
 * [The Three Kingdoms, Part 1](other_books/the-three-kingdoms-vol-1.md) by **Luo Guanzhong, Yu Sumei (t)**, 1522, 2014.
 * [The Three Kingdoms, Part 2](other_books/the-three-kingdoms-vol-2.md) by **Luo Guanzhong, Yu Sumei (t)**, 1522, 2014.
 * [The Vanishing Half](other_books/the-vanishing-half.md) by Brit Bennett, 2020.
+* [The Thousand Autumns of Jacob de Zoet](other_books/the-thousand-autumns-of-jacob-de-zoet.md) by **David Mitchell**, 2010.
+* [Shuggie Bain](other_books/shuggie-bain.md) by **Douglas Stuart**, 2020.
+* [American Pastoral](other_books/shuggie-bain.md) by **Philip Roth**, 1997.
 
 ### Favorite Quotes
 * [My Favorite Quotes](quotes/quotes.md)
 
 ### Articles
 * [The Anatomy of an Amazon 6 Pager](articles/anatomy-of-an-amazon-6-pager.md) by **Jesse Freeman**, 2020.
+* [The Influence of Background Music on Learning](articles/influence-of-background-music-on-learning.md) by **Mark Runco**, 2017.
+* [The Six Steps to Leading High Performing X-Teams](articles/six-steps-to-leading-high-performing.md) by **Deborah Ancona**, 2009.
 
 ### To Read
 [Getting the Best Employee Ideas](https://hbr.org/2008/02/getting-the-best-employee-idea)
