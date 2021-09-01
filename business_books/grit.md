@@ -173,3 +173,117 @@ _grit is more about stamina than intensity_
 > For the beginner, novelty is anything that hasn't been encountered before. For the expert, novelty is nuance. (114)
 
 # Chapter 7: Practice
+
+ > Some people get twenty years experience, while others get one year of experience twenty times in a row.
+
+## continuous improvement
+{: .no_toc }
+
+- Japanese concept of _kaizen_ or continuous improvement, a way to resist the plateau of arrested development
+- important to spend not just more time on a task, but better time on a task
+- Anders Ericsson and his studies on the concept of _deliberate practice_ -- where we get this 10,000 hours idea for mastery
+- experts hungrily seek feedback, concentrating on what they did wrong and _reflecting_ on that, until conscious incompetence becomes unconscious competence
+- deliberate practice is more effortful and less enjoyable
+
+## flow
+{: .no_toc }
+- Mihaly Csikszentmihalyi (cheeks-sent-me-high) and his state of flow, which is signature state of experts
+- unthinking mastery, working right at the edge of skill level
+
+## flow vs practice
+{: .no_toc }
+
+> Gritty people do more deliberate practice and experience more flow. First, deliberate practice is a behavior, and experience more flow. [...] Second, you don't have to be doing deliberate practice and experiencing flow at the same time. (131)
+
+- deliberate practice is for preparation, flow is for performance.
+
+## getting the most out of deliberate practice
+{: .no_toc }
+1. **know the science** - clearly defined stretch goal, full concentration and effort, immediate and informative feedback, repetition with reflection and refinement
+2. **make it a habit** - schedule it at same time every day, and stick to it
+3. **change the way you experience it** - no pain, no gain
+
+# Chapter 8: Purpose
+
+## direction of purpose
+{: .no_toc }
+- efforts pay dividends to other people, other-directed
+
+## ways to be happy
+{: .no_toc }
+- Aristotle - two ways of being happy:
+  - eudaimonic - in harmony with one's good (eu) inner spirit (daemon)
+  - hedonic - aimed at positive, in the moment, selfish experiences (pleasure principle)
+- humans are fundamentally social, and people who cooperate are more likely to survive than loners, so we've built all this apparatus on being part of the group
+
+> most gritty people see their ultimate aims as deeply connected to the world beyond themselves (148)
+
+## story of the bricklayers
+{: .no_toc }
+- 3 bricklayers building a church, when asked what they were doing, first one says laying bricks, second says building a building, third says building a cathedral for God.
+
+## cultivating purpose
+{: .no_toc }
+- recommendations for cultivating purpose:
+  1. reflecting on how the work you're already doing can make a positive contribution to society
+  2. thinking about how, in small but meaningful ways, you can change you current work to enhance its connection to your core values (_job crafting_)
+  3. finding inspiration in a purposeful role model
+
+# Chapter 9: Hope
+_Fall seven, rise eight_
+
+## learned helplessness
+{: .no_toc }
+- study of dogs and shocks, and whether or not the dogs could do something to stop the shocks affected a later experiment on whether they tried to do something to resist the shocks in a different context
+- its the suffering you think you can't control that builds learned helplessness
+- relatively new idea that people have thoughts that influence their behavior
+- analog is learned optimism
+- interesting for children in poverty, not getting enough mastery experiences
+
+## optimism vs pessimism
+{: .no_toc }
+
+> optimists habitually search for temporary and specific causes of their suffering, whereas pessimists assume permanent and pervasive causes are to blame (174)
+
+- how we think about reasons for poor performance (I mismanaged my time vs I am awful at my job)
+
+## cognitive behavioral therapy
+{: .no_toc }
+- the same objective event can lead to very different subjective interpretations
+- therapy aims to treat depression and other psychological maladies by helping patients think more objectively and behave in healthier ways
+
+> When you keep searching for ways to change your situation for the better, you stand a chance of finding them. (178)
+
+## growth vs fixed mindset
+{: .no_toc }
+- **growth mindset** - it's possible to get smarter if you're given the right opportunities and support and if you try hard enough and believe you can do it
+- **fixed mindset** - you can learn new skills, but your capacity to learn skills (your talent) can't be trained
+
+> Most people have an inner fixed-mindset pessimist in them right alongside their inner growth-mindset optimist. Recognizing this is important because it's easy to make the mistake of changing what we say without changing our body language, facial expressions, and behavior. (184)
+
+## cultivating hope
+{: .no_toc }
+1. update your beliefs about talent and intelligence - for example, IQs might not be entirely fixed
+2. practice optimistic self-talk
+3. ask for a helping hand
+
+
+
+
+
+
+
+
+
+## Book Notes
+## Why I read this book
+---
+## One key takeaway
+---
+## Summary
+---
+## How was the book
+---
+## Any other reading
+---
+- **Daily Rituals: How Artists Work**, by _Mason Currey, 2019.
