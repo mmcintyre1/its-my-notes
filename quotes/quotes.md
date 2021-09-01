@@ -11,3 +11,6 @@
 
 > Any organization that designs a system (defined broadly) will produce a design whose structure is a copy of the organization's communication structure.
 - Mel Conway, _How Do Committees Invent?_, 1968
+
+> Children have never been very good at listening to their elders, but they have never failed to imitate them.
+- James Baldwin
