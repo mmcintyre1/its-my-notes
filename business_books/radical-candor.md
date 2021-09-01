@@ -29,13 +29,15 @@ Radical Candor Matrix:
 
 There are two dimensions to Radical Candor:
 1. **Care Personally**:
+
 > To have a good relationship, you have to be your whole self and care about each of the people who work for you as a human being. It's not just business; it is personal, and _deeply_ personal. (9)
 
 > There are a few things more damaging to human relationships than a sense of superiority. (12)
 
 > Only when you actually care about the _whole person with your whole self_ can you build a relationship. (13)
 
-2. **Challenge Directly**:
+1. **Challenge Directly**:
+
 > [...] delivering hard feedback, making hard calls about who does what on a team, and holding a high bar for results (9)
 
 You don't need to say every unimportant thing: a good rule of thumb is to leave three unimportant things unsaid each day (16)
