@@ -267,23 +267,37 @@ _Fall seven, rise eight_
 2. practice optimistic self-talk
 3. ask for a helping hand
 
+# Chapter 10: Parenting for Grit
 
+> [t]here's no either/or trade-off between supportive parenting and demanding parenting.
 
+## parenting styles
+{: .no_toc }
+![Parenting Styles](./assets/grit-parenting-styles.jpg)
 
+# Chapter 11: The Playing Fields of Grit
 
+## corresponsive principle
+{: .no_toc }
+- coined by Brent Roberts
 
-
+> the situations to which people gravitate tend to enhance the very characteristics that brought them there in the first place. (233)
 
 
 ## Book Notes
 ## Why I read this book
 ---
+I heard Angela Duckworth on a podcast about goal hierarchies with Stephen Dubner, and she was fantastically clever and well-spoken.
+
 ## One key takeaway
 ---
-## Summary
----
+Grit is a huge component of success and is comprised of passion and perseverance.
+
 ## How was the book
 ---
+There's a lot to this book that you might have read before. 10,000 hours to mastery, deliberate practice, passion/drive for what you do, flow, etc. -- these are at this point the bread and butter of the intersection of business and self-help. What carries the book, however, is Duckworth's approachable style and her clearly lived experience of the precepts of this book. She practices what she preaches. If you've heard Duckworth's 6 minute TED talk on grit, there might not be anything else you might glean from this book other than the author has an abiding and compassionate view of her subject matter, an almost exhaustive scientific approach to all things in her life, but that is selling this book generally short. Duckworth has compellingly fresh takes on old ideas -- for instance, the way she employs her research and ideas in the parenting of her children, is honest and open. She describes a household rule she has called "The Hard Thing Rule", where 1) everyone has to do a hard thing 2) you can quit, but only at a natural stopping point 3) you get to pick your hard thing, and while Duckworth uses it with her children as a way to cultivate grit, you could easily apply it to your own life to build mastery.
+
+The book isn't heavy reading, and you could put it away in a few days. If those concepts I mentioned earlier are new to you, or you generally like a Gladwellian romp through psychology by a real honest to goodness psychologist, this is well worth your time. Duckworth is infectiously smart and crafts a wonderful narrative.
 ## Any other reading
 ---
 - **Daily Rituals: How Artists Work**, by _Mason Currey, 2019.
