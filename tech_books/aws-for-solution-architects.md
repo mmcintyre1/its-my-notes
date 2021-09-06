@@ -277,3 +277,109 @@ Can achieve single-digit millisecond using CloudFront edge locations to accelera
 [S3 best practices](https://docs.aws.amazon.com/AmazonS3/latest/userguide/security-best-practices.html)
 
 # 4: Cloud Computing
+
+## first computer
+{: .no_toc}
+- first large-scale electronic general-purpose computer the Electronic Numerical Integrator and Computer (ENIAC)
+- built between 1943 and 1945
+- design proposed by physicist John Mauchly
+
+## paradigm shift
+{: .no_toc}
+- introduced 1962 by Thomas Kuhn in _The Structure of Scientific Revolutions_
+- scientists accept predominant paradigm, but constantly challenge questioning it
+- eventually new paradigm replaces the old paradigm
+- e.g. heliocentric replaced geocentric view of solar system
+
+![Service Resources](assets/aws-for-solution-architects-resource-mgmt.png)
+## infrastructure as a service
+{: .no_toc}
+- **advantages**:
+  - most flexibility
+  - provisioning of computer, storage, and network resources can be done quickly
+  - resources can be used for minutes, hours, or days
+  - highly scalable and fault-tolerant
+  - more thorough control of the infrastructure
+- **disadvantages**:
+  - security must be managed at all levels, and this is costly and difficult
+  - legacy systems might not be able to be migrated to the cloud
+  - training costs might be high to onboard new staff to the system
+- **examples**:
+  - Elastic Cloud Compute (EC2)
+  - Elastic Block Storage (EBS)
+- **use cases**:
+  - backups and snapshots
+  - disaster recovery
+  - web hosting
+  - software dev environments
+  - data analytics
+
+## platform as a service
+{: .no_toc}
+- **advantages**:
+  - cost-effective and can use CI/CD principles
+  - high availability
+  - scalability
+  - straightforward customization and config of app
+  - reduction in dev effort and maintenance
+  - security policies simplification and automation
+- **disadvantages**:
+  - difficult to integrate on-prem and AWS systems
+  - regulations around data security might require securing data (not on third-party environment)
+  - vendor lock-in (increasing scale from IaaS to PaaS to SaaS)
+  - might be runtime issues because of lack of support for certain application needs
+  - legacy systems might be difficult to integrate with AWS
+  - can't customize some layers if needed
+- **examples**:
+  - Elastic Beanstalk
+  - RDS
+  - Lambda
+  - Elastic Kubernetes Service (EKS)
+- **use cases**:
+  - business process management, like time clocks or company portal
+  - business analytics/BI for internal data analytics
+  - internet of things
+  - communications applications
+  - databases
+  - API dev
+
+## master data management
+{: .no_toc}
+- used to define and manage company's critical data, to provide single source of truth
+- manages data throughout its lifecycle
+- clean up data inconsistencies, duplicates, deliver to consumers
+
+## software as a service
+{: .no_toc}
+- **advantages**:
+  - reduce time, money, and effort on repetitive tasks
+  - shift responsibility for installing, patching, configuring, and upgrading software
+  - allow focus on tasks that require personal attention, such as customer service
+- **disadvantages**:
+  - interoperability with other services might not be straightforward
+  - vendor lock-in
+  - customization is very narrow
+  - limited features
+- **examples**:
+  - WorkMail
+  - WorkSpaces
+  - QuickSight
+  - Chime
+
+## elastic compute (ec2)
+{: .no_toc}
+
+## ec2 - general purpose
+{: .no_toc}
+
+## ec2 - compute optimized
+{: .no_toc}
+
+## ec2 - accelerated computing
+{: .no_toc}
+
+## ec2 - memory optimized
+{: .no_toc}
+
+## ec2 - storage optimized
+{: .no_toc}
