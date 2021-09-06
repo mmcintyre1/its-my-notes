@@ -383,3 +383,106 @@ Can achieve single-digit millisecond using CloudFront edge locations to accelera
 
 ## ec2 - storage optimized
 {: .no_toc}
+
+# 5: Selecting the Right Database Service
+
+## history of databases
+{: .no_toc}
+
+## types of databases
+{: .no_toc}
+
+## online transaction processing databases
+{: .no_toc}
+
+## third normal form (3NF)
+{: .no_toc}
+
+## online analytics processing databases
+{: .no_toc}
+
+## ACID model
+{: .no_toc}
+
+## BASE model
+{: .no_toc}
+
+## relational databases
+{: .no_toc}
+
+## document databases
+{: .no_toc}
+
+## key-value databases
+{: .no_toc}
+
+## wide-column store databases
+{: .no_toc}
+
+## elasticsearch
+{: .no_toc}
+
+## kendra
+{: .no_toc}
+
+## in memory databases
+{: .no_toc}
+
+## graph databases
+{: .no_toc}
+
+## time-series databases
+{: .no_toc}
+
+## ledger databases
+{: .no_toc}
+
+# 6: Amazon Athena
+
+## what is amazon athena
+{: .no_toc}
+
+## athena supported formats - JSON & CSV
+{: .no_toc}
+
+## athena supported formats - ORC
+{: .no_toc}
+
+## athena supported formats - Avro
+{: .no_toc}
+
+## athena supported formats - Parquet
+{: .no_toc}
+
+## presto
+{: .no_toc}
+
+## athena federated query
+{: .no_toc}
+
+## athena workgroups
+{: .no_toc}
+
+## optimizing athena - data partitions
+{: .no_toc}
+
+## optimizing athena - data buckets
+{: .no_toc}
+
+## optimizing athena - file compression
+{: .no_toc}
+
+## optimizing athena - file size
+{: .no_toc}
+
+## optimizing athena - columnar data store generation
+{: .no_toc}
+
+## optimizing athena - column selection
+{: .no_toc}
+
+## optimizing athena - predicate pushdown
+{: .no_toc}
+
+## optimizing athena - join, order by, and group by
+{: .no_toc}
