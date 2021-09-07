@@ -366,123 +366,267 @@ Can achieve single-digit millisecond using CloudFront edge locations to accelera
   - QuickSight
   - Chime
 
-## elastic compute (ec2)
-{: .no_toc}
-
 ## ec2 - general purpose
 {: .no_toc}
+- provides balance of compute, memory, and network resources
+- can be used for variety of diverse worfklows
+- ideal for apps that use compute, memory, and network resources in equal proportion, such as web servers and code repositories
+- T (burstable), A (ARM chip), M (x86 dev)
 
 ## ec2 - compute optimized
 {: .no_toc}
+- ideal for compute bound applications that benefit from high performance processors
+- good for batch processing, media transcoding, high performance web servers, high performance computing (HPC), scientific modeling, dedicated gaming servers
+- C
 
 ## ec2 - accelerated computing
 {: .no_toc}
+- uses hardware accelerators or co-processors to perform functions
+- floating point calculations, graphics processing, or data pattern matching
+- F (Field Programmable Gate Array - FPGA), G (GPU), P (>$ GPU)
 
 ## ec2 - memory optimized
 {: .no_toc}
+- fast performance for workloads that process large data sets in memory
+- R (memory-intensive), X (high ratio of memory to compute)
 
 ## ec2 - storage optimized
 {: .no_toc}
+- high sequential read/write access on data sets in local storage
+- deliver tens of thousands of low-latency, random IOPS
+- H (16 TB HDD), D (48 TB HDD), I (16 GB SSD)
+
+## amazon machine images (ami)
+{: .no_toc}
+- different types of amazon images to build EC2 instances off of
+- includes most Linux distros, Windows Server, 32/64 bit
+
+## ec2 best practices - security
+{: .no_toc}
+- important to take advantage of identity federation, policies, and IAM
+- principle of least privilege
+
+## ec2 best practices - storage
+{: .no_toc}
+- when you shut down EC2 instance, you lose any instance storage
+- use EBS mounted storage if you need to persist beyond an instance
+
+## ec2 best practices - resource management
+{: .no_toc}
+- use instance metadata and tags to ensure resources can be tracked
+
+## ec2 best practices - resource limit
+{: .no_toc}
+- default limits:
+  - limit of 20 instances per region
+  - 5 elastic IPs per region (including unassigned addresses)
+
+## ec2 best practices - backup, snapshots, and recovery
+{: .no_toc}
+- important to have periodic backup schedule for EBS volumes
+- deploy across multiple AZs for availability and durability
+- make sure architecture can handle failovers
 
 # 5: Selecting the Right Database Service
-
 ## history of databases
 {: .no_toc}
+- first database created by Edgar Codd in 1970
+- SQL created by IBM researchers Raymond Boyce and Donald Chamberlin in 1970s
 
 ## types of databases
 {: .no_toc}
+- relational
+- document
+- key-value
+- graph
+- wide column storage
 
 ## online transaction processing databases
 {: .no_toc}
+- useful for workloads that have high writes and low reads
+- multiple transactions per second
+- data heavily normalized
 
 ## third normal form (3NF)
 {: .no_toc}
+- method of normalizing data past 1st and 2nd normal form, where every column in a table is dependent on the primary key
 
 ## online analytics processing databases
 {: .no_toc}
+- useful for read heavy workflows like large analytics queries
+- doesn't process many transactions
+- data often not normalized, in star or snowflake schema (fact table and dimension tables)
 
 ## ACID model
 {: .no_toc}
+- model for transactions
+- (a)tomicity - transactions either commit or they don't; there is no partial state
+- (c)onsistency - no transaction violates database invariants (a type of constraint like no account has negative balance)
+- (i)solation - varying models of isolation, but this is generally more like consistency in that one transaction can't affect another
+- (d)urability - after a commit, changes are permanent (committed to disk)
 
 ## BASE model
 {: .no_toc}
+- "opposite" of ACID, although meant as a joke -- more applicable to distributed systems or systems where performance hit of adhering to ACID principles is too high
+- (b)asically (a)vailable - data available the majority of the time
+- (s)oft state - database doesn't have to be write consistent and replicas don't need to be mutually consistent
+- (e)ventually consistent - data stored is eventually consistent, either via replication or only on retrieval
 
 ## relational databases
 {: .no_toc}
+- data stored in rows and columns all within tables, and tables are related via foreign keys
+- Relational Database Service (RDS) is primary AWS service:
+  - open access - Postgres, MySQL, MariaDB
+  - Aurora - AWS's wrapper for Postgres and MySQL, which gives performance increases and replication out of the box
+  - commercial - Oracle, SQL Server
 
 ## document databases
 {: .no_toc}
+- records stored as XML, JSON, or BSON
+- good for content management systems, analytics, blogging apps, or e-commerce applications
+- Apache CouchDB, Amazon DocumentDB, MongoDB, Elasticsearch
+- DynamoDB is fully managed NoSQL database which can achieve single-digit millisecond performance
+- if faster performance (like microsecond latency) is needed, can use DynamoDB Accelerator (DAX)
 
 ## key-value databases
 {: .no_toc}
+- simply a key and a value stored as a BLOB (binary large objects)
+- memcached and redis
 
 ## wide-column store databases
 {: .no_toc}
+- column family databases
+- NoSQL database that can store petabyte-scale amounts of data
+- Amazon Managed Apache Cassandra Service (MCS) or Amazon Keyspaces (a different variant of Cassandra)
 
 ## elasticsearch
 {: .no_toc}
+- search engine built off Lucene library
+- full-text search with HTTP web interface and schema-free JSON documents
+- AWS has fully managed AWS Elasticsearch offering
 
 ## kendra
 {: .no_toc}
+- enterprise search service fully managed by Amazon that uses machine learning to power it
+- the content can be unstructured (HTML, MS Word, PDF), semi-structured (Excel, DynamoDB), or structured (Redshift, RDS)
 
 ## in memory databases
 {: .no_toc}
+- with increase of available RAM, in memory databases are becoming a viable solution
+- additionally, SSDs blur line between volatile and nonvolatile memory in terms of speed
+- ElastiCache is Amazon's offering of memecached and redis
 
 ## graph databases
 {: .no_toc}
+- stores relationships between objects as edges and nodes
+- Amazon Neptune offers full support for property graphs and Resource Description Framework (RDF), as well as the languages Gremlin and SPARQL
 
 ## time-series databases
 {: .no_toc}
+- database specifically optimized to store time series data
+- Amazon Timestream is offering
+- RDBMSs can store this data but they are not optimized to
 
 ## ledger databases
 {: .no_toc}
+- delivers cryptographically verifiable, immutable, and transparent transaction logs orchestrated by a central authority
+- Amazon Quantum Ledger
+
+## data warehouses
+{: .no_toc }
+- Redshift is Amazon's data warehouse offering
+- useful for BI
+
 
 # 6: Amazon Athena
 
 ## what is amazon athena
 {: .no_toc}
+- a service that treats any file like a database table and allows you to run select statements on it
+- this allows you to skip the ETL and perform queries _in situ_ on data, speeding up processing speeds and lowering costs
+- All you need to do is:
+  1. identify the object you want to query in Amazon S3
+  2. define the schema for the object
+  3. query the object with standard SQL
 
 ## athena supported formats - JSON & CSV
 {: .no_toc}
+- supports comma-separated value and javascript object notation formats, as well as other delimiters
+- these files are not compressed and so aren't optimized to be used with Athena
 
 ## athena supported formats - ORC
 {: .no_toc}
+- Optimized Row Columnar, originally designed under Apache Hive and Hadoop
+- provides better performance than uncompressed formats for reading, writing, and processing data
 
 ## athena supported formats - Avro
 {: .no_toc}
+- designed under Hadoop project
+- uses JSON to store, but allows backward and forward compatibility by allowing the schema to be declared in file
 
 ## athena supported formats - Parquet
 {: .no_toc}
+- stores files in a flat columnar storage format, which is different than row-based approach
+- columnar storage is more performant than row-based
+- well-suited for compression and varying data types
 
 ## presto
 {: .no_toc}
+- athena uses presto under the hood, which is a general purpose SQL query engine
+- it leverages Apache Hive to create, drop, and alter tables and partitions
+- you write Hive-compliant Data Definition Language (DDL)s and ANSI SQL
+- first developed as an internal project at Facebook on top of large Hadoop/HDFS clusters
+- can also use massively parallel processing (MPP) via a coordinator node and multiple worker nodes
+- presto can be deployed on any Hadoop implementation, and it is bundled with Amazon EMR
 
 ## athena federated query
 {: .no_toc}
+- in order to handle the many different database types, you might need a federated query (so beyond just S3)
+- Amazon Athena Federated Query allows you to execute a single SQL query across data stores, simplifying code and getting results faster
+- you can use many connectors supplied by Dremio, or write your own as Lambda functions
 
 ## athena workgroups
 {: .no_toc}
+- allows administrators to give different access to different groups of users
+- enables separation of audiences, such as users running ad-hoc queries and users running pre-canned reports
 
 ## optimizing athena - data partitions
 {: .no_toc}
+- you can break up data into smaller groups called partitions
+- care needs to be taken to choose the way that partitions are broken up so load is evenly distributed
 
 ## optimizing athena - data buckets
 {: .no_toc}
+- you can use buckets within a single partition to group single or multiple columns
+- columns used to filter data are good candidates for bucketing
+- if a column has high cardinality (amount of unique values) it is a good candidate
 
 ## optimizing athena - file compression
 {: .no_toc}
+- optimal file sizes for compression are 200 MB - 1 GB
+- can achieve compression easily by using Parquet or ORC, which are Gzip or Bzip2 compressed
 
 ## optimizing athena - file size
 {: .no_toc}
+- want files to be a good size, so not too big and not too small
+- file formats that allow splitting are ideal
 
 ## optimizing athena - columnar data store generation
 {: .no_toc}
+- if you have columnar storage, you can fine-tune the block size
+- having a larger block/stripe size allows more rows per block
 
 ## optimizing athena - column selection
 {: .no_toc}
+- make sure your queries are only returning the columns needed in a query (don't use `select * from blah`)
 
 ## optimizing athena - predicate pushdown
 {: .no_toc}
+- pushing the predicate filter down to where the data lives, which allows filtering out data earlier in the process
+- ORC and Parquet support this
 
 ## optimizing athena - join, order by, and group by
 {: .no_toc}
+- limit joins unless needed, and make sure left table is larger than right
+- order group by cardinality, so lower cardinality first
+- order by needs to be handled by single worker (that's the only way to sort) so use `LIMIT` if possible
