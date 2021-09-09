@@ -630,3 +630,121 @@ Can achieve single-digit millisecond using CloudFront edge locations to accelera
 - limit joins unless needed, and make sure left table is larger than right
 - order group by cardinality, so lower cardinality first
 - order by needs to be handled by single worker (that's the only way to sort) so use `LIMIT` if possible
+
+# 7: AWS Glue
+
+## aws glue
+{: .no_toc}
+
+## aws glue console
+{: .no_toc}
+
+## aws glue data catalog
+{: .no_toc}
+
+## aws glue crawlers
+{: .no_toc}
+
+## aws glue classifiers
+{: .no_toc}
+
+## aws glue code generators
+{: .no_toc}
+
+## aws glue serverless streaming etl
+{: .no_toc}
+
+## aws glue best practices - choosing the right worker
+{: .no_toc}
+
+## aws glue best practices - optimized file splitting
+{: .no_toc}
+
+## aws glue best practices - yarn's memory overhead allocation
+{: .no_toc}
+
+## aws glue best practices - apache spark ui
+{: .no_toc}
+
+## aws glue best practices - processing many small files
+{: .no_toc}
+
+## aws glue best practices - data partitioning and predicate pushdown
+{: .no_toc}
+
+## aws glue best practices - partitioning data written to s3
+{: .no_toc}
+
+# 8: Best Practices for Security, Identity, and Compliance
+
+## shared responsibility model
+{: .no_toc}
+
+## identity access management (iam)
+{: .no_toc}
+
+## iam - users
+{: .no_toc}
+
+## iam - groups
+{: .no_toc}
+
+## iam - roles
+{: .no_toc}
+
+## iam - policies
+{: .no_toc}
+
+## iam - permissions
+{: .no_toc}
+
+## AWS Organizations
+{: .no_toc}
+
+## AWS Control Tower
+{: .no_toc}
+
+## AWS Guard Duty
+{: .no_toc}
+
+## AWS Shield
+{: .no_toc}
+
+## AWS Web Application Firewall
+{: .no_toc}
+
+## AWS Firewall Manager
+{: .no_toc}
+
+## Amazon Cloud Directory
+{: .no_toc}
+
+## Amazon Inspector
+{: .no_toc}
+
+## Amazon Macie
+{: .no_toc}
+
+## AWS Artifact Reports
+{: .no_toc}
+
+## AWS Certificate Manager
+{: .no_toc}
+
+## AWS CloudHSM
+{: .no_toc}
+
+## AWS Directory Service
+{: .no_toc}
+
+## AWS Key Management Service
+{: .no_toc}
+
+## AWS Secrets Manager
+{: .no_toc}
+
+## AWS Single Sign-On
+{: .no_toc}
+
+## AWS Security Hub
+{: .no_toc}
