@@ -635,45 +635,76 @@ Can achieve single-digit millisecond using CloudFront edge locations to accelera
 
 ## aws glue
 {: .no_toc}
+- fully managed ETL service
+- can process tera- and petabyte scale data
+- uses Apache Spark in a serverless environment under the hood
+- useful for:
+  - population of data lakes, warehouses and lake houses
+  - event-driven ETL pipelines
+  - creation and cleansing of datasets for machine learning
 
-## aws glue console
+## AWS Glue Console
 {: .no_toc}
+- used to create, configure, orchestrate, and develop ingestion workflows
+- used to manage all other Glue objects centrally, such as connections, jobs, crawlers, as well as scheduling and job triggers
 
-## aws glue data catalog
+## AWS Glue Data Catalog
 {: .no_toc}
+- persistent centralized metadata repository
+- operates similarly to Apache Hive metastore
+- many other consumers can read it, such as EMR, Athena, or Spectrum
+- only one per AWS region
+- allows schema version history, data audit, and governance by tracking changes
+- changed using Data Definition Language (DDL) statements or via AWS Management Console
 
-## aws glue crawlers
+## AWS Glue Crawlers
 {: .no_toc}
+- used to scan files, extract metadata, and populate the AWS Glue Data Catalog
+- once scanned, files can be treated like SQL tables
+- AWS provides crawlers for different source types, including S3, DynamoDB, many RDBMS
+- any restrictions placed on underlying S3 files will persist to data in the catalog
 
-## aws glue classifiers
+## AWS Glue Classifiers
 {: .no_toc}
+- classifiers recognize the format of data and persist this information
+- provides a certainty score from 0 to 1
+- recognizes Avro, ORC, Parquet, JSON, XML, CSV, and others
 
-## aws glue code generators
+## AWS Glue Code Generators
 {: .no_toc}
+- AWS Glue automatically generates python or scala ETL code
+- can be edited in Glue Studio, or directly
+- infrastructure as code
 
-## aws glue serverless streaming etl
+## AWS Glue Streaming ETL
 {: .no_toc}
+- streaming jobs can be created in Glue to process events in real-time
 
-## aws glue best practices - choosing the right worker
+## AWS Glue Best Practices - choosing the right worker
 {: .no_toc}
+- workers are known as Data Processing Units (DPU)
+- choose Standard, G.1X, G.2X depending on workload type (e.g. memory intensive can use G.xX)
 
-## aws glue best practices - optimized file splitting
+## AWS Glue Best Practices - optimized file splitting
 {: .no_toc}
+- files can be split in blocks and processed separately and simultaneously to other files
+- split files can be accessed via S3, deserialized into an AWS Glue DynamicFrame partition, and handled by an Apache Spark task
+- normally a deserialized partition is not brought into memory so there is no memory pressure, but if partition is brought into memory via cache or spills onto disk an out-of-memory exception can occur
 
-## aws glue best practices - yarn's memory overhead allocation
+## AWS Glue Best Practices- yarn's memory overhead allocation
 {: .no_toc}
+- Apache Yarn is resource manager used by Glue (Yet Another Resource Negotiator)
+- handles memory allocation and application workloads
+- allocates 10% of the total executor memory for JVM
 
-## aws glue best practices - apache spark ui
-{: .no_toc}
+## AWS Glue Best Practices - Apache Spark UI
+- using Spark UI to inspect, monitory, and optimize Glue jobs
+- can view the jobs as Directed Acyclic Graphs (DAG)
 
-## aws glue best practices - processing many small files
+## AWS Glue Best Practices - processing many small files
 {: .no_toc}
-
-## aws glue best practices - data partitioning and predicate pushdown
-{: .no_toc}
-
-## aws glue best practices - partitioning data written to s3
-{: .no_toc}
+- Apache Spark 2.2 can handle 600,000 files on standard worker
+- to overcome this, you can process in batches
 
 # 8: Best Practices for Security, Identity, and Compliance
 
@@ -747,4 +778,86 @@ Can achieve single-digit millisecond using CloudFront edge locations to accelera
 {: .no_toc}
 
 ## AWS Security Hub
+{: .no_toc}
+
+# 9: Severless and Container Patterns
+
+## Advantages of Containers
+{: .no_toc}
+
+## Disadvantages of Containers
+{: .no_toc}
+
+## Virtual Machines
+{: .no_toc}
+
+## Docker
+{: .no_toc}
+
+## Docker - Dockerfile
+{: .no_toc}
+
+## Docker images
+{: .no_toc}
+
+## Docker run
+{: .no_toc}
+
+## Docker Hub
+{: .no_toc}
+
+## Docker Engine
+{: .no_toc}
+
+## Docker Compose
+{: .no_toc}
+
+## Docker Swarm
+{: .no_toc}
+
+## Kubernetes
+{: .no_toc}
+
+## Kubernetes Advantages
+{: .no_toc}
+
+## Amazon Elastic Container Service for Kubernetes (EKS)
+{: .no_toc}
+
+## Amazon Elastic Container Service (ECS)
+{: .no_toc}
+
+## AWS Fargate
+{: .no_toc}
+
+## AWS Batch
+{: .no_toc}
+
+# 10: Microservice and Event-Driven Architectures
+
+## microservice
+{: .no_toc}
+
+## layered architecture
+{: .no_toc}
+
+## event-driven architecture
+{: .no_toc}
+
+## event streaming
+{: .no_toc}
+
+## pub/sub model
+{: .no_toc}
+
+## benefits of event-driven architecture
+{: .no_toc}
+
+## disadvantages of event-driven architecture
+{: .no_toc}
+
+## plugin/microkernel architecture
+{: .no_toc}
+
+## microservice best practices
 {: .no_toc}
