@@ -14,3 +14,6 @@
 
 > Children have never been very good at listening to their elders, but they have never failed to imitate them.
 - James Baldwin
+
+> In theory there is no difference between theory and practice. In practice there is.
+- Sometimes attributed to Albert Einstein, but more likely to be Benjamin Brewster
