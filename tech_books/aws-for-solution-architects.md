@@ -708,97 +708,158 @@ Can achieve single-digit millisecond using CloudFront edge locations to accelera
 
 # 8: Best Practices for Security, Identity, and Compliance
 
-## shared responsibility model
+## Shared Responsibility Model
 {: .no_toc}
+- responsibility for keeping apps secure on both AWS and its users
+- AWS responsible for some aspects, like hardware, infrastructure, compute, users for other aspects like customer data, platform and application management, OS config, etc.
+- exact distribution varies depending on service (e.g. fully managed services vs. custom on EC2)
 
-## identity access management (iam)
+## Identity Access Management (IAM)
 {: .no_toc}
+- secures every single service in AWS
+- made up of users, which can be aggregated into groups
 
-## iam - users
+## IAM - Users
 {: .no_toc}
+- individuals who need access to AWS data and resources
 
-## iam - groups
+## IAM - Groups
 {: .no_toc}
+- collection of users
+- can be grouped based on job function, department, persona, etc.
 
-## iam - roles
+## IAM - Roles
 {: .no_toc}
+- object definition to configure a set of permissions
+- can be assigned to user or group or service or resource (e.g. an EC2 instance)
+- best practice to use roles whenever possible instead of granting permissions directly to user or group
 
-## iam - policies
+## IAM - Policies
 {: .no_toc}
+- a JSON or YAML document with a set of rules for what actions can be performed
+- these policies can be assigned to users, groups, or roles
+- policies can be:
+  - **managed** - created as standalone policies to be attached to multiple entities
+  - **inline** - created within the definition of an IAM entity and can only be assigned to that entity (they don't have an Amazon Resource Name (ARN))
 
-## iam - permissions
+## IAM - Permissions
 {: .no_toc}
+- lists of actions that can be taken on an AWS resource (think of it as applied policies)
+- identity-based policies - attached to users, groups, or roles
+- resource-based policies - attached to AWS resources, e.g., S3 buckets, EC2 instances, etc.
 
 ## AWS Organizations
 {: .no_toc}
+- used to manage multiple AWS accounts in centralized location
+- made up of organization, root account, organizational unit, AWS account, and service control policy (SCP)
 
 ## AWS Control Tower
 {: .no_toc}
+- enables setting up company-wide policies and apply them across AWS accounts
+- without it, each policy would be applied individually to each account
 
 ## AWS Guard Duty
 {: .no_toc}
+- used to detect threats, malicious behavior, and activity from unauthorized actors
+- leverages machine learning to detect threats
+- it is NOT an Intrusion Prevention System (IPS), it is just an Intrusion Detection System
 
 ## AWS Shield
 {: .no_toc}
+- managed DDoS protection service
+- Standard provided at no cost, Advanced costs money but provides additional protection
+- can be used on EC2, ELB, CloudFront, Global Accelerator, Route 53
 
 ## AWS Web Application Firewall
 {: .no_toc}
+- firewall for web applications
+- control traffic by creating rules
 
 ## AWS Firewall Manager
 {: .no_toc}
+- allows users to set up firewall rules in central dashboard, so new applications adhere to global rules
 
 ## Amazon Cloud Directory
 {: .no_toc}
+- fully managed service that creates directories (for things like org charts, device registries, etc.)
+- allows multiple hierarchies instead of the typical 1 allowed by Active Directory Lightweight Directory Services (AD LDS) and Lightweight Directory Application Protocol (LDAP)
 
 ## Amazon Inspector
 {: .no_toc}
+- checks application compliance against predefined policies, generating a comprehensive report of flaws and issues sorted by severity level
 
 ## Amazon Macie
 {: .no_toc}
+- uses AI and ML to find and protect sensitive data in AWS environments
+- helps with General Data Privacy Regulation (GDPR) and Health Insurance Portability and Accountability Act (HIPAA) compliance
 
 ## AWS Artifact Reports
 {: .no_toc}
+- simple service to store, manage, and access various compliance reports, e.g., SOC, PCI, NDAs
 
 ## AWS Certificate Manager
 {: .no_toc}
+- service to create, maintain, deploy public and private Secure Sockets Layer/Transport Layer Security (SSL/TLS) certs
 
 ## AWS CloudHSM
 {: .no_toc}
+- hardware security module (HSM) that allows users to generate their own encryption keys for encrypting data at rest
 
 ## AWS Directory Service
 {: .no_toc}
+- fully managed implementation of Microsoft's AD, using the actual Microsoft AD
 
-## AWS Key Management Service
+## AWS Key Management Service (KMS)
 {: .no_toc}
+- provides ability to create and manage cryptographic keys to encrypt data at rest
+- FIPS 140-2 compliant
 
 ## AWS Secrets Manager
 {: .no_toc}
+- used to protect secrets, allowing for rotation, management, and retrieval of all sorts of secrets
 
 ## AWS Single Sign-On
 {: .no_toc}
+- used to manage users access and permissions for multiple AWS accounts
 
 ## AWS Security Hub
 {: .no_toc}
+- centralized location to see security alerts and security posture
 
 # 9: Severless and Container Patterns
-
 ## Advantages of Containers
 {: .no_toc}
+- containers are more efficient, allowing a loosely coupled architecture where services do not need to know about the implementation of other services, so you can update one without needing to update another
+- stateless, so no state is stored within boundaries
+- leads to less infrastructure waste
+- simple, as they are isolated, autonomous, and independent platforms without needing OS
+- increase productivity -- easier to onboard new developers
 
 ## Disadvantages of Containers
 {: .no_toc}
+- slightly slower compared to bare-metal servers
+- there are ecosystem incompatibilities, for example, Docker is not fully compatible with Kubernetes (needs `dockershim`) or RedHat's OpenShift
+- no graphical interface
 
 ## Virtual Machines
 {: .no_toc}
+- two types of virtual machines
+  - **system virtual machines (SVMs)** - physical machine substitute, leverage hypervisor architecture
+  - **hypervisor** - can run virtual machines, aka **virtual machine monitors**
 
 ## Docker
 {: .no_toc}
+- very prominent container software
+- freemium model -- released to public in 2013 at PyCon
 
-## Docker - Dockerfile
+## Dockerfile
 {: .no_toc}
+- text file containing instructions to show how Docker image is built
+- specify things like ports, OS, env vars, mounts, etc
 
 ## Docker images
 {: .no_toc}
+
 
 ## Docker run
 {: .no_toc}
