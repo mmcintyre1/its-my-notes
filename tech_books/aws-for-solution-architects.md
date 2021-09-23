@@ -859,66 +859,129 @@ Can achieve single-digit millisecond using CloudFront edge locations to accelera
 
 ## Docker images
 {: .no_toc}
-
+- container built from a Dockerfile
+- portable across environments and instance types
 
 ## Docker run
 {: .no_toc}
+- utility where commands can be issued to launch containers (image instances)
+- containers can be stopped, started, restarted
 
 ## Docker Hub
 {: .no_toc}
+- collection of previously created containers where Docker users share containers
+- can either be a public or private Docker registry
 
 ## Docker Engine
 {: .no_toc}
+- core of Docker, which instantiates and runs containers
 
 ## Docker Compose
 {: .no_toc}
+- tool which can configure and instantiate multi-container Docker applications using a YAML file
 
 ## Docker Swarm
 {: .no_toc}
+- groups virtual or physical machines running Docker Engine into a cluster
+- process of managing nodes is called orchestration
+- same use case as Kubernetes
 
 ## Kubernetes
 {: .no_toc}
+- open source container orchestration platform used to automate the manual work to deploy, manage, and monitor containerized apps
+- Google open sourced Kubernetes in 2015, donating to Cloud Native Computing Foundation (CNCF)
+- uses many applications and extensions to enhance orchestration
+  - Registration services: Atomic Registry, Docker Registry
+  - Security: LDAP, SELinux, RBAC, OAUTH
+  - Networking services: OpenvSwitch and intelligent edge routing
+  - Telemetry: Kibana, Hawkular, and Elastic
+  - Automation: Ansible playbooks
 
 ## Kubernetes Advantages
 {: .no_toc}
+- faster development and deployment
+- cost efficiency
+- cloud-agnostic deployments
+- management by cloud provider
 
 ## Amazon Elastic Container Service for Kubernetes (EKS)
 {: .no_toc}
+- managed wrapper around Kubernetes kernel
+- greatly simplifies restarting and setting up containers, persisting data, etc.
 
 ## Amazon Elastic Container Service (ECS)
 {: .no_toc}
+- quick solution to host containers at scale, so ideal for simpler workloads
 
 ## AWS Fargate
 {: .no_toc}
+- serverless compute engine for container management which can be used with EKS or ECS
+- containers as a service, meaning that the provisioning and management of container infrastructure is managed by AWS
 
 ## AWS Batch
 {: .no_toc}
+- great for long-running compute jobs that do not need low latency turn times
+- cheaper than other options, but slower
+- job: unit of work
+- job definitions: description of jobs to be executed (what parameters, cpu, ram, etc.)
+- job queues: list of work to be completed by jobs
+- compute environment: compute resources to run job
 
 # 10: Microservice and Event-Driven Architectures
 
 ## microservice
 {: .no_toc}
+- a software application that is structured as loosely coupled, easily deployable, and testable, and is organized in a well-defined business domain
 
 ## layered architecture
 {: .no_toc}
+- code is implemented in layers as a "separation of concerns"
+- generally, top most layer communicates with users and other systems, middle layer handles business logic, and bottom layer is data persistence
+- allows applications where only the top layer is publicly accessible
+- we can swap out layers for other tech if the layers are loosely coupled
 
 ## event-driven architecture
 {: .no_toc}
+- creating, messaging, processing, and storing events are the critical functions of a system
+- an event is any change in the state of the system
+- not all changes are events -- only meaningful changes are events
+
+## event producer
+{: .no_toc}
+- detects change in state, then generates the event and notifies others of the change by writing to a queue
+
+## event consumer
+{: .no_toc}
+- fetch events from queue (in async way), then performs action based on event
 
 ## event streaming
 {: .no_toc}
+- events are popped off queue as soon as one consumer processes the event
+- useful for workloads that need to be highly scalable and can be highly variable, since scaling is just adding more consumers
+- use case is for events that need to be processed exactly once but order doesn't matter
 
-## pub/sub model
+## pub-sub model
 {: .no_toc}
+- allows several consumers to process the same message
+- potentially guarantees order of messages received
+- useful for use cases where more than one consumer needs to receive messages
 
 ## benefits of event-driven architecture
 {: .no_toc}
+- no need to poll which is expensive, since push mechanism alerts consumers when new event occurs
+- dynamic targeting means there is no need to keep track of data consumers
+- keeps communication between producers and consumers simple
+- allows for decoupling and scalability, as each producer and consumer can adapt to their workload in isolation
 
 ## disadvantages of event-driven architecture
 {: .no_toc}
+- can't solve all problems, and the added complexity of setting up a message queue might not be worth it
+- popular with IoT workflows, but not others
+- difficult to troubleshoot problems because system is asynchronous
 
 ## plugin/microkernel architecture
 {: .no_toc}
+
 
 ## microservice best practices
 {: .no_toc}
