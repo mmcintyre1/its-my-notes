@@ -981,7 +981,4 @@ Can achieve single-digit millisecond using CloudFront edge locations to accelera
 
 ## plugin/microkernel architecture
 {: .no_toc}
-
-
-## microservice best practices
-{: .no_toc}
+- consists of a core system with features added via 'plugins' or extensions
