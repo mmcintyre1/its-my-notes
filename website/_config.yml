@@ -64,6 +64,11 @@ defaults:
       parent: Business Books
       nav_exclude: true
   - scope:
+      path: "educational_books"
+    values:
+      parent: Educational Books
+      nav_exclude: true
+  - scope:
       path: "other_books"
     values:
       parent: Other Books
