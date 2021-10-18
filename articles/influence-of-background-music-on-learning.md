@@ -1,3 +1,8 @@
+---
+last_modified_date: "2021-7-17 13:14:26.949657"
+nav_order: 101
+---
+
 # The Influence of Background Music on Learning in the Light of Different Theoretical Perspectives and the Role of Working Memory Capacity
 
 [Article Link](https://www.frontiersin.org/articles/10.3389/fpsyg.2017.01902/full)
