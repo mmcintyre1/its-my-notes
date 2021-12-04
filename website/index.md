@@ -2,9 +2,11 @@
 nav_exclude: true
 ---
 
-# Reading Notes
+# My Second Brain
 
-Here is a place where I put all my notes for things I've been reading.
+This repository is a work in progress for storing all the things I learn in a condensed note form.
+
+This wiki presentation is just another step in the evolution of maximizing the time I spend learning.
 
 - [Tech Books](./tech_books/)
 - [Business Books](./business_books/)

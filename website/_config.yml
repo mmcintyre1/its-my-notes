@@ -1,8 +1,7 @@
 title: Notes
 description: >-
-  Michael McIntyre Reading Notes
+  Michael McIntyre's Second Brain
 permalink: pretty
-
 # just the docs config
 # Back to top link
 back_to_top: true
@@ -21,7 +20,7 @@ last_edit_time_format: "%b %e %Y at %I:%M %p"
 # theme: just-the-docs
 remote_theme: pmarsceill/just-the-docs
 color_scheme: custom-dark
-baseurl: /learnings
+baseurl: /my-second-brain
 url: https://mmcintyre1.github.io
 
 plugins:
@@ -44,13 +43,13 @@ exclude:
   - docker-compose.yml
 
 titles_from_headings:
-  enabled:     true
+  enabled: true
   strip_title: false
   collections: false
 
 aux_links:
-  "Reading Notes on GitHub":
-    - "https://github.com/mmcintyre1/reading-notes"
+  "My Second Brain on GitHub":
+    - "https://github.com/mmcintyre1/my-second-brain"
 
 defaults:
   - scope:
@@ -87,4 +86,9 @@ defaults:
       path: "quotes"
     values:
       parent: Quotes
+      nav_exclude: true
+  - scope:
+      path: "vocabulary"
+    values:
+      parent: Vocabulary
       nav_exclude: true
