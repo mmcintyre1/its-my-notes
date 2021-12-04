@@ -203,7 +203,7 @@ two underlying movements
 - focus on the desired result itself by asking "what would it get me?"
 - "what matters most is the visible behavior of people in leadership positions in sharing their own personal visions and demonstrating their commitment to the truth." (155)
 
-- systems perspective illuminates personal mastery by
+systems perspective illuminates personal mastery by
 1. integrating reason and intuition -- giving managers who rely on intuition a language to express that intuition reasonably
 2. connectedness to the world - "to continually expand our awareness and understanding, to see more and more of the interdependencies between actions and our reality, to see more and more of our connectedness to the world around us." (160)
 3. compassion and empathy
