@@ -369,3 +369,37 @@ need to give up the notion that shared vision needs to be created from on high, 
 - "There are two fundamental sources of energy that can motivate organizations: fear and aspiration. The power of fear underlies negative visions. The power of aspiration drives positive visions." (209)
 
 # Chapter 11 - Team Learning
+- goal of a team is "alignment", or when a group of people function as a whole
+- "The fundamental characteristic of the relatively unaligned team is wasted energy [...] There is a commonality of purpose, a shared vision, and understanding of how to complement one another's efforts." (217)
+- "Team learning is the process of aligning and developing the capacity of a team to create the results its members truly desire" (218)
+
+Team learning has three critical dimensions
+1. a need to think insightfully about complex issues
+2. a need for innovative, coordinated action
+3. the role of team members on other teams, i.e., a learning team continually fosters other learning teams through inculcating practices and skills of team learning more broadly
+
+- need to master the practices of dialog and discussion
+two primary types of discourse
+**dialogue**
+-  a free and creative exploration of complex issues
+-  deep listening
+-  suspending one's own views
+-  "the purpose of dialog is to reveal the incoherence in our thought"
+**discussion**
+- different views are presented and defended
+- search for the best view to support decisions that must be made
+
+three basic conditions necessary for dialogue
+1. suspend assumptions
+  - must be aware of our assumptions and hold them up for examination
+  - this is similar to "leaps of abstraction" and "inquiring into reason for abstraction" with mental models
+2. regard one another as colleagues
+  - necessary for a willingness to treat others as colleagues
+  - hierarchy is antithetical to dialog, so individuals must want the benefits of dialogue more than the privileges of rank
+3. a facilitator must hold the context of the conversation
+  - moves the conversation along and resists the urge for dialogue to become discussion (pushing for decisions)
+  - also capable of framing counter views and participating in the dialogue
+
+- discipline of team learning requires practice, and a continual movement between practice and performance
+- thought is participative, and collectively we can be more insightful and intelligent than we can be individually
+-
