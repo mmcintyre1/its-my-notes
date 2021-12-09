@@ -402,4 +402,29 @@ three basic conditions necessary for dialogue
 
 - discipline of team learning requires practice, and a continual movement between practice and performance
 - thought is participative, and collectively we can be more insightful and intelligent than we can be individually
--
+- a reliable indicator a team is learning is visible conflict of ideas
+- difference between great and mediocre teams is how they face conflict and deal with defensiveness that arises
+
+### Defensive Routines
+- entrenched habits we use to protect ourselves from embarrassment and threat that occurs when we expose our thinking
+- response to a problem, and obscure their own existence
+- the most effective defensive routines are those we cannot see
+- managers internalize an idea that they must know what's going on, which leads to two problems:
+  1. close themselves to alternative realities and make themselves uninfluenceable
+  2. maintain air of confidence by obscuring ignorance
+- leverage in reducing them, like all shifting the burden structures, lies in:
+  - weakening symptomatic solution
+  - strengthening fundamental solution
+- need to confront defensiveness without producing more defensiveness, and we need a ruthless commitment to telling the truth about our current reality
+- the stronger the defensiveness the more important the issue
+
+- an essential principle of practice is experimentation in a "virtual world"
+- dialogue sessions allow a team to come together and practice, basic conditions are:
+  1. having all members of team together
+  2. explaining the ground rules of dialogue
+  3. enforcing those ground rules, and if anyone is unable to suspend assumptions, you acknowledge you are discussing and not dialoguing
+  4. encouraging team members to raise the most difficult issues
+
+- "Perhaps the single greatest liability of management teams is that they confront these complex, dynamic realities with a language designed for simple, static problems" (249)
+- find and fix mentality leads to a stream of short term fixes
+- need a better language for describing complexity beyond linear cause and effect -- systems thinking is that language
