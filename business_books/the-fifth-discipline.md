@@ -428,3 +428,30 @@ three basic conditions necessary for dialogue
 - "Perhaps the single greatest liability of management teams is that they confront these complex, dynamic realities with a language designed for simple, static problems" (249)
 - find and fix mentality leads to a stream of short term fixes
 - need a better language for describing complexity beyond linear cause and effect -- systems thinking is that language
+
+
+# Chapter 12: Foundations
+
+## Participative Openness and Reflective Openness
+- participative (expressive) openness is about sharing your own views, and while it is important, it is incomplete
+- can be a type of communication that blocks learning
+- on the other hand is reflective openness, or thinking about you how think and work and taking accountability for your learning
+- reflective openness is the cornerstone of mental models and requires vulnerability and a willingness to be open
+
+- in order to grow a company, you need a purpose beyond just growing revenue -- growing revenue is like oxygen for a company, or table stakes
+- need to have projects worthy of your commitment
+- commitment to personal growth starts with you
+- we need to see the business as a living system, as a community of humans, and not as a machine
+- this involves a shift from focusing on:
+  1. parts to the whole
+  2. categorization to integration
+  3. individuals to interactions
+  4. systems outside the observer to systems including the observer
+
+# Chapter 13: Impetus
+three motivations for people to take on work of building a learning organization
+1. seek a better model for how to manage and lead change
+2. build an organizations overall capacity for continual adaptation to change
+3. there is a way of managing and organizing work
+
+# Chapter 14: Strategies
