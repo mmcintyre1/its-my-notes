@@ -16,3 +16,4 @@ This wiki presentation is just another step in the evolution of maximizing the t
 - [Other Books](./other_books/)
 - [Favorite Quotes](./quotes/)
 - [Vocabulary](./vocabulary/)
+- [Projects](./projects/)

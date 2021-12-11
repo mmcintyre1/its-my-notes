@@ -92,3 +92,8 @@ defaults:
     values:
       parent: Vocabulary
       nav_exclude: true
+  - scope:
+      path: "projects"
+    values:
+      parent: Projects
+      nav_exclude: true

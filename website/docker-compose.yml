@@ -18,3 +18,4 @@ services:
       - ../classes:/srv/jekyll/classes
       - ../other_books:/srv/jekyll/other_books
       - ../vocabulary:/srv/jekyll/vocabulary
+      - ../projects:/srv/jekyll/projects
