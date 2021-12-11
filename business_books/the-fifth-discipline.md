@@ -529,3 +529,48 @@ two predominant ideas:
 - learning infrastructures do not leave learning to chance
 
 ## Chapter 15: The Leader's New Work
+### what do we mean by leader?
+- typically, leader refers to positional authority via title, a synonym for top management
+- this creates two problems:
+  1. it declares all others are not leaders and have little power to effect change
+  2. it fails to understand the diverse roles of leaders at many levels
+#### local line leaders
+- vital for integrating innovative practices into daily work, and testing the efficacy of systems thinking tools
+
+#### network leaders
+- helpers, seed carriers, and connectors
+- carry ideas from one working group to another
+
+#### executive leaders
+- shape the overall environment for innovation and chance
+- must take responsibility for existence of credible and uplifting guiding ideas in the org
+
+### Leader as Designer
+- leaders who appreciate orgs as living systems realize it isn't enough to create organizational artifacts like new metrics or formal roles and processes -- it's how they are used that matters
+- what it means to be a designer of learning infrastructures:
+  1. recognize an important need for communication and learning isn't being met
+  2. have the courage and imagination to break the mold
+- need to design guiding ideas that aren't BS -- a useful question to separate guiding and governing ideas from regular ideas is "How did our vision and value influence decisions I made today?"
+
+### Leader as Teacher
+- a great teacher is someone around whom others learn, someone who creates a great environment for learning
+- desire to serve ("servant leadership") as core motivation for great leaders
+- leaders work as teachers starts by recognizing a core capacity isn't being met
+- how can leaders help people to see reality as a medium for creating their vision rather than as a limitation
+  - one way is to help people see reality in terms of underlying structures and mental models rather than short-term events
+- to be a true teacher you must be a learner first
+
+### Leader as Steward
+- leaders who serve
+- stewardship is also about serving a larger purpose
+there are two paradoxes of stewardship:
+1. certainty and commitment - too much certainty leads to being closed off -- genuine commitment always coexists with some element of uncertainty and questioning
+2. conservation and change -- just as important to what leaders would change is what they would conserve (often identity and relationships) -- obssessively focusing on what we would change reinforces fears of change
+
+- leaders don't always need to be singularly focused on ambition -- sometimes having a larger life might help managers gain perspective and be more effective
+- managers also need to create sustainable results -- if they are only focused on short term results, it justifies intervention -- the whole point is to try and improve so no more intervention is needed
+
+- what distinguishes good leaders is the "clarity and persuasiveness of their ideas, the depth of their commitment, and the extent of their openness to continually learning more" (339)
+- "truly effective leaders come to a shared appreciation of the power of holding a vision and concurrently looking deeply and honestly at current reality" (340)
+
+## Chapter 16: Systems Citizens
