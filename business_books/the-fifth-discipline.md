@@ -455,3 +455,77 @@ three motivations for people to take on work of building a learning organization
 3. there is a way of managing and organizing work
 
 # Chapter 14: Strategies
+learning has two levels:
+1. learning is judged by what the learner can do, the results they produce
+2. learning is about developing a capacity to reliably produce certain quality of results
+- not just about riding a bike one time, but being a bike rider
+
+### Deep Learning Cycle
+1. beliefs and assumptions
+2. established practices
+3. skills and capabilities
+4. networks of relationships
+5. awareness and sensibilities
+- these five cultural elements influence one another
+
+### Strategic Architecture
+1. *guiding ideas*, or, the governing concepts and principles that define why an organization exists, what we seek to accomplish, how we intend to operate
+2. *theory, tools, and methods*, or, explicit ideas about how things work and the practical means by which people apply those theories, solve problems, negotiate differences, and monitor progress
+3. *organizational infrastructure*, or, formal roles and management structures that shape how energy and resources flow
+
+### Theory of Structuration
+- theory of "enacted systems"
+two predominant ideas:
+1. structure influences behavior, and leverage for change increases as we learn to focus on underlying structures rather than events or behavior
+2. structures that govern social systems arise from cumulative effects of the actions taken by the participants in those systems
+
+### 1. Integrating Learning and Working
+- fragmentation, or making learning an 'add-on' to people's regular work, limits how we can integrate learning and working
+- need to tie reflection to action so learning isn't fragmented
+- reflection doesn't mean agreement on everything but rather that we hear everything -- we can disagree and commit
+- a culture that integrates action and reflection arrives at better decisions to which people can generally commit to
+
+#### After Action Review
+- used by US Army to reflect
+- simplest form involves answering three questions:
+1. what happened?
+2. what did we expect?
+3. what can we learn from the gap
+- another question we can ask is: "If you could improve performance in one area that would make a significant different for the enterprise, what would that be?"
+- in order to be successful, you need 1) leadership by request and example, 2) events as learning opportunities 3) grassroots exposure to AARs 4) a cadre of trained facilitators
+
+### 2. Starting Wherever You are with Whoever is There
+- the idea that only top managers can drive change is false
+- you can concentrate on the "impossibles", or the problems people believe can't be solved
+- this can only happen when you can tape people's talents and deepest aspirations
+
+### 3. Becoming Bicultural
+- becoming bicultural, or never losing touch with the larger organizational environment
+- need to consider the greater environment
+- fundamental innovations that produce significant leaps in performance are threatening to teams producing closer to the norm
+- need to become adroit at working with political forces within an organization so as not to run afoul of corporate immune system
+- one strategy is to keep innovations below the radar of senior leadership by underpromising and overdelivering
+
+### 4. Creating Practice Fields
+- it is very difficult to learn anything without opportunity for practice
+- setting up practice fields for learning
+
+### 5. Connecting with the Core of the Business
+- successful learning practitioners intent upon having a large-scale impact learn how to connect with the core of an organization -- at the deepest levels of individual and collective identity -- and how the organization most naturally creates value
+- change leaders limit themselves with two subtle barriers
+  1. they do not go deeply enough into themselves to discover what motivates themselves
+  2. they do not go deeply enough in the org to discover what it stands for
+
+### 6. Building Learning Communities
+- when our own aspirations connect with an organization's essence, community develops
+
+### 7. Working with the Other
+- embracing diversity in order to resist surrounding oneself with those who think like you
+- partnering with those who are different
+- the importance of building diverse and inclusive communities will grow in an increasingly networked world
+
+### 8. Developing Learning Infrastructures
+- when we redefine management roles to support reflection or systems thinking, we create learning infrastructures
+- learning infrastructures do not leave learning to chance
+
+## Chapter 15: The Leader's New Work
