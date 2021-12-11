@@ -1,5 +1,20 @@
 # Vocabulary
 
+### jeremiad [ jer-uh-*mahy*-uhd ]
+1. a prolonged lamentation or mournful complaint
+
+### limpid [ *lim*-pid ]
+1. clear, transparent as water, crystal or air
+2. free from obscurity; lucid; clear
+3. completely calm; without distress or worry
+### syllogism [ *sil*-uh-jiz-uhm ]
+4. Logic. an argument the conclusion of which is supported by two premises, of which one (major premise ) contains the term (major term ) that is the predicate of the conclusion, and the other (minor premise ) contains the term (minor term ) that is the subject of the conclusion; common to both premises is a term (middle term ) that is excluded from the conclusion. A typical form is “All A is C; all B is A; therefore all B is C.”
+5. deductive reasoning.
+6. an extremely subtle, sophisticated, or deceptive argument.
+
+### temerarious [ tem-uh-*rair*-ee-uhs ]
+1. reckless; rash
+
 ### perspicacity [ pur-spi-*kas*-i-tee ]
 keenness of mental perception and understanding.
 
