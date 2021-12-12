@@ -574,3 +574,85 @@ there are two paradoxes of stewardship:
 - "truly effective leaders come to a shared appreciation of the power of holding a vision and concurrently looking deeply and honestly at current reality" (340)
 
 ## Chapter 16: Systems Citizens
+there are fundamental aspects to seeing systems:
+1. seeing patterns of interdependency
+2. seeing into the future
+
+## Chapter 17: Frontiers
+- learning is a process of enhancing learner's capacity, individually and collectively, to produce results they truly want to produce
+- this emphasizes two features of learning:
+  1. building capacity for effective action as opposed to intellectual understanding only
+  2. this capacity builds over time, often over considerable time
+
+three openings when leading change
+1. *opening the head* - opening ourselves to see what is in front of us but we have not been able to see yet
+2. *opening the heart* - opening ourselves to see our connection to what is around us, the pain, the suffering, the problems, as well as the joy
+3. *opening the will* - letting go of the last remnants of our small 's' self
+
+## Learning Discplines
+
+- *practices*: what you do
+- *principles*: guiding ideas and insights
+- *essences*: the state of being of those with high levels of mastery in the discipline
+
+### Systems Thinking
+#### Essences
+- holism
+- interconnectedness
+
+#### Principles
+- structure influences behavior
+- policy resistance
+- leverage
+
+#### Practices
+- system archetypes
+- simulation
+
+### Personal Mastery
+#### Essences
+- being
+- generativeness
+- connectedness
+
+#### Principles
+- vision
+- creative tension vs. emotional tension
+- subconscious
+
+#### Practices
+- clarifying personal vision
+- "holding" creative tension
+  - focusing on the result
+  - seeing current reality
+
+### Mental Models
+#### Essences
+- love of truth
+- openness
+
+#### Principles
+- espoused theory vs. theory-in-use
+- ladder of inference
+- balance inquiry and advocacy
+
+#### Practices
+- distinguishing "data" from abstractions based on data
+- testing assumptions
+- "Left-hand" column
+
+### Shared Vision
+#### Essences
+- commonality of purpose
+- partnership
+
+#### Principles
+- shared vision as "hologram"
+- commitment vs. compliance
+
+#### Practices
+- visioning process
+  - sharing personal visions
+  - listening to others
+  - allowing freedom of choice
+- acknowledging current reality
