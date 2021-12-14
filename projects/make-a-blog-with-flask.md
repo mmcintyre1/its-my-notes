@@ -17,7 +17,7 @@ I think one of the things I also want to work on learning better is Docker, as w
 https://github.com/mmcintyre1/silently-failing
 
 
-## Starting out - Day 1
+## Starting out - Getting the Dev Environment Up and Running
 I think my first step is going to be getting a simple Flask app functioning in a docker container, then deploying that to Netlify. If I can start with the CI/CD so I can easily push changes live, it'll allow me to concentrate on the stuff I know less well -- presentation. The last app I hosted on Netlify was a jekyll app, so there was no data layer. Doesn't seem like netlify offers any database services, but I can probably find something easy enough.
 
 ### Making the Repository and a Simple Flask App
@@ -42,6 +42,20 @@ Then, I can run the image container via `docker run -d -p 5000:5000 silently-fai
 - `-p` publishes the ports within the container to outside the container
 - `silently-failing` tells it what image to run.
 
+#### Docker and caching, and some best practices
+One interesting thing about docker is that each command is a layer, and there is a cache that is maintained that means every time you run `docker build` docker will look for an existing layer in its cache, and if one exists it uses that instead of building a new one. This build cache is super important, and it's why you see things like these commands separated:
+
+```docker
+COPY requirements.txt /
+RUN pip3 install -r /requirements.txt
+
+COPY . /app
+WORKDIR /app
+```
+
+This is a really helpful page to read through:
+[Best practices for writing a Dockerfile](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/)
+
 #### Difference Between `CMD` and `ENTRYPOINT`
 I've written my `Dockerfile` with `CMD`, but I've seen `ENTRYPOINT` used as well. [Here's](https://www.bmc.com/blogs/docker-cmd-vs-entrypoint/#) a pretty decent resource on the topic, but it seems to boil down to whether or not you want your commands to be able to overridden at the command line when starting the image. Your `Dockerfile` needs either a `CMD` or an `ENTRYPOINT`. I'm using the command `python3 -m flask run --host=0.0.0.0`, but if I wanted to use `python3 -m flask shell`, I can do that easily by running the command `docker run silently-failing flask shell`.
 
@@ -50,6 +64,9 @@ So now I want to add in a web server to replace the simple one Flask gives. The 
 
 Another thing I've noticed is that in working with docker, I am running `docker build` a bunch, and I have a ton of images I need to go through and delete. This is easy enough via Docker Desktop, but surely there is a better way to manage the lifecycle of these containers and clean up detritus.
 
-### Simplifying Management with Docker compose
+### Simplifying Management with Docker Compose
+Typically Docker Compose is used to run multi-container apps, like if we were going to run a flask/gunicorn container, an nginx container, and postgres container all with the same `docker-compose` command. It also makes it much lighter than typing out the same long-winded `docker run -d -p 8050:8050 silently-failing`, and it allows me to mount volumes outside of the container to within the container so I don't need to constantly be rebuilding the container itself after every file update.
 
-### Making Makefiles
+[Putting together a docker-compose.yml file](https://github.com/mmcintyre1/silently-failing/blob/ef1c5523c38f0f00d1c18c746801314eb5aca15d/docker-compose.yml) was easy as pie using [this](https://docs.docker.com/compose/gettingstarted/) documentation, but I spent a bit longer than I'm comfortable admitting working on how to get hot reloading working. At first I was futzing around with the mounted drives, then I was trying to pass in environment variables via a `.env` file and the `env_file` command in the `docker-compose.yml` file (I might go back to this, as the way I currently have it is using `debug=True` in the `main` block in my flask app file). Finally, I realized that I was missing a `--reload` directive to my gunicorn command. Adding that in, and things worked perfectly. Just needed to go back and clean up all the things that didn't work, since I was kind of throwing things at the wall for a bit there and I'm not sure what the side effects are of things I was doing.
+
+Anyway, on to a simple makefile.
