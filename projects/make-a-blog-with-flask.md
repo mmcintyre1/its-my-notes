@@ -56,6 +56,8 @@ WORKDIR /app
 This is a really helpful page to read through:
 [Best practices for writing a Dockerfile](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/)
 
+There is also a bit of chatter on running Docker images as root user and how you generally shouldn't be doing it. Since a docker container is running on the same kernel as the host, there isn't the typical separation of layers that you might see with a virtual machine. For some use cases it doesn't really matter since the application you might run doesn't actually run as root, for example, nginx.
+
 #### Difference Between `CMD` and `ENTRYPOINT`
 I've written my `Dockerfile` with `CMD`, but I've seen `ENTRYPOINT` used as well. [Here's](https://www.bmc.com/blogs/docker-cmd-vs-entrypoint/#) a pretty decent resource on the topic, but it seems to boil down to whether or not you want your commands to be able to overridden at the command line when starting the image. Your `Dockerfile` needs either a `CMD` or an `ENTRYPOINT`. I'm using the command `python3 -m flask run --host=0.0.0.0`, but if I wanted to use `python3 -m flask shell`, I can do that easily by running the command `docker run silently-failing flask shell`.
 
@@ -64,9 +66,20 @@ So now I want to add in a web server to replace the simple one Flask gives. The 
 
 Another thing I've noticed is that in working with docker, I am running `docker build` a bunch, and I have a ton of images I need to go through and delete. This is easy enough via Docker Desktop, but surely there is a better way to manage the lifecycle of these containers and clean up detritus.
 
-### Simplifying Management with Docker Compose
+### Simplifying Docker Stuff with Docker Compose
 Typically Docker Compose is used to run multi-container apps, like if we were going to run a flask/gunicorn container, an nginx container, and postgres container all with the same `docker-compose` command. It also makes it much lighter than typing out the same long-winded `docker run -d -p 8050:8050 silently-failing`, and it allows me to mount volumes outside of the container to within the container so I don't need to constantly be rebuilding the container itself after every file update.
 
 [Putting together a docker-compose.yml file](https://github.com/mmcintyre1/silently-failing/blob/ef1c5523c38f0f00d1c18c746801314eb5aca15d/docker-compose.yml) was easy as pie using [this](https://docs.docker.com/compose/gettingstarted/) documentation, but I spent a bit longer than I'm comfortable admitting working on how to get hot reloading working. At first I was futzing around with the mounted drives, then I was trying to pass in environment variables via a `.env` file and the `env_file` command in the `docker-compose.yml` file (I might go back to this, as the way I currently have it is using `debug=True` in the `main` block in my flask app file). Finally, I realized that I was missing a `--reload` directive to my gunicorn command. Adding that in, and things worked perfectly. Just needed to go back and clean up all the things that didn't work, since I was kind of throwing things at the wall for a bit there and I'm not sure what the side effects are of things I was doing.
 
 Anyway, on to a simple makefile.
+
+### Making make files
+So a makefile should give us a nice entry into build and run commands. I don't think I need to run gunicorn in dev since the Flask HTTP server is suitable. There might be some argument to running gunicorn in dev just so dev and live are as synonymous as possible ([12 Factor App: Dev/prod parity](https://12factor.net/dev-prod-parity)). I don't really have an opinion right now.
+
+The commands I think I want are
+- build
+- run-dev
+- run-live
+- kill
+
+The way I implemented this for now is to have separate commands for dev and live, but I think I'd much rather be able to set an environment variable for development or production and have that determine what needs to run. Less overhead and duplication maybe? [Relevant commit](https://github.com/mmcintyre1/silently-failing/tree/622f95f089d095c16b07e006dd9a12d3d2ceeaa6)
