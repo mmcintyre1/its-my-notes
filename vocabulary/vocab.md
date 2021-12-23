@@ -7,10 +7,11 @@
 1. clear, transparent as water, crystal or air
 2. free from obscurity; lucid; clear
 3. completely calm; without distress or worry
+
 ### syllogism [ *sil*-uh-jiz-uhm ]
-4. Logic. an argument the conclusion of which is supported by two premises, of which one (major premise ) contains the term (major term ) that is the predicate of the conclusion, and the other (minor premise ) contains the term (minor term ) that is the subject of the conclusion; common to both premises is a term (middle term ) that is excluded from the conclusion. A typical form is “All A is C; all B is A; therefore all B is C.”
-5. deductive reasoning.
-6. an extremely subtle, sophisticated, or deceptive argument.
+1.. Logic. an argument the conclusion of which is supported by two premises, of which one (major premise ) contains the term (major term ) that is the predicate of the conclusion, and the other (minor premise ) contains the term (minor term ) that is the subject of the conclusion; common to both premises is a term (middle term ) that is excluded from the conclusion. A typical form is “All A is C; all B is A; therefore all B is C.”
+2. deductive reasoning.
+3. an extremely subtle, sophisticated, or deceptive argument.
 
 ### temerarious [ tem-uh-*rair*-ee-uhs ]
 1. reckless; rash
@@ -31,7 +32,6 @@ keenness of mental perception and understanding.
 3. any wildly enthusiastic speech or writing.
 
 ### marmoreal [ mahr-*mawr*-ee-uhl ]
-
 of or like marble:
 
 ### crepuscular [ kri-*puhs*-kyuh-ler ]
