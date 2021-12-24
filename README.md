@@ -2,6 +2,20 @@
 
 This is a place where I write about things I've learned about. My so-called knowledge portfolio. I borrowed a lot from [this repo](https://github.com/keyvanakbary/learning-notes) since I love the simplicity and his project structure means 0 setup.
 
+### Need add info on
+- Black Swan Green
+- How to Absurd Scientific Advice for Common Real-World Problems
+- Pnin
+- Sapiens
+- Slade House
+- Murderbot
+- Why We Sleep
+
+### Other To-do
+- collapse three kingdoms into one entry
+- add collected fictions
+
+
 ### Tech Books
 
 - [Designing Data-Intensive Applications](tech_books/designing-data-intensive-applications.md) by **Martin Kleppmann**, 2015.
