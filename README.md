@@ -12,8 +12,8 @@ This is a place where I write about things I've learned about. My so-called know
 - Why We Sleep
 
 ### Other To-do
-- collapse three kingdoms into one entry
 - add collected fictions
+- is there a way to populate the README programmatically?
 
 
 ### Tech Books
