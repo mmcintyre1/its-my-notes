@@ -114,3 +114,17 @@ On the alias record to direct to an S3 bucket back to the www subdomain, Heroku 
 
 ### Deploying
 Since Heroku manages files via git, you could push your code directly to your app via git commands and setting the remote to your heroku app, but since I'm already using GitHub, I think it's easier to just enable the GitHub integration that already exists. You integrate your GitHub and Heroku accounts, point Heroku to the relevant repository, and off it goes. I think it works by setting up webhooks that trigger commits to master in your GitHub repository to push those changes out to your heroku app and trigger a rebuild your heroku app. But things just work. Now on to actually working on the app.
+
+## Time to Actually Make the Damn Blog
+But before that, I had to do some quick work with my make commands to change how they pulled environment variables. I was declaring my `FLASK_APP` all over the place, so instead, I could just include a reference to my .env.dev in my `Makefile` and the `docker-compose-dev.yml` file, and then I could call the environment variable via `${FLASK_APP}`. This way, I only need to change it in one spot, that .env file.
+
+### Secret Keys and Factories
+I was reading through [Flask's Tutorial](https://flask.palletsprojects.com/en/2.0.x/tutorial/) and they have you create an application factory, so I borrowed the logic there to create things. They recommend a `SECRET_KEY` so I have one I've plopped into my `.env.sample` file as well as one I have on Heroku, so I can do something simple like this: `SECRET_KEY=os.getenv('SECRET_KEY', 'dev')` to and pass that into `app.config.from_mapping()` to set a secret key for dev and live. The only other thing I had to update when I changed from an app to an app factory was the reference in my `manage.py`. Originally, I was importing app from silentlyfailing, but now I import my `create_app` function and pass that into the `FlaskGroup` init. [Code here](https://github.com/mmcintyre1/silently-failing/tree/411a7222be500d46a0ef269875cc3b0d6a5a2d65).
+
+Quick update -- this failed to deploy, so I needed to update my `Procfile` to `web: gunicorn "silentlyfailing:create_app()"` to actually call the function, which took care of the deploy.
+
+### Doing the Database Thing
+So now I need to make a database to store all my wonderful blog posts and musings. I think the idea here is to use sqlalchemy to encapsulate database creation, and alembic to handle migrations. The first step here is getting a postgres instance up and running locally, so I'll first need to modify my docker-compose file to add in the postgres service, then I'll need to probably update my app factory to connect to the database and pull whatever connection variables it needs from the environment, then build out some database models, etc., etc. Finally, I'll need to update my Heroku app to start the server and run the database migrations via alembic. After I get all this done, I should finally be able to start building out the application.
+
+#### A note about backups
+One of my considerations here is actually whether the data in my heroku postgres is reliably stored, and whether it persists in some fashion or another. The blog posts themselves will reside within the database, and they are the value prop here, so I'd hate to lose them. One avenue I could explore would be to use Flask to render static content via markdown files and not require a database at all. I'm not sure flask is suited for static sites or if there is an alternative technology that might be better. Need to do some investigation.
