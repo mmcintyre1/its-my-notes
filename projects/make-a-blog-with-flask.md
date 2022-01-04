@@ -127,4 +127,31 @@ Quick update -- this failed to deploy, so I needed to update my `Procfile` to `w
 So now I need to make a database to store all my wonderful blog posts and musings. I think the idea here is to use sqlalchemy to encapsulate database creation, and alembic to handle migrations. The first step here is getting a postgres instance up and running locally, so I'll first need to modify my docker-compose file to add in the postgres service, then I'll need to probably update my app factory to connect to the database and pull whatever connection variables it needs from the environment, then build out some database models, etc., etc. Finally, I'll need to update my Heroku app to start the server and run the database migrations via alembic. After I get all this done, I should finally be able to start building out the application.
 
 #### A note about backups
-One of my considerations here is actually whether the data in my heroku postgres is reliably stored, and whether it persists in some fashion or another. The blog posts themselves will reside within the database, and they are the value prop here, so I'd hate to lose them. One avenue I could explore would be to use Flask to render static content via markdown files and not require a database at all. I'm not sure flask is suited for static sites or if there is an alternative technology that might be better. Need to do some investigation.
+One of my considerations here is actually whether the data in my heroku postgres is reliably stored, and whether it persists in some fashion or another. The blog posts themselves will reside within the database, and they are the value prop here, so I'd hate to lose them. One avenue I could explore would be to use Flask to render static content via markdown files and not require a database at all. I'm not sure flask is suited for static sites or if there is an alternative technology that might be better. Need to do some investigation. I think I'd feel more comfortable hosting on RDS, but from experience that runs $15-30 a month for micro or small t instances.
+
+#### Setting up my dev postgres
+So the first thing I did was set up the postgres service in my local dev environment. I needed to add in some environment variables, and according to the [postgres Docker documentation](https://hub.docker.com/_/postgres) the only required environment variable is `POSTGRES_PASSWORD`, but I included each element of the URI string in environment variables. I updated the [docker compose file](https://github.com/mmcintyre1/silently-failing/commit/96e8be654ccb57b588c102cdd413d10ce2feaf7e), and then I modified the way configuration variables were passed in to the application by using a `config.py` [file with some minor inheritance](https://github.com/mmcintyre1/silently-failing/commit/e15acf8490a7e750cceb797aac726485f895c0ad). One of the workarounds I had to do was in the `ProductionConfig` class, the environment variable is different on Heroku -- they give you a full `DATABASE_URL` as opposed to each element, so there is some inconsistency with dev and live. In the future I'd like to modify this to be more consistent. Since all three of those config classes are evaluated at runtime, I had to replace `os.environ[KEY]` with `os.getenv(KEY, default_value)` since those environment variables aren't set in live. I might be able to break up that `DATABASE_URL` heroku gives into individual parts.
+
+I also [updated the `Makefile`](https://github.com/mmcintyre1/silently-failing/commit/95973ea8c3f9a91209161573f187987cdeba6747) to include killing off the db container in addition to the web container.
+
+Finally, I needed to do a quick modification of the `DATABASE_URL` that Heroku gives me, since SQLAlchemy is expecting postgresql, not postgres, at the beginning of the URI.
+
+#### Setting up SQLAlchemy
+I want to use an ORM here so I don't need to worry about database-specific semantics. The general recommendation here is SQLAlchemy, but I've also heard peewee recommended. I've worked with SQLAlchemy in the past, so that's what I've used here. I created a `models.py` [file](https://github.com/mmcintyre1/silently-failing/commit/df8bc6cf987296bb30fe5002ddd67bdd4401b42d), initialized a SQLAlchemy database instance, and defined a really simple `Cats` model for testing purposes. I simplified the app factory, removing superfluous things for now (I'll probably add back in the `test_config` if/else so I can pass in test_config parameters for testing purposes by creating an instance of the app). One other item I needed to take care of was because I am using the [application factory pattern](https://flask.palletsprojects.com/en/2.0.x/patterns/appfactories/) (the primary use case seems to be for either testing or process-sharing purposes), I needed to push an application context so the database could use it. Looks something like this:
+
+```python
+with app.app_context():
+    db.init_app(app)
+    db.create_all()
+```
+
+I'm not entirely sure what an app context is, but there is more [information here](https://flask.palletsprojects.com/en/2.0.x/appcontext/). I think more might be revealed as I continue work on the blog and add in tests.
+
+One other item of note is that running against postgres in SQLAlchemy requires some additional binaries, so I needed to updated the `Dockerfile` to [install those binaries](https://github.com/mmcintyre1/silently-failing/commit/51e2c807d7bd1f9eadcf5a0337f8c71c6fd587af), and pip installed psycopg2 and psycopg2-binaries.
+
+From here, I can connect to both my local postgres and heroku postgres, and I see that the table is created.
+
+#### Setting up Alembic for migrations
+
+heroku restart
+heroku logs --tail
