@@ -176,6 +176,60 @@ I am going to separate presentation entirely from how I get or post data. That w
 What I think I need to do here is to create a blog model, a method to get blog objects from the database, and a method to write blog objects to the database. I probably also need a login method, or some way to prove I'm admin and keep me in an authenticated session. I want to wrap that method to write in some sort of authentication. I probably don't need to store any user info in the database, just check a password against some environment variable.
 
 #### Setting up an admin account and login/logout
+I want to be able to have a single admin account that is allowed to create, update, and delete blog posts. This means I need to also have a login mechanism, as well as write that username and password to the database.
+
+I am using the flask-login library, which handles session data for logging a user in or out. From what I can see, it provides convenience functions and decorators for setting app state about a user being 'authenticated', as well as cookie management for longer sessions. You need to add your own password checking logic. I'll probably want to replace this in the future, as I'm hashing my own passwords -- it looks like [FlaskSecurity](https://pythonhosted.org/Flask-Security/index.html) might be a good choice since it threads together a lot of lower level libraries. It also claims it provides easier OAuth integration, which might be good for some use cases.
+
+First thing I did was to create a User class, inheriting both `db.Model` and flask-login's `UserMixIn`. The former gives me access to all the query convenience functions, and the latter implements [four methods](https://flask-login.readthedocs.io/en/latest/_modules/flask_login/mixins.html) to help flask-login. I also added in my own rudimentary hashing and password checking methods via `set_password` and `check_password`. It's important to note that flask-login doesn't actually seem to handle the checking of passwords, and it's something you need to do yourself. For example, if I didn't have the `user.check_password)` check below, nothing is stopping the user from being "logged in".
+
+```python
+user = User.query.filter_by(username=form.username.data).first()
+if user and user.check_password(password=form.password.data):
+    login_user(user)
+```
+
+From there, I created a `routes.py` file to hold all my app routes. At some point in the future, you can break out subdomains in your app into separate route files, like `blog_routes.py` or within a different directory, but I haven't yet. No need -- I'll only have 6 or 7 routes. The first thing I did was to initialize the plugin via `LoginManager()`. I also added that to my app factory and ran the `init_app` method. I also made a blueprint for the routes so I could set the decorator correctly. I don't want to import my `create_app` function to `routes.py` there, so I can create a blueprint then register it with the app in my `__init__`. Something like this:
+
+```python
+# routes.py
+sf = flask.Blueprint('sf', __name__)
+
+@sf.route('/login', methods=['GET', 'POST'])
+def login():
+
+# __init__.py
+with app.app_context():
+    # register blueprints
+    app.register_blueprint(sf)
+```
+
+After that, I need to implement a few methods:
+- `load_user`, with `@login_manager.userloader` as a decorator -> this is used by flask-login to load the user info on every page load.
+- `login`, which will allow me to login a user
+- `logout`, which, you guessed it, logs a user out
+- `unauthorized`, with a `login_manager.unauthorized_handler`, which handles when a user tries to access a resource they are not allowed to access
+
+Most of these methods are straightforward. The first thing I did was to create a `forms.py` file to handle the login form. I need to take user input and check it against the database to see if it's accurate. I used flask_wtf and wtforms for the task. The code was real simple.
+
+Next was some basic html. First I made a base.html file which I will extend for various purposes. This saves a ton of code, of course, and keeps the HTML relatively modular. After base.html, I made a login.html, borrowing a bunch from all sorts of sources. One interesting thing that I found was the command `flask.flash` doesn't really do anything unless you get and display the messages. You need something like the below to display them.
+
+```html
+{% for message in get_flashed_messages() %}
+<div class="alert alert-warning">
+  <button type="button" class="close" data-dismiss="alert">
+    x
+  </button>
+  {{ message }}
+</div>
+{% endfor %}
+```
+
+The final piece of work was to set up an admin account. I set some variables in my environment to pull a username and password to create an admin account if it doesn't already exist. I wrote out a small function for it, and called it during the creation of my app. One interesting thing I couldn't figure out, however, was I was running into a null constraint violation. From everything I was reading, if you had a `db.Integer` column set as a primary key, you wouldn't need to pass a value into it for that integer to just auto-increment. That wasn't seeming to work for me, so I needed to pass in a value myself, like this: `user = User(id=1, username=username)`. There is only one admin user anyway, so this is fine. This will protect against the creation of any additional admin users, so it might actually be a feature, not a bug.
+
+One other thing of note is that there is probably a design pattern to pull in data from a form, jsonify it, then pass that into my login (or any function that needs form info). This would allow me to decouple view from route/api logic. Routes shouldn't expect to be passed form data, but json objects. Nice to have for the future.
+
+#### Admin edit view
+
 
 ### Useful Commands
 - `docker exec -it silentlyfailing bash` - start an interactive console in the docker container
