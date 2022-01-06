@@ -152,15 +152,30 @@ One other item of note is that running against postgres in SQLAlchemy requires s
 From here, I can connect to both my local postgres and heroku postgres, and I see that the table is created.
 
 #### Setting up Alembic for migrations
-Last bit before I can actually work on the app, but I want to use a utility to track database migrations. I don't anticipate a ton of changes to the database schema, but migrations are a great way to track schema changes and iteratively develop without destroying all your previous data. Alembic is a great library for doing this. The idea with alembic is to create a Migration object, associate your app with it, then run the commands `flask db init` to create a migrations folder and seed it with some files. Then you can run `flask db migrate` to generate a revision file that you manually review. Everything within the migrations folder gets checked in to github. Then, finally, when you deploy, you can add a little command to Heroku (semi-colon delimited) to run all the migrations to get the live database up to date with your newly pushed schema.
+Last bit before I can actually work on the app, but I want to use a utility to track database migrations. I don't anticipate a ton of changes to the database schema, but migrations are a great way to track schema changes and iteratively develop without destroying all your previous data. Alembic is a great library for doing this.
+
+The idea with Alembic is to create a Migration object, associate your app with it, then run the commands `flask db init` to create a migrations folder and seed it with some files. Then you can run `flask db migrate` to generate a revision file that you manually review. Everything within the migrations folder gets checked in to github. Alembic will essentially compare your models to the database and generate a diff and the SQL statements will be generated and called via python code. Finally, when you deploy, you can add a little command to Heroku (semi-colon delimited) to run all the migrations to get the live database up to date with your newly pushed schema.
 
 I'm starting to get my mind around how these extensions work. [This stackoverflow answer](https://stackoverflow.com/questions/19750060/how-to-properly-initialise-the-flask-sqlalchemy-module) is super helpful in breaking down what that `init_app` does and when to use it and when not to use it.
 
-I also updated the docker-compose file to handle migrations in a separate container. These migrations run once, then the container is removed. Breaking it out this way makes it easy to modify that particular part of the compose, or remove it as needed. Tidy separation of purposes.
+I also updated the docker-compose file to handle migrations in a separate container. These migrations run once, then the container is removed. Breaking it out this way makes it easy to modify that particular part of the compose, or remove it as needed. Tidy separation of purposes. Right now the migrations could still just be called as part of the web container by adding the upgrade db call to the command, but this gives me a bit of flexibility in the future.
 
 I ran into a weird problem that I need to investigate though, which is that my configuration file does not seem to be pulling from environment variables I set in the docker-compose. I have my environment set on the docker-compose for my `POSTGRES_HOST` to be `postgres`, but in the `DevelopmentConfig` class in the `config.py` file, I am using `os.getenv('POSTGRES_HOST', 'localhost')`. When the flask app running in a docker container needs to connect to the postgres database, the internal network docker sets up will have the host be the container name, in this case postgres. But outside of the container, I can connect to it via localhost. All of this is to say that the flask app in the container is pulling the default value, so I must be missing environment variables somewhere.
 
-*Workaround to the above* -- I figured out what was happening. I was setting the `POSTGRES_HOST` on the db container, not the web container. Passing in the `POSTGRES_HOST` via the .env.dev file, which is only used by docker, means I can set the default to localhost, so I can run the flask server outside of the container while the database is up inside the container. Not bad.
+*Workaround to the above* -- I figured out what was happening. I was setting the `POSTGRES_HOST` on the db container, not the web container in my docker-compose. Passing in the `POSTGRES_HOST` via the .env.dev file, which is only used by docker and the Makefile, means I can set the default to localhost, so I can run the flask server via the command line outside of the container while the database is up inside the container.
+
+Once I run docker-compose, I have 4 services, the `base` image, the `web` image, the `migrations` image and the `postgres` image. I can connect to the database just using localhost since I've published the ports.
+
+One final item: I added a bit to the docker-compose to ensure that the web and migrations service don't start until the database is up. The way I achieved this was to add a healthcheck to the db service, then add in a `depends` on the db with a condition for the service to be healthy to the web and migrations service. I can't add to the base service because services with `depends on` can't be extended.
+
+**MM's note: I seem to use containers and services interchangeably. Need to hammer out that vocabulary.
+
+### Building the models and controllers
+I am going to separate presentation entirely from how I get or post data. That way, I can swap out front end easily. You could probably pass python objects directly to the view to render, by I think I'll prefer to pass json objects to the views.
+
+What I think I need to do here is to create a blog model, a method to get blog objects from the database, and a method to write blog objects to the database. I probably also need a login method, or some way to prove I'm admin and keep me in an authenticated session. I want to wrap that method to write in some sort of authentication. I probably don't need to store any user info in the database, just check a password against some environment variable.
+
+#### Setting up an admin account and login/logout
 
 ### Useful Commands
 - `docker exec -it silentlyfailing bash` - start an interactive console in the docker container
