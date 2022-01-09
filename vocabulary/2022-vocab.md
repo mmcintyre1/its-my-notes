@@ -1,4 +1,4 @@
-# Vocabulary
+# 2022 Vocabulary
 
 ## lambent [ **lam**-buhnt ]
 running or moving lightly over a surface
