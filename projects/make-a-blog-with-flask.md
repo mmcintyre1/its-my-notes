@@ -213,6 +213,7 @@ Most of these methods are straightforward. The first thing I did was to create a
 
 Next was some basic html. First I made a base.html file which I will extend for various purposes. This saves a ton of code, of course, and keeps the HTML relatively modular. After base.html, I made a login.html, borrowing a bunch from all sorts of sources. One interesting thing that I found was the command `flask.flash` doesn't really do anything unless you get and display the messages. You need something like the below to display them.
 
+{% raw %}
 ```html
 {% for message in get_flashed_messages() %}
 <div class="alert alert-warning">
@@ -223,6 +224,7 @@ Next was some basic html. First I made a base.html file which I will extend for 
 </div>
 {% endfor %}
 ```
+{% endraw %}
 
 The final piece of work was to set up an admin account. I set some variables in my environment to pull a username and password to create an admin account if it doesn't already exist. I wrote out a small function for it, and called it during the creation of my app. One interesting thing I couldn't figure out, however, was I was running into a null constraint violation. From everything I was reading, if you had a `db.Integer` column set as a primary key, you wouldn't need to pass a value into it for that integer to just auto-increment. That wasn't seeming to work for me, so I needed to pass in a value myself, like this: `user = User(id=1, username=username)`. There is only one admin user anyway, so this is fine. This will protect against the creation of any additional admin users, so it might actually be a feature, not a bug.
 
@@ -230,6 +232,8 @@ One other thing of note is that there is probably a design pattern to pull in da
 
 #### Admin edit view
 
+### Final Takeaways
+Flask allows a ton of customization, but you could probably be up and running faster with Django.
 
 ### Useful Commands
 - `docker exec -it silentlyfailing bash` - start an interactive console in the docker container
