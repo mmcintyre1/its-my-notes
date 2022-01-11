@@ -231,6 +231,21 @@ The final piece of work was to set up an admin account. I set some variables in 
 One other thing of note is that there is probably a design pattern to pull in data from a form, jsonify it, then pass that into my login (or any function that needs form info). This would allow me to decouple view from route/api logic. Routes shouldn't expect to be passed form data, but json objects. Nice to have for the future.
 
 #### Admin edit view
+So, now that I have my admin user, I need to create a handful of items for creating, editing, and displaying blog posts. I need to make the following items:
+- create.html
+- update.html
+- blog_details.html
+- route for create
+- route for update
+- route for detail
+- route for delete
+- a form for create
+- a form for update
+- a blog data model
+
+
+
+
 
 ### Final Takeaways
 Flask allows a ton of customization, but you could probably be up and running faster with Django.
