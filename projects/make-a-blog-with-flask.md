@@ -243,7 +243,17 @@ So, now that I have my admin user, I need to create a handful of items for creat
 - a form for update
 - a blog data model
 
+Need to change way routing is pathed -- make slugs and not pull via id from database.
 
+Also something seemed to break with alembic where it wasn't detecting changes. Seems like it actually can't detect changes. Turns out I'm an idiot. Played with so many settings to reorganize the application, but it was because I was creating the tables myself via a `create_tables` function. flask_migrate should take care of that entirely via `flask db migrate` and `flask db upgrade`. In live, I can run `flask db upgrade` and be done with it.
+
+post detail
+wyswyg/rich text editor for blog post?
+
+### Finishing with Style
+#### Adding a navbar
+#### Adding a footer
+#### Making it not so damn ugly
 
 
 
@@ -254,3 +264,5 @@ Flask allows a ton of customization, but you could probably be up and running fa
 - `docker exec -it silentlyfailing bash` - start an interactive console in the docker container
 - `heroku restart` - restarts your current heroku app, which is useful for odd errors
 - `heroku logs --tail` - check the logs
+- `export $(xargs <.env)` sets a bunch of env variables
+- `docker rm -fv $(docker ps -aq)` remove all docker containers
