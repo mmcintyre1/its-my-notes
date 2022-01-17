@@ -182,5 +182,146 @@ Make a debate with four asks: 1) Ask the hard question, 2) ask for evidence, 3) 
 2. Debate Makers are equally comfortable being the decision maker in the end. They are not only consensus-driven leaders.
 3. Rigorous debate doesn’t break down a team; it builds the team and makes it stronger.
 
+## 6: The Investor
+- **MICROMANAGERS** manage every detail in a way that creates dependence on the leader and their presence for the organization to perform.
+- **INVESTORS** give other people the investment and ownership they need to produce results independent of the leader.
+
+### The Three Practices of the Investor
+
+1.  Define Ownership
+  - Name the lead
+  - Give ownership for the end goal
+  - Stretch the role
+2.  Invest Resources
+  - Teach and coach
+  - Provide backup
+3.  Hold People Accountable
+  - Give it back
+  - Expect complete work
+  - Respect natural consequences
+
+### Becoming an Investor
+1.  Give 51 percent of the vote
+  - give people a say in the work
+2.  Let nature take its course
+  - let the painful lessons happen
+3.  Ask for the F-I-X
+  - don't suggest problems without giving solutions
+4.  Give it back
+  - giving back leadership and accountability to those doing work
+
+### Leveraging Resources
+
+|               | Micromanagers                                                                         | Investors                                                               |
+|---------------|---------------------------------------------------------------------------------------|-------------------------------------------------------------------------|
+| What They Do  | Manage every detail of the work to ensure it is completed the way they would do it    | Give other people the ownership for results and invest in their success |
+| What They Get | People who wait to be told what to do                                                 | People who take initiative and anticipate challenge                     |
+|               | People who hold back because they expect to be interupted and told what to do instead | People who are fully focused on achieving results                       |
+|               | Free riders who wait for the boss to swoop in and save them                           | People who can get ahead of the boss in solving problems                |
+|               | People who try to "work" their bosses and make sophisticated excuses                  | People who respond to the natural forces around them                    |
+
+### Unexpected Findings
+1.  Multipliers do get involved in the operational details, but they keep the ownership with other people.
+2.  Multipliers are rated 42 percent higher at delivering world-class results than their Diminisher counterparts.4
+
+## 7: The Accidental Diminisher
+**ACCIDENTAL DIMINISHERS** are managers who, despite the very best of intentions, have a diminishing impact on the people they lead.
+
+### Accidental Diminisher Profiles
+- **Idea Guy** : Creative, innovative thinkers who think they are stimulating ideas in others
+- **Always On** : Dynamic, charismatic leaders who think their energy is infectious
+- **Rescuer** : Empathetic leaders who are quick to help when they see people struggling
+- **Pacesetter** : Achievement-oriented leaders who lead by example and expect others to notice and follow
+- **Rapid Responder** : Leaders who are quick to take action believing that they are building an agile, action-oriented team
+- **Optimist** : Positive, can-do leaders who think their belief in people will inspire them to new heights
+- **Protector** : Vigilant leaders who shield people from problems to keep them safe
+- **Strategist** : Big thinkers who cast a compelling vision thinking they are showing people a better place and providing the big picture
+- **Perfectionist** : Leaders who strive for excellence and manage the fine details to help others produce superior work
+
+### Decreasing your Accidental Diminisher Tendencies
+- Seek feedback
+- Lead with intention
+- Practice the workarounds and learning experiments found in appendix E, “Multiplier Experiments”
+- Do less and challenge more
+
+## 8: Dealing with Diminishers
+You can be a Multiplier while working for a Diminisher.
+
+### Breaking the Cycle of Diminishing
+1.  It’s not necessarily about you
+2.  Diminishing isn’t inevitable
+3.  You can lead your leader
+
+### Dealing with Diminisher Strategies
+#### Level 1: Defenses Against the Dark Arts of Diminishing Managers
+_Basic survival strategies intended to improve your reactions to Diminishers, relieve stress, neutralize immediate problems, and halt the downward spiral._
+1.  Turn down the volume
+2.  Strengthen other connections
+3.  Retreat and regroup
+4.  Send the right signals
+5.  Assert your capability
+6.  Ask for performance intel
+7. Shop for a new boss
+
+#### Level 2: Multiplying Up
+_Offense plays to help you be a Multiplier to those above you in the organization or to diminishing colleagues at your side, especially Accidental Diminishers._
+1.  Exploit your boss’s strengths
+2.  Give them a user’s guide
+3.  Listen to learn
+4.  Admit your mistakes
+5.  Sign up for a stretch
+6.  Invite them to the party
+
+#### Level 3: Inspiring Multiplier Leadership in Others
+_Strategies that raise awareness and encourage leaders to make the shift from Accidental Diminisher to a more intentional Multiplier._
+1.  Assume positive intent
+2.  Address one issue at a time
+3.  Celebrate progress
+
+## 9: Becoming a Multiplier
+### Starting the Journey
+1.  Resonance
+2.  Realization of the Accidental Diminisher
+3.  Resolve to be a Multiplier
+
+### The Accelerators
+1.  Start with the assumptions
+2.  Work the extremes (neutralize a weakness; top off a strength)
+3.  Run an experiment
+4.  Ask a colleague
+5.  Brace yourself for setbacks
+
+### Elements of a Culture
+- **Common language** : Words and phrases that hold a common meaning within a community based on opinions, principles, and values
+- **Learned behavior** s: A set of learned responses to stimuli
+- **Shared beliefs** : The acceptance of something as true
+- **Heroes and legends** : People who are admired or idealized for their qualities, behavior, and/or achievements and the stories told about heroic actions
+- **Rituals and norms** : Consistent behavior regularly followed by an individual or a group
+
+### Building a Multiplier Culture
+**Common Language**
+  1. Hold a book talk
+  2. Discuss Accidental Diminishers
+
+**Learned Behavior**
+  3. Introduce Multiplier mindsets
+  4. Teach Multiplier skills
+  5. Fuse Multipliers with daily decisions
+
+**Shared Beliefs**
+  6. Codify a leadership ethos
+
+**Heroes and Legends**
+  7. Spotlight Multiplier moments
+  8. Measure managers
+
+**Rituals and Norms**
+  9. Pilot a Multiplier practice
+10. Integrate practices with business metrics
+
 ## Thoughts
 This is a book for a really specific type of leader, an executive who already has substantial power. Can a rank and file or more junior leader be a multiplier? Often it feels like to reach those heights, you need to have pedigree (most executives in Multipliers seem to be MBAs from Harvard) or you have to jockey for position and prestige. Climbing a mountain takes a different set of skills to standing atop it, I suppose. A lot of the advice in this book can be reduced to the heuristic of talking less, but if you are more junior, that might be mistaken for shyness and lack of ambition. If I took a step back from something I was supposed to be "leading", I'd need to explain what I was doing at every stop to those watching me, as if to say, I know what y'all thinking leading is, and I am leading from behind here. Eventually you might build trust with those senior to you to where they know what sort of results you get, but it can be hard to get there.
+
+- Wiseman seems to fetishize intelligence, and presumes best intentions of everyone. But what happens is there are bad actors, or actors acting in bad faith?
+
+- This is really a book about how to influence people, and it's central tenet seems to be you can get more out of people by doing less. Pave the path for them to succeed, and they will, but domineer and micromanage and they will assuredly fail. One thing this presumes is a top down power relationship. Can you be a multiplier if you don't have direct reports? If you aren't in a position with inherent power? I think the book doesn't pay enough attention to power dynamics.
