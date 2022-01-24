@@ -85,3 +85,203 @@ nav_order: 98
 ### Continuous Architecture Benefits
 - in the typical time, cost, and quality triangle, continuous architecture allows for balance of time and cost constraints while not sacrificing quality
 - most innovation teams focus on building an MVP, but when that needs to be turned into a production-grade software that leads to problems, sometimes a complete rewrite -- continuous architecture tends to avoid this
+
+## 2: Architecture in Practice: Essential Activities
+- goal of architecture is to balance customer demand and delivery capacity to create a sustainable and coherent system
+- system should meet functional and quality attributes
+- historically, it was one all-seeing and wise individual doing architecture, but now we refer to "architecture work" and "architectural responsibility"
+- Fred Brookes in _Mythical Man Month_ puts emphasis on conceptual integrity -- can be achieved by close collaboration in a team
+- models, perspectives, views are valuable architectural artifacts, but are means to an end -- to create a sustainable system
+
+### Quality Attributes
+**functional requirements** - describe the business capabilities that the system must provide and runtime behavior
+**quality attributes (non-functional requirements** - quality attributes a system must meet in delivering functional requirements, the so-called _-ilities_
+
+- SQuaRe model comprises 8 quality characteristics - Functional Suitability, Performance Efficiency, Compatibility, Usability, Reliability, Security, Maintainability, Portability
+- ~10 quality attribute scenarios are manageable for a software system
+- **architecturally significant** - decisions which have most impact on architecture of the system
+- about balancing tradeoffs between functional and quality attributes
+
+#### ATAM utility tree
+- tool for architecture trade-off analysis
+1. stimulus - what event triggers architectural scenario
+2. response - how a system should be expected to respond
+3. measurement - quantify the response to the stimulus
+4. environment (optional) - the context in which the stimulus occurs
+
+### Architectural Decisions
+- typically, an architect would create a diagram and that would be called architecture
+- complex diagram has limited use, since it requires (1) explanation from the creator and (2) it can be hard to change
+- the **architectural decision** is the unit of work of an architect
+
+important facets of architectural decision:
+1. clearly articulate all constraints
+2. focus on quality attributes, not functional requirements
+3. all options considered and rationale need to be documented
+4. tradeoff between options and effect on quality attributes considered
+5. who made the decision and when
+
+#### Making and Governing Architectural Decisions
+- the closer you get to implementation, the more decisions are made
+
+**Guidelines**
+- main job of higher governance bodies is to define guidelines
+- the higher you go, the fewer principles there are
+
+**Visibility**
+- create visibility of architectural decisions and circulate at all levels of the institution will minimize architectural compromises
+- creating a culture for sharing arch. decisions is difficult to realize, as it requires discipline, perseverance, and open communication
+
+#### Architectural Decisions in Agile Projects
+- by clearly defining all known architectural decision, we create architectural backlog
+- taking a risk-based approach, you focus on architecturally significant scenarios
+- 50% of architecture is communication and collaboration
+
+### Technical Debt
+- metaphor for challenge caused by several short-term decisions resulting in long-term challenges
+- so widely used it is difficult to define
+- the focus on _maintainability_ and _evolvability_ is key to how to think about technical debt
+- if a system is not expected to evolve, concern with technical debt is minimal
+
+divide technical debt into three categories:
+1. code
+2. architecture
+3. production infrastructure
+
+#### Capturing Technical Debt
+- a tech debt registry is a key artifact
+
+for each tech debt item, need to understand:
+1. consequences of not addressing
+2. remediation approach for addressing tech debt item
+
+- need to agree on process for prioritization of tech debt, potentially basing on consequences of not resolving
+- need to ignore "technical purity" and focus on impact to business value
+- product owner decides what items should be prioritized
+- you can also carve out protected channel for tech debt
+- four main channels of work: 1) features 2) defects 3) technical debt 4) risk (security, compliance, etc.)
+
+### Feedback Loops
+- output of a process is fed back as an input into the same process
+
+**key goal of agile and DevOps is:**
+1) to achieve greater flow of change
+2) increasing the number of feedback loops
+3) minimizing time between change happening and feedback being received
+
+steps to implement a feedback loop:
+1. *collect measurements* - a small number of meaningful measurements
+2. *assess* - multi-disciplinary group to analyze output of feedback
+3. *schedule incrementally* - determine incremental change to arch. based on analysis
+4. *implement changes* - back to step 1
+
+- pair programming, unit tests, continuous integration, scrums, springs, demos are all tools for feedback loops
+
+- **fitness function** - provides an objective integrity assessment of some architectural characteristics
+- **continuous testing** - implements a *shift-left* approach (push testing to the left), using an automated process to improve speed of testing -- every component can be tested as soon as it is developed
+
+### Common Themes in Today's Software Architecture Practice
+#### Principles as Architecture Guidelines
+principles need to be
+1. clear - like slogans, easy to understand and remember
+2. provide guidance for decisions
+3. atomic - does not require any other context or knowledge
+
+#### Team-Owned Architecture
+- star developers are hard to find
+- build effective teams in long run is more effective model
+- architecture is increasingly becoming a skill rather than role
+  - ability to design
+  - leadership
+  - stakeholder focus
+  - ability to conceptualize and address systemwide concerns
+  - life cycle involvement
+  - ability to balance concerns
+  - accountable for conceptual integrity of system
+
+#### Models and Notation
+- communication is key, so plenty of time is spent discussing exact meaning of terms
+- UML developed to this pursuit
+- We cannot overcommunicate!
+
+keys to a model:
+1. simplicity
+2. accessibility to target audience
+3. consistency (in shapes and connections)
+
+#### Design Patterns
+- patterns are helpful to communicate archetypes and understand tradeoffs
+
+## 3: Data Architecture
+- processing data is the reason information systems exist
+
+### What is Data?
+**DIKW Pyramid**
+- **data (what)** is the bits and bytes we collect
+- **information (what)** is data structured so that i can be understood and processed
+- **knowledge (how)** comes from using the data and information to answer questions
+- **wisdom (why)** - a little more elusive but can be seen as uncovering connections in data, information, and knowledge
+
+#### Common Language
+- having a well-defined and communicated data model is a pre-requisite for successful software dev
+- **Domain-Driven Design** - approach to that common language
+  - *bounded context* - subdomains that the larger domain split into, each with separate data model, definitions, relationships, and components
+  - *ubiquitous language* - language used by dev team and business sponsors within a bounded context
+- build cohesive teams around components
+- helpful to use a language glossary
+
+### NoSQL and Polyglot Persistence
+**polyglot persistence**
+- applying the right technology to address each of the different data access patterns required in a system
+- goes hand in hand with _microservices_, each component has its own persistence mechanism and shares data only via well-defined APIs
+- some problems with microservices:
+  1. managing dependencies and interaction patterns can be tricky and high cognitive load
+  2. performance issues in all services communicating
+  3. each database tech requires specific expertise
+
+types of NoSQL storage:
+
+| type        | main differentiators (strengths)                                                                                                    | limitations                                                                              | typical application                                                                                                      | examples                                      |
+|-------------|-------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------|
+| key-value   | Scalability, availability, partition tolerance                                                                                      | Limited query functionality; cannot update part of the value separately                  | Storage of session data, chat room enablement, cache solutions                                                           | Memcached, Redis, Amazon Dynamo, Riak         |
+| document    | Flexible data model, easy to develop with because data representation is close to code data structures; some have ACID capabilities | Analytic processing, time series analysis; cannot update part of the document separately | Internet of Things data capture, product catalogs, content management applications; changing or unpredictable structures | MongoDB, CouchDB, Amazon Document DB          |
+| wide column | Ability to store large datasets at high reads, scalability, availability, partition tolerance                                       | Analytic processing, aggregation heavy workloads                                         | Catalog searches, Time series data warehouses                                                                            | Cassandra, HBase                              |
+| graph       | Relationship-based graph algorithms                                                                                                 | Transactional processing, not easy to configure for scalability                          | Social networking, n-degree relationships                                                                                | Neo4j, Amazon Neptune, Janus Graph, GraphBase |
+
+- **Lightweight Evaluation and Architecture Prototyping for Big Data (LEAP4PD)** provides a good reference for evaluating data solutions
+
+### Scale and Availability
+- **CAP thereom** - distributed systems can only guarantee two of the three properties: consistency, availability, and partition tolerance
+  - most distributed systems provide partition tolerance, so choice between consistency (will the data returned be right) and availability (will query return answer)
+  - _eventual consistency_ - at some point in time in the future, the data will be right
+- **PACELC** - If a partition **(P)** occurs, a system must trade availability **(A)** against consistency **(C)**. Else **(E)**, in the usual case of no partition, a system must trade latency **(L)** against consistency **(C)**
+
+### Event Sourcing
+- common use of traditional database system is to maintain the state of an application (querying gives a consistent view of domain being represented)
+- event sourcing captures all _events_ that go into system, so we can re-create state at any point
+- often used in conjunction qith Command Query Responsibility Segregation (CQRS) - one model to update info, another to read
+
+### Data Ownership and Metadata
+- important to understand which component is going to master (source of truth) the data
+- sharing data by reference means consuming services can't update data (immutable)
+  - might lead to race conditions inherent in distributed data
+  - also creates additional communications between components and increased read workload
+
+a case for increased metadata:
+1. sufficient metadata allows you to discover, integrate, and analyze data sources in an efficient manner
+2. track data lineage and provenance
+3. metadata is strong enabler of automating software dev and data management process like data pipelines
+
+### Data Integration
+two reasons for data integration
+1. business process - sharing data between components
+2. analytics - move data from multiple sources to single component to facilitate analysis and monitoring
+
+**REST** (representational state transfer)
+- relies on concept of resource (a data structure you can expect to be returned by a web endpoint)
+- move from a verb-centric view (get_customer_data, delete_invoice, etc) to a noun-centric view and rely on simple HTTP vers to act on your nouns
+- eliminates complext, centrally managed middleware
+
+### Data (Schema) Evolution
+- **Postel's Law** - be conservative in what you do, liberal in what you accept -- Tolerant Reader
+- **Expand and Contract Pattern** - expand to support both old and new version of schema, then, contract to support only new version
