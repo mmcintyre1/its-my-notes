@@ -285,3 +285,119 @@ two reasons for data integration
 ### Data (Schema) Evolution
 - **Postel's Law** - be conservative in what you do, liberal in what you accept -- Tolerant Reader
 - **Expand and Contract Pattern** - expand to support both old and new version of schema, then, contract to support only new version
+
+## 4: Security as an Architectural Concern
+### Security in an Architectural Context
+- it is important to involve security experts in your security work
+- making a system secure can have an impact on almost any other quality property
+- most quality attributes, like security, increase cost, so architectural decisions are about tradeoffs
+- modern security has changed to be internet security -- most applications are no longer running in isolated data centers but in massive distributed cloud-based systems
+reasons for hostile security environment:
+- network-connected systems
+- large number of pro and amateur attackers
+- large amount of FOSS or external software in software supply chains
+- limited general security awareness
+- dark net packaging security exploits and attack mechanisms
+
+#### CIA triad
+- **Confidentiality** - limiting access to those who are authorized to access it
+- **Integrity** - ensuring that only valid changes can be made to the system's data and can only be initiated by authorized parties
+- **Availability** - ensuring that the system is available and can be accessed at all times
+
+- from an arch perspective, need to understand requirements for CIA, threats system faces, and security mechanisms (people, processes, and technologies) to protect it
+- because most security attributes are what _shouldn't_ happen they are difficult to quantify
+- can use checklist approach, such as Open Web Application Security Project (OWASP) Application Security Verification Standard (ASVS)
+
+#### Shifting Security Left
+- security should be part of entire system delivery life cycle in small frequent steps ("little and often")
+- this is a principle of DevSecOps, to address security as early as possible
+
+### Architecting for Security
+- **security threat** - what could go wrong as result of a malicious actor who wants to attack system
+
+#### Threat Modelling
+identifying things that can go wrong and working out mitigation
+1. *understand* what you are building, i.e., system boundaries, deployment platform, system structure
+2. *analyze* what could go wrong and what security problems this could cause (two popular models - **STRIDE** and **attack trees**)
+3. *mitigate* the security problems, typically using security tech like single sign-on, role-based access control, attribute-based access control, encryption, digital signatures, etc
+4. *validate* by taking a step back and seeing what has been done so far, e.g., talking with experts, testing, etc.
+
+- keep incrementally threat modelling as you add features
+
+#### Threat Identification
+**STRIDE**
+- *spoofing* - impersonate a security identity
+- *tampering* - change data in a way that is not expected
+- *repudication* - bypass identity controls
+- *information disclosure* - access info without authorization
+- *denial of service* - preventing the system from being used
+- *elevation of privilege* - gaining security privs the attacker isn't meant to have
+
+**attack trees**
+- threat identification from the perspective of the attacker
+- root of the tree is goal attributed to attacker
+- each node is a strategy for achieving the goal
+- continue to decompose each node until leaf node represents a specific and credible attack on the system
+- can annotate with risk factors like impact, likelihood, difficulty, cost of attack, etc.
+
+#### Prioritizing Threats
+- can use a simple classification system to prioritize threats
+- using Likert-scale of High, Medium, Low for likelihood and impact
+- not a science, but helpful in comparing opinions
+- if you think a threat is serious, it almost certainly is
+- keep it simple and focused on threats
+- other, more sophisticated threat modelling approaches:
+  - Process for Attack Simulation and Threat Analysis (PASTA)
+  - Visual, Agile and Simple Threat (VAST) modeling method
+  - Operationally Critical Threat, Asset, and Vulnerability Evaluation (OCTAVE)
+  - MITRE’s Common Attack Pattern Enumeration and Classification (CAPEC)
+  - National Institute of Standards and Technology (NIST) model
+
+### Architectural Tactics for Mitigation
+- **Authentication** - confirm the identity of the security principal
+- **Authorization** - control what actions security principal can perform and what info they have access to
+- **Auditing** - monitor use of sensitive info and sensitive actions to prove security mechanism is working
+
+#### Information Privacy and Integrity
+**information privacy** - ability to reliably limit who can access data within a system or data passing between the system and other places
+**information integrity**  - mitigation of tampering risks by preventing unauthorized security principals from changing info or authorized principals from changing data in an uncontrolled way
+
+#### Nonrepudiation
+**nonrepudiation** - mechanism to prevent security principals from denying their actions
+- can be achieved by cryptographic signature for every action, or logging list of user actions in secure, tamper-resistant list
+
+#### Availability
+- denial of service attacks and ransomware attacks are common
+- some methods to prevent:
+  - throttling incoming requests
+  - quotas to prevent one request from overwhelming the system
+  - local or cloud-based filters to exclude large requests
+  - elastic infra to expand as needed
+- key tactic for mitigating ransomware is to prevent from happening in the first place
+- constant end-user education about phishing attacks, the most common attack vector for ransomware
+
+#### Secrets Management
+three main parts to secrets management
+1. choosing good secrets
+2. keeping them secret
+3. changing them reliably
+
+- best approach is to use a dedicated and proven secrets manager
+- current view of experts, including NIST, is that you shouldn't force passwords to be changed unless they are compromised, but you should change them immediately if they are
+
+#### Social Engineering Mitigation
+- weakest link is typically humans interacting with the system
+- need limit access of each user to level of access required for their role
+- "four-eyes" approach, or two people to approve
+
+#### Zero Trust Networks
+- historically, approach to securing systems was to use _zones of trust_, with level of trust increasing the further into the network you are
+  - Internet zone (area outside)
+  - trusted zone (company's own private network)
+  - demilitarized zone (area between trusted and Internet)
+  - privileged zone (area within trusted zone with especially sensitive information)
+- problem of this approach is that once a zone is breached, attacker has access to everything in that zone
+- new approach is _zero trust networks_, with it's roots in Google's BeyondCorp model
+  - need to validate trust relationships and assume that the network we use is hostile
+
+## 5: Scalability as an Architectural Concern
