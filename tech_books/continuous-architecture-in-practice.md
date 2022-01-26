@@ -401,3 +401,62 @@ three main parts to secrets management
   - need to validate trust relationships and assume that the network we use is hostile
 
 ## 5: Scalability as an Architectural Concern
+- scalability can be defined as the property of a system to handle an increased workload by increasing the cost of the system
+- _increased workload_ - higher transaction volumes or greater number of users
+- _system_ combination of software and computing infrastructure, as well as human resources to operate
+
+### Scalability in the Architectural Context
+- scalability tactics used at large companies might not apply - need to be careful about too quickly scaling without understanding implications and understanding requirements
+
+#### What Changed: The Assumption of Scalability
+- in the past, need to scale was lower in part because:
+  - business stakeholders expectations were lower
+  - scaling was less possible due to physical constraints
+  - scaling might not be needed because transactions were made through human intermediaries
+- monolithic arch. led to service-oriented arch, which led to microservice-based architecture enabled by cloud infrastructure
+- need for scaling increased as physical constraints disappeared and business requirements mandated it
+- we can think about scaling in a supply and demand framework, where increase in demand requires increase in supply, but if demand dries up, supply becomes wasted inventory
+
+#### Types and Misunderstandings of Scalability
+- calling a system scalable is a common oversimplification - concept needs to be qualified
+- _vertical scalability_, or scaling up, is increasing size of machine
+  - expensive way of handling scaling but useful for scaling in-memory data structures
+- _horizontal scaling_, or scaling out, is increasing number of compute nodes for an application
+
+three approaches to scaling in increasing complexity:
+1. segregating incoming traffic by some sort of partition, similar to sharding (difference between partitioning and sharding is sharding implies separate machines while partitioning might occur on same machine)
+2. cloning the compute servers and replicating databases, then distributing traffic via a load balancer
+3. splitting the functionality of app into services and distributing services and their associated data to separate infra resource sets (such as containers)
+
+#### The Effect of Cloud Computing
+- elastic scalability refers to scalability in the cloud
+key concerns:
+1. pay-per-use context, unused resources should be released (but not too quickly)
+2. instantiating and releasing resources should be automated to keep cost of scalability as low as possible
+- some concerns are commercial cloud environments might have scalability limits
+
+### Architecting for Scalability: Architecture Tactics
+#### Caching for Scalability
+4 types of caches
+1. **Database object cache** - fetch results of database query and store in memory, e.g., Memcached, Redis, etc.
+2. **Application object cache** - store result of a service (that typically is computationally heavy)
+3. **Proxy cache** - used to cache retrieved Web pages on a proxy server
+4. **Precompute cache** - stores the results of complex queries on a database node for later retrieval
+
+#### Using Asynchronous Communications for Scalability
+- _synchronous_ - code execution will block request until response is received
+- _asynchronous_ - code execution will continue while waiting for response
+- synchronous is simpler and less costly to design and implement
+- _smart endpoints and dumb pipes_ - [Martin Fowler's Microservices](https://martinfowler.com/articles/microservices.html)
+
+#### Stateful and Stateless Services
+- a _stateful_ service is on that needs additional data besides what is provided with the current request in order to successfully process the request
+- _state_ might exist in the client (e.g., cookies), in the service instance, or outside the instance - only in the service instance is stateful
+- a _stateless_ service does not need additional info beyond what is provided with the _request payload_
+- stateless services are easier to scale because they decouple data and compute -- don't need to worry that a particular compute node is pointed at the right data
+- can be difficult to implement stateless because engineers are used to working with stateful services, and dealing with user session data from stateless can be tricky (best approach might be to keep user session data small and cache to be accessible by any compute node)
+
+#### Microservices and Serverless Scalability
+- for microservices, size isn't as important as loose coupling, stateless design, and doing a few things well
+- serverless, of function as a service (FaaS) architecture, e.g., AWS Lambda, Google Cloud Functions, etc.
+- serverless usually increases dependency on cloud vendor
