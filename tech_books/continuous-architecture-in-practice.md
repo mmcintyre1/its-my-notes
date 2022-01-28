@@ -460,3 +460,36 @@ key concerns:
 - for microservices, size isn't as important as loose coupling, stateless design, and doing a few things well
 - serverless, of function as a service (FaaS) architecture, e.g., AWS Lambda, Google Cloud Functions, etc.
 - serverless usually increases dependency on cloud vendor
+
+## 6: Performance as an Architectural Concern
+- performance is about time and the software system's ability to meet its timing requirements
+- it is also about management of systems resources in the face of particular types of demand to achieve acceptable timing behavior
+- typically measured in _throughput_ and _latency_
+- "Performance can also be defined as the ability for a system to achieve its timing requirements using available resources, under expected full-peak load"
+- most systems have performance concerns; only systems with significantly variable workloads have scalability concerns
+
+### Forces Affecting Performance
+- one way to look at performance is as contention-based model -- system's performance determined by limiting constraints, such as operating environment
+- performance can be improved by controlling resource demand as well as managing resource supply
+
+### Architectural Concerns
+- how do we measure, using clear, realistic, and measurable objectives, timing and computational resources
+**timing**
+- measure timings from the end-user point of view
+  - response time/latency - how long to
+  - turnaround time - time to complete a batch of tasks
+  - throughput - amount of workload in a unit of time
+
+**computational resources**
+- measure computational resources
+  - CPU usage
+  - memory usage
+  - disk usage
+  - network usage
+
+- also, cost effectiveness not commonly measured as quality attribute, but almost always a factor to consider
+
+### Architecting for Performance
+- **microservice architecture** -
+- **NoSQL Tech**
+- **Public/Commercial Clouds**
