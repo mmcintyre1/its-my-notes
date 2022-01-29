@@ -490,6 +490,164 @@ key concerns:
 - also, cost effectiveness not commonly measured as quality attribute, but almost always a factor to consider
 
 ### Architecting for Performance
-- **microservice architecture** -
+- **microservice architecture**
+  - many architectures are moving to small, decoupled, single responsibility services
+  - can lead to performance problems, as too many calls between services can lead to increased execution time
 - **NoSQL Tech**
+  - need to understand read and write patterns to choose appropriate NoSQL tech
+  - choice of tech has large effect on performance of the system
 - **Public/Commercial Clouds**
+  - cloud provides important capabilities, such as pay-as-you-go, elasticity
+  - performance is not just responsibility of cloud provider, as you need to build systems that can take advantage of these capabilities
+  - also need to consider data locality (bring data to compute, or bring compute to data)
+- **serverless architectures**
+  - with serverless, engineers can ignore infrastructure -- provisioning, scaling, etc.
+  - you can also run app code from anywhere, e.g., edge servers close to end users, increasing performance and decreasing latency, but comes at a cost
+
+#### Performance Modeling
+- a _performance model_ provides estimate of how software system is likely to perform against different demand factors
+- allows you to estimate performance
+- you also need data capture and analysis model that enables you to refine model based on performance test results
+
+#### Performance Testing
+- purpose of perf testing is to measure performance of software system under normal and expected max load
+- need to test in env that is as close as possible to prod
+
+different types of performance tests:
+- _normal load testing_ - expected normal load, test response time, responsiveness, turnaround time, throughput, and cloud infra resource utilization
+- _expected max load_ - similar to normal, but under expected max load
+- _stress testing_ - beyond max load, helps establish corner cases
+
+#### Tactics to Control Resource Demand-Related Forces
+- **reduce overhead** - group smaller services into larger services
+- **limit rates and resources** - use resource governors and rate limiters
+- **increase resource efficiency** - code optimization in critical services
+
+#### Tactics to Manage Resource Supply-Related Forces
+- **increase resources** - scale up or out
+- **increase concurrency** - process requests in parallel
+- **use caching** - use caching to reduce roundtrips to database
+
+#### Database Performance Tactics
+- **materialized views** - a type of precompute cache, makes a physical copy of an input/output intensive query (typically with several joins)
+- **indexes** - add indexes to speed read queries -- indexes add overhead to writes and require space on disk
+- **data denormalization** - store data that would otherwise be normalized across tables in single table, which would speed up read queries
+
+## 7: Resilience as an Architectural Concern
+- in the past, high-availability meant we accepted a certain amount of planned an unplanned downtime
+- now, approach is to aim for minimal downtime
+
+### Resilience in an Architectural Context
+- _fault_ - an accidentla condition that may cause system to fail
+- _failure_ - when a system or component deviates from required behavior
+- _availability_ - measurable quality attribute of a system -- ratio of time system is available to time it could be available
+- _reliability_ - builds on availability and adds constraint of correct operations, "the probability of a failure-free software operation for a specified period of time in a specified environment"
+- _high availability_ - tech that helps achieve availability, typically clustering or database replication
+- _resilience_ - each part of a system be responsible for contributing to a system's availability by adapting its behavior when faults occur;
+  - tolerating latency
+  - retrying requests
+  - automatically restarting processes
+  - limiting error propagation, etc.
+
+- failure is inevitable, so need to build systems that provide service even when some part is malfunctioning
+
+four aspects to prevent failure:
+1. knowing what to do - what automated mechanisms and manual processes are needed and where, e.g., failover, shedding load, restarting
+2. knowing what to look for - so we can monitor systems for events that threaten availability, e.g., hardware failures, software failures, etc.
+3. knowing what has happened - so we can learn from experience, successes and failures
+4. knowing what to expect - both backward looking info and forward looking predictions
+
+#### Business Context
+- typically talk about number of 9's of availability (5 9s, or 99.999% is 1 second unavailable per day)
+
+limited metric because:
+1. most situations, more is assumed to be better, but 5 9s is expensive and complex
+2. practical differences between amount of 9s is basically zero for most businesses
+3. these measures don't consider timing of unavailability
+
+two types of systems:
+1. need to be available just about all the time
+2. can tolerate longer periods of downtime
+
+#### Availability Metrics
+- **MTBF** - mean time between failures - used for system function
+- **MTTR** - mean time to recovery - used for system function
+- **RPO** - recovery point objective - how much data can be recovered (in time)
+- **RTO** - recovery time objective - how long it takes to recover data
+
+- minimizing time to recover is better than reducing time in between failures -- leads to more availability and more resilience
+
+#### Resilient Organization
+- competency of a resilient org is to know what has happened in past and learn from it
+things to think about re: learning
+1. although people want to share successes and failures, sometimes it just doesn't happen, either because people don't feel safe, or it isn't highly prioritized
+2. when engaged in retros, needs to be data-drive, otherwise retros are based in incomplete memories and opinions rather than facts
+3. while a good retro might happen, needs to be grounded in action and plan to build long-term impact
+
+- a resilient organization works on resilience via people, processes, and tech to create culture and org that is resilient, not just the tech stack
+
+### Architecting for Resilience
+path to technical resilience:
+1. **recognize** problem to diagnose and take remedial action
+  - health checks, metric alerts
+2. **isolate** problem so it doesn't affect other parts of the system
+  - logical or physical separation in environments, fail fast
+3. **protect** system components that might become overloaded
+  - controlled retries
+4. **mitigate** the problem, preferably through automated means
+  - state replication, fault-tolerant request handling
+5. **resolve** the problem by confirming mitigation is effective and complete or identifying further intervention
+  - controlled restarts, failover
+
+#### Measurements and Learning
+- need to understand what is going on today, what happened in the past, and projecting what could happen
+- generate a stream of learning opportunities
+- _embed measurement mechanisms_ into the system
+- _analyze data regularly_, ideally automatically
+- _perform retrospectives_ on both good and bad periods
+- _identify learning opportunities_ from data and retros
+- _improve continuously and intentionally_ by building a learning culture
+
+### Architectural Tactics for Resilience
+#### fault recognition tactics
+**health checks** - verify system is working, typically using synthetic transaction that mimics real load
+**watchdogs and alerts** - watchdog is a piece of software that looks for a specific condition then performs an action, typically an alert
+
+#### isolation tactics
+**sync (RPC) vs. async (messages)** - an async system is much more resilient than a sync one -- faults propagate quickly
+**bulkheads** - conceptual idea to limit scope of a failure to a specific part of the system
+**defaults and caches** - use cache (or defaults as a rudimentary cache) to serve data even if system is down
+
+#### protection tactics
+**back pressure** - signal to callers that queue or message bus is full and to stop sending new requests until queue is clear
+**load shedding** - reject workload that can't be processed or that would cause system to be unstable -- a variant is throttling/rate limiting
+**timeouts** - define how long a caller should wait until caller should be notified that request failed
+**circuit breakers** - a state machine-based proxy that sits in front of service meant to "trip" if certain conditions (count of aggregate errors, e.g.,) are met
+
+#### mitigation tactics
+**data consistency: rollback and compensation**
+- ACID transactions to ensure state of system is consistent
+- dealing with distributed transactions (across multiple systems), typical algorithm is two phase commit (2PC), which isn't very performant
+- newer idea of compensating transactions or sagas, where if you have a sequence of, say, three writes that need to happen, each write is committed but if any fail, compensating transactions happen to the successful ones to revert state
+
+**data availability: replication, checks, and backups**
+- replication can be used to mitigate node failure by ensuring data is immediately available on another node
+- checking involves checking both underlying storage mechanisms integrity and checking integrity of system data
+- backup ensures a copy of data is available in case of disaster
+
+### Maintaining Resilience
+#### Operational Visibility
+- key to operational visibility is monitoring, usually thought of as metrics, traces, and logs
+- observability can be thought of as extending monitoring to provide insight into internal state of system to allow failure modes to be better predicted and understood
+
+#### Testing for Resilience
+- _chaos engineering_ - to introduce failures into system to check response
+
+#### Dealing with Incidents
+- old way was Information Technology Infrastructure Library (ITIL) based service delivery management (SDM)
+- transitioned to devops, where team develop and operate (and mitigate incidents)
+effective incident response requires:
+1. well-structured, thoroughly rehearsed approach
+2. well-defined roles, e.g., incident command, problem resolution, communications, etc.
+3. effective, pre-agreed set of tools
+4. well thought through approach to communication within resolution team and outwards
