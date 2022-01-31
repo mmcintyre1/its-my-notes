@@ -651,3 +651,50 @@ effective incident response requires:
 2. well-defined roles, e.g., incident command, problem resolution, communications, etc.
 3. effective, pre-agreed set of tools
 4. well thought through approach to communication within resolution team and outwards
+
+## 8: Software Architecture and Emerging Technologies
+- benefit of architecture-led aproach when team uses emerging tech is architecture can be used to plan and communicate with stakeholders
+- sound planning and clear communication reduce implementation and tech risk
+- new tech is risk, and concentration should be on reducing risk
+
+### Artificial Intelligence, Machine Learning, and Deep Learning
+- _artificial intelligence_ - intelligence demonstrated by machines by imitating thinking funcitons associated with human brain, e.g., learning and problem solving
+- _machine learning_ - augmenting software systems with statistical models to perform specfic task without explicit instructions
+- _deep learning_ - subset of machine learning that uses artificial neural networks
+
+#### Types of Machine Learning
+- **supervised learning** - use labeled training datasets to learn model parameters to perform classification (divide input into two or more classes) of operational datasets
+- **unsupervised learning** - finding structure in datasets consisting of input data without labelled responses
+- **reinforcement learning** - computer interacts with a dynamic environment in which a certain goal must be attained (driving a car, winning a game, etc.)
+
+#### Problems Solved by Machine Learning
+- document classification
+- chatbots and conversational interfaces for customer service
+- data entry
+- advanced analytics
+
+- architectural concerns for training and deploying ML models are provenance of data, observability of ML task performance, metadata management, security, explainability (results make sense to humans)
+
+### Shared Ledger, Blockchain, and Distributed Ledger Technologies
+- _shared ledger_ - a comprehensive record of transactions, info, or events that are replicated, shared, and synchronized across multiple, sites, countries, or institutions
+- _blockchain_ - secure and immutable list of blocks of information, each containing a cryptographic hash of the previous block, a timestamp, and a transaction
+- _distributed ledger_ - a shared ledger that is maintained by multiple parties
+
+problems solved by shared ledger:
+- clearing and settlements of security trades
+- international payments
+- anti-money laundering
+- verifying customer identity
+- insurance
+- trade finance
+
+- often, use cases that supposedly require a shared ledger might be better served by a distributed database
+
+## Thoughts on the Book
+Most problems in technology are really communication problems. Most architecture problems then are ones of consensus; agreement between institutions and factions within an organization, between product, tech, the dev teams, that one dev manager who was a dev and was a MySQL pro who hasn't met a solution that MySQL couldn't answer. Building that consensus means you rarely arrive at a technically pure solution, one that meets all use cases optimally. There are just too many competing forces, often too much institutional inertia or too much tapering interests in projects that take longer than a 3 month program increment. This book attempts to define a language we can use when talking about architecture. What does scalability, or security, or performance really mean outside of the buzzwordy, euphemistic way the terms can be bandied about. One who is fulfilling the competencies of an architect then can use this language to build consensus, to get the sort of buy-in that is required for doing anything in the complicated ecosystems of today's enterprises. If you can agree that performance, or scalability can be reduced down to a series of quantifiable stimulus, response, and measurement triads, then picking the tech stack to meet those use cases is an implementation detail.
+
+This book is an argument for "continuous architecture", building off the iterative and continuous delivery of software we have seen with the Agile and DevOps movements over the last ten years and staking out arguments for what a continuously delivered architecture looks like within that framework. The "in practice" part refers as much to the recurring case study of a trade finance system the book has threading through each chapter as it does to an emphasis on the process and people edges of the PPT framework.
+
+So many book reviews of tech books hinge on whether or not the reader already knows what's in the book. A book is either castigated as a beginner sampler, or as reductive to the topics it addresses. I think in the case of this book, it isn't attempting to tread new ground but to build a ubiquitous language of architectural concerns. It breaks down topics and provides mini-frameworks for how to talk about them, giving you predominant trends and implementations within a given quality concern. Sure, after reading this books trim 268 pages you won't be ready to implement a microservice architecture, but you'll know the questions to ask, where to start, and what to concentrate on. And that is the strength of this book. It provides scaffolding for how to think about architecture, outlining 6 principles ((1)Architect products; evolve from projects to products, (2) Focus on quality attributes, not on functional requirements, (3) Delay design decisions until they are absolutely necessary, (4) Architect for change -- leverage the "power of small", (5) Architect for build, test, deploy, and operate, and (6) Model the organization of your teams after the design of the system you are working on), and harkening back to them constantly. Each quality attribute that the book addresses will reference these principles, providing a metronome-like repetition drill.
+
+The book serves as as good as any an entry point for introduction into the increasingly diffuse competencies of an architect, and while I skipped their initial book about continuous architecture, I found this one to be an effective tool in building out my mental model of architecture.
