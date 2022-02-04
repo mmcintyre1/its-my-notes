@@ -7,7 +7,10 @@ import os
 
 
 DIRS_TO_ORDER = [
-    pathlib.Path("./other_books")
+    pathlib.Path("./other_books"),
+    pathlib.Path("./business_books"),
+    pathlib.Path("./tech_books"),
+    pathlib.Path("./educational_books"),
 ]
 
 
@@ -38,17 +41,19 @@ def get_md_meta(path):
 
 def main():
     for dir_path in DIRS_TO_ORDER:
+        print(f"Sorting {dir_path}")
         all_file_data = []
         files = dir_path.iterdir()
         for file_path in files:
-            all_file_data.append(get_md_meta(file_path))
+            if file_path.suffix == ".md":
+                all_file_data.append(get_md_meta(file_path))
 
-    sorted_files = sorted(all_file_data, key=lambda x: x.last_modified, reverse=True)
-    for idx, file_data in enumerate(sorted_files):
-        file_data.nav_order = idx
-        file_data.file_contents = re.sub(r"(nav_order:)\s*\d+", fr"\1 {idx}" , file_data.file_contents)
-        print(idx, file_data.filename, file_data.last_modified, sep=" ---> ")
-        file_data.write()
+        sorted_files = sorted(all_file_data, key=lambda x: x.last_modified, reverse=True)
+        for idx, file_data in enumerate(sorted_files):
+            file_data.nav_order = idx
+            file_data.file_contents = re.sub(r"(nav_order:)\s*\d+", fr"\1 {idx}" , file_data.file_contents)
+            print(idx, file_data.filename, file_data.last_modified, sep=" ---> ")
+            file_data.write()
 
 
 if __name__ == "__main__":

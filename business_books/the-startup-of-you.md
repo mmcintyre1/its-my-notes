@@ -1,6 +1,6 @@
 ---
 last_modified_date: "2022-01-07 19:40:54.029576"
-nav_order: 97
+nav_order: 0
 ---
 
 # The Startup of You
