@@ -2,16 +2,9 @@
 
 This is a place where I write about things I've learned about. My so-called knowledge portfolio. I borrowed a lot from [this repo](https://github.com/keyvanakbary/learning-notes) since I love the simplicity and his project structure means 0 setup.
 
-### Need add info on
-- How to Absurd Scientific Advice for Common Real-World Problems
-- Pnin
-- Sapiens
-- Slade House
-- Murderbot
-- Why We Sleep
-
 ### Other To-do
-- add collected fictions
+- write script to walk through markdown files to populate nav_order based on last_modified date
+  - put that script into github actions? probably better to make it a pre-commit hook
 - is there a way to populate the README programmatically?
 
 
