@@ -1,6 +1,6 @@
 ---
 last_modified_date: "2021-10-11 13:14:26.949657"
-nav_order: 6
+nav_order: 7
 ---
 
 # Gideon the Ninth
