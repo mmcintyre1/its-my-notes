@@ -1,3 +1,3 @@
 #/bin/bash
 
-date +"%F %T.%N"
+date +"%F %T.%6N"
