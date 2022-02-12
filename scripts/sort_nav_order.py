@@ -47,6 +47,7 @@ def main():
         files = dir_path.iterdir()
         for file_path in files:
             if file_path.suffix == ".md":
+                print(f"sorting {file_path}")
                 all_file_data.append(get_md_meta(file_path))
 
         sorted_files = sorted(
