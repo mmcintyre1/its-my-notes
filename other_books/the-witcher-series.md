@@ -3,8 +3,9 @@ last_modified_date: "2022-02-03 21:58:35.187897"
 nav_order: 1
 ---
 
-# The Last Wish (1)
+# The Witcher Series
 
+# The Last Wish (1)
 ## Summary
 The _Last Wish_ contains seven short stories interspersed within a frame story: Geralt of Rivia is resting within a temple after being severely injured undoing the curse of King Foltest's daughter who has become a striga.
 
