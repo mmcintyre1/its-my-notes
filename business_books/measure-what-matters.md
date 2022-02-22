@@ -22,7 +22,7 @@ John Doerr, 2017
 **Objectives and Key Results** is a collaborative goal-setting protocol for companies, teams, and individuals
 
 **OBJECTIVE** - _WHAT_ is to be achieved
-- significant, concrete, action oriented, and ideally inspirational
+- significant, concrete, action-oriented, and ideally, inspirational
 - vaccine against fuzzy thinking and fuzzy execution
 
 **KEY RESULTS** - _HOW_ we get to the objective
@@ -107,3 +107,12 @@ John Doerr, 2017
 - Be alert to the need to address cultural barriers, especially issues of accountability and trust, before implementing OKRs.
 
 ## Thoughts
+There's seldom a business book where the epitaph "could've been a blog post" doesn't apply. This book is no exception. Ensconced in a compendium of self-fulfilling case studies justifying this particular management methodology (of course it worked for company x, otherwise it wouldn't be in the book) is an interesting idea, that you are what you measure. You define Objectives, which are the aspirational what of what you want to achieve, and Key Results, or the quantifiable how of how you will achieve that what. But don't expect for this book to give heuristics on finding what matters. This is a book for justifying its website and consultancy fees, a book credentialing itself with a who's who of Silicon Valley buddies that John Doerr has worked with during his illustrious career.
+
+Ok, that criticism might not be entirely fair. I did quite enjoy the case studies, and there might not be a more credentialed venture capitalist (Walter Isaacson calls him "the most important venture capitalist of our era" on the back jacket) to give this advice. One thing I find immensely valuable as a technologist, under the notion that most problems aren't new or haven't been solved at least once before, is learning about how other companies have solved their problems, and while I typically concentrate on technology, people and process problems can be just as insightful, if not filled with a bit more subjective hokum and methodology peddling.
+
+OKRs work, but like so many other management ideologies, they work because they are deliberate in the actions they argue for, the culture they foster. They form the chaos of intentionless business practice, salve the cut between HR-mandated practice adhered to by rote and work in the trenches. Everyone has worked for a manager who, if asked what their job entails as manager, might regurgitate some vague notions of "people" skills straight from their job description, but methodologies like OKR might enforce a more thoughtful approach to what it means to be a people manager, what it means to inspire.
+
+Outside of being a potentially useful management tactic, there might be some use for personal development as well. What you pay attention to is often just as important as how you work, and OKRs might be a clarifying exercise. I've found I might be passively using something like Objectives and Key Results to drive learning. If I want to be a better technologist, that means reading a tech book a month, and completing this year's Advent of Code in a new programming language, and reading 5 technology articles a week. I want to be a better writer, so I need to write reviews on all books I read, and read 8 books a month. Fortunately, I have an OKR platform where I can assess my progress against those implicit goals.
+
+All else being equal, the book justifies its price of entry, but all the same old criticisms of business books apply. For a few hours of time, this is as good as any argument for measuring what matters.
