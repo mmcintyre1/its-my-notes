@@ -97,3 +97,8 @@ defaults:
     values:
       parent: Projects
       nav_exclude: true
+  - scope:
+      path: "podcasts"
+    values:
+      parent: Podcasts
+      nav_exclude: true
