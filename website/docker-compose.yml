@@ -3,7 +3,7 @@ version: "3.7"
 services:
   jekyll:
     image: jekyll/jekyll
-    command: jekyll serve --watch --force_polling --config _config.yml,_config_dev.yml
+    command: jekyll serve --watch --force_polling --incremental --config _config.yml,_config_dev.yml
     environment:
       - JEKYLL_ENV=docker
     ports:
