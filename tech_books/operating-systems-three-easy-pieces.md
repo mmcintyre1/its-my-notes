@@ -71,7 +71,6 @@ types of sharing:
   - I/O info
 
 ### Process API
-{: .no_toc }
 - **create** - method to create new processes
 - **destroy** - method to destroy running processes
 - **wait** - method to pause a running process
@@ -97,3 +96,42 @@ DONE    - the process is finished executing
 ZOMBIE  - the process has completed executing but there is still an entry in the process table
 
 - usually in unix systems processes return 0 for success, non-zero otherwise
+
+### Key Process API Terms
+{: .no_toc }
+- Each process has a name; in most systems, that name is a number known as a **process ID**  (PID).
+- The `fork()` system call is used in UNIX systems to create a new process. The creator is called the parent; the newly created process is called the child.
+- The `wait()` system call allows a parent to wait for its child to complete execution.
+- The `exec()` family of system calls allows a child to break free from its similarity to its parent and execute an entirely new program.
+- A UNIX shell commonly uses `fork()`, `wait()`, and `exec()` to launch user commands; the separation of fork and exec enables features like input/output redirection, pipes, and other cool features, all without changing anything about the programs being run.
+- Process control is available in the form of signals, which can cause jobs to stop, continue, or even terminate.
+- Which processes can be controlled by a particular person is encapsulated in the notion of a user; the operating system allows multiple users onto the system, and ensures users can only control their own processes.
+- A superuser can control all processes (and indeed do many other things); this role should be assumed infrequently and with caution for security reasons.
+
+### Limited Direct Execution
+{: .no_toc }
+- in order to run programs as fast as possible, OS developers run them directly on the CPU (direct execution)
+- this requires time sharing of the resource (limited)
+
+2 problems this raises:
+#### Restricted Operations
+{: .no_toc }
+_how do you perform restricted operations like I/O without giving process full control over the system?_
+
+- The CPU should support at least two modes of execution: a restricted **user mode** and a privileged (non-restricted) **kernel mode**.
+- Typical user applications run in user mode, and use a **system call** to trap into the kernel to request operating system services.
+- The trap instruction saves register state carefully, changes the hardware status to kernel mode, and jumps into the OS to a pre-specified destination: the **trap table**.
+- When the OS finishes servicing a system call, it returns to the user program via another special **return-from-trap** instruction, which reduces privilege and returns control to the instruction after the trap that jumped into the OS.
+- The trap tables must be set up by the OS at boot time, and make sure that they cannot be readily modified by user programs. All of this is part of the limited direct execution protocol which runs programs efficiently but without loss of OS control.
+
+#### Switching Between Processes
+{: .no_toc }
+_how can the OS regain control of the CPU so that it can switch processes?_
+
+two approaches to giving OS control back:
+- cooperative approach, where OS waits for system calls from processes to regain control
+- non-cooperative approach, where something like an _interrupt timer_ is implemented (via hardware) that periodically gives control back to the CPU
+
+- Sometimes the OS, during a timer interrupt or system call, might wish to switch from running the current process to a different one, a low-level technique known as a **context switch**
+
+### CPU Scheduling
