@@ -135,3 +135,42 @@ two approaches to giving OS control back:
 - Sometimes the OS, during a timer interrupt or system call, might wish to switch from running the current process to a different one, a low-level technique known as a **context switch**
 
 ### CPU Scheduling
+- scheduling is higher level policy for _when_ to apply lower level mechanism (e.g., context switching) when virtualizing resources
+- in order to compare different scheduling policies, need metrics to compare
+
+#### turnaround time
+{: .no_toc }
+- time in which a job completes minus the time a job arrives
+
+#### fairness
+{: .no_toc }
+- the equality with which jobs are treated
+- one example is Jain's Fairness Index
+- often at odds with performance, as most fair way to run jobs isn't often the most performant
+
+#### response time
+{: .no_toc }
+- time when a job arrives to when it's first scheduled
+- optimizations for turnaround time might not be helpful for response time
+
+#### first in, first out (FIFO) queue
+{: .no_toc }
+- simplest algo for scheduling -- job that arrives is first to be processed
+- suffers from **convoy effect** -- large, expensive job blocks small, fast jobs
+- normally only works when all jobs run in same amount of time
+
+#### shortest job first (SJF)
+{: .no_toc }
+- jobs are organized based on job length at arrival
+- if not all jobs arrive at same time, you need to add **preemption** (like an interrupt for new arrivals), called **Shortest Time-to-Completion First** (STCF)
+- most modern schedulers are preemptive
+
+#### round robin
+{: .no_toc }
+- instead of running job to completion, jobs are run for a _time slice_ (aka scheduling quantum)
+- need to _amortize_ cost (spread cost out over long term) of context switching, so you don't want to switch context too often or wait too long so as to remove all benefits of round robin algo
+- round robin is more fair and like any policy that is fair will perform more poorly on turnaround time -- can run shorter jobs to completion if you are willing to be unfair, which might affect response time
+
+#### overlap
+{: .no_toc }
+- when dealing with I/O (or any blocking task), it is good to kick off the blocking task then switch, or to overlap executions
