@@ -109,7 +109,6 @@ ZOMBIE  - the process has completed executing but there is still an entry in the
 - A superuser can control all processes (and indeed do many other things); this role should be assumed infrequently and with caution for security reasons.
 
 ### Limited Direct Execution
-{: .no_toc }
 - in order to run programs as fast as possible, OS developers run them directly on the CPU (direct execution)
 - this requires time sharing of the resource (limited)
 
@@ -141,6 +140,7 @@ two approaches to giving OS control back:
 #### turnaround time
 {: .no_toc }
 - time in which a job completes minus the time a job arrives
+- $ T_{turnaround} = T_{completion} - T_{arrival} $
 
 #### fairness
 {: .no_toc }
@@ -152,6 +152,7 @@ two approaches to giving OS control back:
 {: .no_toc }
 - time when a job arrives to when it's first scheduled
 - optimizations for turnaround time might not be helpful for response time
+- - $ T_{response} = T_{firstrun} - T_{arrival} $
 
 #### first in, first out (FIFO) queue
 {: .no_toc }
@@ -174,3 +175,17 @@ two approaches to giving OS control back:
 #### overlap
 {: .no_toc }
 - when dealing with I/O (or any blocking task), it is good to kick off the blocking task then switch, or to overlap executions
+
+### Multi-Level Feedback Queue (MLFQ)
+- for most jobs, we won't know length of jobs, so 1) how do we optimize for turnaround time, and 2) how do we make a system feel responsive for interactive users?
+- multi-level feedback queue has multiple levels of queues, and uses feedback to determine priority of given job
+-  instead of demanding _a priori_ knowledge of the nature of a job, it observes the execution of a job and prioritizes it accordingly.
+-  manages to achieve the best of both worlds: it can deliver excellent overall performance (similar to SJF/STCF) for short-running interactive jobs, and is fair and makes progress for long-running CPU-intensive workloads
+- many systems, including BSD UNIX derivatives, Solaris, and Windows NT and subsequent Windows operating systems use a form of MLFQ as their base scheduler
+
+general rules outlined:
+- **Rule 1:** If Priority(A) > Priority(B), A runs (B doesn’t).
+- **Rule 2:** If Priority(A) == Priority(B), A & B run in round-robin fashion using the time slice (quantum length) of the given queue.
+- **Rule 3:** When a job enters the system, it is placed at the highest priority (the topmost queue).
+- **Rule 4:** Once a job uses up its time allotment at a given level (regardless of how many times it has given up the CPU), its priority is reduced (i.e., it moves down one queue).
+- **Rule 5:** After some time periodS, move all the jobs in the system to the topmost queue.
