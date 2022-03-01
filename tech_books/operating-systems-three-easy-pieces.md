@@ -54,7 +54,8 @@ a processor:
 - ensure a high degree of reliability for the OS
 - other goals: energy-efficiency, security, and mobility
 
-## Processes
+## Virtualization
+### Processes
 - a process is a running program
 - in order to run multiple processes at once, the OS creates the illusion of multiple CPUs by virtualizing the CPU
 - achieves this by:
@@ -112,7 +113,6 @@ ZOMBIE  - the process has completed executing but there is still an entry in the
 - in order to run programs as fast as possible, OS developers run them directly on the CPU (direct execution)
 - this requires time sharing of the resource (limited)
 
-2 problems this raises:
 #### Restricted Operations
 {: .no_toc }
 _how do you perform restricted operations like I/O without giving process full control over the system?_
@@ -137,22 +137,20 @@ two approaches to giving OS control back:
 - scheduling is higher level policy for _when_ to apply lower level mechanism (e.g., context switching) when virtualizing resources
 - in order to compare different scheduling policies, need metrics to compare
 
-#### turnaround time
-{: .no_toc }
-- time in which a job completes minus the time a job arrives
-- $ T_{turnaround} = T_{completion} - T_{arrival} $
-
-#### fairness
-{: .no_toc }
-- the equality with which jobs are treated
-- one example is Jain's Fairness Index
-- often at odds with performance, as most fair way to run jobs isn't often the most performant
-
-#### response time
-{: .no_toc }
-- time when a job arrives to when it's first scheduled
-- optimizations for turnaround time might not be helpful for response time
-- - $ T_{response} = T_{firstrun} - T_{arrival} $
+#### key metrics
+- **turnaround time**
+  - time in which a job completes minus the time a job arrives
+  - $ T_{turnaround} = T_{completion} - T_{arrival} $
+- **fairness**
+  - the equality with which jobs are treated
+  - one example is Jain's Fairness Index
+  - often at odds with performance, as most fair way to run jobs isn't often the most performant
+- **response time**
+  - time when a job arrives to when it's first scheduled
+  - optimizations for turnaround time might not be helpful for response time
+  - $ T_{response} = T_{firstrun} - T_{arrival} $
+- **overlap**
+  - when dealing with I/O (or any blocking task), it is good to kick off the blocking task then switch, or to overlap executions
 
 #### first in, first out (FIFO) queue
 {: .no_toc }
@@ -172,16 +170,14 @@ two approaches to giving OS control back:
 - need to _amortize_ cost (spread cost out over long term) of context switching, so you don't want to switch context too often or wait too long so as to remove all benefits of round robin algo
 - round robin is more fair and like any policy that is fair will perform more poorly on turnaround time -- can run shorter jobs to completion if you are willing to be unfair, which might affect response time
 
-#### overlap
-{: .no_toc }
-- when dealing with I/O (or any blocking task), it is good to kick off the blocking task then switch, or to overlap executions
-
-### Multi-Level Feedback Queue (MLFQ)
+#### Multi-Level Feedback Queue (MLFQ)
 - for most jobs, we won't know length of jobs, so 1) how do we optimize for turnaround time, and 2) how do we make a system feel responsive for interactive users?
 - multi-level feedback queue has multiple levels of queues, and uses feedback to determine priority of given job
 -  instead of demanding _a priori_ knowledge of the nature of a job, it observes the execution of a job and prioritizes it accordingly.
 -  manages to achieve the best of both worlds: it can deliver excellent overall performance (similar to SJF/STCF) for short-running interactive jobs, and is fair and makes progress for long-running CPU-intensive workloads
 - many systems, including BSD UNIX derivatives, Solaris, and Windows NT and subsequent Windows operating systems use a form of MLFQ as their base scheduler
+- some schedulers allow you to give **advice** to help set priority (can be used or ignored) - e.g., linux tool `nice`
+- other schedulers use a **decay-usage** algorithm to adjust priorities (instead of a table or exact rules below)
 
 general rules outlined:
 - **Rule 1:** If Priority(A) > Priority(B), A runs (B doesn’t).
@@ -189,3 +185,9 @@ general rules outlined:
 - **Rule 3:** When a job enters the system, it is placed at the highest priority (the topmost queue).
 - **Rule 4:** Once a job uses up its time allotment at a given level (regardless of how many times it has given up the CPU), its priority is reduced (i.e., it moves down one queue).
 - **Rule 5:** After some time periodS, move all the jobs in the system to the topmost queue.
+
+#### Proportional Share: Lottery
+
+#### Proportional Share: Stride
+
+#### Proportional Share: Completely Fair Scheduler
