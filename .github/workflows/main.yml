@@ -6,23 +6,25 @@ on:
       - master
 
 jobs:
-  build:
+  build-deploy:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
+      - name: Checkout repo
+        uses: actions/checkout@v2
 
-      - name: Set up Ruby # use .ruby-version
-        uses: ruby/setup-ruby@359bebbc29cbe6c87da6bc9ea3bc930432750108
-        with:
-          ruby-version: 3.1
+      - name: change directory
+        run: cd website
 
-      - name: Build
-        run: cd website && make build
-
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
+      - name: Get cached gems
+        uses: actions/cache@v2
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./website/_site
+          path: vendor/bundle
+          key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-gems-
+
+      - name: Build and deploy
+        uses: helaili/jekyll-action@v2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
