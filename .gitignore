@@ -2,3 +2,10 @@ VS Code settings
 .vscode/
 *Zone.Identifier
 .git
+_site
+.sass-cache
+articles
+books
+papers
+talks
+.jekyll-metadata
