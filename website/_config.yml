@@ -41,6 +41,7 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - docker-compose.yml
+  - vendor
 
 titles_from_headings:
   enabled: true
