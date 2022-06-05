@@ -9,16 +9,20 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-      with:
-        fetch-depth: 0
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
 
-    - name: Build
-      run: cd website && make build
+      - name: Set up Ruby # use .ruby-version
+        uses: ruby/setup-ruby@359bebbc29cbe6c87da6bc9ea3bc930432750108
+        with:
+          ruby-version: 3.1
 
-    - name: Deploy
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./website/_site
-      
+      - name: Build
+        run: cd website && make build
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./website/_site
