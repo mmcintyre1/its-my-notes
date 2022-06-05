@@ -4,7 +4,7 @@ nav_exclude: true
 
 # My Second Brain
 
-This repository is a work in progress for storing all the things I learn in a condensed note form.
+This website functions as a repository for notes on all the things I read and learn.
 
 This wiki presentation is just another step in the evolution of maximizing the time I spend learning.
 
