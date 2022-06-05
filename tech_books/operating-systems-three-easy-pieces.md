@@ -137,7 +137,7 @@ two approaches to giving OS control back:
 - scheduling is higher level policy for _when_ to apply lower level mechanism (e.g., context switching) when virtualizing resources
 - in order to compare different scheduling policies, need metrics to compare
 
-#### key metrics
+#### Key Metrics
 - **turnaround time**
   - time in which a job completes minus the time a job arrives
   - $ T_{turnaround} = T_{completion} - T_{arrival} $
@@ -152,19 +152,17 @@ two approaches to giving OS control back:
 - **overlap**
   - when dealing with I/O (or any blocking task), it is good to kick off the blocking task then switch, or to overlap executions
 
-#### first in, first out (FIFO) queue
-{: .no_toc }
+#### First In, First Out Queue
 - simplest algo for scheduling -- job that arrives is first to be processed
 - suffers from **convoy effect** -- large, expensive job blocks small, fast jobs
 - normally only works when all jobs run in same amount of time
 
-#### shortest job first (SJF)
-{: .no_toc }
+#### Shortest Job First (SJF)
 - jobs are organized based on job length at arrival
 - if not all jobs arrive at same time, you need to add **preemption** (like an interrupt for new arrivals), called **Shortest Time-to-Completion First** (STCF)
 - most modern schedulers are preemptive
 
-#### round robin
+#### Round Robin
 {: .no_toc }
 - instead of running job to completion, jobs are run for a _time slice_ (aka scheduling quantum)
 - need to _amortize_ cost (spread cost out over long term) of context switching, so you don't want to switch context too often or wait too long so as to remove all benefits of round robin algo
@@ -186,8 +184,15 @@ general rules outlined:
 - **Rule 4:** Once a job uses up its time allotment at a given level (regardless of how many times it has given up the CPU), its priority is reduced (i.e., it moves down one queue).
 - **Rule 5:** After some time periodS, move all the jobs in the system to the topmost queue.
 
-#### Proportional Share: Lottery
+### Multiprocessor Scheduling
+flashcards:
 
-#### Proportional Share: Stride
+- What is the difference between hardware caches and main memory?
+- Caches hold copiers of popular data and the main memory holds all the data, but access to the main memory is slower
 
-#### Proportional Share: Completely Fair Scheduler
+- {{c1::temporal locality}} is when a piece of data is accessed, it is likely to be accessed again in the near future
+- {{c1::spatial locality}} is when a program access data at address _x_ it is likely to access data items near _x_ as well
+
+- cache coherence
+- bus snooping
+- invalidate or update a cache
