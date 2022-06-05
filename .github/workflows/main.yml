@@ -24,7 +24,4 @@ jobs:
       - name: Build and deploy
         uses: helaili/jekyll-action@v2
         with:
-          target_path: "_site"
-          gem_src: website
-          jekyll_src: website
           token: ${{ secrets.GITHUB_TOKEN }}
