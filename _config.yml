@@ -58,6 +58,9 @@ aux_links:
   "My Second Brain on GitHub":
     - "https://github.com/mmcintyre1/my-second-brain"
 
+ga_tracking: G-M6EEXPRNWS
+ga_tracking_anonymize_ip: true
+
 defaults:
   - scope:
       path: "tech_books"
