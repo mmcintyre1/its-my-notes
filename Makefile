@@ -18,4 +18,4 @@ s serve:
 	bundle exec jekyll serve --trace --livereload
 
 build:
-	JEKYLL_ENV=production bundle exec jekyll build --trace
+	JEKYLL_ENV=development bundle exec jekyll build --trace
