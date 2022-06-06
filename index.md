@@ -2,7 +2,7 @@
 nav_exclude: true
 ---
 
-# My Second Brain
+# It's My Notes
 
 This website functions as a repository for notes on all the things I read and learn.
 

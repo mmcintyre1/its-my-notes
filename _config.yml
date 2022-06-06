@@ -22,7 +22,7 @@ remote_theme: pmarsceill/just-the-docs
 color_scheme: custom-dark
 url: "https://itsmynotes.com"
 baseurl: ""
-repository: mmcintyre1/my-second-brain
+repository: mmcintyre1/its-my-notes
 
 plugins:
   - jekyll-seo-tag
