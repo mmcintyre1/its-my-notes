@@ -21,6 +21,7 @@ last_edit_time_format: "%b %e %Y at %I:%M %p"
 remote_theme: pmarsceill/just-the-docs
 color_scheme: custom-dark
 url: https://itsmynotes.com
+repository: "https://github.com/mmcintyre1/my-second-brain"
 
 plugins:
   - jekyll-seo-tag
