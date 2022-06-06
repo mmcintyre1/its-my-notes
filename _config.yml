@@ -20,6 +20,9 @@ last_edit_time_format: "%b %e %Y at %I:%M %p"
 # theme: just-the-docs
 remote_theme: pmarsceill/just-the-docs
 color_scheme: custom-dark
+url: "https://itsmynotes.com"
+repository: "mmcintyre1/my-second-brain"
+base_url: ""
 
 plugins:
   - jekyll-seo-tag
