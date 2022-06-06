@@ -9,3 +9,5 @@ books
 papers
 talks
 .jekyll-metadata
+vendor
+.bundle

@@ -14,7 +14,6 @@ install:
 upgrade:
 	bundle update
 
-
 s serve:
 	bundle exec jekyll serve --trace --livereload
 
