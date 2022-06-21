@@ -6,6 +6,7 @@ import re
 import os
 
 
+# add to this if there is a new parent directory to sort
 DIRS_TO_ORDER = [
     pathlib.Path("./other_books"),
     pathlib.Path("./business_books"),
@@ -28,6 +29,10 @@ class MarkdownMeta:
 
 
 def get_md_meta(path):
+    """
+    Parses a markdown file to populate the MarkdownMeta class. Date handling isn't robust.
+    Default nav order of 0.
+    """
     nav_order = 0
     last_modified = datetime.now() - timedelta(days=365)
 
@@ -43,16 +48,19 @@ def get_md_meta(path):
 def main():
     for dir_path in DIRS_TO_ORDER:
         print(f"Sorting {dir_path}")
-        all_file_data = []
-        files = dir_path.iterdir()
-        for file_path in files:
-            if file_path.suffix == ".md":
-                print(f"sorting {file_path}")
-                all_file_data.append(get_md_meta(file_path))
 
+        # iterates through all md files and parses to objects
+        all_file_data = []
+        for file_path in dir_path.glob("*.md"):
+            print(f"sorting {file_path}")
+            all_file_data.append(get_md_meta(file_path))
+
+        # sort by last_modified, which is used to set nav_order
         sorted_files = sorted(
             all_file_data, key=lambda x: x.last_modified, reverse=True
         )
+
+        # rewrite all files with new nav_order, after using regex to sub it in
         for idx, file_data in enumerate(sorted_files):
             file_data.nav_order = idx
             file_data.file_contents = re.sub(
