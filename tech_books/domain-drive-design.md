@@ -158,11 +158,49 @@ Eric Evans, 2003
 - Evans also recommends against "find or create" functionality because usually the distinction between new object and existing object is important in the domain, and a framework that transparently combines them might muddy the waters
 
 ## Supple Design
+
+<div style="text-align:center">
+  <a href="/assets/img/ddd-supple-design.jpg">
+    <img src="/assets/img/ddd-supple-design.jpg" alt="supple-design">
+  </a>
+</div>
+
 ### Intention-Revealing Interfaces
-### Standalone Classes
-### Conceptual Contours
-### Assertions
+- if you need to be aware of implementation of component to use it, you lose value of encapsulation
+- name classes and operations to describe effect and purpose without means to which they do what they promise
+- names should conform to **ubiquitous language**
+- use test-driven development by writing test for behavior before implementing
+
 ### Side-Effect-Free Functions
+- **side effect** - any change in the state of the system that will affect future operations
+- **command** - method that result in modification to observable state
+- need to limit so developers can make changes without needing to understand full cascading effects
+- place logic of program into functions that return results with no observable side effects
+- segregate commands into simple operations that do not return domain information
+
+### Assertions
+- can be used to state post-conditions of operations and invariants of class **AGGREGATES**
+- most OO languages don't directly support, but good unit tests can make up gap
+
+### Conceptual Contours
+- without boundaries between elements of a model, functionality gets duplicated, and meaning is hard to understand
+- conversely, too fine-grained of boundaries make objects lose all meaning (half a uranium atom isn't uranium)
+- decompose design elements into cohesive units
+- observe _axes of change_ to identify **CONCEPTUAL CONTOURS**
+
+### Standalone Classes
+- adding dependencies to a module increases difficulties in understanding drastically
+- implicit is much more difficult than explicit concepts
+- _low coupling is fundamental to object design_
+- if you can, eliminate all other concepts from the class, so it can be studied and understood alone
+
+**Closure of Operations** (p 268)
+**Domain-Specific Languages** (p 272)
+
+> Generating a running program from a declaration of model properties is a kind of Holy Grail of MODEL-DRIVEN DESIGN (271)
+
+- **Strategy (AKA Policy)** (p 311)
+- **Composite** (p 315)
 
 ## Context
 ### Bounded Context
