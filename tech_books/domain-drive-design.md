@@ -204,10 +204,82 @@ Eric Evans, 2003
 
 ## Context
 ### Bounded Context
-### Context Map
+- always multiple models on any large project, but when you combine code from distinct models, things are buggy and hard to understand
+- need to explicitly define context within which a model applies
+- boundaries defined via --> teams organization, usage within parts of app, physical manifestations (code bases, database schemas, infra)
+- delimits applicability of particular model so there is a clear and shared understanding of what has to be consistent
+- *bounded contexts are not modules*
+- _duplicate concepts_ - two model elements that represent the same thing
+- _false cognates_ - the same term applied to two different things (similar to polysemes)
+
 ### Continuous Integration
+- general tendency for a model to fragment, to lose valuable coherency and integration
+- all work within context is being merged and made consistent frequently enough that splinters are caught and corrected quickly
+- for code, requires:
+  - step-by-step, reproducible merge/build technique
+  - automated test suites
+  - rules that set some reasonably small upper limit on lifetime of unintegrated changes
+- for conceptual integration, requires:
+  - constant exercise of the ubiquitous language
+
+### Context Map
+- the act of defining each model in a project's **BOUNDED CONTEXT**,
+- including points of contact between models and any explicit translation between models or shared info
+- after you make context map, you might see changes to org of teams or design you want to change
+- important to test points of contact between bounded contexts
+-
+### Relationships Between Bounded Contexts
+
+<div style="text-align:center">
+  <a href="/assets/img/ddd-context-relations.jpg">
+    <img src="/assets/img/ddd-context-relations.jpg" alt="relationship between contexts">
+  </a>
+</div>
+
+#### Shared Kernel
+
+<div style="text-align:center">
+  <a href="/assets/img/ddd-shared-kernel.jpg">
+    <img src="/assets/img/ddd-shared-kernel.jpg" alt="shared kernel">
+  </a>
+</div>
+
+- subset of domain two teams agree to share
+- useful for when teams are moving quickly and don't want to spend time on translation or integration of models
+
+#### Customer/Supplier Dev Teams
+- establish clear customer/supplier relationship between teams, where downstream plays customer
+- jointly develop automated acceptances tests as part of upstreams continuous integration, freeing them to make changes that won't affect downstream team
+- customer's needs are paramount
+
+#### Conformist
+- when two models are incompatible, downstream can choose to adopt upstream, esp. if code quality is decent and compatibility relatively high already
+- simplifies integration, but prevents downstream from designing and innovating on their domain
+
+#### Anti-Corruption Layer
+- when two systems absolutely can't integrate, you can create an isolating layer between the two
+- ADAPTER or FACADE pattern, essentially
+
+#### Separate Ways
+- integration is always expensive and sometimes benefit is small
+- you can declare a bounded context to have no connection with others at all
+
+#### Open Host Service
+- when a subsystem needs many integrations, design a protocol
+- anyone can use, and expand and extend to handle new requirements
+
+#### Published Language
+- use a well-documented shared language that can express necessary domain language (e.g., XML and DTD)
 
 ## Distillation
+- the process of separating the components of a mixture to extract the essence in a form that makes it more valuable and useful, e.g., a model is a distillation of knowledge
+
+<div style="text-align:center">
+  <a href="/assets/img/ddd-distillation.jpg">
+    <img src="/assets/img/ddd-distillation.jpg" alt="distillation">
+  </a>
+</div>
+
 ### Core Domain
 ### Domain Vision Statement
 ### Generic Subdomains
