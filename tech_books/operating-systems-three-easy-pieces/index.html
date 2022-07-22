@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+
+  
+
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+  <link rel="stylesheet" href="/assets/css/just-the-docs-default.css">
+
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-M6EEXPRNWS"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-M6EEXPRNWS', { 'anonymize_ip': true });
+  </script>
+
+  
+
+  
+  <script type="text/javascript" src="/assets/js/vendor/lunr.min.js"></script>
+  
+  <script type="text/javascript" src="/assets/js/just-the-docs.js"></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Operating Systems: Three Easy Pieces | Notes</title>
+<meta name="generator" content="Jekyll v3.9.2">
+<meta property="og:title" content="Operating Systems: Three Easy Pieces">
+<meta property="og:locale" content="en_US">
+<meta name="description" content="Michael McIntyre’s Second Brain">
+<meta property="og:description" content="Michael McIntyre’s Second Brain">
+<link rel="canonical" href="https://itsmynotes.com/tech_books/operating-systems-three-easy-pieces/">
+<meta property="og:url" content="https://itsmynotes.com/tech_books/operating-systems-three-easy-pieces/">
+<meta property="og:site_name" content="Notes">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<meta property="twitter:title" content="Operating Systems: Three Easy Pieces">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"Michael McIntyre’s Second Brain","headline":"Operating Systems: Three Easy Pieces","url":"https://itsmynotes.com/tech_books/operating-systems-three-easy-pieces/"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+  
+
+<script>MathJax={"tex":{"inlineMath":[["$","$"],["\\(","\\)"]],"displayMath":[["$$","$$"],["\\[","\\]"]]},"svg":{"fontCache":"global"}}</script><script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="svg-link" viewbox="0 0 24 24">
+      <title>Link</title>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link">
+        <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+      </svg>
+    </symbol>
+    <symbol id="svg-search" viewbox="0 0 24 24">
+      <title>Search</title>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search">
+        <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+      </svg>
+    </symbol>
+    <symbol id="svg-menu" viewbox="0 0 24 24">
+      <title>Menu</title>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu">
+        <line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
+    </symbol>
+    <symbol id="svg-arrow-right" viewbox="0 0 24 24">
+      <title>Expand</title>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+        <polyline points="9 18 15 12 9 6"></polyline>
+      </svg>
+    </symbol>
+    <symbol id="svg-doc" viewbox="0 0 24 24">
+      <title>Document</title>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file">
+        <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline>
+      </svg>
+    </symbol>
+  </svg>
+
+  <div class="side-bar">
+    <div class="site-header">
+      <a href="https://itsmynotes.com/" class="site-title lh-tight">
+  Notes
+
+</a>
+      <a href="#" id="menu-button" class="site-button">
+        <svg viewbox="0 0 24 24" class="icon"><use xlink:href="#svg-menu"></use></svg>
+      </a>
+    </div>
+    <nav role="navigation" aria-label="Main" id="site-nav" class="site-nav">
+      
+        <ul class="nav-list">
+<li class="nav-list-item active">
+<a href="#" class="nav-list-expander"><svg viewbox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://itsmynotes.com/tech_books/" class="nav-list-link">Tech Books</a><ul class="nav-list "></ul>
+</li>
+<li class="nav-list-item">
+<a href="#" class="nav-list-expander"><svg viewbox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://itsmynotes.com/vocabulary/" class="nav-list-link">Vocabulary</a><ul class="nav-list "></ul>
+</li>
+<li class="nav-list-item">
+<a href="#" class="nav-list-expander"><svg viewbox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://itsmynotes.com/business_books/" class="nav-list-link">Business Books</a><ul class="nav-list "></ul>
+</li>
+<li class="nav-list-item">
+<a href="#" class="nav-list-expander"><svg viewbox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://itsmynotes.com/educational_books/" class="nav-list-link">Educational Books</a><ul class="nav-list "></ul>
+</li>
+<li class="nav-list-item">
+<a href="#" class="nav-list-expander"><svg viewbox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://itsmynotes.com/projects/" class="nav-list-link">Projects</a><ul class="nav-list "></ul>
+</li>
+<li class="nav-list-item">
+<a href="#" class="nav-list-expander"><svg viewbox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://itsmynotes.com/articles/" class="nav-list-link">Articles</a><ul class="nav-list "></ul>
+</li>
+<li class="nav-list-item">
+<a href="#" class="nav-list-expander"><svg viewbox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://itsmynotes.com/other_books/" class="nav-list-link">Other Books</a><ul class="nav-list "></ul>
+</li>
+<li class="nav-list-item">
+<a href="#" class="nav-list-expander"><svg viewbox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://itsmynotes.com/quotes/" class="nav-list-link">Quotes</a><ul class="nav-list "></ul>
+</li>
+<li class="nav-list-item">
+<a href="#" class="nav-list-expander"><svg viewbox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://itsmynotes.com/classes/" class="nav-list-link">Classes</a><ul class="nav-list "></ul>
+</li>
+<li class="nav-list-item">
+<a href="#" class="nav-list-expander"><svg viewbox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="https://itsmynotes.com/podcasts/" class="nav-list-link">Podcasts</a><ul class="nav-list "></ul>
+</li>
+</ul>
+
+      
+    </nav>
+    <footer class="site-footer">
+      This site uses <a href="https://github.com/just-the-docs/just-the-docs">Just the Docs</a>, a documentation theme for Jekyll.
+    </footer>
+  </div>
+  <div class="main" id="top">
+    <div id="main-header" class="main-header">
+      
+        <div class="search">
+          <div class="search-input-wrap">
+            <input type="text" id="search-input" class="search-input" tabindex="0" placeholder="Search Notes" aria-label="Search Notes" autocomplete="off">
+            <label for="search-input" class="search-label"><svg viewbox="0 0 24 24" class="search-icon"><use xlink:href="#svg-search"></use></svg></label>
+          </div>
+          <div id="search-results" class="search-results"></div>
+        </div>
+      
+      
+      
+        <nav aria-label="Auxiliary" class="aux-nav">
+          <ul class="aux-nav-list">
+            
+              <li class="aux-nav-list-item">
+                <a href="https://github.com/mmcintyre1/my-second-brain" class="site-button">
+                  My Second Brain on GitHub
+                </a>
+              </li>
+            
+          </ul>
+        </nav>
+      
+    </div>
+    <div id="main-content-wrap" class="main-content-wrap">
+      
+        <nav aria-label="Breadcrumb" class="breadcrumb-nav">
+            <ol class="breadcrumb-nav-list">
+              
+                <li class="breadcrumb-nav-list-item"><a href="https://itsmynotes.com/tech_books/">Tech Books</a></li>
+              
+              <li class="breadcrumb-nav-list-item"><span>Operating Systems: Three Easy Pieces</span></li>
+            </ol>
+          </nav>
+        
+      
+      <div id="main-content" class="main-content" role="main">
+        
+          <h1 class="no_toc" id="operating-systems-three-easy-pieces">
+        
+        
+          <a href="#operating-systems-three-easy-pieces" class="anchor-heading" aria-labelledby="operating-systems-three-easy-pieces"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Operating Systems: Three Easy Pieces
+        
+        
+      </h1>
+    
+<p>Remzi Arpaci-Dusseau, Andrea Arpaci-Dusseau. 2015</p>
+      <h2 id="key-links">
+        
+        
+          <a href="#key-links" class="anchor-heading" aria-labelledby="key-links"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Key Links
+        
+        
+      </h2>
+    
+<ul>
+  <li>https://pages.cs.wisc.edu/~remzi/OSTEP/Homework/homework.html</li>
+  <li>https://pages.cs.wisc.edu/~remzi/OSTEP/</li>
+  <li>https://github.com/remzi-arpacidusseau/ostep-code</li>
+</ul>
+
+<details open="">
+  <summary>
+    Table of contents
+  </summary>
+<ol id="markdown-toc">
+  <li><a href="#key-links" id="markdown-toc-key-links">Key Links</a></li>
+  <li><a href="#introduction" id="markdown-toc-introduction">Introduction</a></li>
+  <li>
+<a href="#virtualization-1" id="markdown-toc-virtualization-1">Virtualization</a>    <ol>
+      <li><a href="#processes" id="markdown-toc-processes">Processes</a></li>
+      <li><a href="#process-api" id="markdown-toc-process-api">Process API</a></li>
+      <li><a href="#limited-direct-execution" id="markdown-toc-limited-direct-execution">Limited Direct Execution</a></li>
+      <li>
+<a href="#cpu-scheduling" id="markdown-toc-cpu-scheduling">CPU Scheduling</a>        <ol>
+          <li><a href="#key-metrics" id="markdown-toc-key-metrics">Key Metrics</a></li>
+          <li><a href="#first-in-first-out-queue" id="markdown-toc-first-in-first-out-queue">First In, First Out Queue</a></li>
+          <li><a href="#shortest-job-first-sjf" id="markdown-toc-shortest-job-first-sjf">Shortest Job First (SJF)</a></li>
+          <li><a href="#multi-level-feedback-queue-mlfq" id="markdown-toc-multi-level-feedback-queue-mlfq">Multi-Level Feedback Queue (MLFQ)</a></li>
+        </ol>
+      </li>
+      <li><a href="#multiprocessor-scheduling" id="markdown-toc-multiprocessor-scheduling">Multiprocessor Scheduling</a></li>
+    </ol>
+  </li>
+</ol>
+
+</details>
+      <h2 id="introduction">
+        
+        
+          <a href="#introduction" class="anchor-heading" aria-labelledby="introduction"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Introduction
+        
+        
+      </h2>
+    
+      <h3 class="no_toc" id="von-neumann-computing">
+        
+        
+          <a href="#von-neumann-computing" class="anchor-heading" aria-labelledby="von-neumann-computing"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Von Neumann computing
+        
+        
+      </h3>
+    
+<p>a processor:</p>
+<ul>
+  <li>fetches an instruction from memory</li>
+  <li>decodes it</li>
+  <li>executes it</li>
+  <li>moves on to next instruction</li>
+</ul>
+      <h3 class="no_toc" id="virtualization">
+        
+        
+          <a href="#virtualization" class="anchor-heading" aria-labelledby="virtualization"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Virtualization
+        
+        
+      </h3>
+    
+<ul>
+  <li>make a system easy to ease</li>
+  <li>
+<strong>virtualization</strong>: taking a physical resource and transforming it into a more easy to use virtual form; a method OS’s use to achieve ease of use</li>
+  <li>OS can be thought of as resource manager</li>
+  <li>can virtualize CPU (each program appears to have access to its own CPU) or memory (each program has it’s own private virtual address space)</li>
+</ul>
+      <h3 class="no_toc" id="concurrency">
+        
+        
+          <a href="#concurrency" class="anchor-heading" aria-labelledby="concurrency"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Concurrency
+        
+        
+      </h3>
+    
+<ul>
+  <li>
+<strong>concurrency</strong> - working on many things at once</li>
+  <li>can lead to interesting problems when instructions are executing one at a time</li>
+</ul>
+      <h3 class="no_toc" id="persistence">
+        
+        
+          <a href="#persistence" class="anchor-heading" aria-labelledby="persistence"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Persistence
+        
+        
+      </h3>
+    
+<ul>
+  <li>storing data in volatile memory (e.g., RAM) leads to data loss if system stops</li>
+  <li>
+<strong>persistence</strong> - storing data in a longer term storage, such as HDD, SSD, CDs (any I/O device)</li>
+</ul>
+      <h3 class="no_toc" id="os-design-goals">
+        
+        
+          <a href="#os-design-goals" class="anchor-heading" aria-labelledby="os-design-goals"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> OS Design Goals
+        
+        
+      </h3>
+    
+<ul>
+  <li>make the system easy to use through abstractions</li>
+  <li>make the system performant by minimizing the OS overheads</li>
+  <li>provide protection between applications</li>
+  <li>ensure a high degree of reliability for the OS</li>
+  <li>other goals: energy-efficiency, security, and mobility</li>
+</ul>
+      <h2 id="virtualization-1">
+        
+        
+          <a href="#virtualization-1" class="anchor-heading" aria-labelledby="virtualization-1"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Virtualization
+        
+        
+      </h2>
+    
+      <h3 id="processes">
+        
+        
+          <a href="#processes" class="anchor-heading" aria-labelledby="processes"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Processes
+        
+        
+      </h3>
+    
+<ul>
+  <li>a process is a running program</li>
+  <li>in order to run multiple processes at once, the OS creates the illusion of multiple CPUs by virtualizing the CPU</li>
+  <li>achieves this by:
+    <ul>
+      <li>
+<em>mechanisms</em> - low level methods or protocols that implement a needed piece of functionality</li>
+    </ul>
+  </li>
+  <li>
+<em>policiies</em> - algorithms for making some kind of decision within the OS</li>
+</ul>
+
+<p>types of sharing:</p>
+<ul>
+  <li>
+<em>time sharing</em> - allowing one entity to use a resource for a little while then context switching to allow another entity to use the resource (e.g., CPU, network link)</li>
+  <li>
+    <p><em>space sharing</em> - a resource is divided in space among users (e.g., disk space)</p>
+  </li>
+  <li>understanding process is understanding machine state
+    <ul>
+      <li>memory - where programs instructions live via address space</li>
+      <li>registers - things like program counter/instruction pointer (what the next instruction is)</li>
+      <li>I/O info</li>
+    </ul>
+  </li>
+</ul>
+      <h3 id="process-api">
+        
+        
+          <a href="#process-api" class="anchor-heading" aria-labelledby="process-api"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Process API
+        
+        
+      </h3>
+    
+<ul>
+  <li>
+<strong>create</strong> - method to create new processes</li>
+  <li>
+<strong>destroy</strong> - method to destroy running processes</li>
+  <li>
+<strong>wait</strong> - method to pause a running process</li>
+  <li>
+<strong>misc. control</strong> - other special methods, like suspend or resume</li>
+  <li>
+<strong>status</strong> - get status info about process</li>
+</ul>
+
+<p>how are programs turned into processes?</p>
+<ol>
+  <li>code and any static data loaded into memory
+    <ol>
+      <li>this used to be done eagerly (load the whole program into memory), now it is typically done lazily (load only needed modules)</li>
+    </ol>
+  </li>
+  <li>stack is provisioned
+    <ol>
+      <li>in C programs, stack is used for variables, function parameters, etc</li>
+    </ol>
+  </li>
+  <li>program might also allocate memory for program’s heap
+    <ol>
+      <li>in C programs, memory for heap gets provisioned with <code class="language-plaintext highlighter-rouge">malloc()</code> and freed with <code class="language-plaintext highlighter-rouge">free()</code>
+</li>
+    </ol>
+  </li>
+  <li>OS will do other initialization tasks such as setting up file descriptors (standard out, standard in, standard err)</li>
+</ol>
+
+<p>process states
+RUNNING - the process is using the CPU right now
+READY   - the process could be using the CPU right now
+          but (alas) some other process is
+WAITING - the process is waiting on I/O
+          (e.g., it issued a request to a disk)
+DONE    - the process is finished executing
+ZOMBIE  - the process has completed executing but there is still an entry in the process table</p>
+
+<ul>
+  <li>usually in unix systems processes return 0 for success, non-zero otherwise</li>
+</ul>
+      <h3 class="no_toc" id="key-process-api-terms">
+        
+        
+          <a href="#key-process-api-terms" class="anchor-heading" aria-labelledby="key-process-api-terms"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Key Process API Terms
+        
+        
+      </h3>
+    
+<ul>
+  <li>Each process has a name; in most systems, that name is a number known as a <strong>process ID</strong>  (PID).</li>
+  <li>The <code class="language-plaintext highlighter-rouge">fork()</code> system call is used in UNIX systems to create a new process. The creator is called the parent; the newly created process is called the child.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">wait()</code> system call allows a parent to wait for its child to complete execution.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">exec()</code> family of system calls allows a child to break free from its similarity to its parent and execute an entirely new program.</li>
+  <li>A UNIX shell commonly uses <code class="language-plaintext highlighter-rouge">fork()</code>, <code class="language-plaintext highlighter-rouge">wait()</code>, and <code class="language-plaintext highlighter-rouge">exec()</code> to launch user commands; the separation of fork and exec enables features like input/output redirection, pipes, and other cool features, all without changing anything about the programs being run.</li>
+  <li>Process control is available in the form of signals, which can cause jobs to stop, continue, or even terminate.</li>
+  <li>Which processes can be controlled by a particular person is encapsulated in the notion of a user; the operating system allows multiple users onto the system, and ensures users can only control their own processes.</li>
+  <li>A superuser can control all processes (and indeed do many other things); this role should be assumed infrequently and with caution for security reasons.</li>
+</ul>
+      <h3 id="limited-direct-execution">
+        
+        
+          <a href="#limited-direct-execution" class="anchor-heading" aria-labelledby="limited-direct-execution"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Limited Direct Execution
+        
+        
+      </h3>
+    
+<ul>
+  <li>in order to run programs as fast as possible, OS developers run them directly on the CPU (direct execution)</li>
+  <li>this requires time sharing of the resource (limited)</li>
+</ul>
+      <h4 class="no_toc" id="restricted-operations">
+        
+        
+          <a href="#restricted-operations" class="anchor-heading" aria-labelledby="restricted-operations"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Restricted Operations
+        
+        
+      </h4>
+    
+<p><em>how do you perform restricted operations like I/O without giving process full control over the system?</em></p>
+
+<ul>
+  <li>The CPU should support at least two modes of execution: a restricted <strong>user mode</strong> and a privileged (non-restricted) <strong>kernel mode</strong>.</li>
+  <li>Typical user applications run in user mode, and use a <strong>system call</strong> to trap into the kernel to request operating system services.</li>
+  <li>The trap instruction saves register state carefully, changes the hardware status to kernel mode, and jumps into the OS to a pre-specified destination: the <strong>trap table</strong>.</li>
+  <li>When the OS finishes servicing a system call, it returns to the user program via another special <strong>return-from-trap</strong> instruction, which reduces privilege and returns control to the instruction after the trap that jumped into the OS.</li>
+  <li>The trap tables must be set up by the OS at boot time, and make sure that they cannot be readily modified by user programs. All of this is part of the limited direct execution protocol which runs programs efficiently but without loss of OS control.</li>
+</ul>
+      <h4 class="no_toc" id="switching-between-processes">
+        
+        
+          <a href="#switching-between-processes" class="anchor-heading" aria-labelledby="switching-between-processes"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Switching Between Processes
+        
+        
+      </h4>
+    
+<p><em>how can the OS regain control of the CPU so that it can switch processes?</em></p>
+
+<p>two approaches to giving OS control back:</p>
+<ul>
+  <li>cooperative approach, where OS waits for system calls from processes to regain control</li>
+  <li>
+    <p>non-cooperative approach, where something like an <em>interrupt timer</em> is implemented (via hardware) that periodically gives control back to the CPU</p>
+  </li>
+  <li>Sometimes the OS, during a timer interrupt or system call, might wish to switch from running the current process to a different one, a low-level technique known as a <strong>context switch</strong>
+</li>
+</ul>
+      <h3 id="cpu-scheduling">
+        
+        
+          <a href="#cpu-scheduling" class="anchor-heading" aria-labelledby="cpu-scheduling"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> CPU Scheduling
+        
+        
+      </h3>
+    
+<ul>
+  <li>scheduling is higher level policy for <em>when</em> to apply lower level mechanism (e.g., context switching) when virtualizing resources</li>
+  <li>in order to compare different scheduling policies, need metrics to compare</li>
+</ul>
+      <h4 id="key-metrics">
+        
+        
+          <a href="#key-metrics" class="anchor-heading" aria-labelledby="key-metrics"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Key Metrics
+        
+        
+      </h4>
+    
+<ul>
+  <li>
+<strong>turnaround time</strong>
+    <ul>
+      <li>time in which a job completes minus the time a job arrives</li>
+      <li>$ T_{turnaround} = T_{completion} - T_{arrival} $</li>
+    </ul>
+  </li>
+  <li>
+<strong>fairness</strong>
+    <ul>
+      <li>the equality with which jobs are treated</li>
+      <li>one example is Jain’s Fairness Index</li>
+      <li>often at odds with performance, as most fair way to run jobs isn’t often the most performant</li>
+    </ul>
+  </li>
+  <li>
+<strong>response time</strong>
+    <ul>
+      <li>time when a job arrives to when it’s first scheduled</li>
+      <li>optimizations for turnaround time might not be helpful for response time</li>
+      <li>$ T_{response} = T_{firstrun} - T_{arrival} $</li>
+    </ul>
+  </li>
+  <li>
+<strong>overlap</strong>
+    <ul>
+      <li>when dealing with I/O (or any blocking task), it is good to kick off the blocking task then switch, or to overlap executions</li>
+    </ul>
+  </li>
+</ul>
+      <h4 id="first-in-first-out-queue">
+        
+        
+          <a href="#first-in-first-out-queue" class="anchor-heading" aria-labelledby="first-in-first-out-queue"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> First In, First Out Queue
+        
+        
+      </h4>
+    
+<ul>
+  <li>simplest algo for scheduling – job that arrives is first to be processed</li>
+  <li>suffers from <strong>convoy effect</strong> – large, expensive job blocks small, fast jobs</li>
+  <li>normally only works when all jobs run in same amount of time</li>
+</ul>
+      <h4 id="shortest-job-first-sjf">
+        
+        
+          <a href="#shortest-job-first-sjf" class="anchor-heading" aria-labelledby="shortest-job-first-sjf"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Shortest Job First (SJF)
+        
+        
+      </h4>
+    
+<ul>
+  <li>jobs are organized based on job length at arrival</li>
+  <li>if not all jobs arrive at same time, you need to add <strong>preemption</strong> (like an interrupt for new arrivals), called <strong>Shortest Time-to-Completion First</strong> (STCF)</li>
+  <li>most modern schedulers are preemptive</li>
+</ul>
+      <h4 class="no_toc" id="round-robin">
+        
+        
+          <a href="#round-robin" class="anchor-heading" aria-labelledby="round-robin"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Round Robin
+        
+        
+      </h4>
+    
+<ul>
+  <li>instead of running job to completion, jobs are run for a <em>time slice</em> (aka scheduling quantum)</li>
+  <li>need to <em>amortize</em> cost (spread cost out over long term) of context switching, so you don’t want to switch context too often or wait too long so as to remove all benefits of round robin algo</li>
+  <li>round robin is more fair and like any policy that is fair will perform more poorly on turnaround time – can run shorter jobs to completion if you are willing to be unfair, which might affect response time</li>
+</ul>
+      <h4 id="multi-level-feedback-queue-mlfq">
+        
+        
+          <a href="#multi-level-feedback-queue-mlfq" class="anchor-heading" aria-labelledby="multi-level-feedback-queue-mlfq"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Multi-Level Feedback Queue (MLFQ)
+        
+        
+      </h4>
+    
+<ul>
+  <li>for most jobs, we won’t know length of jobs, so 1) how do we optimize for turnaround time, and 2) how do we make a system feel responsive for interactive users?</li>
+  <li>multi-level feedback queue has multiple levels of queues, and uses feedback to determine priority of given job</li>
+  <li>instead of demanding <em>a priori</em> knowledge of the nature of a job, it observes the execution of a job and prioritizes it accordingly.</li>
+  <li>manages to achieve the best of both worlds: it can deliver excellent overall performance (similar to SJF/STCF) for short-running interactive jobs, and is fair and makes progress for long-running CPU-intensive workloads</li>
+  <li>many systems, including BSD UNIX derivatives, Solaris, and Windows NT and subsequent Windows operating systems use a form of MLFQ as their base scheduler</li>
+  <li>some schedulers allow you to give <strong>advice</strong> to help set priority (can be used or ignored) - e.g., linux tool <code class="language-plaintext highlighter-rouge">nice</code>
+</li>
+  <li>other schedulers use a <strong>decay-usage</strong> algorithm to adjust priorities (instead of a table or exact rules below)</li>
+</ul>
+
+<p>general rules outlined:</p>
+<ul>
+  <li>
+<strong>Rule 1:</strong> If Priority(A) &gt; Priority(B), A runs (B doesn’t).</li>
+  <li>
+<strong>Rule 2:</strong> If Priority(A) == Priority(B), A &amp; B run in round-robin fashion using the time slice (quantum length) of the given queue.</li>
+  <li>
+<strong>Rule 3:</strong> When a job enters the system, it is placed at the highest priority (the topmost queue).</li>
+  <li>
+<strong>Rule 4:</strong> Once a job uses up its time allotment at a given level (regardless of how many times it has given up the CPU), its priority is reduced (i.e., it moves down one queue).</li>
+  <li>
+<strong>Rule 5:</strong> After some time periodS, move all the jobs in the system to the topmost queue.</li>
+</ul>
+      <h3 id="multiprocessor-scheduling">
+        
+        
+          <a href="#multiprocessor-scheduling" class="anchor-heading" aria-labelledby="multiprocessor-scheduling"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Multiprocessor Scheduling
+        
+        
+      </h3>
+    
+<p>flashcards:</p>
+
+<ul>
+  <li>What is the difference between hardware caches and main memory?</li>
+  <li>
+    <p>Caches hold copiers of popular data and the main memory holds all the data, but access to the main memory is slower</p>
+  </li>
+  <li>is when a piece of data is accessed, it is likely to be accessed again in the near future</li>
+  <li>
+    <p>is when a program access data at address <em>x</em> it is likely to access data items near <em>x</em> as well</p>
+  </li>
+  <li>cache coherence</li>
+  <li>bus snooping</li>
+  <li>invalidate or update a cache</li>
+</ul>
+
+        
+
+        
+
+        
+        
+          <hr>
+          <footer>
+            
+              <p><a href="#top" id="back-to-top">Back to top</a></p>
+            
+
+            <p class="text-small text-grey-dk-100 mb-0">Copyright © 2021 Michael McIntyre. </p>
+
+            
+              <div class="d-flex mt-2">
+                
+                  <p class="text-small text-grey-dk-000 mb-0 mr-2">
+                    Page last modified: <span class="d-inline-block">Feb 22 2022 at 12:24 PM</span>.
+                  </p>
+                
+                
+              </div>
+            
+          </footer>
+        
+
+      </div>
+    </div>
+
+    
+      
+
+      <div class="search-overlay"></div>
+    
+  </div>
+</body>
+</html>
