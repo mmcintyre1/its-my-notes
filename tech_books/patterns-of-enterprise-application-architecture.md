@@ -1,6 +1,6 @@
 ---
 last_modified_date: "2021-11-14 19:40:54.029576"
-nav_order: 0
+nav_order: 2
 ---
 # Patterns of Enterprise Application Architecture
 ## What is Architecture?

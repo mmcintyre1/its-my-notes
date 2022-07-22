@@ -1,6 +1,6 @@
 ---
 last_modified_date: "2022-02-22 12:24:15.090424"
-nav_order: 2
+nav_order: 1
 ---
 # Operating Systems: Three Easy Pieces
 {: .no_toc }

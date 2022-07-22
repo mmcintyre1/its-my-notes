@@ -1,6 +1,6 @@
 ---
 last_modified_date: "2021-01-06 13:14:26.949657"
-nav_order: 4
+nav_order: 6
 ---
 
 # The Code Breaker: Jennifer Doudna, Gene Editing, and the Future of the Human Race

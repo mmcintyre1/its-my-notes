@@ -1,6 +1,6 @@
 ---
 last_modified_date: "2021-07-11 19:40:54.029576"
-nav_order: 3
+nav_order: 6
 ---
 # Designing Data Intensive Applications
 {: .no_toc }

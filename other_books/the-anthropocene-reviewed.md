@@ -1,6 +1,6 @@
 ---
 last_modified_date: "2022-02-22 12:30:26.072397"
-nav_order: 18
+nav_order: 0
 ---
 
 # The Anthropocene Reviewed

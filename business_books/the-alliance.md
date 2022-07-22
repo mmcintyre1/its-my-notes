@@ -1,6 +1,6 @@
 ---
 last_modified_date: "2021-08-11 19:40:54.029576"
-nav_order: 5
+nav_order: 7
 ---
 # The Alliance: Managing Talent in the Networked Age
 {: .no_toc }

@@ -1,6 +1,6 @@
 ---
 last_modified_date: "2022-07-22 19:40:54.029576"
-nav_order: 1
+nav_order: 0
 book_title: "Data Mesh: Delivering Data-Driven Value at Scale"
 author: "Zhamak Dehghani"
 publication_year: 2022

@@ -1,6 +1,6 @@
 ---
 last_modified_date: "2022-02-11 18:26:50.118450"
-nav_order: 0
+nav_order: 3
 ---
 
 # Parable of the Talents

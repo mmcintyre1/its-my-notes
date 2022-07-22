@@ -1,6 +1,6 @@
 ---
 last_modified_date: "2021-11-14 19:41:28.093960"
-nav_order: 2
+nav_order: 3
 ---
 
 # The Fifth Discipline: The Art & Practice of The Learning Organization
