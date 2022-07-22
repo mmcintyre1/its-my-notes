@@ -281,16 +281,130 @@ Eric Evans, 2003
 </div>
 
 ### Core Domain
-### Domain Vision Statement
+- a system that is hard to understand is hard to change
+- not all parts of design are refined equally, and priorities need to be set
+- need to boil model down, make the **CORE DOMAIN** small, bringing most valuable and specialized concepts into sharp relief
+- also need to apply top talent -- investment in non-CORE needs to be justified
+- **CORE DOMAIN** is what you do in house
+
 ### Generic Subdomains
-### Declarative Style
+- some parts of model add complexity without specialized knowledge, muddying the **CORE DOMAIN**
+- need to identify cohesive subdomains that are not motivation for project, and factor out these to separate modules
+- consider buying off-shelf, don't put best devs on these -- little domain knowledge to be gained
+
+**Off-the-Shelf Solution**
+pros:
+- less code, less maintenance, code is mature
+cons:
+- still need to evaluate and understand
+- might be over-engineered
+- might be difficult to integrate
+
+**Published Design or Model**
+pros:
+- more mature than homegrown and reflects many people's insight
+- instant, high-quality docs
+cons:
+- might not quite fit needs or is over-engineered
+
+**Outsourced Implementation**
+pros:
+- keeps core team free
+- can do dev without permanently enlarging team
+- forces interface-oriented design
+cons:
+- still requires time
+- significant overhead in transferring ownership back
+- code quality can vary
+
+**In-House Implementation**
+pros:
+- easy integration
+- get what you want and nothing extra
+- temporary contractors can be assigned
+cons:
+- ongoing maintenance and training
+- easy to underestimate time and cost of developing packages
+
+### Domain Vision Statement
+- short description (one page) of **CORE DOMAIN** and value it will bring
+- write early and revise as you go
+- gives team shared direction
+
+### Highlighted Core
+- write a distillation document that describes the **CORE** domain and primary interactions among **CORE** elements
+- useful as a process tool
+
+### Cohesive Mechanisms
+- encapsulate mechanisms into separate light framework
+- frees the model to talk about the what and delegate the how to the cohesive mechanisms
+- motivated by same desire as generic subdomain, to unburden the **CORE DOMAIN**
+- a model proposes, a mechanism disposes
+
 ### Segregated Core
+- similar to generic subdomains, but from the other direction
+- MM Note: not sure I understand the difference between segregated core and generic subdomain? These all seem pedantic distinctions to remove extraneous chaff from the core
+
+### Declarative Style
+- declare!
 
 ## Large-Scale Structures
+
+<div style="text-align:center">
+  <a href="/assets/img/ddd-large-scale.jpg">
+    <img src="/assets/img/ddd-large-scale.jpg" alt="large scale structures">
+  </a>
+</div>
+
 ### Evolving Order
+- need to find balance between design free-for-alls and too much design up front, which takes power out of the hands of the developer
+- have your structures evolve with the application -- don't overconstrain
+- ill-fitting structure is worse than none
+- _less is more_
+
 ### System Metaphor
+- a loose easily understood large-scale structure that is harmonious with the object paradigm
+- however, a persuasive metaphor introduces risk that design will take on aspects of the metaphor that were not desirable
+- need to continuously re-assess metaphor, and drop if necessary -- there to serve communication and understanding
+
 ### Responsibility Layers
+- give coherence to model by assigning responsibilities to larger segments of structures
+- organize along axes of change, make sure that domain object, aggregate, and module fit neatly within on layer
+- responsibilities should tell a story of the high-level purpose and design of system
+- some good layers based on:
+  - storytelling
+  - conceptual dependency
+  - conceptual contours
+- example:
+
+<div style="text-align:center">
+  <a href="/assets/img/ddd-con-layer.jpg">
+    <img src="/assets/img/ddd-con-layer.jpg" alt="conceptual layers example">
+  </a>
+</div>
+
 ### Knowledge Level
+- a group of objects that describe how another group of objects should behave
+- used to describe and constrain the structure and behavior of the basic model
+
 ### Pluggable Component Framework
+- distill abstract core of interfaces and interactions and build framework that allows diverse implementations of those interfaces to be freely substituted
+
+Three basic principles of strategic design:
+1. context
+2. distillation
+3. large-scale structures
+
+<div style="text-align:center">
+  <a href="/assets/img/ddd-all-together.jpg">
+    <img src="/assets/img/ddd-all-together.jpg" alt="bringing it all together">
+  </a>
+</div>
 
 ## Six Essentials for Strategic Design Decision Making (492)
+1. decisions must reach the entire team
+2. the decision process must absorb feedback
+3. the plan must allow for evolution
+4. architecture teams must not siphon off all the best and brightest
+5. strategic design requires minimalism and humility
+6. objects are specialists; developers are generalists
