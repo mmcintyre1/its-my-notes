@@ -11,6 +11,7 @@ Remzi Arpaci-Dusseau, Andrea Arpaci-Dusseau. 2015
 - https://pages.cs.wisc.edu/~remzi/OSTEP/
 - https://github.com/remzi-arpacidusseau/ostep-code
 
+Most of my notes exist as Anki Cards now.
 
 <details open markdown="block">
   <summary>

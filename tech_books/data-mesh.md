@@ -26,12 +26,31 @@ publication_year: 2022
 
 organizational shifts required:
 <div style="text-align:center">
-  <a href="/assets/img/data-mesh-shifts.jpg">
-    <img src="/assets/img/data-mesh-shifts.jpg" alt="Shifts required">
+  <a href="/assets/img/data-mesh/data-mesh-shifts.jpg">
+    <img src="/assets/img/data-mesh/data-mesh-shifts.jpg" alt="Shifts required">
   </a>
 </div>
 
+Data Mesh Model
+<div style="text-align:center">
+  <a href="/assets/img/data-mesh/data-mesh-model.jpg">
+    <img src="/assets/img/data-mesh/data-mesh-model.jpg" alt="Data Mesh Model">
+  </a>
+</div>
+
+- data mesh focuses on analytical data, as opposed to operational data
+- operational data is "data on the inside", private data of application
+
+
 ## Data Principles
+
+Interplay of Four Principles
+<div style="text-align:center">
+  <a href="/assets/img/data-mesh/data-mesh-principle-interplay.jpg">
+    <img src="/assets/img/data-mesh/data-mesh-principle-interplay.jpg" alt="Principle Interplay">
+  </a>
+</div>
+
 ### Domain-Oriented Ownership
 - underpinned by domain-driven design to find seams of organizational units to decompose data
 - **domain** is a sphere of knowledge, influence, or activity
@@ -120,22 +139,54 @@ two new roles needed for data mesh
 - reframe receiving upstream data from _ingestion_ to _consumption_ -- data is served already cleaned and processed
 - success is measured through the value delivered to the users and not its size
 
-### Federated Computational Governance
 ### Self-Serve Data Platform
+- data platform team to provide generic data platform capabilities that allow scale out, sharing, accessing, and using analytical data in a _decentralized_ manner
 
-Interplay of Four Principles
+> The main responsibility of the data mesh platform is to enable existing or new domain engineering teams with the new and embedded responsibilities of building, sharing, and using data products end to end; capturing data from operational systems and other sources; and transforming and sharing the data as a product with the end data users.
+
+- _platform_ is used as shorthand for set of underlying data infrastructure capabilities -- doesn't mean single solution or single vendor
+
 <div style="text-align:center">
-  <a href="/assets/img/data-mesh-principle-interplay.jpg">
-    <img src="/assets/img/data-mesh-principle-interplay.jpg" alt="Principle Interplay">
+  <a href="/assets/img/data-mesh/data-mesh-platform.jpg">
+    <img src="/assets/img/data-mesh/data-mesh-platform.jpg" alt="Data Mesh Platform">
   </a>
 </div>
 
-Data Mesh Model
+
+shift how we talk about data platform
 <div style="text-align:center">
-  <a href="/assets/img/data-mesh-model.jpg">
-    <img src="/assets/img/data-mesh-model.jpg" alt="Data Mesh Model">
+  <a href="/assets/img/data-mesh/data-mesh-platform-distinguishing.jpg">
+    <img src="/assets/img/data-mesh/data-mesh-platform-distinguishing.jpg" alt="Data Mesh Data Platform Distinguishing Characteristics">
   </a>
 </div>
 
-- data mesh focuses on analytical data, as opposed to operational data
-- operational data is "data on the inside", private data of application
+- accommodate generalists (T shape, paint drip) rather than current industry requirement of specialists
+
+key downsides of current data platform thinking
+  - cost is estimated and managed monolithically, not per isolated domain resources
+  - security and privacy management assume physical resources are shared under same account and don't scale to isolated security context per data product
+  - A central pipeline (DAG) orchestration assumes management of all data pipelines centrally, which conflicts with independent pipeline
+
+data platform objectives:
+1. **enable autonomous teams to get value from data** - platform enables product developer to concentrate on domain-specific aspects of data product development
+2. **exchange value with autonomous and interoperable data products** - mesh becomes organizational data marketplace
+3. **accelerate exchange of value by lowering the cognitive load** - abstracting complexity; should be able to _declare_ structure of data, retention period, potential size, etc. -- remove human intervention and manual steps
+4. **scale out data sharing** - embrace Unix philosophy
+5. **support a culture of embedded innovation** - rapidly building, testing, and refining ideas; need to free people from unnecessary work and accidental complexity
+
+how to transition to self-servce data mesh platform
+- **design APIs and protocols first** - start with interfaces platform exposes to its users
+- **prepare for a generalist approach** - favor platform tech that fits better with natural style of programming (not something that creates another DSL)
+- **do an inventory and simplify** - take a look at what you already have
+- **create higher-level APIs to manage data products** - platform must introduce higher level of APIs that deal with data product as an object
+- **build experiences, not mechanisms** - shift articulation of platform from mechanisms it includes to the experiences it enables
+- **begin with simplest foundation, then harvest to evolve** - data platform is emergent, designed and brought to life incrementally by many
+
+### Federated Computational Governance
+> **Federated and computational governance** is a decision-making model led by the federation of domain data product owners and data platform product owners, with autonomy and domain-local decision-making power, while creating and adhering to a set of global rules
+
+<div style="text-align:center">
+  <a href="/assets/img/data-mesh/data-mesh-elements-of-governance.jpg">
+    <img src="/assets/img/data-mesh/data-mesh-elements-of-governance.jpg" alt="Elements of Data Mesh Federated Governance">
+  </a>
+</div>
