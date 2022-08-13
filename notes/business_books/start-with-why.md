@@ -19,7 +19,7 @@ parent: Business Books
 </details>
 
 <div style="text-align:center">
-  <a href="/assets/img/start-with-why-golden-circle.jpg">
-    <img src="/assets/img/start-with-why-golden-circle.jpg" alt="conceptual layers example">
+  <a href="/assets/img/start-with-why/golden-circle.jpg">
+    <img src="/assets/img/start-with-why/golden-circle.jpg" alt="conceptual layers example">
   </a>
 </div>

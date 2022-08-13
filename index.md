@@ -9,13 +9,13 @@ This website functions as a repository for notes on all the things I read and le
 
 This wiki presentation is just another step in the evolution of maximizing the time I spend learning.
 
-- [Tech Books](./docs/tech_books/)
-- [Business Books](./docs/business_books/)
-- [Educational Books](./docs/educational_books/)
-- [Articles](./articles/)
-- [Classes](./classes/)
-- [Other Books](./other_books/)
-- [Favorite Quotes](./quotes/)
-- [Vocabulary](./vocabulary/)
-- [Projects](./projects/)
-- [Podcasts](./podcasts/)
+- [Tech Books](./notes/tech-books/)
+- [Business Books](./notes/business-books/)
+- [Educational Books](./notes/educational-books/)
+- [Articles](./notes/articles/)
+- [Classes](./notes/classes/)
+- [Other Books](./notes/other-books/)
+- [Favorite Quotes](./notes/quotes/)
+- [Vocabulary](./notes/vocabulary/)
+- [Projects](./notes/projects/)
+- [Podcasts](./notes/podcasts/)

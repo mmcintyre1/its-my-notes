@@ -2,7 +2,7 @@
 has_children: true
 title: Articles
 nav_order: 6
-permalink: /docs/articles
+permalink: /notes/articles
 ---
 
 # Articles

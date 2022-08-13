@@ -116,7 +116,11 @@ _grit is more about stamina than intensity_
 > The top-level goal is not a means to any other end. It is, instead, an end in itself. (63)
 - good not to have too many top level goals, probably best to have one professional one
 
-![Goal Hierarchy](./assets/grit-goal-hierarchy.png)
+<div style="text-align:center">
+  <a href="/assets/img/grit/goal-hierarchy.png">
+    <img src="/assets/img/grit/goal-hierarchy.png" alt="">
+  </a>
+</div>
 
 - **positive fantasizing**, or indulging in positive visions of a future without thinking about how to get there has long-term ramifications but feels good in the moment
 - handling goal conflicts is an important part of goal hierarchies -- how do you juggle lower level goals that conflict with two separate high-level goals?
@@ -275,7 +279,12 @@ _Fall seven, rise eight_
 
 ## parenting styles
 {: .no_toc }
-![Parenting Styles](./assets/grit-parenting-styles.jpg)
+
+<div style="text-align:center">
+  <a href="/assets/img/grit/parenting-styles.jpg">
+    <img src="/assets/img/grit/parenting-styles.jpg" alt="">
+  </a>
+</div>
 
 # Chapter 11: The Playing Fields of Grit
 

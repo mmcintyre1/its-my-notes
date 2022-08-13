@@ -32,7 +32,11 @@ Two factors that determine when we want to sleep and when we want to be awake.
 - Humans circadian rhythm is actually slightly longer than 24 hours.
 - Core body temperature is one of those 24-hour rhythms governed by the suprachiasmatic nucleus.
 
-![Circadian Rythm](./assets/why-we-sleep-circadian-rhythm.png)
+<div style="text-align:center">
+  <a href="/assets/img/why-we-sleep/circadian-rhythm.png">
+    <img src="/assets/img/why-we-sleep/circadian-rhythm.png" alt="">
+  </a>
+</div>
 
 ### My Rhythm Is Not Your Rhythm
 - 40% of the population reaches peak wakefulness in the morning.
@@ -46,7 +50,12 @@ Two factors that determine when we want to sleep and when we want to be awake.
 - Melatonin helps regulate the timing of when sleep occurs by systemically signaling darkness throughout the organism.
 - Melatonin has little influence on the generation of sleep itself.
 - Melatonin is not a powerful sleeping aid in and of itself.
-![Melatonin](./assets/why-we-sleep-melatonin-cycle.png)
+
+<div style="text-align:center">
+  <a href="/assets/img/why-we-sleep/melatonin-cycle.png">
+    <img src="/assets/img/why-we-sleep/melatonin-cycle.png" alt="">
+  </a>
+</div>
 
 ### Have Rhythm, Won’t Travel
 - Jet lag is caused by speeding through time zones without letting your biological clock catch up.
@@ -94,7 +103,11 @@ Two rules of thumb:
 
 ### How Your Brain Generates Sleep
 
-![Sleep Brainwaves](./assets/why-we-sleep-brainwaves.png)
+<div style="text-align:center">
+  <a href="/assets/img/why-we-sleep/brainwaves.png">
+    <img src="/assets/img/why-we-sleep/brainwaves.png" alt="">
+  </a>
+</div>
 
 - Wakefulness is reception.
 - NREM sleep is reflection.
@@ -275,7 +288,11 @@ Cause of death was a simple bacteria infection from their gut. Under normal circ
 - Sleep pills are addictive.
 - Individuals using prescription sleep medications are significantly more likely to die and to develop cancer than those who do not.
 
-![Sleep Pills](./assets/why-we-sleep-sleep-pills.png)
+<div style="text-align:center">
+  <a href="/assets/img/why-we-sleep/sleep-pills.png">
+    <img src="/assets/img/why-we-sleep/sleep-pills.png" alt="">
+  </a>
+</div>
 
 ### Cognitive Behavioral Therapy for Insomnia
 Techniques intended to break bad sleep habits and address anxieties that inhibit sleep:

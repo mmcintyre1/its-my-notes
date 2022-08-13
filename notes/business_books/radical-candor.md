@@ -27,7 +27,11 @@ Three areas of responsibility for a boss:
 3. **results** - teams getting things done
 
 Radical Candor Matrix:
-![Radical Candor](./assets/radical-candor-matrix.jpg)
+<div style="text-align:center">
+  <a href="/assets/img/radical-candor/matrix.jpg">
+    <img src="/assets/img/radical-candor/matrix.jpg" alt="Radical Candor Matrix">
+  </a>
+</div>
 
 There are two dimensions to Radical Candor:
 1. **Care Personally**:
@@ -93,7 +97,11 @@ shift from talent management to growth management, with "growth" substituting fo
 
 Growth Trajectory:
 
-![Radical Candor Growth Trajectory](./assets/radical-candor-growth.jpg)
+<div style="text-align:center">
+  <a href="/assets/img/radical-candor/growth.jpg">
+    <img src="/assets/img/radical-candor/growth.jpg" alt="Growth Trajectory">
+  </a>
+</div>
 
 The idea of getting people who are "passionate" for their jobs is misguided, as people are motivated for different reasons.
 
@@ -150,7 +158,11 @@ Important to understand some might switch from rockstar to superstar and back ag
 ## Chapter 4: Drive Results Collaboratively
 
 Get Stuff Done (GSD) wheel:
-![Radical Candor Get Stuff Done Wheel](./assets/radical-candor-get-stuff-done-wheel.jpg)
+<div style="text-align:center">
+  <a href="/assets/img/radical-candor/get-stuff-done-wheel.jpg">
+    <img src="/assets/img/radical-candor/get-stuff-done-wheel.jpg" alt="Radical Candor Matrix">
+  </a>
+</div>
 
 ### Listen
 {: .no_toc }
@@ -354,8 +366,11 @@ Firing people is never easy, but sometimes it’s very necessary.
 ### Management is a partnership
 {: .no_toc }
 
-![Radical Candor Management is a Partnership](./assets/radical-candor-mgmt-partnership.png)
-
+<div style="text-align:center">
+  <a href="/assets/img/radical-candor/mgmt-partnership.png">
+    <img src="/assets/img/radical-candor/mgmt-partnership.png" alt="">
+  </a>
+</div>
 
 ## Chapter 8: Results
 This all sounds like a ton of work, but the idea is to create a culture where people communicate with each other, and problems solve themselves. This frees up time and energy for you to focus on your team getting great results!

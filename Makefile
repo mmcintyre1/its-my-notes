@@ -2,10 +2,10 @@ default: install
 
 all: install build
 
+RUN_JEKYLL = bundle exec jekyll serve
 
 h help:
 	@grep '^[a-z]' Makefile
-
 
 i install:
 	bundle config set --local path vendor/bundle
@@ -14,8 +14,11 @@ i install:
 u upgrade:
 	bundle update
 
-s serve:
-	bundle exec jekyll serve --trace --livereload
+ds dev-serve:
+	JEKYLL_ENV=development $(RUN_JEKYLL)
+
+ls live-serve:
+	JEKYLL_ENV=production $(RUN_JEKYLL)
 
 b build:
-	JEKYLL_ENV=development bundle exec jekyll build --trace
+	bundle exec jekyll build --trace

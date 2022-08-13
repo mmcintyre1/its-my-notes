@@ -194,7 +194,11 @@ Types of Explanations
 - very often a cultural change
 - **KEY**: don't push growth, remove factors limiting growth
 
-![Limits to Growth](./assets/fifth-discipline-limits-to-growth.png)
+<div style="text-align:center">
+  <a href="/assets/img/the-fifth-discipline/limits-to-growth.png">
+    <img src="/assets/img/the-fifth-discipline/limits-to-growth.png" alt="Limits to Growth">
+  </a>
+</div>
 
 - **EXAMPLES**: new sales increase revenue, but increase the need for more senior engineers to manage and thus reducing the senior engineer pool to deliver on products, leading to delays in product delivery and reduced sales
 
@@ -208,7 +212,11 @@ Types of Explanations
 - weakening the symptomatic response requires willingness to tell the truth about palliatives and "looking good" solutions
 - **KEY**: Beware the symptomatic solution. In the short term it feels good to address symptoms. In the long-term, these symptoms will recur, making a symptomatic solution easier.
 
-![Shifting the Burden](./assets/fifth-discipline-shift-burden.jpg)
+<div style="text-align:center">
+  <a href="/assets/img/the-fifth-discipline/shift-burden.jpg">
+    <img src="/assets/img/the-fifth-discipline/shift-burden.jpg" alt="Limits to Growth">
+  </a>
+</div>
 
 - **EXAMPLE** - alcohol to treat stress
 

@@ -1,9 +1,7 @@
 title: Notes
 description: >-
   My Notes
-permalink: pretty
-# just the docs config
-# Back to top link
+
 back_to_top: true
 back_to_top_text: "Back to top"
 
@@ -44,10 +42,10 @@ exclude:
   - docker-compose.yml
   - vendor
   - Makefile
-  - spare_thoughts
   - templates
   - scripts
   - todo.md
+  - notes/spare_thoughts
 
 titles_from_headings:
   enabled: true
@@ -61,54 +59,5 @@ aux_links:
 ga_tracking: G-M6EEXPRNWS
 ga_tracking_anonymize_ip: true
 
-defaults:
-  - scope:
-      path: "tech_books"
-    values:
-      parent: Tech Books
-      nav_exclude: true
-  - scope:
-      path: "business_books"
-    values:
-      parent: Business Books
-      nav_exclude: true
-  - scope:
-      path: "educational_books"
-    values:
-      parent: Educational Books
-      nav_exclude: true
-  - scope:
-      path: "other_books"
-    values:
-      parent: Other Books
-      nav_exclude: true
-  - scope:
-      path: "articles"
-    values:
-      parent: Articles
-      nav_exclude: true
-  - scope:
-      path: "classes"
-    values:
-      parent: Classes
-      nav_exclude: true
-  - scope:
-      path: "quotes"
-    values:
-      parent: Quotes
-      nav_exclude: true
-  - scope:
-      path: "vocabulary"
-    values:
-      parent: Vocabulary
-      nav_exclude: true
-  - scope:
-      path: "projects"
-    values:
-      parent: Projects
-      nav_exclude: true
-  - scope:
-      path: "podcasts"
-    values:
-      parent: Podcasts
-      nav_exclude: true
+include: [notes]
+permalink: /:title

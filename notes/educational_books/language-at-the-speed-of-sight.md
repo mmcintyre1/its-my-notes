@@ -55,8 +55,8 @@ Some basic facts:
 ## The Eternal Triangle
 
 <div style="text-align:center">
-  <a href="/assets/img/language-speed-of-sight-eternal-triangle.jpg">
-    <img src="/assets/img/language-speed-of-sight-eternal-triangle" alt="The Eternal Triangle">
+  <a href="/assets/img/language-at-the-speed-of-sight/eternal-triangle.jpg">
+    <img src="/assets/img/language-at-the-speed-of-sight/eternal-triangle" alt="The Eternal Triangle">
   </a>
 </div>
 
