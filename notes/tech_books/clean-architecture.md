@@ -398,7 +398,12 @@ Three principles of component cohesion:
 
 #### Tension Diagram for Component Cohesion
 These principles are often in contention.
-![Tension Diagram for Component Cohesion](./assets/clean-architecture-tension-diagram-for-component-cohesion.png)
+
+<div style="text-align:center">
+  <a href="/assets/img/clean-architecture/tension-diagram-for-component-cohesion.png">
+    <img src="/assets/img/clean-architecture/tension-diagram-for-component-cohesion.png" alt="">
+  </a>
+</div>
 
 ### Chapter 14: Component Coupling
 #### The Acyclic Dependencies Principle
@@ -644,7 +649,11 @@ Most architectures try to achieve the same thing, _separation of concerns_, thro
 - independent of the database
 - independent of any external agency
 
-![Clean Architecture](assets/clean-architecture-circles.jpg)
+<div style="text-align:center">
+  <a href="/assets/img/clean-architecture/circles.jpg">
+    <img src="/assets/img/clean-architecture/circles.jpg" alt="">
+  </a>
+</div>
 
 The further in you move, the higher level the software is.
 

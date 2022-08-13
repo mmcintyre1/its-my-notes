@@ -56,7 +56,7 @@ Some basic facts:
 
 <div style="text-align:center">
   <a href="/assets/img/language-at-the-speed-of-sight/eternal-triangle.jpg">
-    <img src="/assets/img/language-at-the-speed-of-sight/eternal-triangle" alt="The Eternal Triangle">
+    <img src="/assets/img/language-at-the-speed-of-sight/eternal-triangle.jpg" alt="The Eternal Triangle">
   </a>
 </div>
 
