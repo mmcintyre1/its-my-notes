@@ -1,1 +1,0 @@
-# Replacing a generator battery

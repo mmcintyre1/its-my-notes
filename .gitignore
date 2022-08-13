@@ -1,13 +1,18 @@
-VS Code settings
+# VS Code settings
 .vscode/
+
+# WSL stuff
 *Zone.Identifier
+
+# git stuff
 .git
+
+# site stuff
 _site
 .sass-cache
-articles
-books
-papers
-talks
 .jekyll-metadata
+
+
+# ruby stuff
 vendor
 .bundle

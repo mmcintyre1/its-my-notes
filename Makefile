@@ -7,15 +7,15 @@ h help:
 	@grep '^[a-z]' Makefile
 
 
-install:
+i install:
 	bundle config set --local path vendor/bundle
 	bundle install
 
-upgrade:
+u upgrade:
 	bundle update
 
 s serve:
 	bundle exec jekyll serve --trace --livereload
 
-build:
+b build:
 	JEKYLL_ENV=development bundle exec jekyll build --trace
