@@ -43,8 +43,8 @@ Eric Evans, 2003
   3. give insight into the model's intended style of use
 
 <div style="text-align:center">
-  <a href="/assets/img/domain-drive-design/ddd-diagram.svg">
-    <img src="/assets/img/domain-drive-design/ddd-diagram.svg" alt="ddd-diagram">
+  <a href="/assets/img/domain-drive-design/diagram.svg">
+    <img src="/assets/img/domain-drive-design/diagram.svg" alt="ddd-diagram">
   </a>
 </div>
 
@@ -62,8 +62,8 @@ Eric Evans, 2003
 ### Layered Architecture
 
 <div style="text-align:center">
-  <a href="/assets/img/domain-drive-design/ddd-layered.png">
-    <img src="/assets/img/domain-drive-design/ddd-layered.png" alt="ddd-layered-architecture">
+  <a href="/assets/img/domain-drive-design/layered.png">
+    <img src="/assets/img/domain-drive-design/layered.png" alt="ddd-layered-architecture">
   </a>
 </div>
 
@@ -115,8 +115,8 @@ Eric Evans, 2003
 
 **Life cycle of a Domain Object**
 <div style="text-align:center">
-  <a href="/assets/img/domain-drive-design/ddd-lifecycle-of-domain-object.svg">
-    <img src="/assets/img/domain-drive-design/ddd-lifecycle-of-domain-object.svg" alt="lifecycle-of-domain-object">
+  <a href="/assets/img/domain-drive-design/lifecycle-of-domain-object.svg">
+    <img src="/assets/img/domain-drive-design/lifecycle-of-domain-object.svg" alt="lifecycle-of-domain-object">
   </a>
 </div>
 
@@ -128,8 +128,8 @@ Eric Evans, 2003
 - cautious locking schemes cause multiple useers to interfere pointlessly with each other to make the system almost unusable
 
 <div style="text-align:center">
-  <a href="/assets/img/domain-drive-design/ddd-aggregate.svg">
-    <img src="/assets/img/domain-drive-design/ddd-aggregate.svg" alt="aggregate">
+  <a href="/assets/img/domain-drive-design/aggregate.svg">
+    <img src="/assets/img/domain-drive-design/aggregate.svg" alt="aggregate">
   </a>
 </div>
 
@@ -160,8 +160,8 @@ Eric Evans, 2003
 ## Supple Design
 
 <div style="text-align:center">
-  <a href="/assets/img/domain-drive-design/ddd-supple-design.jpg">
-    <img src="/assets/img/domain-drive-design/ddd-supple-design.jpg" alt="supple-design">
+  <a href="/assets/img/domain-drive-design/supple-design.jpg">
+    <img src="/assets/img/domain-drive-design/supple-design.jpg" alt="supple-design">
   </a>
 </div>
 
@@ -231,16 +231,16 @@ Eric Evans, 2003
 ### Relationships Between Bounded Contexts
 
 <div style="text-align:center">
-  <a href="/assets/img/domain-drive-design/ddd-context-relations.jpg">
-    <img src="/assets/img/domain-drive-design/ddd-context-relations.jpg" alt="relationship between contexts">
+  <a href="/assets/img/domain-drive-design/context-relations.jpg">
+    <img src="/assets/img/domain-drive-design/context-relations.jpg" alt="relationship between contexts">
   </a>
 </div>
 
 #### Shared Kernel
 
 <div style="text-align:center">
-  <a href="/assets/img/domain-drive-design/ddd-shared-kernel.jpg">
-    <img src="/assets/img/domain-drive-design/ddd-shared-kernel.jpg" alt="shared kernel">
+  <a href="/assets/img/domain-drive-design/shared-kernel.jpg">
+    <img src="/assets/img/domain-drive-design/shared-kernel.jpg" alt="shared kernel">
   </a>
 </div>
 
@@ -275,8 +275,8 @@ Eric Evans, 2003
 - the process of separating the components of a mixture to extract the essence in a form that makes it more valuable and useful, e.g., a model is a distillation of knowledge
 
 <div style="text-align:center">
-  <a href="/assets/img/domain-drive-design/ddd-distillation.jpg">
-    <img src="/assets/img/domain-drive-design/ddd-distillation.jpg" alt="distillation">
+  <a href="/assets/img/domain-drive-design/distillation.jpg">
+    <img src="/assets/img/domain-drive-design/distillation.jpg" alt="distillation">
   </a>
 </div>
 
@@ -351,8 +351,8 @@ cons:
 ## Large-Scale Structures
 
 <div style="text-align:center">
-  <a href="/assets/img/domain-drive-design/ddd-large-scale.jpg">
-    <img src="/assets/img/domain-drive-design/ddd-large-scale.jpg" alt="large scale structures">
+  <a href="/assets/img/domain-drive-design/large-scale.jpg">
+    <img src="/assets/img/domain-drive-design/large-scale.jpg" alt="large scale structures">
   </a>
 </div>
 
@@ -378,8 +378,8 @@ cons:
 - example:
 
 <div style="text-align:center">
-  <a href="/assets/img/domain-drive-design/ddd-con-layer.jpg">
-    <img src="/assets/img/domain-drive-design/ddd-con-layer.jpg" alt="conceptual layers example">
+  <a href="/assets/img/domain-drive-design/con-layer.jpg">
+    <img src="/assets/img/domain-drive-design/con-layer.jpg" alt="conceptual layers example">
   </a>
 </div>
 
@@ -396,8 +396,8 @@ Three basic principles of strategic design:
 3. large-scale structures
 
 <div style="text-align:center">
-  <a href="/assets/img/domain-drive-design/ddd-all-together.jpg">
-    <img src="/assets/img/domain-drive-design/ddd-all-together.jpg" alt="bringing it all together">
+  <a href="/assets/img/domain-drive-design/all-together.jpg">
+    <img src="/assets/img/domain-drive-design/all-together.jpg" alt="bringing it all together">
   </a>
 </div>
 

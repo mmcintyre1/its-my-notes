@@ -26,15 +26,15 @@ publication_year: 2022
 
 organizational shifts required:
 <div style="text-align:center">
-  <a href="/assets/img/data-mesh/data-mesh-shifts.jpg">
-    <img src="/assets/img/data-mesh/data-mesh-shifts.jpg" alt="Shifts required">
+  <a href="/assets/img/data-mesh/shifts.jpg">
+    <img src="/assets/img/data-mesh/shifts.jpg" alt="Shifts required">
   </a>
 </div>
 
 Data Mesh Model
 <div style="text-align:center">
-  <a href="/assets/img/data-mesh/data-mesh-model.jpg">
-    <img src="/assets/img/data-mesh/data-mesh-model.jpg" alt="Data Mesh Model">
+  <a href="/assets/img/data-mesh/model.jpg">
+    <img src="/assets/img/data-mesh/model.jpg" alt="Data Mesh Model">
   </a>
 </div>
 
@@ -46,8 +46,8 @@ Data Mesh Model
 
 Interplay of Four Principles
 <div style="text-align:center">
-  <a href="/assets/img/data-mesh/data-mesh-principle-interplay.jpg">
-    <img src="/assets/img/data-mesh/data-mesh-principle-interplay.jpg" alt="Principle Interplay">
+  <a href="/assets/img/data-mesh/-principle-interplay.jpg">
+    <img src="/assets/img/data-mesh/principle-interplay.jpg" alt="Principle Interplay">
   </a>
 </div>
 
@@ -109,7 +109,7 @@ SLOs:
 {: .no_toc }
 - The key for an effective composability of data across domains is following standards and harmonization rules that allow linking data across domains
 
-**Some things to standardize**
+Some things to standardize
 - **Field type**:  A common explicitly defined type system
 - **Polysemes identifiers**: Universally identifying entities that cross boundaries of data products
 - **Data product global addresses**: A unique global address allocated to each data product, ideally with a uniform scheme for ease of establishing connections to different data products
@@ -147,16 +147,16 @@ two new roles needed for data mesh
 - _platform_ is used as shorthand for set of underlying data infrastructure capabilities -- doesn't mean single solution or single vendor
 
 <div style="text-align:center">
-  <a href="/assets/img/data-mesh/data-mesh-platform.jpg">
-    <img src="/assets/img/data-mesh/data-mesh-platform.jpg" alt="Data Mesh Platform">
+  <a href="/assets/img/data-mesh/platform.jpg">
+    <img src="/assets/img/data-mesh/platform.jpg" alt="Data Mesh Platform">
   </a>
 </div>
 
 
 shift how we talk about data platform
 <div style="text-align:center">
-  <a href="/assets/img/data-mesh/data-mesh-platform-distinguishing.jpg">
-    <img src="/assets/img/data-mesh/data-mesh-platform-distinguishing.jpg" alt="Data Mesh Data Platform Distinguishing Characteristics">
+  <a href="/assets/img/data-mesh/platform-distinguishing.jpg">
+    <img src="/assets/img/data-mesh/platform-distinguishing.jpg" alt="Data Mesh Data Platform Distinguishing Characteristics">
   </a>
 </div>
 
@@ -186,7 +186,112 @@ how to transition to self-servce data mesh platform
 > **Federated and computational governance** is a decision-making model led by the federation of domain data product owners and data platform product owners, with autonomy and domain-local decision-making power, while creating and adhering to a set of global rules
 
 <div style="text-align:center">
-  <a href="/assets/img/data-mesh/data-mesh-elements-of-governance.jpg">
-    <img src="/assets/img/data-mesh/data-mesh-elements-of-governance.jpg" alt="Elements of Data Mesh Federated Governance">
+  <a href="/assets/img/data-mesh/elements-of-governance.jpg">
+    <img src="/assets/img/data-mesh/elements-of-governance.jpg" alt="Elements of Data Mesh Federated Governance">
   </a>
 </div>
+
+#### Apply Systems Thinking to Data Mesh Governance
+{: .no_toc }
+- data mesh requires a governance model that embraces systems thinking. Systems thinking, as described by Peter Senge, is the discipline of “seeing the whole,” shifting our focus “from parts
+to the organization of parts, recognizing interaction of the parts are not static and constant, but dynamic processes.”
+- mesh is more than the sum of its parts
+- the art of governing a data mesh ecosystem is in maintaining an equilibrium between local (domain) optimization and global (the mesh) optimization
+- need to continuously adjust behavior using _leverage points_ (small change lead to large shift in behavior) and _feedback loops_ (system structures that either balance or reinforce a change in state of system)
+- embrace dynamic topology as default state
+- utilize automation and distributed architecture
+
+#### Apply Federation to the Governance Model
+{: .no_toc }
+**Federated Team** - team that decides policies implemented, how platform supports these policies computationally, how data products adopt policies
+- created of domain representatives, data platform representatives, subject matter experts, and facilitators and managers
+
+**Guiding Values** - clarity on value system that guides how decisions are made
+- localize decisions and responsibility close to the source
+- identify cross-cutting concerns that need a global standard
+- globalize decisions that facilitate interoperability
+- identify consistent experiences that need a global standard
+- execute decisions locally
+
+**Policies** - output of a system governance, between local and global effect
+
+**Incentives** - what incentives to use to motivate as leverage points, can be local or global
+
+#### Apply Computation to the Governance Model
+{: .no_toc }
+
+**Standards as Code** behavior, interfaces, and data structure that is expected to be implemented in a consistent way across all data products
+- data product discovery and observability interfaces
+- data product data interfaces
+- data and query modeling language
+- lineage modeling
+- polysemes identification modeling
+
+**Policies as Code**
+- data privacy and protection
+- data localization
+- data access control and audit
+- data consent
+- data sovereignty
+- data retention
+
+**Automated Tests**
+**Automated Monitoring**
+
+> data mesh governance heavily relies on embedding the governance policies into each data product in an automated and computational fashion. This of course heavily relies on the elements of the underlying data platform, to make it really easy to do the right thing.
+
+> The continuous need for trustworthy and useful data across multiple domains to train ML-based solutions will be the ultimate motivator for the adoption of data mesh governance and doing the right thing.
+
+## Why Data Mesh?
+- **great expectations of data** - diverse and wide applications of ML and analytics
+- **great divide of data** - complexity risen from fragmentation of operational and analytical data
+- **scale** - large scale data source proliferation
+- **business complexity and volatility** - continuous change and growth of business
+- **discord between data investments and returns** - expensive data solutions lacking impact
+
+> Data mesh learns from the past solutions and addresses their shortcomings. It reduces points of centralization that act as coordination bottlenecks. It finds a new way of decomposing the data architecture without slowing the organization down with synchronizations. It removes the gap between where the data originates and where it gets used and removes the accidental complexities—aka pipelines—that happen in between the two planes of data. Data mesh departs from data myths such as a single source of truth, or one tightly controlled canonical data model.
+
+<div style="text-align:center">
+  <a href="/assets/img/data-mesh/after-the-inflection.jpg">
+    <img src="/assets/img/data-mesh/after-the-inflection.jpg" alt="Data Mesh, After the Inflection Point">
+  </a>
+</div>
+
+## Progression of Data Architecture
+### First Generation: Data Warehouse Architecture
+{: .no_toc }
+- Extracted from many operational databases and sources
+- Transformed into a universal schema—represented in a multidimensional and time-variant tabular format
+- Loaded into the warehouse tables
+- Accessed through SQL-like queries
+- Mainly serving data analysts for reporting and analytical visualization use cases
+
+### Second Generation: Data Lake Architecture
+{: .no_toc }
+- introduced in 2010 as response to challenge of data warehouse in satisfying data scientists who wanted data in original format
+- Data is extracted from many operational databases and sources.
+- Data represents as much as possible of the original content and structure.
+- Data is minimally transformed to fit the popular storage formats, e.g., Parquet, Avro, etc.
+- Data—as close as possible to the source schema—is loaded to scalable object storage.
+- Data is accessed through the object storage interface—read as files or data frames, a two-dimensional array-like structure.
+- Data scientists mainly access the lake storage for analytical and machine learning model training.
+- Downstream from the lake, lakeshore marts are created as fit-for-purpose data marts.
+- Lakeshore marts are used by applications and analytics use cases.
+- Downstream from the lake, feature stores are created as fit-for-purpose columnar data modeled and stored for machine learning training.
+
+### Third Generation: Multimodel Cloud Architecture
+{: .no_toc }
+- Support streaming for near real-time data availability with architectures such as Kappa.
+- Attempt to unify batch and stream processing for data transformation with frameworks such as Apache Beam.
+- Fully embrace cloud-based managed services and use modern cloud-native implementations with isolated compute and storage. They leverage the elasticity of the cloud for cost optimization.
+- Converge the warehouse and lake into one technology, either extending the data warehouse to include embedded ML training, or alternatively building data warehouse integrity, transactionality, and querying systems into data lake solutions.
+
+### Characteristics of Current Data Architecture
+{: .no_toc }
+- monolithic architecture - 1) ingest data, 2) cleanse enrich and transform data, and 3) serve data
+- monolithic technology
+- monolithic organization - central data team, conway's law
+- centrally owned
+- technically partitioned (rather than domain partitioned) -- partitioning is orthogonal to axes of change and slows releases
+
+## How to Design Data Mesh

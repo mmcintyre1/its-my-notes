@@ -202,7 +202,11 @@ nav_order: 2
 - control is passed to view along with response data for dipslay
 - most important reason for MVC is to separate models from presentation
 
-![Model-View-Controller Sequence Diagram](assets/enterprise-patterns-mvc-sequence.png)
+<div style="text-align:center">
+  <a href="/assets/img/patterns-of-enterprise-architecture/mvc-sequence.png">
+    <img src="/assets/img/patterns-of-enterprise-architecture/mvc-sequence.png" alt="Model-View-Controller Sequence Diagram">
+  </a>
+</div>
 
 ## Application Controller
 - different from input controller in MVC -- controls the flow of the application

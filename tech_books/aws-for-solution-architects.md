@@ -88,7 +88,11 @@ AWS breaks their infrastructure down into parts:
 - **Availability Zones** (AZ) are the data centers within a region
 - **Local Zones** are mini AZs that provide core services that are latency sensitive
 
-![AWS for Solution Architects Infrastructure](assets/aws-for-solution-architects-infra.jpg)
+<div style="text-align:center">
+  <a href="/assets/img/aws-for-solution-architects/infra.jpg">
+    <img src="/assets/img/aws-for-solution-architects/infra.jpg" alt="AWS for Solution Architects Infrastructure">
+  </a>
+</div>
 
 ### Regions
 {: .no_toc }
@@ -246,11 +250,20 @@ Often used for:
 ## Simple Storage Service (S3)
 Object storage, and AWS's second oldest product, right after EC2. Time To First Byte (TTFB) used to measure performance of a service.
 
-![S3 Performance Chart](assets/aws-for-solution-architects-s3-performance.jpg)
+<div style="text-align:center">
+  <a href="/assets/img/aws-for-solution-architects/s3-performance.jpg">
+    <img src="/assets/img/aws-for-solution-architects/s3-performance.jpg" alt="S3 Performance Chart">
+  </a>
+</div>
 
 ### Comparison of Storage
 {: .no_toc}
-![Storage Comparison](assets/aws-for-solution-architects-storage.png)
+
+<div style="text-align:center">
+  <a href="/assets/img/aws-for-solution-architects/storage.png">
+    <img src="/assets/img/aws-for-solution-architects/storage.png" alt="Storage Comparison">
+  </a>
+</div>
 
 ### Enhancing S3 performance
 {: .no_toc}
@@ -291,7 +304,12 @@ Can achieve single-digit millisecond using CloudFront edge locations to accelera
 - eventually new paradigm replaces the old paradigm
 - e.g. heliocentric replaced geocentric view of solar system
 
-![Service Resources](assets/aws-for-solution-architects-resource-mgmt.png)
+<div style="text-align:center">
+  <a href="/assets/img/aws-for-solution-architects/resource-mgmt.png">
+    <img src="/assets/img/aws-for-solution-architects/resource-mgmt.png" alt="Service Resources">
+  </a>
+</div>
+
 ## infrastructure as a service
 {: .no_toc}
 - **advantages**:
@@ -536,7 +554,6 @@ Can achieve single-digit millisecond using CloudFront edge locations to accelera
 {: .no_toc }
 - Redshift is Amazon's data warehouse offering
 - useful for BI
-
 
 # 6: Amazon Athena
 
