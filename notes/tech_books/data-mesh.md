@@ -142,7 +142,8 @@ two new roles needed for data mesh
 - success is measured through the value delivered to the users and not its size
 
 ### Self-Serve Data Platform
-- data platform team to provide generic data platform capabilities that allow scale out, sharing, accessing, and using analytical data in a _decentralized_ manner
+The data platform is:
+> A collection of interoperable domain-agnostic services, tools, and APIs that enable cross-functional domain teams to produce and consume data products with lowered cognitive load and with autonomy.
 
 > The main responsibility of the data mesh platform is to enable existing or new domain engineering teams with the new and embedded responsibilities of building, sharing, and using data products end to end; capturing data from operational systems and other sources; and transforming and sharing the data as a product with the end data users.
 
@@ -297,3 +298,196 @@ to the organization of parts, recognizing interaction of the parts are not stati
 - technically partitioned (rather than domain partitioned) -- partitioning is orthogonal to axes of change and slows releases
 
 ## How to Design Data Mesh
+### Data Mesh Architectural Components
+
+#### Domain
+{: .no_toc }
+- Systems, data products, and a cross-functional team aligned to serve a business domain function and outcomes and share its analytical and operational capabilities with the wider business and customers.
+- _This is a well-established concept._
+
+#### Domain analytical data interfaces
+{: .no_toc }
+- Standardized interfaces that discover, access, and share domain-oriented data products.
+- _At the time of writing, the implementation of these APIs is custom or platform specific._
+- The proprietary platforms need to offer open interfaces to make data sharing more convenient and interoperable with other hosting platforms.
+
+#### Domain operational interfaces
+{: .no_toc }
+- APIs and applications through which a business domain shares its transactional capabilities and state with the wider organization.
+- _This concept has mature implementations._
+- It is supported by de facto standards such as REST, GraphQL, gRPC, etc.
+
+<div style="text-align:center">
+  <a href="/assets/img/data-mesh/data-product.jpg">
+    <img src="/assets/img/data-mesh/data-product.jpg" alt="Data Mesh, After the Inflection Point">
+  </a>
+</div>
+
+#### Data (product) quantum
+{: .no_toc }
+- Data product implemented as an architecture quantum that encapsulates all the structural components it needs to do its job —- code, data, infrastructure specifications, and policies.
+- It is referred to in architectural discussions. It is used interchangeably with data products.
+- _At the time of writing this is an experimental concept with custom implementations._
+
+<div style="text-align:center">
+  <a href="/assets/img/data-mesh/structural-elements-of-a-data-product.jpg">
+    <img src="/assets/img/data-mesh/structural-elements-of-a-data-product.jpg" alt="Data Mesh, After the Inflection Point">
+  </a>
+</div>
+
+#### Data (product) container
+{: .no_toc }
+- A mechanism to bundle all the structural components of a data product, deployed andmrun as a single unit with its sidecar.
+- _At the time of writing this is an experimental concept with custom implementations._
+
+#### Data product sidecar
+{: .no_toc }
+The accompanying process to the data product. It runs with the context of a data product container and implements cross-functional and standardized behaviors such as global policy execution.
+- _At the time of writing this is an experimental concept with custom implementations._
+
+#### Input data port
+{: .no_toc }
+- A data product’s mechanisms to continuously receive data from one or multiple upstream sources.
+- _At the time of writing this has custom implementations with existing event streaming and pipeline management technologies._
+
+#### Output data port
+{: .no_toc }
+- A data product’s standardized APIs to continuously share data.
+- _At the time of writing this has vendor-specific custom implementations._
+- A mature implementation of the concept requires open data sharing standards with support for multiple modes of access to temporal data.
+
+#### Discovery and Observability APIs
+{: .no_toc }
+- A data product’s standard APIs to provide discoverability information —- to find, address, learn, and explore a data product—and observability information such as lineage, metrics, logs, etc.
+- _At the time of writing custom implementations of these APIs have been built._
+- A mature implementation requires open standards for discoverability and observability information modeling and sharing. Some standards are currently under development.
+
+#### Control port
+{: .no_toc }
+- A data product’s standard APIs to configure policies or perform highly privileged governance operations.
+- _At the time of writing this concept is experimental._
+
+<div style="text-align:center">
+  <a href="/assets/img/data-mesh/data-mesh-planes.jpg">
+    <img src="/assets/img/data-mesh/data-mesh-planes.jpg" alt="Data Mesh, After the Inflection Point">
+  </a>
+</div>
+
+#### Platform plane
+{: .no_toc }
+- A group of self-serve platform capabilities with high functional cohesion surfaced through APIs.
+- _This is a general concept and well established._
+
+#### Data infrastructure utility plane
+{: .no_toc }
+- Atomic services to provision and manage physical resources such as storage, pipeline orchestration, compute, etc.
+- _At the time of writing the services that constitute the infrastructure plane are mature and provided by many vendors with support for automated provisioning._
+
+#### Data product experience plane
+{: .no_toc }
+- Higher-level abstraction services that operate directly with a data product and enable data product producers and consumers to create, access, and secure a data product, among other operations that run on a data product.
+- _At the time of writing, custom implementation of services constituting a data product experience plane has been implemented. No reference implementation publicly exists._
+
+#### Mesh experience plane
+{: .no_toc }
+- Services that operate on a mesh of interconnected data products such as searching for data products and observing the data lineage across them.
+- _At the time of writing, custom implementations of some of the services constituting a mesh experience plane, such as discovery and search services, have been implemented. No reference implementation publicly exists._
+
+Data Plane User Journeys/Personas
+- **data product developers** - from generalist developers to specialist data engineers who 1) incept, explore, bootstrap, and source, 2) build, test, deploy and 3) maintain, evolve, and retire a data product
+- **data product consumers** - they need access and use data to do their job
+- **data product owners** - responsible for delivering and evangelizing successful data products for their specific domains
+- **data governance members** - have a collective set of responsibilities to assure the optimal and secure operation of the mesh as a whole
+- **data platform product owner** - responsible for delivering the platform services as a product with the best user experience
+- **data platform developers** - build and operate the data platform (as well as use it)
+
+### Data Product Affordances
+
+> The term affordance refers to the relationship between a physical object and a person (or for that matter, any interacting agent, whether animal or human, or even machines and robots).
+> An affordance is a relationship between the properties of an object and the capabilities of the agent that determine just how the object could possibly be used. A chair affords (“is for”) support and, therefore, affords sitting. Most chairs can also be carried by a single person (they afford lifting), but some can only be lifted by a strong person or by a team of people. If young or relatively weak people cannot lift a chair, then for these people, the chair does not have that affordance, it does not afford lifting.
+> The presence of an affordance is jointly determined by the qualities of the object and the abilities of the agent that is interacting. This relational definition of affordance gives considerable difficulty to many people. We are used to thinking that properties are associated with objects. But affordance is not a property. An affordance is a relationship. Whether an affordance exists depends upon the properties of both the object and the agent.
+
+- affordances can be thought of as properties of the data product
+
+<div style="text-align:center">
+  <a href="/assets/img/data-mesh/data-product-affordances.jpg">
+    <img src="/assets/img/data-mesh/data-product-affordances.jpg" alt="Data Mesh, After the Inflection Point">
+  </a>
+</div>
+
+1. design for change - data products need to respond gracefully to change
+2. design for scale - data product must result in a scale-out mesh
+3. design for value - data product must put delivering value to its consumers with the least amount of friction at its heart
+
+- there is no central orchestrator of pipelines, aware of global configuration -- for globalized behavior the sidecar pattern is used
+
+#### Serve Data
+{: .no_toc }
+- The data product shares immutable and bitemporal data, available through clearly defined read-only interfaces supporting multiple modes of access.
+- The data product affords a diverse set of data product users to access data for training machine learning models, generating reports, data analysis and exploration, and building data-intensive applications.
+- It does not afford transactional and operational applications that require updating or deleting data to maintain their current state.
+
+#### Consume Data
+{: .no_toc }
+- The data product consumes data from upstream sources of a variety of types.
+- The data product affords consuming data from its collaborating operational application, other data products, or external systems.
+- The data product only affords consuming data from the sources it identifies and configures through the platform.
+- It does not afford consuming data from sources it does not identify and configure.
+
+#### Transform Data
+{: .no_toc }
+- The data product processes and transforms input data into new data that it then serves.
+- The data product affords data product developers with multiple modes of transformation computation.
+- The transformation can be program code, a machine learning model, or a complex query running inference.
+- The transformation can generate new data or remodel or improve the quality of input data.
+
+#### Discover | Understand | Explore | Trust
+{: .no_toc }
+- The data product serves APIs and information that affords data product users to discover, explore, understand, and trust it.
+- data quality metrics -- not to signal data is good or bad, just useful to communicate threshold of guarantees
+  1. **accuracy** - how closely the data represents the true value of the attribute in the real-world context
+  2. **completeness** - the degree of data representing all properties and instances of the real-world context
+  3. **consistency** - the degree of data being free of contradicitons
+  4. **precision** - the degree of attribute fidelity
+
+#### Compose Data
+{: .no_toc }
+- The data product affords data product users to compose, correlate, and join its data with other data products.
+- The data quantum affords programmatic data composability by performing set (table or graph) operations computationally.
+- The data product does not afford data composability to systems that demand a single and tightly coupled data schema (e.g., SQL schema) shared across multiple data products.
+
+#### Manage Life Cycle
+{: .no_toc }
+- The data product affords data product users to manage its life cycle.
+- It provides a set of build-time and runtime configuration and code so that data product developers can build, provision, and maintain it.
+
+#### Observe | Debug | Audit
+{: .no_toc }
+- The data product affords data product users to monitor its behavior, debug its issues, and audit it.
+- It provides programmatic APIs to provide the necessary information such as data processing logs, lineage, runtime metrics, and access logs.
+- use cases for observability via logs, traces, and metrics:
+  1. monitor the operational health of the mesh
+  2. debug and perform postmortem analysis
+  3. perform audits
+  4. understand data lineage
+
+#### Govern
+{: .no_toc }
+- The data product affords data users (governance group, data product developers) and the mesh experience plane (administrative and policy controls) a set of APIs and computational policies to self-govern its data.
+- It enables the build-time configuration of its governing policies and runtime execution of them at the point of access to data, read or write. For example, it maintains data security by controlling access to its data and protects privacy and confidentiality through encryption.
+
+### Getting Started
+<div style="text-align:center">
+  <a href="/assets/img/data-mesh/data-mesh-assessment.jpg">
+    <img src="/assets/img/data-mesh/data-mesh-assessment.jpg" alt="Data Mesh, After the Inflection Point">
+  </a>
+</div>
+
+- **organizational complexity** - orgs that experience scale and complexity where existing data warehouse or lake solutions are blockers
+- **data-oriented strategy** - orgs planning to get value from data at scale
+- **executive support** - demands motivating the org to change how people work
+- **data technology at core** - orgs that use data and AI as a competitive advantage
+- **early adopter** - demand spirit of experimentation, taking risks, failing fast, learning, and evolving
+- **modern engineering** - tech that enforce centralized data modeling, control, storage don't lend themselves well to data mesh
+- **domain-oriented organization** - tech organized around business domains
+- **long-term commitment** - adoption of data mesh is a transformation and a journey
