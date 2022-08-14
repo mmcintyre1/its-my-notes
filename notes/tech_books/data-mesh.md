@@ -476,7 +476,7 @@ Data Plane User Journeys/Personas
 - The data product affords data users (governance group, data product developers) and the mesh experience plane (administrative and policy controls) a set of APIs and computational policies to self-govern its data.
 - It enables the build-time configuration of its governing policies and runtime execution of them at the point of access to data, read or write. For example, it maintains data security by controlling access to its data and protects privacy and confidentiality through encryption.
 
-### Getting Started
+### Getting Started with Data Mesh
 <div style="text-align:center">
   <a href="/assets/img/data-mesh/data-mesh-assessment.jpg">
     <img src="/assets/img/data-mesh/data-mesh-assessment.jpg" alt="Data Mesh, After the Inflection Point">
@@ -491,3 +491,34 @@ Data Plane User Journeys/Personas
 - **modern engineering** - tech that enforce centralized data modeling, control, storage don't lend themselves well to data mesh
 - **domain-oriented organization** - tech organized around business domains
 - **long-term commitment** - adoption of data mesh is a transformation and a journey
+
+- data mesh requires transformational change as a component of a larger data strategy
+business-driven execution has benefits:
+1. continuous delivery and demonstration of value and outcome
+2. rapid feedback from the consumers
+3. reducing waste - create only whats needed
+
+challenges:
+1. building point-in-time solutions - might develop platform capabilities that are not extensible
+2. delivering to tight business deadlines
+3. project-based budgeting - projects as sole source of investment for building platform services
+
+guidelines for business-driven execution
+1. start with complementary use cases - allows avoiding point solutions
+2. know and prioritize the data consumer and provider personas
+3. start with use cases that have minimal dependencies on the platform's missing features
+4. create long-term ownership and budgeting for platform services and data products
+
+- works best as a multi-phase evolution, built iteratively (avoid rigid up-front plans)
+- use fitness functions to measure evolution towards goal
+- **fitness function** -  an objective function used to summarize how close a prospective design solution is to achieving its set aims.
+
+### Changing Culture
+
+<div style="text-align:center">
+  <a href="/assets/img/data-mesh/star-model.jpg">
+    <img src="/assets/img/data-mesh/star-model.jpg" alt="Data Mesh, After the Inflection Point">
+  </a>
+</div>
+
+- Deploy a movement-based organizational change -- start small and move fast to show value, get buy-in, and gather momentum toward a sustainable and scaled change
