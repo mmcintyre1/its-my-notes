@@ -193,9 +193,6 @@ flashcards:
 - What is the difference between hardware caches and main memory?
 - Caches hold copiers of popular data and the main memory holds all the data, but access to the main memory is slower
 
-- {{c1::temporal locality}} is when a piece of data is accessed, it is likely to be accessed again in the near future
-- {{c1::spatial locality}} is when a program access data at address _x_ it is likely to access data items near _x_ as well
-
 - cache coherence
 - bus snooping
 - invalidate or update a cache
