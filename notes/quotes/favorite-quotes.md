@@ -27,3 +27,6 @@ nav_order: 1
 
 > Only mediocre people are always at their best.
 - Somerset Maugham
+
+> Knuth has shown us here how to program intelligibly, but not wisely. I buy the discipline. I do not buy the result. He has fashioned a sort of industrial-strength Fabergé egg—intricate, wonderfully worked, refined beyond all ordinary desires, a museum piece from the start.
+- McIlroy writing about an overwrought solution Donald Knuth implemented.
