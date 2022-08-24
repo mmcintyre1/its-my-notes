@@ -399,7 +399,7 @@ Identifying Components
 - might have a monolithic presentation layer, either embedded within the core system or as a layer on top
 
 **plug-in component**
-- standalone, independent components that contain specialized processing, additional features, and custom code meant to extend or enahnce the core system
+- standalone, independent components that contain specialized processing, additional features, and custom code meant to extend or enhance the core system
 - can also be used to isolate highly volatile code
 - components should have no dependencies between them (other than core system)
 - runtime plug-ins can be managed through frameworks without needing to redeploy system (Open Service Gateway Initiative, Penrose, Jigsaw (Java) or Prism (.NET))
@@ -435,13 +435,29 @@ Identifying Components
 - performance rates decent because these apps tend to be small and don't grow as large as layered architecture
 
 ### Service-Based Architecture Style
-
+- hybrid of microservices, typically 4-12 services
+- domain-partitioned architecture
+- distributed macro layered structure, separately deployed user interface, separately deployed remote coarse-grained services, and a monolithic database
+- REST typically used to access services, but messaging, remote procedure calls, or even SOAP can be used
+- use [service locator pattern](https://en.wikipedia.org/wiki/Service_locator_pattern) with registry in UI to discover services
+- can have single UI, multiple domain based UIs, or service-based UIs
+- can have monolithic database, or domain-scoped databases, or service-based databases
+- good practice to also have API layer (as reverse proxy or gateway) when there are cross-cutting concerns, such as metrics, security, etc.
+-
 <div style="text-align:center">
   <a href="/assets/img/fundamentals-of-software-architecture/service-based-topology.jpg">
     <img src="/assets/img/fundamentals-of-software-architecture/service-based-topology.jpg" alt="">
   </a>
 </div>
 
+#### Database Partitioning
+{: .no_toc }
+- single monolithic database might present issues when schema needs to change, as all services need to be updated then
+- can create a shared library of entity objects, but isn't typically effective although shared library versioning helps -- still need to pull in new shared libraries on change
+- better to logically partition database and manifest logical partitioning through federated shared libraries
+
+#### Pros and Cons
+{: .no_toc }
 
 <div style="text-align:center">
   <a href="/assets/img/fundamentals-of-software-architecture/service-based-ratings.jpg">
@@ -449,6 +465,354 @@ Identifying Components
   </a>
 </div>
 
+- faster change (agility)
+- better test coverage
+- more frequent deployments and less risk
+- high fault tolerance and availability
+- tends to be simpler and cheaper than microservices, as well as more reliable than other distributed services
+- a natural fit when doing domain-driven design -- very pragmatic architecture
+- as services become more fine-grained, require orchestration/choreography
+- **orchestration**: the coordination of multiple services through the use of a separate mediator service that controls and manages the workflow of the transaction (like a conductor in an orchestra)
+- **choreography**: the coordination of multiple services by which each service talks to one another without the use of a central mediator
+
+### Event-Driven Architecture Style
+- distributed, async architecture
+- domain partitioned
+- most apps follow _request-based_ model, where requests made to system are sent to a _request orchestrator_, who directs to _request processors_
+- contrast _request-based_ with _event-based_, where a particular situation occurs and action is taken based on that event
+- **async communication** - relies on it for both fire-and-forget and request/reply processing
+- **error handling** - can use the workflow event pattern of reactive architecture, where if an error occurs, it is immediately sent to a workflow processor that tries to fix the error and resend the message, or logs it to a centralized location where an operator can view it
+- **broadcast** - can send message out without knowledge of who is receiving and what they do with it
+- **request/reply** - a way of achieving synchronous communication -- typically achieved via a _correlation id_ so event producers can communicate backwards
+
+<div style="text-align:center">
+  <a href="/assets/img/fundamentals-of-software-architecture/event-topology.png">
+    <img src="/assets/img/fundamentals-of-software-architecture/event-topology.png" alt="">
+  </a>
+</div>
+
+#### Broker Topology
+{: .no_toc }
+- useful when you need a degree of responsiveness and dynamic control over processing event
+- since events are broadcast without a central mediator, you can add additional event processors easily, leading to extensibility
+
+1. **initiating event** - initial event that starts the flow
+2. **event broker** - channel where events are sent and **event processors** pick up processing
+3. **event processor** - accepts events from **event broker** and performs specific task with event
+4. **processing event** - after event is processed, the processor async advertises its actions
+
+<div style="text-align:center">
+  <a href="/assets/img/fundamentals-of-software-architecture/broker-topology.png">
+    <img src="/assets/img/fundamentals-of-software-architecture/broker-topology.png" alt="">
+  </a>
+</div>
+
+- performance, responsiveness, and scalability are strengths
+- with no control over overall workflow, things like error handling are more difficult, and recoverability to restart a business transaction is difficult
+
+| pros                              | cons                 |
+|-----------------------------------|----------------------|
+| Highly decoupled event processors | Workflow control     |
+| High scalability                  | Error handling       |
+| High responsiveness               | Recoverability       |
+| High performance                  | Restart capabilities |
+| High fault tolerance              | Data inconsistency   |
+
+#### Mediator Topology
+{: .no_toc }
+- tries to address problems of broker topology
+- important to know types of events that will be processed through mediator so you can use different mediators for different types of events
+
+1. **initiating event**
+2. **event queue**
+3. **event mediator**
+4. **event channels**
+5. **event processors**
+
+<div style="text-align:center">
+  <a href="/assets/img/fundamentals-of-software-architecture/mediator-topology.png">
+    <img src="/assets/img/fundamentals-of-software-architecture/mediator-topology.png" alt="">
+  </a>
+</div>
+
+- very difficult to declaratively model dynamic processing in complex event flow
+- mediator must scale, potentially leading to bottleneck
+- event processors aren't as highly decoupled
+
+| pros                    | cons                              |
+|-------------------------|-----------------------------------|
+| workflow control        | more coupling of event processors |
+| error handling          | lower scalability                 |
+| recoverability          | lower performance                 |
+| restart capabilities    | lower fault tolerance             |
+| better data consistency | modeling complex workflows        |
+
+#### Preventing Data Loss
+{: .no_toc }
+- message getting dropped or never making it to final destination
+- **synchronous send** - does a blocking wait on message producer until broker acknowledges message has been persisted
+- **guaranteed delivery** - message broker stores message in memory and in physical data store in case of server going down
+- **client acknowledge mode** - keeps message in queue and attaches client ID so no other consumer can read the message
+- **last participant support** - removes message from persisted queue by acknowledging processing has been completed and message has been persisted
+
+#### Pros and Cons
+{: .no_toc }
+<div style="text-align:center">
+  <a href="/assets/img/fundamentals-of-software-architecture/event-ratings.jpg">
+    <img src="/assets/img/fundamentals-of-software-architecture/event-ratings.jpg" alt="">
+  </a>
+</div>
+
+- great for performance, scalability, and fault tolerance, and highly evolutionary
+- simplicity and testability are more difficult
+
+### Space-Based Architecture
+- specifically designed to address high scalability, elasticity, and concurrency
+- gets its name from concept of tuple space, the technique of using multiple parallel processors communicating through shared memory
+- remove database and replace with replicated in-memory grids
+- data is async'd to database, usually via messaging with persistent queues
+
+<div style="text-align:center">
+  <a href="/assets/img/fundamentals-of-software-architecture/space-based-topology.jpg">
+    <img src="/assets/img/fundamentals-of-software-architecture/space-based-topology.jpg" alt="">
+  </a>
+</div>
+
+**processing unit**
+- contains application code
+- contains in-memory data grid and replication engine (implemented through things like Hazelcast, Apache Ignite, and Oracle Coherence)
+
+**virtualized middleware**
+- used to manage and coordinate the processing units
+- made up of
+  - **messaging grid** - handles input request and session state
+  - **data grid** - most often implemented as a replicated cache
+  - **processing grid** - optional component that handles orchestrated request processing when there are multiple processing units involved in single business request
+  - **deployment manager** - manages dynamic startup and shutdown of processing units based on load
+
+**data pumps**
+- async send updated data to another processor and to the database
+- usually implemented via messaging
+
+**data writers**
+- perform updates from the data pumps
+
+**data readers**
+- read database data and deliver it to processing units upon startup
+- only invoked when
+    1. crash of all processing units of the same named cache
+    2. redeployment of all processing units with same named cache
+    3. retrieving archive data not contained in the replicated cache
+
+#### Data Collisions
+{: .no_toc }
+- in a replicated cache in active/active state where updates can occur to any cache, data collisions are possible
+- **data collision** - when data is updated in once cache instance (cache A) and during replication to another cache (cache B), the same data is updated by that cache (cache B)
+- equation for collision rate:
+
+<div style="text-align:center">
+  <a href="/assets/img/fundamentals-of-software-architecture/collision-rate.png">
+    <img src="/assets/img/fundamentals-of-software-architecture/collision-rate.png" alt="">
+  </a>
+</div>
+
+Update rate (UR): 20 updates/second
+Number of instances (N): 5
+Cache size (S): 50,000 rows
+Replication latency (RL): 100 milliseconds
+Updates: 72,000 per hour
+Collision rate: 14.4 per hour
+Percentage: 0.02%
+
+- **near cache** - caching hybrid that bridges in-memory data grids with a distributed cache
+- distributed cache called the **full backing cache** carries all the data
+- each processing unit has a most frequently used (mfu) or most recently used (mru) **front cache**
+- performance is highly variable because front caches hold different data
+
+<div style="text-align:center">
+  <a href="/assets/img/fundamentals-of-software-architecture/space-based-ratings.jpg">
+    <img src="/assets/img/fundamentals-of-software-architecture/space-based-ratings.jpg" alt="">
+  </a>
+</div>
+
+- maximizes elasticity, scalability, and performance
+- testing, however, is extremely difficult -- performance testing at scale isn't realistic
+- also can be costly
+
+### Orchestration-Driven Service-Oriented Architecture
+- this is sort of an historical relic
+- driving philosophy is centered around enterprise-level reuse
+
+<div style="text-align:center">
+  <a href="/assets/img/fundamentals-of-software-architecture/service-oriented-orchestration-topology.jpg">
+    <img src="/assets/img/fundamentals-of-software-architecture/service-oriented-orchestration-topology.jpg" alt="">
+  </a>
+</div>
+
+**business services** - sit at top and provide entry point
+**enterprise services** - contain fine-grained, shared implementations; building blocks that make up coarse-grained business services
+**application services** - one-off, single-implementation services
+**infrastructure services** - supply operational concerns, such as monitoring, logging, authentication
+**orchestration engine** - forms the heart of this distributed architecture, stitching together the business service implementations
+
+- all requests go through orchestration engine
+- ultimate danger was the extreme technical partitioning -- domain concepts end up spread exceptionally thin
+
+<div style="text-align:center">
+  <a href="/assets/img/fundamentals-of-software-architecture/service-oriented-orchestration-ratings.jpg">
+    <img src="/assets/img/fundamentals-of-software-architecture/service-oriented-orchestration-ratings.jpg" alt="">
+  </a>
+</div>
+
+- doesn't really do anything well
+
+### Microservices Architecture
+- built out of domain-driven design
+- primary goal is high decoupling, physically modeling the logical notion of bounded context
+- distributed architecture -- each service runs its own process either on a physical computer or virtual machine or container
+- performance is a negative side effect, as network calls take longer than method calls, security verification at endpoints adds processing time
+- determining granularity key to success
+
+<div style="text-align:center">
+  <a href="/assets/img/fundamentals-of-software-architecture/microservice-topology.jpg">
+    <img src="/assets/img/fundamentals-of-software-architecture/microservice-topology.jpg" alt="">
+  </a>
+</div>
+
+**bounded context**
+- driving philosophy
+- each service models a domain or workflow, and each service includes everything necessary to operate within the application
+- granularity can be determined by
+  - purpose - functional cohesion
+  - transactions - what needs to cooperate in a transaction
+  - choreography - if services require extensive communication to function, you can bundle to limit communication overhead
+
+**data isolation**
+- avoid coupling of schemas and databases as integration points
+- need to abandon the idea of a single source of truth
+
+**API layer**
+- should not be used as a mediator or orchestration tool
+
+**operational reuse**
+- can use the sidecar pattern to handle all operational concerns that teams benefit from coupling together
+- if you need to update all monitoring, for example, you can upgrade sidecar and then anyone using it can benefit from upgrade
+- if each service requires a common sidecar, can build a **service mesh** to allow unified control across arch for things like logging and monitoring
+
+**frontends**
+- original idea had user interfaces as part of microservice, but this isn't practical (there might be concerns like common styling, deployment patterns, extra complexity)
+- **monolithic user interface** - single user interface that calls through the API layer to satisfy requests
+- **microfrontends** - components at the user interface level to create a synchronous level of granularity and isolation (frameworks like React)
+
+**communication**
+- must decide on sync or async communication
+- typically use protocol-aware heterogenous interoperability
+  - _protocol-aware_ - need to know which protocol to use (REST, SOAP, message queues, etc)
+  - _heterogenous_ - fully supports polyglot environments
+  - _interoperability_ - services can call each other to send and receive data
+- for async communication, need events and messages
+
+**choreography and orchestration**
+- should look at _Domain/architecture isomorphism_ (how well the architecture fits the domain) when assessing how appropriate an architecture style is for a particular problem
+- can use the _front controller_ pattern, where a nominally choreographed service becomes a more complex mediator
+
+**transactions and sagas**
+- building transactions across service boundaries violates the core decoupling principle
+- **compensating transaction framework** - if a transaction across multiple services fails, some mediator needs to reverse the transaction on other services
+  - requires significant complexity, creates lots of coordination traffic
+
+<div style="text-align:center">
+  <a href="/assets/img/fundamentals-of-software-architecture/microservice-ratings.jpg">
+    <img src="/assets/img/fundamentals-of-software-architecture/microservice-ratings.jpg" alt="">
+  </a>
+</div>
+
+## Architecture Decisions
+- **the domain** - need to have a good understanding of domain
+- **architecture characteristics that impact structure**
+- **data architecture** - architects and DBAs must collaborate on database, schema, and other data concerns
+- **organizational factors** - external factors such as cloud vendor cost
+- **domain/architecture isomorphism** - does the problem domain match the topology of the architecture
+- **monolith vs. distributed**
+- **where does the data live**
+- **async or synchronous**
+
+- **backends for frontends pattern** - make the API layer a thin microkernel adaptor, supplying general info from backend, and translates to suitable format for frontend
+
+**architecturally significant**: those decisions that affect
+- structure: decisions that impact patterns or styles
+- nonfunctional characteristics: architecture characteristics (-ilities)
+- dependencies: coupling points between components and/or services
+- interfaces: how services are accessed or orchestrated
+- construction techniques: platforms, frameworks, tools, or processes
+
+### Decision Anti-Patterns
+**covering your assets**
+- architect avoids making an architecture decision out of fear of making the wrong choice
+- two ways to overcome:
+    1. wait until the last responsible moment to make a decision
+    2. collaborate with dev team to ensure that the decision you make can be implemented as expected
+
+**groundhog day**
+- people don't know what decision is made, so it keeps getting discussed over and over again
+- when justifying architecture decisions, need to provide technical and business justifications
+- most basic business justifications: cost, time to market, user satisfaction, and strategic positioning
+
+**email-driven architecture**
+- when people lose, forget, or don't even know an architecture decision has been made and can't implement
+- first rule of communicating architecture decisions: don't include in the body of an email
+- second rule: only notify those who care about the decision
+
+### Architecture Decision Records
+**Title**: Name
+**Status**: Proposed, Accepted, Superseded
+**Context**: what situation is forcing me to make this decision?
+**Decision**: using affirmative language like "we will", what has been decided; more emphasis on the why than the how
+**Consequences**: very important, details tradeoffs
+**Compliance**: how the decision will be measured and governed
+**Notes**: includes various metadata about ADR
+
+### Assessing Risk
+- risk matrix: classify risk as high, medium, or low
+
+<div style="text-align:center">
+  <a href="/assets/img/fundamentals-of-software-architecture/risk-matrix.jpg">
+    <img src="/assets/img/fundamentals-of-software-architecture/risk-matrix.jpg" alt="">
+  </a>
+</div>
+
+**Risk Storming**
+- collaborative exercise used to determine architectural risk within a specific dimension
+- Identification: each particpant individually identifying areas of risk within arch
+- Consensus: highly collaborative with the goal of gaining consensus among all participants
+- Mitigation: identifying changes or enhancements to certain areas
+
+### Presenting Architecture
+**Representational consistency** is the practice of always showing the relationship between parts of an architecture, either in diagrams or presentations, before changing views
+**irrational artifact attachment** - relationship between a person's irrational attachment to some artifact and how long it took to produce
+
+any diagramming tool needs:
+- layers
+- stencils/templates
+- magnets
+
+diagramming standards
+- **UML** - unified model language -- mostly used for class and sequence diagrams to show structure and workflow
+- **C4**
+  - Context: entire context of system, include roles of users and external dependencies
+  - Container: the physical (and logical) deployment boundaries and containers
+  - Component: component view, mostly neatly aligns with architect's view
+  - Class: UML class diagrams
+- **Archimate**
+  - Arch(itecture)(ani)mate
+  - lightweight technical standard from the Open Group
+
+presentations
+- important to be able to use powerpoint and keynote as presentation tools
+- key power of a presentation is ability to manipulate time, to allow ideas to play out over several slides
+- avoid **bullet-riddled corpse** anti-pattern, where a slide is just the speaker's notes
+- while speaking, presenter has two info channels: visual and verbal -- overwhelming one stops all fixation on the other
+- **infodecks** - slide decks not meant to be projected but to summarize info graphically
 
 ## Assessment Questions
 ### Chapter 1: Introduction
