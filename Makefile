@@ -1,24 +1,18 @@
-default: install
+COMPOSE = docker-compose
+FILE = docker-compose.yml
+APP = itsmynotes
 
-all: install build
-
-RUN_JEKYLL = bundle exec jekyll serve
+# Non file-generating targets
+.PHONY: build server kill
 
 h help:
 	@grep '^[a-z]' Makefile
 
-i install:
-	bundle config set --local path vendor/bundle
-	bundle install
+build:
+	$(COMPOSE) -f "$(FILE)" build $(services) -p $(APP)
 
-u upgrade:
-	bundle update
+s server:
+	$(COMPOSE) -p $(APP) up -d
 
-ds dev-serve:
-	JEKYLL_ENV=development $(RUN_JEKYLL)
-
-ls live-serve:
-	JEKYLL_ENV=production $(RUN_JEKYLL)
-
-b build:
-	bundle exec jekyll build --trace
+k kill:
+	$(COMPOSE) -p $(APP) down
