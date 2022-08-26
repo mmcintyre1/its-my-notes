@@ -229,9 +229,8 @@ Eric Evans, 2003
 - including points of contact between models and any explicit translation between models or shared info
 - after you make context map, you might see changes to org of teams or design you want to change
 - important to test points of contact between bounded contexts
--
-### Relationships Between Bounded Contexts
 
+### Relationships Between Bounded Contexts
 <div style="text-align:center">
   <a href="/assets/img/domain-driven-design/context-relations.jpg">
     <img src="/assets/img/domain-driven-design/context-relations.jpg" alt="relationship between contexts">

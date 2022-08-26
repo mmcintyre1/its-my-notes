@@ -6,7 +6,8 @@ nav_order: 2
 ---
 
 # Why We Sleep: Unlocking the Power of Sleep and Dreams
-Matthew Walker, 2017
+{: .no_toc }
+
 <details open markdown="block">
   <summary>
     Table of contents

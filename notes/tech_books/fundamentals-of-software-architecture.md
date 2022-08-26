@@ -443,7 +443,7 @@ Identifying Components
 - can have single UI, multiple domain based UIs, or service-based UIs
 - can have monolithic database, or domain-scoped databases, or service-based databases
 - good practice to also have API layer (as reverse proxy or gateway) when there are cross-cutting concerns, such as metrics, security, etc.
--
+
 <div style="text-align:center">
   <a href="/assets/img/fundamentals-of-software-architecture/service-based-topology.jpg">
     <img src="/assets/img/fundamentals-of-software-architecture/service-based-topology.jpg" alt="">

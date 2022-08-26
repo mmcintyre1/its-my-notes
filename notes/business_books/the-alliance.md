@@ -207,17 +207,14 @@ Advice for managers having the conversation about setting up an alumni network:
 - reinforce the career-long nature of the alliance upon exit
 
 
-## Book Notes
+# Book Notes
 ## Why I read this book
----
 Ruben Harris (founder of Career Karma) mentioned this on the Software Engineering Daily podcast, among a few other books, so I added most of the books to the backlog. This one was short enough to be picked up in a bit of downtime between some other, longer books.
 
 ## One key takeaway
----
 The era of lifetime employment is over, giving way to a free-agency style interaction between employees and employers, a transactional relationship that prioritizes instant gratification over long-term dedication and planning, to no one's benefit. This book posits an 'alliance', a model already taking over Silicon Valley, where employee and employer mutually invest in each other and define clearly the terms of their mutually beneficial relationship.
 
 ## Summary
----
 The book is broken up into four general parts:
 1. defining tours of duty
 2. defining and aligning on interests and goals
@@ -227,13 +224,11 @@ The book is broken up into four general parts:
 Most every chapter ends with "advice to the manager" for implementing the theme of the chapter.
 
 ## How was the book
----
 It's hard to tell who this book is for: the entrepreneurial founder to be, looking to create a talent pool, the manager looking to establish an honest and open and mutually beneficial relationship with employees, or the employee, looking to maximize their input on a team. I suspect those markets are probably too small on their own to justify the publication cost. The book certainly can certainly count brevity amongst its cardinal virtues; you can put it away in under 3 hours unless you insist on taking notes.
 
 I like to play a game with any business book, which is, to reduce it to a sentence or key takeaway, and see how much is lost. Maybe in the future I'll have a more clever name for that heuristic, but for now, it applies with this book. Reading a synopsis and a few bullet points essentially encompasses all there is to be gained here. Not every pamphlet needs a book, although the career heft of the authors seems to compel a listen. The recipe is simple enough: found a start-up, live in the Silicon Valley bubble and spend every waking hour networking or blogging or learning or improving your brand, and you will reach career enlightenment. We need separate careers to maintain our first career relevancy.
 
 ## Any other reading
----
 Both mentioned in the podcast above, the first by the same authors as **The Alliance**.
 - **The Startup of You**
 - **The Starfish and the Spider**

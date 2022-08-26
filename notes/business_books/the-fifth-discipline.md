@@ -470,7 +470,7 @@ learning has two levels:
 2. learning is about developing a capacity to reliably produce certain quality of results
 - not just about riding a bike one time, but being a bike rider
 
-### Deep Learning Cycle
+**Deep Learning Cycle**
 1. beliefs and assumptions
 2. established practices
 3. skills and capabilities
@@ -478,91 +478,93 @@ learning has two levels:
 5. awareness and sensibilities
 - these five cultural elements influence one another
 
-### Strategic Architecture
+**Strategic Architecture**
 1. *guiding ideas*, or, the governing concepts and principles that define why an organization exists, what we seek to accomplish, how we intend to operate
 2. *theory, tools, and methods*, or, explicit ideas about how things work and the practical means by which people apply those theories, solve problems, negotiate differences, and monitor progress
 3. *organizational infrastructure*, or, formal roles and management structures that shape how energy and resources flow
 
-### Theory of Structuration
+**Theory of Structuration**
 - theory of "enacted systems"
 two predominant ideas:
 1. structure influences behavior, and leverage for change increases as we learn to focus on underlying structures rather than events or behavior
 2. structures that govern social systems arise from cumulative effects of the actions taken by the participants in those systems
 
-### 1. Integrating Learning and Working
-- fragmentation, or making learning an 'add-on' to people's regular work, limits how we can integrate learning and working
-- need to tie reflection to action so learning isn't fragmented
-- reflection doesn't mean agreement on everything but rather that we hear everything -- we can disagree and commit
-- a culture that integrates action and reflection arrives at better decisions to which people can generally commit to
 
-#### After Action Review
-- used by US Army to reflect
-- simplest form involves answering three questions:
-1. what happened?
-2. what did we expect?
-3. what can we learn from the gap
-- another question we can ask is: "If you could improve performance in one area that would make a significant different for the enterprise, what would that be?"
-- in order to be successful, you need 1) leadership by request and example, 2) events as learning opportunities 3) grassroots exposure to AARs 4) a cadre of trained facilitators
+1. Integrating Learning and Working
+   - fragmentation, or making learning an 'add-on' to people's regular work, limits how we can integrate learning and working
+   - need to tie reflection to action so learning isn't fragmented
+   - reflection doesn't mean agreement on everything but rather that we hear everything -- we can disagree and commit
+   - a culture that integrates action and reflection arrives at better decisions to which people can generally commit to
 
-### 2. Starting Wherever You are with Whoever is There
-- the idea that only top managers can drive change is false
-- you can concentrate on the "impossibles", or the problems people believe can't be solved
-- this can only happen when you can tape people's talents and deepest aspirations
+    **After Action Review**
+    - used by US Army to reflect
+    - simplest form involves answering three questions:
+    1. what happened?
+    2. what did we expect?
+    3. what can we learn from the gap
+    - another question we can ask is: "If you could improve performance in one area that would make a significant different for the enterprise, what would that be?"
+    - in order to be successful, you need 1) leadership by request and example, 2) events as learning opportunities 3) grassroots exposure to AARs 4) a cadre of trained facilitators
 
-### 3. Becoming Bicultural
-- becoming bicultural, or never losing touch with the larger organizational environment
-- need to consider the greater environment
-- fundamental innovations that produce significant leaps in performance are threatening to teams producing closer to the norm
-- need to become adroit at working with political forces within an organization so as not to run afoul of corporate immune system
-- one strategy is to keep innovations below the radar of senior leadership by underpromising and overdelivering
+2. Starting Wherever You are with Whoever is There
+   - the idea that only top managers can drive change is false
+   - you can concentrate on the "impossibles", or the problems people believe can't be solved
+   - this can only happen when you can tape people's talents and deepest aspirations
 
-### 4. Creating Practice Fields
-- it is very difficult to learn anything without opportunity for practice
-- setting up practice fields for learning
+3. Becoming Bicultural
+   - becoming bicultural, or never losing touch with the larger organizational environment
+   - need to consider the greater environment
+   - fundamental innovations that produce significant leaps in performance are threatening to teams producing closer to the norm
+   - need to become adroit at working with political forces within an organization so as not to run afoul of corporate immune system
+   - one strategy is to keep innovations below the radar of senior leadership by underpromising and overdelivering
 
-### 5. Connecting with the Core of the Business
-- successful learning practitioners intent upon having a large-scale impact learn how to connect with the core of an organization -- at the deepest levels of individual and collective identity -- and how the organization most naturally creates value
-- change leaders limit themselves with two subtle barriers
-  1. they do not go deeply enough into themselves to discover what motivates themselves
-  2. they do not go deeply enough in the org to discover what it stands for
+4. Creating Practice Fields
+   - it is very difficult to learn anything without opportunity for practice
+   - setting up practice fields for learning
 
-### 6. Building Learning Communities
-- when our own aspirations connect with an organization's essence, community develops
+5. Connecting with the Core of the Business
+   - successful learning practitioners intent upon having a large-scale impact learn how to connect with the core of an organization -- at the deepest levels of individual and collective identity -- and how the organization most naturally creates value
+   - change leaders limit themselves with two subtle barriers
+     1. they do not go deeply enough into themselves to discover what motivates themselves
+     2. they do not go deeply enough in the org to discover what it stands for
 
-### 7. Working with the Other
-- embracing diversity in order to resist surrounding oneself with those who think like you
-- partnering with those who are different
-- the importance of building diverse and inclusive communities will grow in an increasingly networked world
+6. Building Learning Communities
+   - when our own aspirations connect with an organization's essence, community develops
 
-### 8. Developing Learning Infrastructures
-- when we redefine management roles to support reflection or systems thinking, we create learning infrastructures
-- learning infrastructures do not leave learning to chance
+7. Working with the Other
+   - embracing diversity in order to resist surrounding oneself with those who think like you
+   - partnering with those who are different
+   - the importance of building diverse and inclusive communities will grow in an increasingly networked world
 
-## Chapter 15: The Leader's New Work
-### what do we mean by leader?
+8. Developing Learning Infrastructures
+   - when we redefine management roles to support reflection or systems thinking, we create learning infrastructures
+   - learning infrastructures do not leave learning to chance
+
+# Chapter 15: The Leader's New Work
+**what do we mean by leader?**
 - typically, leader refers to positional authority via title, a synonym for top management
 - this creates two problems:
   1. it declares all others are not leaders and have little power to effect change
   2. it fails to understand the diverse roles of leaders at many levels
-#### local line leaders
+
+**local line leaders**
 - vital for integrating innovative practices into daily work, and testing the efficacy of systems thinking tools
 
-#### network leaders
+**network leaders**
 - helpers, seed carriers, and connectors
 - carry ideas from one working group to another
 
-#### executive leaders
+**executive leaders**
 - shape the overall environment for innovation and chance
 - must take responsibility for existence of credible and uplifting guiding ideas in the org
 
-### Leader as Designer
+**Leader as Designer**
 - leaders who appreciate orgs as living systems realize it isn't enough to create organizational artifacts like new metrics or formal roles and processes -- it's how they are used that matters
 - what it means to be a designer of learning infrastructures:
   1. recognize an important need for communication and learning isn't being met
   2. have the courage and imagination to break the mold
 - need to design guiding ideas that aren't BS -- a useful question to separate guiding and governing ideas from regular ideas is "How did our vision and value influence decisions I made today?"
 
-### Leader as Teacher
+**Leader as Teacher**
 - a great teacher is someone around whom others learn, someone who creates a great environment for learning
 - desire to serve ("servant leadership") as core motivation for great leaders
 - leaders work as teachers starts by recognizing a core capacity isn't being met
@@ -570,7 +572,7 @@ two predominant ideas:
   - one way is to help people see reality in terms of underlying structures and mental models rather than short-term events
 - to be a true teacher you must be a learner first
 
-### Leader as Steward
+**Leader as Steward**
 - leaders who serve
 - stewardship is also about serving a larger purpose
 there are two paradoxes of stewardship:
@@ -583,12 +585,12 @@ there are two paradoxes of stewardship:
 - what distinguishes good leaders is the "clarity and persuasiveness of their ideas, the depth of their commitment, and the extent of their openness to continually learning more" (339)
 - "truly effective leaders come to a shared appreciation of the power of holding a vision and concurrently looking deeply and honestly at current reality" (340)
 
-## Chapter 16: Systems Citizens
+# Chapter 16: Systems Citizens
 there are fundamental aspects to seeing systems:
 1. seeing patterns of interdependency
 2. seeing into the future
 
-## Chapter 17: Frontiers
+# Chapter 17: Frontiers
 - learning is a process of enhancing learner's capacity, individually and collectively, to produce results they truly want to produce
 - this emphasizes two features of learning:
   1. building capacity for effective action as opposed to intellectual understanding only
@@ -599,7 +601,7 @@ three openings when leading change
 2. *opening the heart* - opening ourselves to see our connection to what is around us, the pain, the suffering, the problems, as well as the joy
 3. *opening the will* - letting go of the last remnants of our small 's' self
 
-## Learning Discplines
+# Learning Discplines
 
 - *practices*: what you do
 - *principles*: guiding ideas and insights
