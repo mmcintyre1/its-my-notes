@@ -1,0 +1,46 @@
+---
+last_modified_date: "2022-09-05 10:23:29.282321"
+nav_order: 1
+book_title: "Effortless"
+author: "Greg McKeown"
+publication_year: 2021
+parent: Business Books
+nav_exclude: true
+---
+
+# Effortless: Make It Easier To Do What Matters Most
+
+| : EFFORTLESS STATE :|||
+|-|-|
+| Effortless State | The Effortless State is an experience many of us have had when we are physically rested, emotionally unburdened, and mentally energized. You are completely aware, alert, present, attentive, and focused on what’s important in this moment. You are able to focus on what matters most with ease.                                                                        |
+| INVERT           |<ul><li>Instead of asking, “Why is this so hard?,” invert the question by asking, “What if this could be easy?”</li><li>Challenge the assumption that the “right” way is, inevitably, the harder one.</li><li>Make the impossible possible by finding an indirect approach.</li><li>When faced with work that feels overwhelming, ask, “How am I making this harder than it needs to be?”</li></ul>          |
+| ENJOY            |<ul><li>Pair the most essential activities with the most enjoyable ones.</li><li>Accept that work and play can co-exist.</li><li>Turn tedious tasks into meaningful rituals.</li><li>Allow laughter and fun to lighten more of your moments.</li></ul>                                                                                                                                                       |
+| RELEASE          |<ul><li>Let go of emotional burdens you don’t need to keep carrying.</li><li>Remember: When you focus on what you lack, you lose what you have. When you focus on what you have, you get what you lack.</li><li>Use this habit recipe: “Each time I complain I will say something I am thankful for.”</li><li>Relieve a grudge of its duties by asking, “What job have I hired this grudge to do?”</li></ul> |
+| REST             |<ul><li>Discover the art of doing nothing.</li><li>Do not do more today than you can completely recover from by tomorrow.</li><li>Break down essential work into three sessions of no more than ninety minutes each.</li><li>Take an effortless nap.</li></ul>                                                                                                                                               |
+| NOTICE           |<ul><li>Achieve a state of heightened awareness by harnessing the power of presence.</li><li>Train your brain to focus on the important and ignore the irrelevant.</li><li>To see others more clearly, set aside your opinions, advice, and judgment, and put their truth above your own.</li><li>Clear the clutter in your physical environment before clearing the clutter in your mind.</li></ul>         |
+
+| EFFORTLESS ACTION :|||
+|-|-|
+| Effortless Action | Effortless Action means accomplishing more by trying less. You stop procrastinating and take the first obvious step. You arrive at the point of completion without overthinking. You make progress by pacing yourself rather than powering through. You overachieve without overexerting.                                                     |
+| DEFINE            | <ul><li>To get started on an essential project, first define what “done” looks like.</li> <li>Establish clear conditions for completion, get there, then stop.</li> <li>Take sixty seconds to focus on your desired outcome.</li> <li>Write a “Done for the Day” list. Limit it to items that would constitute meaningful progress.</li></ul> |
+| START             | <ul>Make the first action the most obvious one. Break the first obvious action down into the tiniest, concrete step. Then name it. Gain maximum learning from minimal viable effort. Start with a ten-minute microburst of focused activity to boost motivation and energy.                                                                   |
+| SIMPLIFY          | <ul><li>To simplify the process, don’t simplify the steps: simply remove them.</li><li>Recognize that not everything requires you to go the extra mile.</li><li>Maximize the steps not taken.</li><li>Measure progress in the tiniest of increments.</li></ul>                                                                                |
+| PROGRESS          | <ul><li>When you start a project, start with rubbish.</li><li>Adopt a “zero-draft” approach and just put some words, any words, on the page.</li><li>Fail cheaply: make learning-sized mistakes.</li><li>Protect your progress from the harsh critic in your head.</li></ul>                                                                  |
+| PACE              | <ul><li>Set an effortless pace: slow is smooth, smooth is fast.</li><li>Reject the false economy of “powering through.”</li><li>Create the right range: I will never do less than X, never more than Y.</li><li>Recognize that not all progress is created equal.</li></ul>                                                                   |
+
+| EFFORTLESS RESULTS :|||
+|-|-|
+| Effortless Results | You’ve continued to cultivate your Effortless State. You’ve started to take Effortless Action with clarity of objective, tiny, obvious first steps, and a consistent pace. You are achieving the results you want, more easily. But now you want those results to continue to flow to you, again and again, with as little additional effort as possible. You are ready to achieve Effortless Results. |
+| LEARN              | <ul><li>Learn principles, not just facts and methods.</li> <li>Understand first principles deeply and then apply them again and again.</li> <li>Stand on the shoulders of giants and leverage the best of what they know.</li> <li>Develop unique knowledge, and it will open the door to perpetual opportunity.</li></ul>                                                                             |
+| LIFT               | <ul><li>Use teaching as a lever to harness the strength of ten.</li> <li>Achieve far-reaching impact by teaching others to teach.</li> <li>Live what you teach, and notice how much you learn.</li> <li>Tell stories that are easily understood and repeated.</li></ul>                                                                                                                                |
+| AUTOMATE           | <ul><li>Free up space in your brain by automating as many essential tasks as possible.</li> <li>Use checklists to get it right every time, without having to rely on memory.</li> <li>Seek single choices that eliminate future decisions.</li> <li>Take the high-tech path for the essential and the low-tech path for the nonessential.</li></ul>                                                    |
+| TRUST              | <ul><li>Leverage trust as the engine oil of frictionless and high-functioning teams.</li> <li>Make the right hire once, and it will continue to produce results again and again.</li> <li>Follow the Three I’s Rule: hire people with integrity, intelligence, and initiative.</li> <li>Design high-trust agreements to clarify results, roles, rules, resources, and rewards.</li></ul>               |
+| PREVENT            | <ul><li>Don’t just manage the problem. Solve it before it happens.</li> <li>Seek simple actions today that can prevent complications tomorrow.</li> <li>Invest two minutes of effort once to end recurring frustrations.</li> <li>Catch mistakes before they happen; measure twice, so you only have to cut once.</li></ul>                                                                            |
+
+## Two Key Takeaways
+1. Instead of asking why something is hard, ask why can't it be easy -- invert the question. First devised by Carl Jacobi, who said, Man muss immer umkehren, which translates to “One must invert, always invert.”
+2. “There are a thousand hacking at the branches of evil to one who is striking at the root.” - Thoreau. Attack the root of problems
+
+## Brief Thoughts
+Rating: 5/10
+Your mileage may vary depending on how similar you think achieving hard business outcomes is to free throw shooting. McKeown moves adjectivally from his first book, from _Essentialism_ to _Effortless_ (one could imagine the -ness was dropped in some editing room with a hard-and-fast rule dictating that single word titles can't exceed 3 syllables or 3 _s_es). McKeown outlines three stages of achieving this effortlessness, from effortless state to effortless actions to effortless results. There is some valuable, although commonsensical, advice (get enough sleep, be an active listener) interspersed with some Fletcherism (essential work broken down to three sessions of no more than 90 minutes, don't do more today than you can recover from today, clear physical clutter to clear mental clutter). McKeown also claims to leverage cognitive research to validate his theories, and while there are passing references to things like perceptual load theory or the cognitive ease principle, this book is not about the research. It's a fast read and if nothing else is valuable for the idea of inverting hard problems to ask what they would look like if they were easy. That, and we should all be taking more _effortless_ naps.
