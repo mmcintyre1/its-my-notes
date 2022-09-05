@@ -19,7 +19,7 @@ nav_exclude: true
 | REST             |<ul><li>Discover the art of doing nothing.</li><li>Do not do more today than you can completely recover from by tomorrow.</li><li>Break down essential work into three sessions of no more than ninety minutes each.</li><li>Take an effortless nap.</li></ul>                                                                                                                                               |
 | NOTICE           |<ul><li>Achieve a state of heightened awareness by harnessing the power of presence.</li><li>Train your brain to focus on the important and ignore the irrelevant.</li><li>To see others more clearly, set aside your opinions, advice, and judgment, and put their truth above your own.</li><li>Clear the clutter in your physical environment before clearing the clutter in your mind.</li></ul>         |
 
-| EFFORTLESS ACTION :|||
+| : EFFORTLESS ACTION :|||
 |-|-|
 | Effortless Action | Effortless Action means accomplishing more by trying less. You stop procrastinating and take the first obvious step. You arrive at the point of completion without overthinking. You make progress by pacing yourself rather than powering through. You overachieve without overexerting.                                                     |
 | DEFINE            | <ul><li>To get started on an essential project, first define what “done” looks like.</li> <li>Establish clear conditions for completion, get there, then stop.</li> <li>Take sixty seconds to focus on your desired outcome.</li> <li>Write a “Done for the Day” list. Limit it to items that would constitute meaningful progress.</li></ul> |
@@ -28,7 +28,7 @@ nav_exclude: true
 | PROGRESS          | <ul><li>When you start a project, start with rubbish.</li><li>Adopt a “zero-draft” approach and just put some words, any words, on the page.</li><li>Fail cheaply: make learning-sized mistakes.</li><li>Protect your progress from the harsh critic in your head.</li></ul>                                                                  |
 | PACE              | <ul><li>Set an effortless pace: slow is smooth, smooth is fast.</li><li>Reject the false economy of “powering through.”</li><li>Create the right range: I will never do less than X, never more than Y.</li><li>Recognize that not all progress is created equal.</li></ul>                                                                   |
 
-| EFFORTLESS RESULTS :|||
+| : EFFORTLESS RESULTS :|||
 |-|-|
 | Effortless Results | You’ve continued to cultivate your Effortless State. You’ve started to take Effortless Action with clarity of objective, tiny, obvious first steps, and a consistent pace. You are achieving the results you want, more easily. But now you want those results to continue to flow to you, again and again, with as little additional effort as possible. You are ready to achieve Effortless Results. |
 | LEARN              | <ul><li>Learn principles, not just facts and methods.</li> <li>Understand first principles deeply and then apply them again and again.</li> <li>Stand on the shoulders of giants and leverage the best of what they know.</li> <li>Develop unique knowledge, and it will open the door to perpetual opportunity.</li></ul>                                                                             |
@@ -43,4 +43,5 @@ nav_exclude: true
 
 ## Brief Thoughts
 Rating: 5/10
+
 Your mileage may vary depending on how similar you think achieving hard business outcomes is to free throw shooting. McKeown moves adjectivally from his first book, from _Essentialism_ to _Effortless_ (one could imagine the -ness was dropped in some editing room with a hard-and-fast rule dictating that single word titles can't exceed 3 syllables or 3 _s_es). McKeown outlines three stages of achieving this effortlessness, from effortless state to effortless actions to effortless results. There is some valuable, although commonsensical, advice (get enough sleep, be an active listener) interspersed with some Fletcherism (essential work broken down to three sessions of no more than 90 minutes, don't do more today than you can recover from today, clear physical clutter to clear mental clutter). McKeown also claims to leverage cognitive research to validate his theories, and while there are passing references to things like perceptual load theory or the cognitive ease principle, this book is not about the research. It's a fast read and if nothing else is valuable for the idea of inverting hard problems to ask what they would look like if they were easy. That, and we should all be taking more _effortless_ naps.
