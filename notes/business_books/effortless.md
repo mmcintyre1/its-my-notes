@@ -38,8 +38,8 @@ nav_exclude: true
 | PREVENT            | <ul><li>Don’t just manage the problem. Solve it before it happens.</li> <li>Seek simple actions today that can prevent complications tomorrow.</li> <li>Invest two minutes of effort once to end recurring frustrations.</li> <li>Catch mistakes before they happen; measure twice, so you only have to cut once.</li></ul>                                                                            |
 
 ## Two Key Takeaways
-1. Instead of asking why something is hard, ask why can't it be easy -- invert the question. First devised by Carl Jacobi, who said, Man muss immer umkehren, which translates to “One must invert, always invert.”
-2. “There are a thousand hacking at the branches of evil to one who is striking at the root.” - Thoreau. Attack the root of problems
+1. Instead of asking why something is hard, ask why can't it be easy -- invert the question. First devised by Carl Jacobi, who said, _man muss immer umkehren_, which translates to “One must invert, always invert.”
+2. Need to resist the puritanical idea that effort is equated with value -- not everything worthwhile is hard, and not everything easy is valueless. Start from first principles, state the problem clearly, and work towards the lightest lift you can to solve the problem. More effort spent on solving a problem doesn't drive more value.
 
 ## Brief Thoughts
 Rating: 5/10
