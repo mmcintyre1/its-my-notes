@@ -69,8 +69,54 @@ nav_exclude: true
 4. ask more questions rather than declarative statements
 5. comment on feelings of the process and understand other side's feelings
 
+### Paul Graham's Hierarchy of Disagreement
+<div style="text-align:center">
+  <a href="/assets/img/think-again/hierarchy-of-disagreement.png">
+    <img src="/assets/img/think-again/hierarchy-of-disagreement.png" alt="hierarchy of disagreement">
+  </a>
+</div>
+
+- important to get folks to think about arbitrariness of their animosity -- not positive qualities of rivals, to change minds
+
+> As a general rule, it’s those with greater power who need to do more of the rethinking, both because they’re more likely to privilege their own perspectives and because their perspectives are more likely to go unquestioned. In most cases, the oppressed and marginalized have already done a great deal of contortion to fit in. (140)
+
+### motivational interviewing
+starts with an attitude of humility and curiosity, involves three key techniques:
+- ask open-ended questions
+- engage in reflective listening
+- affirm the person's desire and ability to change
+- **sustain talk** - commentary about maintaining the status quo
+- **change talk** - referencing a desire, ability, need, or commitment to make adjustments
+
+> Many communicators try to make themselves look smart. Great listeners are more interested in making their audiences feel smart. (158)
+
+- **inverse charisma** - a way of describing a great listener
+
+## Collective Rethinking
+- **binary bias** - basic human tendency to seek clarity and closure by simplifying a complex continuum into two categories -- an antidote is complexifying
+- when you force someone on the fence to make a decision, the emotional, political, and economic pressures tilt in favor of disengaging or dismissing a problem
+
+fact-checker guidance:
+1. interrogate information instead of simply consuming it
+2. reject rank and popularity as a proxy for reliability
+3. understand that the sender of information is not always its source
+
+### learning cultures
+- essential to establish _accountability_ and _psychological safety_
+- key question: "How do you know?"
+- need to build accountability for teams to think past just results, as that incentivizes confidence in bad strategy and maintaining status quo
+
+> [C]hanging the culture of a team is more feasible. It starts with modeling the values we want to promote, identifying and praising others who exemplify them, and building a coalition of colleagues who are committed to making the change. (212)
+
+- **escalation of commitment** - when we double down on resource commitment to a project or plan that is not going well -- "ah, I just need to work harder!"
+- **identity foreclosure** - settle prematurely on a sense of self without enough due diligence and close our mind to alternative selves
+
+FDR quote -- "the country demands bold, persistent experimentation". Love this, should use it.
+
 ## Two Key Takeaways
+1. Four methods of thinking and communication: preacher, prosecutor, politician, and scientist. Useful heuristic for the way we approach our external communication and how we keep open minds. Confirmation bias is real and affects even those who spend their lives thinking about it, so maintaining scientific thinking, complete with the rigor of hypothesis-experiment-adjust-repeat loops, is essential to learning.
+2. Ask much more frequently, how do you know that? Also, this concept of motivational interviewing, which is similar to deep canvassing and seems to have similar methodologies and results. Use the tenets when
 
 ## Brief Thoughts
-Rating: 7.5/10
-Self-help books fall along a gradient of scientific rigor. Fortunately, _Think Again_ makes its case for rethinking by bolstering its argument with studies, presented as evidence rather than justification, and strips out the childish composition of geometries that make good slideshow presentations for selling a consultancy framework. Grant takes your time more seriously (although he doesn't take himself too seriously, peppering the book with humorous comics and images). The book is a compelling toolset for rethinking, although there might've been some room to more thoroughly explore an epistemology -- the book seems to hew a more simplistic line that knowledge is close to knowing facts about stuff. A good read nonetheless. Grant is honest and forthright.
+Rating: 7/10
+Self-help books fall along a gradient of scientific rigor. Fortunately, _Think Again_ makes its case for rethinking by bolstering its argument with studies, presented as evidence rather than justification, and strips out the simplistic geometric images of most self-help books that, although make good slideshow presentations for selling a consultancy framework, often deceive or over-simplify. Grant takes your time more seriously (although he doesn't take himself too seriously, peppering the book with humorous comics and images). The book is a compelling toolset for personal rethinking, although there might've been some room to more thoroughly declare an epistemology and especially how that is tied up with our identities.
