@@ -9,6 +9,7 @@ nav_order: 1
 Remzi Arpaci-Dusseau, Andrea Arpaci-Dusseau. 2015
 
 ## Key Links
+{: .no_toc }
 - https://pages.cs.wisc.edu/~remzi/OSTEP/Homework/homework.html
 - https://pages.cs.wisc.edu/~remzi/OSTEP/
 - https://github.com/remzi-arpacidusseau/ostep-code
@@ -35,6 +36,7 @@ Remzi Arpaci-Dusseau, Andrea Arpaci-Dusseau. 2015
   - information about I/O (such as open files which can be read or written)
 
 ## Sharing
+{: .no_toc }
 - _time sharing_ - allowing one entity to use a resource for a little while then context switching to allow another entity to use the resource (e.g., CPU, network link)
 - _space sharing_ - a resource is divided in space among users (e.g., disk space)
 
@@ -44,6 +46,7 @@ Remzi Arpaci-Dusseau, Andrea Arpaci-Dusseau. 2015
   - I/O info
 
 ## Process API
+{: .no_toc }
 - **create** - method to create new processes
 - **destroy** - method to destroy running processes
 - **wait** - method to pause a running process
@@ -70,6 +73,7 @@ how are programs turned into processes?
 4. OS will do other initialization tasks such as setting up file descriptors (standard out, standard in, standard err)
 
 ## Process States
+{: .no_toc }
 RUNNING - the process is using the CPU right now
 READY   - the process could be using the CPU right now
           but (alas) some other process is
@@ -89,6 +93,7 @@ ZOMBIE  - the process has completed executing but there is still an entry in the
 </div>
 
 ## Data Structures
+{: .no_toc }
 - **process list** - aka task list, keeps track of all running programs
 - **process control block** - aka process descriptor, individual structure that stores information about each process, an entry in the process list
 
@@ -97,6 +102,7 @@ ZOMBIE  - the process has completed executing but there is still an entry in the
 - the separation of fork and exec enables features like input/output redirection, pipes, and other cool features
 
 ## the fork system call
+{: .no_toc }
 - used to create a new process
 - creates _almost an exact copy_ of the parent process as a child process, key difference is PID
 - not _deterministic_, as the parent or child might finish executing first
@@ -126,10 +132,12 @@ int main(int argc, char*argv[]) {
 ```
 
 ## the wait system call
+{: .no_toc }
 - allows a parent to wait for its child to complete execution.
 - a way to introduce determinism into parent/child execution
 
 ## the exec system call
+{: .no_toc }
 - useful when you want to run a program that is different from the calling program
 
 ```c
@@ -166,6 +174,7 @@ int main(int argc, char*argv[]) {
 ```
 
 ## Process Control
+{: .no_toc }
 - available in the form of signals which can cause jobs to stop, continue, or terminate
 - which processes can be controlled by whom is encapsulated in the idea of a user -- a user can only control their own processes
 - a superuser can control all processes, as well as other privileged actions
@@ -194,6 +203,7 @@ when the OS wants to start a program, it
 6. starts running
 
 ## Processor Modes
+{: .no_toc }
 - **user mode** - code run here is restricted in what it can do
 - **kernel mode** - used for privileged operations like I/O or restricted instructions, and is the mode the OS runs in
 
@@ -208,6 +218,7 @@ when the OS wants to start a program, it
 - **trap table** - a table of what happens on exceptional events like keyboard interrupts, and is set up at boot time
 
 ## Switching Between Processes
+{: .no_toc }
 - **cooperative** - OS trusts processes to give up control to the CPU periodically
 - **non-cooperative** - OS implements a mechanism like a _timer interrupt_ to take back control of CPU
 
@@ -219,6 +230,7 @@ when the OS wants to start a program, it
 - in order to compare different scheduling policies, need metrics to compare
 
 ## Key Metrics
+{: .no_toc }
 **turnaround time**
   - time in which a job completes minus the time a job arrives
   - $ T_{turnaround} = T_{completion} - T_{arrival} $
@@ -237,21 +249,25 @@ when the OS wants to start a program, it
   - when dealing with I/O (or any blocking task), it is good to kick off the blocking task then switch, or to overlap executions
 
 ## First In, First Out (FIFO)
+{: .no_toc }
 - simplest algo for scheduling -- job that arrives is first to be processed
 - suffers from **convoy effect** -- large, expensive job blocks small, fast jobs
 - normally only works when all jobs run in same amount of time
 
 ## Shortest Job First (SJF)
+{: .no_toc }
 - jobs are organized based on job length at arrival
 - optimal if all jobs arrive at the same time, but bad for response time
 - if not all jobs arrive at same time, you need to add **preemption** (like an interrupt for new arrivals), called **Shortest Time-to-Completion First** (STCF)
 - most modern schedulers are preemptive
 
 ## Shortest Time-to-Completion First (STCF)
+{: .no_toc }
 - adds preemption to shortest job first scheduling
 - any time a new job enters the system, the scheduler determines which job has least time left and schedules that one
 
 ## Round Robin
+{: .no_toc }
 - aka _time slicing_
 - instead of running job to completion, jobs are run for a _time slice_ (aka scheduling quantum)
 - need to _amortize_ cost (spread cost out over long term) of context switching, so you don't want to switch context too often or wait too long so as to remove all benefits of round robin algo
@@ -296,11 +312,13 @@ general rules outlined:
 **proportional share (_fair-share_) scheduling** - instead of optimizing turnaround time, a scheduler might guarantee that each job obtain a certain percentage of CPU time
 
 ## lottery scheduling
+{: .no_toc }
 - a non-deterministic, probabilistic fair share scheduling algorithm
 - every so often, hold a lottery to determine which process runs next
 - **tickets** - represent the share of a resource that a process should receive
 
 ### ways to manipulate tickets
+{: .no_toc }
 - **ticket transfer** - allows a user with a set of tickets to allocate tickets among their own jobs in whatever currency they want, then those tickets are converted to global currency
 - **ticket transfer** - a process can temporarily hand off its tickets to another process
 - **ticket inflation** - a process can temporarily raise of lower the number of tickets it owns
@@ -319,6 +337,7 @@ lottery scheduling uses _randomness_, which
 </div>
 
 ## stride scheduling
+{: .no_toc }
 - a deterministic fair share scheduling algorithm
 - each process has a **stride** value which determines how long they run; as they run, their **pass** value is incremented to track global progress
 - biggest drawback is that there is global state per process to manage; how do you handle new jobs that enter the system -- can't set the pass to 0 or it will monopolize CPU
@@ -330,16 +349,19 @@ lottery scheduling uses _randomness_, which
 </div>
 
 ## linux's completely fair scheduler (CFS)
+{: .no_toc }
 - scheduling uses about 5% of overall datacenter CPU time
 - **virtual runtime (vruntime)** simple counting-based technique to divide CPU time
 - each processes _vruntime_ increases at the same rate in proportion to real time, and the scheduler will pick the process with the lowest _vruntime_ to run next
 
 ### CFS parameters
+{: .no_toc }
 - **sched_latency** - determines how long a process should run before considering a switch; typical value is 48 (ms)
 - **min_granularity** - CFS will never set the time slice of a process to less than this value; typical value is 6 (ms)
 - **niceness** - a way to weight jobs and give priority -- positive values imply _lower_ priority
 
 ### red-black trees
+{: .no_toc }
 - CFS uses red-black trees (a balanced binary tree) to identify which job to run next
 - this is logarithmic (not linear)
 - only contains running jobs
@@ -358,6 +380,7 @@ lottery scheduling uses _randomness_, which
 - later, many people wanted to **time share** machines
 
 ## Address Space
+{: .no_toc }
 - an easy to use abstraction of physical memory
 - the address space of a program contains all of the memory state of a running program
 - **stack** - stores where a process is in its function call chain, local variables, and for parameters and return values to and from routines
@@ -373,13 +396,16 @@ lottery scheduling uses _randomness_, which
 - **virtual addresses** - in virtualizing the memory, a process never has a physical address, just the virtual - every address you see is virtual
 
 ### Goals of the Address Space
+{: .no_toc }
 - **transparency** - OS should implement virtual memory in a way that is invisible to the running program
 - **efficiency** - OS should make the virtualization efficient in time (not making programs run much more slowly) and space (not using too much memory for structures needed to support virtualization)
 - **protection** - OS should make sure to protect processes from one another as well as the OS -- only a process should be allowed to change what it has stored in memory; important to delivery concept of **isolation**
 
 # 14 - Memory API
 ## Types of Memory
+{: .no_toc }
 ### stack
+{: .no_toc }
 - allocations and deallocations of stack memory are handled _implicitly_ by the compiler
 - sometimes called automatic memory for this reason
 - when you return from function, the compiler deallocates this memory, so if you need data to survive the invocation of a function, don't leave it on the stack
@@ -392,6 +418,7 @@ void func() {
 ```
 
 ### heap
+{: .no_toc }
 - more long-lived memory
 - allocations and deallocations are handled _explicitly_ by the programmer
 
@@ -403,6 +430,7 @@ void func() {
 ```
 
 ## malloc()
+{: .no_toc }
 - you pass the function a size of some room on the heap, it either succeeds and gives you a pointer to the newly-allocated space or fails and returns `NULL`
 - pass in `size_t` which describes how many bytes you need
 - `NULL` in C is just a macro for 0
@@ -414,10 +442,12 @@ void func() {
 - for strings, use `malloc(strlen(s) + 1)`, the + 1 for an end-of-string character
 
 ## free()
+{: .no_toc }
 - takes one argument, a pointer returned by malloc
 - size of allocated region is tracked by the memory-allocation library itself
 
 ## Common Memory Errors
+{: .no_toc }
 - many new languages are **garbage collected**, meaning there is a process to reclaim/free memory that is no longer in use -- this is an example of **automatic memory management**
 - **segmentation fault** - an error raised when you manage memory wrong
 - **forgetting to allocate memory** - if you don't allocate, you'll run into a segfault and the process will die, even if the program compiled correctly
@@ -439,6 +469,7 @@ void func() {
 - `objdump` on Linux allows us to disassemble C to assembly
 
 ## base and bounds (dynamic) relocation
+{: .no_toc }
 - two hardware registers, a base register and a bounds/limit register
 - this relocation happens at runtime and is thus dynamic (rather than static)
 - `physical address = virtual address + base`
@@ -446,6 +477,7 @@ void func() {
 - **memory management unit** - the part of the processor that helps with address translation
 
 ### hardware support
+{: .no_toc }
 <div style="text-align:center">
   <a href="/assets/img/ostep/hardware-reqs.png">
     <img src="/assets/img/ostep/hardware-reqs.png" alt="">
@@ -453,6 +485,7 @@ void func() {
 </div>
 
 ### os support
+{: .no_toc }
 <div style="text-align:center">
   <a href="/assets/img/ostep/os-reqs.png">
     <img src="/assets/img/ostep/os-reqs.png" alt="">
@@ -518,6 +551,7 @@ two approaches for hardware to determine which segment an address is in
 - `sbrk` system call grows heap
 
 ## Low-Level Mechanisms
+{: .no_toc }
 - **splitting** - memory allocator will find a free chunk of memory that can satisfy request and split in two
 - **coalescing** - when memory is freed, the memory allocator looks at adjacent chunks to see if freed space can be merged to an existing chunk
 
@@ -544,23 +578,28 @@ typedef struct {
 - most traditional allocators start with a small heap and grow via `sbrk` in most UNIX systems
 
 ## Basic Strategies
+{: .no_toc }
 - ideal memory allocation strategy is fast and minimizes fragmentation
 
 ### Best Fit
+{: .no_toc }
 - search through free list and find chunks that are as big or bigger than request, and return smallest of those
 - downsides are that you need to search the whole list
 
 ### Worst Fit
+{: .no_toc }
 - search through free list and find the largest chunk and break off the requested amount
 - downsides are that you need to search the whole list, and most studies show it performs poorly and leads to excess fragmentation
 
 ### First Fit
+{: .no_toc }
 - search through free list and find the first block that is big enough
 - fast, but can pollute the beginning of the free list with small objects
 - **address-based ordering** helps keep the beginning of the list clear by ordering the free list by address of free space
   - coalescing is easier and fragmentation is reduced
 
 ### Next Fit
+{: .no_toc }
 - keep an extra pointer to last location searched
 - searches through free space are more uniform
 - similar performance to first fit
@@ -577,6 +616,7 @@ if searching for 15 bytes
 - first fit picks 30
 
 ### Segregated Lists
+{: .no_toc }
 - if application has popular-sized requests, keep a separate list to manage objects of that size
 - an example is **slab allocator**
   - allocates object caches for kernel objects that are likely to be requested ferquently (e.g., locks, file-system inodes, etc)
@@ -585,6 +625,7 @@ if searching for 15 bytes
   - objects are kept in a pre-initialized state, as initialization and destruction of data structures is costly
 
 ### Buddy Allocation
+{: .no_toc }
 - memory is one big space, and when memory is requested, space is divided by two until a suitable block is found
 - key is that when memory is freed, allocator will check its buddies to see if it can be coalesced all the way up the tree
 
@@ -606,6 +647,7 @@ if searching for 15 bytes
   - _simplicity_ - just need to find free pages to use for address space
 
 ## translation
+{: .no_toc }
 - split virtual address into **virtual page number (VPN)** and **offset**
 - replace the virtual page number with the **physical frame number (PFN)** (sometimes called the **physical page number (PPN)**)
 - offset tells us which byte within the page we want
@@ -617,6 +659,7 @@ if searching for 15 bytes
 </div>
 
 ## page tables
+{: .no_toc }
 - **page table** - per process data structure that the OS keeps to store **address translations**, which lets OS know where in physical memory a page resides
 - **page table entry (PTE)** - stores actual physical translation
   - 20 bit VPN implies 2^20 translations, and at 4 bytes per PTE that is 4MB for each page table, and if there are 100 processes, thats 400MB
@@ -683,6 +726,7 @@ else // TLB Miss
 - **temporal locality** - an instruction or data item that has been recently accessed will likely be re-accessed soon in the future
 
 ## Who handles a TLB miss?
+{: .no_toc }
 - either hardware or OS
 
 **hardware**
@@ -702,12 +746,14 @@ else // TLB Miss
 **fully-associative cache** - any given translation can be anywhere in the TLB (compared to direct-mapped cache entries, which are indexed, or less permissive set-associative caches)
 
 ## How to handle context switches
+{: .no_toc }
 - when a process is context switched, the TLB entries will be incorrect for the new process's page table
 - can simply flush the TLB, but this is expensive and not performance
 - system can provide an address space identifer (ASID) to associate a TLB entry with process
 - processes can share code and thus point to same physical frame number
 
 ## Cache replacement
+{: .no_toc }
 - **least recently used (LRU)**
 - **random** - simpler, avoidance of corner-cases
 
@@ -724,14 +770,17 @@ else // TLB Miss
 - simple solution: use bigger tables, but this leads to waste within each page (**internal fragmentation**, as waste is **internal** to the unit of allocation)
 
 ## Hybrid: Paging and Segments
+{: .no_toc }
 - have a page table for each logical segment instead of the whole address space
 - base (from **base and bounds/limits**) points to the physical address of the page table (rather than where in physical memory address space begins)
 
 ### cost of paging and segments
+{: .no_toc }
 - segmentation is not as flexible as possible as it assumes a certain usage pattern of the address space
 - also causes external fragmentation to occur
 
 ## Multi-level Page Tables
+{: .no_toc }
 - turns the linear page table into something like a tree
 - chop up page table into page-sized units, then, if entire page-table entries (PTE) is invalid, don't allocate that page
 - introduces a **page directory** which holds whether page table is valid and where it is in physical memory
@@ -749,6 +798,7 @@ else // TLB Miss
   - how many page table entires fit within a page, and use that as index
 
 ### cost of multi-level page tables
+{: .no_toc }
 - time-space trade-off: less time equals more space, and vice versa -- on TLB miss, two loads from memory will be required (one for page directory, and one for page table entry (PTE))
 - adds complexity in OS or hardware handling lookup
 
@@ -795,6 +845,7 @@ else // TLB Miss
 ```
 
 ## Inverted Page Tables
+{: .no_toc }
 - instead of having many page tables (one per process), use a single page table that has an entry for each physical page of the system
 
 # 21 - Beyond Physical Memory: Mechanisms
@@ -803,6 +854,7 @@ else // TLB Miss
 - older systems used  **memory overlays**, which required programmers to manually move pieces of code or data in and out of memory
 
 ## Swap Space
+{: .no_toc }
 - allows OS to support the illusion of large virtual memory for multiple concurrently-running processes
 - swap pages out of memory to a space, and swap pages into memory from it
 
@@ -815,8 +867,8 @@ else // TLB Miss
 - **present bit** - additional piece of data in the page-table entry (PTE) that says whether data is in memory or in swap space
   - if set to 1, the page is present in physical memory; 0, it is not in memory but on disk somewhere
 
-
 ## Page Faults
+{: .no_toc }
 - accessing a page that is not in physical memory triggers a page fault, and resolution is handled via a **page-fault handler**
 - page faults typically handled by operating system (rather than hardware) because:
     1. page faults to disk are slow, so additional overhead of OS instructions are minimal
@@ -828,7 +880,7 @@ else // TLB Miss
   3. page not valid -> seg fault
 
 ### Page-Fault Control Flow Algorithm (Hardware)
-
+{: .no_toc }
 ```c
 VPN = (VirtualAddress & VPN_MASK) >> SHIFT
 (Success, TlbEntry) = TLB_Lookup(VPN)
@@ -856,7 +908,7 @@ else // TLB Miss
 ```
 
 ### Page-Fault Control Flow Algorithm (Software)
-
+{: .no_toc }
 ```c
 PFN = FindFreePhysicalPage()
 if (PFN == -1) // no free page found
@@ -868,6 +920,7 @@ RetryInstruction() // retry instruction
 ```
 
 ### Page-Replacement Policy
+{: .no_toc }
 - if memory is full, need a way to evict/replace pages
 - typically an active process, handled by a swap/page daemon
   - high watermark and low watermark -- if there are fewer than LW pages, a background process evicts pages until there is HW pages available
@@ -875,6 +928,7 @@ RetryInstruction() // retry instruction
 
 # 22 - Beyond Physical Memory: Policies
 ## Cache Management
+{: .no_toc }
 main memory holds some subset of all pages, can be though of as a cache for virtual memory pages in system
 goal is to minimize number of cache misses (how many times fetch a page from disk)
 **average memory access time (AMAT)** - AMAT = Tm + (Pmiss * Td)
@@ -888,11 +942,13 @@ goal is to minimize number of cache misses (how many times fetch a page from dis
 3. **conflict** - results in hardware because of limits on where an item can be placed in hardware cache (due to set-associativity) -- OS page cache is fully-associative so no conflict misses happen
 
 ## Optimal Replacement Policy
+{: .no_toc }
 - replace/evict page that will be accessed _furthest in the future_ results in fewest cache misses, unfortunately really hard to implement
 - **FIFO** - performs poorly compared to optimal -- doesn't determine importance of blocks
 - **Random** - a little better than FIFO but worse than optimal
 
 ### Using History: Least Recently Used
+{: .no_toc }
 - use history like **frequency** (how often a page is accessed) or **recency** (how recently a page was accessed)
 - **principle of locality** - programs tend to access certain code sequences and data structures quite frequently, and we should use history to determine what pages are or aren't important
   - **spatial locality** (data tends to be accessed in clusters)
@@ -901,6 +957,7 @@ goal is to minimize number of cache misses (how many times fetch a page from dis
 - **least recently used (LRU)** - when a page was most recently used
 
 ### No Locality Workload
+{: .no_toc }
 - each access is to a random page
 - when there is no locality in workload or the cache is large enough to fit all data, lru, lfu, random, and fifo perform the same
 
@@ -911,6 +968,7 @@ goal is to minimize number of cache misses (how many times fetch a page from dis
 </div>
 
 ### 80-20 Workload
+{: .no_toc }
 - 80% of accesses to 20% of pages (hot pages), 20% to the remaining 80% (cold pages)
 - LRU does the best, and while improvement might seem minor it would lead to substantial performance gains
 
@@ -922,6 +980,7 @@ goal is to minimize number of cache misses (how many times fetch a page from dis
 </div>
 
 ### Looping Sequential Workload
+{: .no_toc }
 - refer to _n_ pages in sequence, then start again
 - common workload for databases
 - worst case for LRU and FIFO, random performs best
@@ -933,16 +992,19 @@ goal is to minimize number of cache misses (how many times fetch a page from dis
 </div>
 
 ### LRU performance
+{: .no_toc }
 - to implement LRU perfectly, you'd need a data structure that stores when a page was last accessed, and it would need to be updated every memory reference -- this can be bad performance; even if you get hardware support to store last access, scanning all pages would take a long time
 - more performance algorithms are **scan resistant** - don't need to scan entire data structure to find relevant data
 - can approximate LRU using a **use bit** - on page access, use bit is set to 1, and when searching for a page to evict, the OS checks each page and if use bit is set to 1, it sets it to 0 and moves on until it finds a page with a use bit set to 0
 - also could consider dirty (modified) pages, as if memory structure has been modified, it needs to be written back to disk to evict, which is costly -- could prefer clean pages to evict
 
 ## Other Memory Policies
+{: .no_toc }
 - **demand paging** - OS brings page into memory when it is accessed, compared to **prefetching**, where an OS guesses when a page might be accessed before it is demanded
 - when to write page to disk -- clustering/grouping of writes is more performant
 
 ## Thrashing
+{: .no_toc }
 - when memory demands of running process exceeds available system memory, the system will be constantly paging
 - **admission control** - a system might decide not to run a subset of processes, with the idea that reducing a processes's working sets would fit into memory -- do less but better
 - **out-of-memory killer** - some Linux machines just kill off a memory-intensive process
@@ -950,10 +1012,12 @@ goal is to minimize number of cache misses (how many times fetch a page from dis
 # 23 - Complete Virtual Memory Systems
 
 ## VAX/VMS Virtual Memory
+{: .no_toc }
 - introduced in late 1970s by Digital Equipment Corporation (DEC)
 - uses a hybrid of paging and segmentation
 
 ### Address Space
+{: .no_toc }
 - lower half of address space called "process space" and is unique to each process
   - first half of process space (P0) contains user program and heap data and grows downwards
   - second half (P1) contains stack and grows upwards
@@ -970,6 +1034,7 @@ goal is to minimize number of cache misses (how many times fetch a page from dis
 </div>
 
 ### Page Replacement
+{: .no_toc }
 - page table entry contains
   - a valid bit
   - a protection field (4 bits)
@@ -984,10 +1049,12 @@ goal is to minimize number of cache misses (how many times fetch a page from dis
   - the bigger the second-chance lists are, the closer FIFO performs to LRU
 
 ### Other Optimizations
+{: .no_toc }
 - **demand zeroing** - instead of clearing out a page immediately for another process to use, this happens lazily upon demand, which saves effort if the page is never read or written
 - **copy-on-write** - when OS needs to copy one page from one address to another, it maps it and marks as read-only -- if it only needs to be read, it saves effort
 
 ## Linux
+{: .no_toc }
 - divided between user and kernel portions of address space
 - two types of kernel virtual addresses
     1. kernel logical addresses - contains most kernel data structures like page tables, per-process kernel stacks, apportioned by `kmalloc` and cannot be swapped to disk
@@ -1000,6 +1067,7 @@ goal is to minimize number of cache misses (how many times fetch a page from dis
 </div>
 
 ### Page Tables
+{: .no_toc }
 - provides hardware-managed, multi-level page table structure -- one page table per process
 - OS sets up mappings in memory and points register at the start of the page directory, hardware handles the rest
 - OS is involved in process creation, deletion, context switches
@@ -1009,6 +1077,7 @@ goal is to minimize number of cache misses (how many times fetch a page from dis
   - could lead to large internal fragmentation, and swapping doesn't work well as I/O is expensive
 
 ### Page Cache
+{: .no_toc }
 - unified, and keeps pages in memory from three sources
     1. memory-mapped files
     2. file data and metadata from devices (tracked from read() or write() calls)
@@ -1021,5 +1090,6 @@ goal is to minimize number of cache misses (how many times fetch a page from dis
   - not typically managed in perfect LRU order, but typically uses a clock algo to prevent full scans
 
 ## Security
+{: .no_toc }
 - **buffer overflow** - allows attacker to insert arbitrary data into target's address space, and usually occurs when developer assumes input won't be overly long and inserts into a buffer -- can trigger a **privilege escalation**, which gives attacker access to privileged mode
 - **return-oriented programming** - lots of pieces of code (gadgets) in program's address space, and by changing return address, attacker can string together gadgets to execute arbitrary code -- combatted by address space layout randomization (ASLR) which randomizes virtual address layout
