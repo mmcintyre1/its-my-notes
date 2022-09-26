@@ -32,9 +32,11 @@ plugins:
   - jekyll-spaceship
 
 kramdown:
+  syntax_highlighter: rouge
+  input: GFM
   syntax_highlighter_opts:
     block:
-      line_numbers: false
+      line_numbers: true
 
 exclude:
   - Gemfile
