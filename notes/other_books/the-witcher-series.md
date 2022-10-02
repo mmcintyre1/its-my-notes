@@ -3,6 +3,10 @@ last_modified_date: "2022-02-03 21:58:35.187897"
 parent: Other Books
 nav_exclude: true
 nav_order: 4
+book_title: ""
+author: ""
+publication_year:
+isbn:
 ---
 
 # The Witcher Series

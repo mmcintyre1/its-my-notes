@@ -3,6 +3,10 @@ last_modified_date: "2022-02-13 14:47:58.170679"
 parent: Other Books
 nav_exclude: true
 nav_order: 1
+book_title: ""
+author: ""
+publication_year:
+isbn:
 ---
 
 # Project Hail Mary

@@ -3,6 +3,10 @@ last_modified_date: "2021-08-29 13:14:26.949657"
 parent: Other Books
 nav_exclude: true
 nav_order: 9
+book_title: "American Pastoral"
+author: "Philip Roth"
+publication_year: 1997
+isbn: 978-0375701429
 ---
 
 # American Pastoral

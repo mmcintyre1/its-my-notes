@@ -3,6 +3,10 @@ last_modified_date: "2021-11-04 13:14:26.949657"
 parent: Other Books
 nav_exclude: true
 nav_order: 6
+book_title: ""
+author: ""
+publication_year:
+isbn:
 ---
 
 # Invitation To A Beheading

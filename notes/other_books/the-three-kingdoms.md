@@ -3,6 +3,10 @@ last_modified_date: "2021-06-28 19:40:54.029576"
 parent: Other Books
 nav_exclude: true
 nav_order: 14
+book_title: ""
+author: ""
+publication_year:
+isbn:
 ---
 
 # The Three Kingdoms, Vol 1, 2, and 3

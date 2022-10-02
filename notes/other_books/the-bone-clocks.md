@@ -3,6 +3,10 @@ last_modified_date: "2021-10-07 21:45:26.949657"
 parent: Other Books
 nav_exclude: true
 nav_order: 8
+book_title: ""
+author: ""
+publication_year:
+isbn:
 ---
 
 # The Bone Clocks

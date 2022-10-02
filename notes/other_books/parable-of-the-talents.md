@@ -3,6 +3,10 @@ last_modified_date: "2022-02-11 18:26:50.118450"
 parent: Other Books
 nav_exclude: true
 nav_order: 3
+book_title: ""
+author: ""
+publication_year:
+isbn:
 ---
 
 # Parable of the Talents

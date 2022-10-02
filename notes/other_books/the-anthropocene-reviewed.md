@@ -3,6 +3,10 @@ last_modified_date: "2022-02-22 12:30:26.072397"
 parent: Other Books
 nav_exclude: true
 nav_order: 0
+book_title: ""
+author: ""
+publication_year:
+isbn:
 ---
 
 # The Anthropocene Reviewed
