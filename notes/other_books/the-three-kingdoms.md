@@ -5,8 +5,11 @@ nav_exclude: true
 nav_order: 14
 ---
 
-# The Three Kingdoms, Volume 1: The Sacred Oath
-Summary here: https://randallwriting.com/three-kingdoms-chapter-summary-1/
+# The Three Kingdoms, Vol 1, 2, and 3
+I'm reading the Iverson translation, but the Moss Roberts is also highly recommended. I'm going to read the first two Iverson volumes and the Moss Roberts for the third (it's divided into four volumes, so I'll pick it up somewhere into the third).
+
+# Volume 1: The Sacred Oath
+Summary here: [https://randallwriting.com/three-kingdoms-chapter-summary-1/](https://randallwriting.com/three-kingdoms-chapter-summary-1/)
 
 Chapter 27, Guan Yu the Beautiful Beard Travels a Thousand Li  And Slays Six Officers at Five Passes  - This would be a great movie, along the lines of Kill Bill (in fact, the plots are so similar one might've inspired the other). Guan Yu, separated from his oath-bound brother and leader Liu Bei, has taken up with Cao Cao, fearing his brother dead. Guan Yu keeps telling Cao Cao that he would go to Liu Bei when he finds him, but it turns out Liu Bei is with Yang Shao, Cao Cao's rival. Guan Yu leaves at once, with Cao Cao's passive blessing, but six officers block his path. Guan Yu, riding the unrivaled Red Hare and donning his Green Dragon Crescent Blade, smites each warrior who stands in his way to be reunited with Liu Bei, who has since departed from Yang Shao.
 
@@ -39,7 +42,7 @@ I can't speak to the quality of the translation other than to say it seems well-
 I've taken a look at the other "definitive" English translation, the Moss Roberts edition. In addition to being much cheaper, I like the tone and language used in the Yu Sumei version better. For example, Moss Robert's version has chapter 15 as "Taishi Ci and Sun Ce Fight Their Hearts Out;
 Sun Ce Plants His Kingdom South of the River", whereas Yu Sumei has it as Taishi Chi Fights a Fierce Battle with Sun Ce; Sun Ce competes with the White Tiger". Subtle, by less sappy.
 
-# The Three Kingdoms, Volume 2: The Sleeping Dragon
+# Volume 2: The Sleeping Dragon
 ## Pronunciation Guide
 ### Consonants
 `x` - The best way to think of x is as an "sh" sound. This is not quite accurate, as "sh" is also used in Chinese and has a subtly different pronunciation. For those interested in understanding the distinction, the "sh" in Pinyin is much closer to the typical English sh, while "x" is pronounced with the tongue near the front of the mouth.
@@ -93,3 +96,5 @@ Sun Ce Plants His Kingdom South of the River", whereas Yu Sumei has it as Taishi
 - **Sima Yi**- Suh ma yee
 - **Zhuge Liang** - Joo guh lee-ahng
 - **Xiahou Dun** - She-ah hoe dwuhn
+
+# Volume 3: Welcome the Tiger
