@@ -291,3 +291,152 @@ DataOps is a collection of technical practices, workflows, cultural norms, and a
 - infra as code (IaC)
 - pipelines as code
 - general-purpose problem solving
+
+# 3: Designing Good Data Architecture
+## Enterprise Architecture
+- data architecture is part of enterprise architecture
+- technical solutions exist to support business goals
+- architects
+  - identify problems in current state (poor data quality, scalability limits, money-losing lines of business),
+  - define desired future states (agile data-quality improvement, scalable cloud data solutions, improved business processes), and
+  - realize initiatives through execution of small, concrete steps
+
+**The Open Group Architecture Framework (TOGAF) definition**
+> The term “enterprise” in the context of “enterprise architecture” can denote an entire enterprise—encompassing all of its information and technology services, processes, and infrastructure—or a specific domain within the enterprise. In both cases, the architecture crosses multiple systems, and multiple functional groups within the enterprise.
+
+**Gartner's definition**
+> Enterprise architecture (EA) is a discipline for proactively and holistically leading enterprise responses to disruptive forces by identifying and analyzing the execution of change toward desired business vision and outcomes. EA delivers value by presenting business and IT leaders with signature-ready recommendations for adjusting policies and projects to achieve targeted business outcomes that capitalize on relevant business disruptions.
+
+**Enterprise Architecture Book of Knowledge (EABOK) definition**
+> Enterprise Architecture (EA) is an organizational model; an abstract representation of an Enterprise that aligns strategy, operations, and technology to create a roadmap for success.
+
+**Fundamentals of Data Engineering definition**
+> Enterprise architecture is the design of systems to support change in the enterprise, achieved by flexible and reversible decisions reached through careful evaluation of trade-offs.
+
+## Data Architecture
+**TOGAF definition**
+> A description of the structure and interaction of the enterprise’s major types and sources of data, logical data assets, physical data assets, and data management resources.
+
+**DAMA definition**
+> Identifying the data needs of the enterprise (regardless of structure) and designing and maintaining the master blueprints to meet those needs. Using master blueprints to guide data integration, control data assets, and align data investments with business strategy.
+
+**Fundamentals of Data Engineering definition**
+> Data architecture is the design of systems to support the evolving data needs of an enterprise, achieved by flexible and reversible decisions reached through a careful evaluation of trade-offs.
+
+> “Architecture represents the significant design decisions that shape a system, where significant is measured by cost of change.”
+> - Grady Brooch
+
+- good data architecture is flexible and easily maintainable, and it's a living, breathing thing
+
+## Principles of Good Data Architecture
+
+### AWS Well-Architected Framework
+1. operational excellence
+2. security
+3. reliability
+4. performance efficiency
+5. cost optimization
+6. sustainability
+
+### Google Cloud's Five Principles for Cloud-Native Architecture
+1. design for automation
+2. be smart with state
+3. favor managed services
+4. practice defense in depth
+5. always be architecting
+
+### Fundamentals of Data Engineering Principles
+1. Choose components wisely
+    - rely on common components already in use rather than reinventing the wheel
+    - common components must support robust permission and security to enable sharing of assets among teams
+
+2. Plan for Failure
+    - Everything fails, all the time
+    - **availability** - The percentage of time an IT service or component is in an operable state
+    - **reliability** - The system’s probability of meeting defined standards in performing its intended function during a specified interval
+    - **recovery time objective** - The maximum acceptable time for a service or system outage
+    - **recovery point objective** - the acceptable state after recovery
+
+3. Architect for Scalability
+    - scalable systems need to _scale up_ to handle significant amounts of data
+    - also need to _scale down_ to reduce costs
+    - can _scale to zero_ to turn off when not in use
+
+4. Architecture is Leadership
+    - Strong leadership skills combined with high technical competence are rare and extremely valuable
+    > In many ways, the most important activity of Architectus Oryzus is to mentor the development team, to raise their level so they can take on more complex issues.mImproving the development team’s ability gives an architect much greater leverage than being the sole decision-maker and thus running the risk of being an architectural bottleneck.
+
+5. Always Be Architecting
+    - deep knowledge of the baseline architecture (current state), develop a target architecture, and map out a sequencing plan to determine priorities and the order of architecture changes
+
+6. Build Loosely Coupled Systems
+    - system broken into many small components
+    - These systems interface with other services through abstraction layers, such as a messaging bus or an API. These abstraction layers hide and protect internal details of the service, such as a database backend or internal classes and method calls.
+    - As a consequence of property 2, internal changes to a system component don’t require changes in other parts. Details of code updates are hidden behind stable APIs. Each piece can evolve and improve separately.
+    - As a consequence of property 3, there is no waterfall, global release cycle for the whole system. Instead, each component is updated separately as changes and improvements are made.
+    - loosely coupled teams and technical systems allow for more efficient work
+
+7. Make Reversible Decisions
+    - one way doors -- a door you can't walk back out of
+    - two way doors -- a door you can leave the same way you came in
+
+8. Prioritize Security
+    - hardened-perimeter: a strong firewall prevents intrusion, but security controls are lax within the perimeter
+    - zero trust: no trust within or without the firewall
+
+9. Embrace FinOps
+    > FinOps is an evolving cloud financial management discipline and cultural practice that enables organizations to get maximum business value by helping engineering, finance,technology, and business teams to collaborate on data-driven spending decisions.
+
+## Major Architecture Concepts
+- **domain** - the real-world subject area for which you’re architecting
+- **service** - a set of functionality whose goal is to accomplish a task
+- **scalability** - allows us to increase capacity of system to improve performance and handle demand
+- **elasticity** - ability of scalable system to scale dynamically
+- **availability** - percentage of time an IT service or component is in operable state
+- **reliability** - system's probability of meeting defined standards in performing its intended function during a specified interval
+- **horizontal scaling** - add more machines to satisfy load and resource requirements
+- **vertical scaling** - increase resources (CPU, disk, memory, I/O) to satisfy load requirements
+- **tightly coupled services** - extremely centralized dependencies and workflows -- every part of a domain and service is vitally dependent upon every other domain and service
+- **loosely coupled services** - decentralized domains and services that do not have strict dependence on each other
+- **single tier** - your database and application are tightly coupled, residing on a single server
+- **multitier** - (also known as n-tier) architecture is composed of separate layers: data, application, business logic, presentation, etc. a three tier architecture consists of data, application logic, and presentation tiers
+- **shared nothing architecture** - a single node handles each request, meaning other nodes do not share resources such as memory, disk, or CPU with this node or with each other
+- **shared disk architecture** - share the same disk and memory accessible by all nodes
+- **technical coupling** - architectural tiers
+- **domain coupling** - the way domains are coupled together
+- **monolith** - a single codebase running on a single machine that provides both the application logic and user interface
+- **microservices** - comprises separate, decentralized, and loosely coupled services
+- **brownfield projects** often involve refactoring and reorganizing an existing architecture and are constrained by the choices of the present and past
+- **greenfield projects** - allows you to pioneer a fresh start, unconstrained by the history or legacy of a prior architecture
+- **strangler pattern** - new systems slowly and incrementally replace a legacy architecture’s components -- allows for surgical approach of deprecating one piece of system at a time, and for flexible and reversible decisions
+- **event-driven architecture** events that are broadly defined as something that happened, typically a change in the state of something, consisting of event production, routing, and consumption
+
+## Types of Data Architecture
+
+### Data Warehouse
+- A data warehouse is a central data hub used for reporting and analysis. Data in a data warehouse is typically highly formatted and structured for analytics use cases. It’s among the oldest and most well-established data architectures.
+- The _organizational data warehouse architecture_ organizes data associated with certain business team structures and processes. The _technical data warehouse architecture_ reflects the technical nature of the data warehouse, such as MPP
+
+**two main characteristics**
+1. Separates online analytical processing (OLAP) from production databases (online trans‐ action processing)
+2. centralizes and organizes data
+
+- Extract, Load, Transform (ELT) - data gets moved more or less directly from production systems into a staging area in the data warehouse
+- cloud data warehouse -- things like Redshift, Google BigQuery and Snowflake (the latter two separate compute and storage pricing)
+- **data mart** - a more refined subset of a warehouse designed to serve analytics and reporting, focused on a single suborganization, department, or line of business
+  - makes data more easily accessible to analysts and report developers
+  - provide an additional stage of transformation beyond that provided by initial ETL or ELT
+
+### Data Lake
+- all data dumped in a central location
+- led to dumping ground of data -- data swamp, dark data, write once, read never (WORN)
+- first generation of data lakes have largely gone out of style
+
+### Data Lakehouse
+- The lakehouse incorporates the controls, data management, and data structures found in a data warehouse while still housing data in object storage and supporting a variety of query and transformation engines. In particular, the data lakehouse supports atomicity, consistency, isolation, and durability (ACID) transactions
+
+The Modern Data Stack
+Lambda Architecture
+Kappa Architecture
+IoT architecture
+data mesh
