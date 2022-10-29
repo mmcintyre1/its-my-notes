@@ -33,3 +33,9 @@ nav_order: 1
 
 > “There are a thousand hacking at the branches of evil to one who is striking at the root.”
 - Henry David Thoreau
+
+> Everyone can be taught to sculpt: Michelangelo would have had to be taught how not to. So it is with the great programmers
+- Alan Perlis
+
+> Instead of imagining that our main task is to instruct a computer what to do, let us concentrate rather on explaining to human beings what we want a computer to do.
+- Donald Knuth
