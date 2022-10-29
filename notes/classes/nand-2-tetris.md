@@ -2,7 +2,7 @@
 last_modified_date: "2022-10-09 13:14:26.949657"
 parent: Classes
 nav_exclude: true
-nav_order: 1
+nav_order: 2
 ---
 
 # NAND2Tetris
@@ -124,5 +124,30 @@ convert to negative, flip bits and add 1
 <div style="text-align:center">
   <a href="/assets/img/nand-2-tetris/wk3-4.jpg">
     <img src="/assets/img/nand-2-tetris/wk3-4.jpg" alt="">
+  </a>
+</div>
+
+# Week 4: Hack Programming
+<div style="text-align:center">
+  <a href="/assets/img/nand-2-tetris/wk4-1.jpg">
+    <img src="/assets/img/nand-2-tetris/wk4-1.jpg" alt="">
+  </a>
+</div>
+
+<div style="text-align:center">
+  <a href="/assets/img/nand-2-tetris/wk4-2.jpg">
+    <img src="/assets/img/nand-2-tetris/wk4-2.jpg" alt="">
+  </a>
+</div>
+
+<div style="text-align:center">
+  <a href="/assets/img/nand-2-tetris/wk4-3.jpg">
+    <img src="/assets/img/nand-2-tetris/wk4-3.jpg" alt="">
+  </a>
+</div>
+
+<div style="text-align:center">
+  <a href="/assets/img/nand-2-tetris/wk4-4.jpg">
+    <img src="/assets/img/nand-2-tetris/wk4-4.jpg" alt="">
   </a>
 </div>
