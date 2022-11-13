@@ -8,11 +8,11 @@ import os
 
 # add to this if there is a new parent directory to sort
 DIRS_TO_ORDER = [
-    pathlib.Path("./other_books"),
-    pathlib.Path("./business_books"),
-    pathlib.Path("./tech_books"),
-    pathlib.Path("./educational_books"),
-    pathlib.Path("./projects"),
+    pathlib.Path("./notes/other_books"),
+    pathlib.Path("./notes/business_books"),
+    pathlib.Path("./notes/tech_books"),
+    pathlib.Path("./notes/educational_books"),
+    pathlib.Path("./notes/projects"),
 ]
 
 
