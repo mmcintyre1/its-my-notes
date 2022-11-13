@@ -151,3 +151,19 @@ convert to negative, flip bits and add 1
     <img src="/assets/img/nand-2-tetris/wk4-4.jpg" alt="">
   </a>
 </div>
+
+<div style="text-align:center">
+  <a href="/assets/img/nand-2-tetris/wk5-1.jpg">
+    <img src="/assets/img/nand-2-tetris/wk5-1.jpg" alt="">
+  </a>
+</div>
+<div style="text-align:center">
+  <a href="/assets/img/nand-2-tetris/wk5-2.jpg">
+    <img src="/assets/img/nand-2-tetris/wk5-2.jpg" alt="">
+  </a>
+</div>
+<div style="text-align:center">
+  <a href="/assets/img/nand-2-tetris/wk5-3.jpg">
+    <img src="/assets/img/nand-2-tetris/wk5-3.jpg" alt="">
+  </a>
+</div>
