@@ -1,7 +1,7 @@
 ---
 has_children: true
 title: Projects
-nav_order: 4
+nav_order: 0
 permalink: /notes/projects
 ---
 

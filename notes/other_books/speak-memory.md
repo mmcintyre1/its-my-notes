@@ -2,7 +2,7 @@
 last_modified_date: "2022-10-02 21:58:35.187897"
 parent: Other Books
 nav_exclude: true
-nav_order: 4
+nav_order: 1
 book_title: "Speak, Memory"
 author: "Vladimir Nabokov"
 publication_year: 1966

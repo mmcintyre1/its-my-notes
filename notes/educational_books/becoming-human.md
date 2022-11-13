@@ -1,6 +1,6 @@
 ---
 last_modified_date: "2022-10-29 13:14:26.949657"
-nav_order: 0
+nav_order: 1
 nav_exclude: true
 parent: Educational Books
 title: "Becoming Human"

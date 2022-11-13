@@ -2,7 +2,7 @@
 last_modified_date: "2021-08-17 19:40:54.029576"
 parent: Business Books
 nav_exclude: true
-nav_order: 6
+nav_order: 9
 ---
 
 # The Starfish and the Spider

@@ -1,6 +1,6 @@
 ---
 last_modified_date: "2022-10-02 19:40:54.029576"
-nav_order: 5
+nav_order: 2
 parent: Educational Books
 nav_exclude: true
 book_title: "A Thousand Brains: A New Theory of Intelligence"

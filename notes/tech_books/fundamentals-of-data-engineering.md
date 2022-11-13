@@ -4,7 +4,7 @@ parent: Tech Books
 nav_exclude: true
 author: "Joe Reis and Matt Housley"
 publication_year: 2022
-nav_order: 1
+nav_order: 0
 ---
 
 # Fundamentals of Data Engineering
