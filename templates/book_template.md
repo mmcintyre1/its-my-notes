@@ -1,5 +1,5 @@
 ---
-last_modified_date: 2022-08-06 12:00:00 -0500
+last_modified_date:
 nav_order: 1
 book_title: ""
 author: ""
