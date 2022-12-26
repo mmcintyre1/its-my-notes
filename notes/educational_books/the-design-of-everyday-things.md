@@ -9,7 +9,11 @@ publication_year: 1988
 ---
 # The Design of Everyday Things
 
-## 1: The Psychopathology of Everday Things
+## 1: The Psychopathology of Everyday Things
+
+### Key Chapter Takeaways
+Every object has certain abilities (affordances) that object allows dependent upon the user of that object. There are ways to signal what those abilities are (signifiers), and how to create those is the key insight of designing. We should design for humans through human-centered design, without the rosy-colored idea that humans are perfect agents and should bend to the machines contours rather than the other way around.
+
 **norman doors** - poorly designed doors where it isn't clear if you should push or pull
 
 **two most important parts of design**
@@ -18,19 +22,19 @@ publication_year: 1988
 
 > All artificial things are designed (4)
 
-**three types of design**
+### Three Types of Design
 1. _industrial design_ - The professional service of creating and developing concepts and specifications that optimize the function, value, and appearance of products and systems for mutual benefit of both user and manufacturer
 2. _interactive design_ - The focus is upon how people interact with technology. The goal is to enhance people's understanding of what can be done, what ishappening, and what has just occurred. Interaction design draws upon principles of psychology, design, art, and emotion to ensure a positive, enjoyable experience.
 3. _experience design_ - The practice of designing products, processes, services, events, and environments with a focus placed on the quality and enjoyment of the total experience
 
 > It is the duty of machines and those who design them to understand people [...] We have to accept human behavior the way it is, not the way that we would wish it to be. (6)
 
-**human-centered design**
+### Human-Centered Design
 - a design philosophy that puts human needs, capabilities, and behavior first, then designs to accommodate those needs, capabilities, and ways of behaving
 
 > Great designers produce pleasurable experiences. (10)
 
-**fundamental principles of interaction**
+### Fundamental Principles of Design
 1. _discoverability_ - It is possible to determine what actions are possible and the current state of the device
 2. _affordances_ - The proper affordances exist to make the desired action possible
     - the relationship between the properties of an object and the capabilities of the agent that determine how the object could be used
@@ -70,6 +74,10 @@ publication_year: 1988
 > The same technology that simplifies life by providing more functions in each device also complicates life by making the device harder to learn, harder to use. (34)
 
 ## 2: The Psychology of Everyday Actions
+
+### Key Chapter Takeaways
+In addition to the affordances and signifiers of any given object, there is also the way humans interact with the object. There are three interaction modes, from the visceral to the behavioral to the reflective, and these follow along cognitive models of fast and slow thinking. Key to designing is understanding how cognition and emotion factor into the way people interact with objects.
+
 ### Two Gulfs of Action
 1. _Gulf of Execution_ - where people try to figure out how it operates
 2. _Gulf of Evaluation_ - where they try and figure out what happened
@@ -121,5 +129,30 @@ a conceptual model not to be taken too literally, but helpful grounding framewor
 > human error is usually a result of poor design: it should be called system error. (66)
 
 > It is easy to design devices that work well when everything goes as planned. The hard and necessary part of design is to make things work well even when things do not go as planned. (68)
->
->
+
+## 3: Knowledge in the Head and in the World
+
+### Key Chapter Takeaways
+We don't need the entirety of knowledge of how to precisely use something entirely within our head -- it is a combination of knowledge in our head and in the world that we can gather. Understanding how human memory works, how short-term and long-term memory differ, and how we can build constraints and cues into the world to overcome shortcomings with memory, is key to successful design.
+
+### Knowledge in the Head vs Knowledge in the World
+
+| knowledge in the world                                                                                                                                                                             | knowledge in the head                                                                                                                                                                                |
+|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| information is readily and easily available whenever perceivable                                                                                                                                   | marterial in morking memory is readily available. otherwise, considerable search and effort may be required                                                                                          |
+| interpretation substitutes for learning. How easy it is to interpret knowledge in the world depends upon the skills of the designer                                                                | Requires learning, which can be considerable. Learning is made easier if there is meaning or structure to the material or if there is a good conceptual model                                        |
+| Slowed by the need to find and interpret the knowledge.                                                                                                                                            | Can be efficient, especially if so well-learned that it is automated                                                                                                                                 |
+| Ease of use at first encounter is high                                                                                                                                                             | Ease of use at first encounter is low                                                                                                                                                                |
+| Can be ugly and inelegant, especially if there is a need to maintain a lot of knowledge. This can lead to clutter. Here is where the skill of the graphics and industrial planner play major roles | Nothing needs to be visible, which gives more freedom to the designer. This leads to cleaner, more pleasing appearance -- at the cost of ease of use at first encounter, learning, and remembering.  |
+
+### The Structure of Memory
+1. short-term memory
+    - retains most recent experiences and material
+    - is fragile
+    - design implications: 1) don't count on STM retaining much, 2) use multiple sensory modalities (sight, sound, haptics, hearing, spatial locations, gestures) to deliver different information
+2. long-term memory
+    - memory for the past
+    - not immediately codified, but is through sleep or rehearsal
+    - design implications: create approximate models/heuristics to aid in retaining info
+
+> [The] combination of technology and people that creates super-powerful beings. Technology doesn't make us smarter. People do not make technology smart. It is the combination of the two, the person plus the artifact, that is smart. (112)
