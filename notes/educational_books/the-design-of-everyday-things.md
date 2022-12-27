@@ -133,7 +133,7 @@ a conceptual model not to be taken too literally, but helpful grounding framewor
 ## 3: Knowledge in the Head and in the World
 
 ### Key Chapter Takeaways
-We don't need the entirety of knowledge of how to precisely use something entirely within our head -- it is a combination of knowledge in our head and in the world that we can gather. Understanding how human memory works, how short-term and long-term memory differ, and how we can build constraints and cues into the world to overcome shortcomings with memory, is key to successful design.
+We don't need the entirety of knowledge of how to precisely use something entirely within our head -- it is a combination of knowledge in our head and in the world that we can gather. Memory in the head takes several different forms and serves several different purposes. Understanding how memory works, how short-term and long-term memory differ, and how we can build constraints and cues into the world to overcome shortcomings with memory, is key to successful design.
 
 ### Knowledge in the Head vs Knowledge in the World
 
@@ -156,3 +156,28 @@ We don't need the entirety of knowledge of how to precisely use something entire
     - design implications: create approximate models/heuristics to aid in retaining info
 
 > [The] combination of technology and people that creates super-powerful beings. Technology doesn't make us smarter. People do not make technology smart. It is the combination of the two, the person plus the artifact, that is smart. (112)
+
+## 4: Knowing What to Do: Constraints, Discoverability, and Feedback
+### Key Chapter Takeaways
+
+### Four Kinds of Constraints
+1. **physical** - physical limitations constrain possible operations
+2. **cultural** - each culture has a set of allowable actions for social situations that are likely to change with time
+3. **semantic** - rely on the meaning of the situation to constrain possible actions
+4. **logical** - a relationship between the spatial or functional aspects of a component and the things they control
+
+> A usable design starts with careful observations of how the tasks being supported are actually performed, followed by a design process that results in a good fit to the actual ways the tasks get performed. (137)
+
+### Forcing Functions
+> Forcing functions are a form of physical constraint: situations in which the actions are constrained so that failure at one stage prevents the next step from happening. (141)
+
+1. **interlock** - forces operations to take place in a proper sequence, e.g., opening a microwave door and cutting microwave power
+2. **lock-in** - keeps an operation active, preventing someone from prematurely stopping it, e.g., jail cells or exit dialogs in word processors or vendor lock-in
+3. **lock-out** - prevents someone from entering a space that is dangerous, or prevents an event from occurring, e.g., stairways that have a fire barrier to the basement so people escaping fire don't go all the way to the basement
+
+- **conventions** are a special kind of cultural constraint, but often conventions make it hard to adopt new systems -- change is hard
+- use sound as a signifier when vision isn't enough, e.g., the backup warning on trucks
+- **skeuomorphic** - the technical term for incorporating old, familiar ideas into new technologies, even though they no longer play a functional role
+
+## 5: Human Error? No, Bad Design
+### Key Chapter Takeaways
