@@ -159,6 +159,7 @@ We don't need the entirety of knowledge of how to precisely use something entire
 
 ## 4: Knowing What to Do: Constraints, Discoverability, and Feedback
 ### Key Chapter Takeaways
+Not all knowledge needs to exist in the head, and there are several ways to convey knowledge in the world, including various flavors of constraints and forcing functions. Additionally, feedback via sound can also guide desired behavior. It is the task of the designer to understand how to leverage these sorts of mechanisms to impart knowledge to the users of their products.
 
 ### Four Kinds of Constraints
 1. **physical** - physical limitations constrain possible operations
@@ -181,3 +182,89 @@ We don't need the entirety of knowledge of how to precisely use something entire
 
 ## 5: Human Error? No, Bad Design
 ### Key Chapter Takeaways
+We need design not only for when the system works perfectly, but also for when things do not go to plan. Understanding common error patterns, as well as the mechanisms to counteract them, is key to good design.
+
+> [W]hen an error happens, we should determine why, then redesign the product or procedure being followed so that it will never occur again or, if it does, so that it will have minimal impact. (164)
+
+### Root Cause Analysis
+- investigate the accident until the single underlying cause is found
+- most problems don't have a single underlying cause, and we can't stop as soon as the first cause is uncovered
+- leverage the **five whys** (came out of Toyota) to get to the real root cause -- keep asking why until there are no more answers
+- important to resist urge to blame people -- most often, the system is to blame
+
+### Types of Errors: Slips and Mistakes
+Error is defined as deviance from the generally accepted correct or appropriate behavior.
+1. **slips**
+    - occurs when a person intends to do on action but then ends up doing something else
+    - _action-based slip_ - a wrong action is performed
+    - _memory-lapse slip_ - memory fails, so the intended action is not done or results not evaluated
+2. **mistakes**
+    - occurs when the wrong goal is established or the wrong plan is formed
+    - _rule-based mistake_ - a person has appropriately diagnosed the situation, but has decided upon an erroneous course of action
+    - _knowledge-based mistake_ - the problem is misdiagnosed because of erroneous or incomplete knowledge
+    - _memory-lapse mistake_ - takes place when there is forgetting at the stages of goals, plans, or evaluation
+
+### Types of Slips
+#### Capture Slips
+- defined as the situation where, instead of the desired activity, a more frequently or recently performed one gets done instead: it captures the activity
+- designers need to avoid procedures that have identical opening steps but then diverge
+
+#### Description-Similarity Slips
+- result from performing the correct action on the wrong object
+- designers need to ensure that controls and displays for different purposes are significantly different from one another
+
+#### Memory-Lapse Slips
+- common cause of error that can lead to several errors: failure to do all steps, forgetting the outcome of an action
+- can be combatted by minimizing amount of steps, or providing vivid reminder of steps that need to be completed
+
+#### Mode-Error Slips
+- occurs when a device has different states in which the same controls have different meanings
+- designers must try to avoid modes, but if they are necessary, the equipment must make it obvious which mode is invoked -- designers need to compensate for interfering activities
+
+### Types of Mistakes
+#### Rule-Based Mistakes
+- occurs when
+  - the situation is mistakenly interpreted, meaning the wrong rule is invoked
+  - the correct rule is invoked, but the rule itself is faulty
+  - the correct rule is invoked, but the outcome is incorrectly evaluated
+- the design challenge is to present the information about the state of the system in a way that is easy to assimilate and interpret, as well as to provide alternative explanations and interpretations
+
+#### Knowledge-Based Mistakes
+- occurs when people are in novel situations and are consciously problem solving
+- best solution is in a good understanding of the system, provided by manuals or intelligent computer systems
+
+#### Memory-Lapse Mistakes
+- occurs when someone forgets the steps or the goal or the plan
+- fixed the same way as memory-lapse slips: make sure all relevant information is continuously available
+
+- you can use checklists (ideally one person to follow, one to check things off) to counteract errors
+
+> In the absence of data, it is impossible to make improvements. (192)
+
+- **Jidoka** - automation with a human touch -- systems are mostly automated with a worker who might notice errors and report them
+- **poka-yoke** - "error proofing" or "avoiding errors" -- add simple fixtures, jigs, or devices to constrain the operations
+
+### Designing for Errors
+steps that should be taken:
+- understand the causes of error and design to minimize those causes
+- do sensibility checks: does the action pass the "common sense" test?
+- make it possible to reverse actions -- to "undo" them -- or make it harder to do what cannot be reversed
+- make it easier for people to discover the errors that do occur, and make them easier to correct
+- don't treat the action as an error; rather, try to help the person complete the action properly. think of the action as an approximation to what is desired.
+
+> Interruptions and distractions lead to errors, both mistakes and slips. (201)
+
+> The best way of mitigating slips is to provide perceptible feedback about the nature of the action being performed, then very perceptible feedback describing the new resulting state, coupled with a mechanism that allows the error to be undone. (207)
+
+### The Swiss Cheese Model of Errors
+- if each slice represents a condition in the task being done, an accident can happen only if holes in all slices are lined up just right
+- well-designed systems are resilient against failure
+> Design redundancy and layers of defense [...] we need to think about systems, about all the interacting factors that lead to human error and then to accidents, and devise ways to make the systems, as a whole, more reliable. (210)
+
+### Resilience Engineering
+- design systems, procedures, management, and the training of people so they are able to respond to problems as they arise
+- components are being continually assessed, tested, and improved
+
+- put the knowledge required to operate the technology in the world. don't require that all the knowledge must be in the head. allow for efficient operations hen people have learned all the requirements, when they are experts who can perform without the knowledge in the world, but make it possible for non-experts to use the knowledge in the world. this will also help experts who need to perform a rare, infrequently performed operation or return to the technology after a prolonged absence
+- use the power of natural and artificial constrains: physical, logical, semantic, cultural. exploir the power of forcing functions and natural mappings.
+- bridge the two gulfs, the gulf of execution and the gulf of evaluation. make things visible, both for execution and evaluation. on the execution side, provide feedforward information: make the options readily available. on the evaluation side, provide feedback: make the results of each action apparent. make it possible to determine the system's status readily, easily, accurately, and in a form consistent with the person's goals, plans, and expectations.
