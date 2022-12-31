@@ -11,7 +11,7 @@ publication_year: 1988
 
 ## 1: The Psychopathology of Everyday Things
 
-### Key Chapter Takeaways
+### Chapter Summary
 Every object has certain abilities (affordances) that object allows dependent upon the user of that object. There are ways to signal what those abilities are (signifiers), and how to create those is the key insight of designing. We should design for humans through human-centered design, without the rosy-colored idea that humans are perfect agents and should bend to the machines contours rather than the other way around.
 
 **norman doors** - poorly designed doors where it isn't clear if you should push or pull
@@ -75,7 +75,7 @@ Every object has certain abilities (affordances) that object allows dependent up
 
 ## 2: The Psychology of Everyday Actions
 
-### Key Chapter Takeaways
+### Chapter Summary
 In addition to the affordances and signifiers of any given object, there is also the way humans interact with the object. There are three interaction modes, from the visceral to the behavioral to the reflective, and these follow along cognitive models of fast and slow thinking. Key to designing is understanding how cognition and emotion factor into the way people interact with objects.
 
 ### Two Gulfs of Action
@@ -132,7 +132,7 @@ a conceptual model not to be taken too literally, but helpful grounding framewor
 
 ## 3: Knowledge in the Head and in the World
 
-### Key Chapter Takeaways
+### Chapter Summary
 We don't need the entirety of knowledge of how to precisely use something entirely within our head -- it is a combination of knowledge in our head and in the world that we can gather. Memory in the head takes several different forms and serves several different purposes. Understanding how memory works, how short-term and long-term memory differ, and how we can build constraints and cues into the world to overcome shortcomings with memory, is key to successful design.
 
 ### Knowledge in the Head vs Knowledge in the World
@@ -158,7 +158,7 @@ We don't need the entirety of knowledge of how to precisely use something entire
 > [The] combination of technology and people that creates super-powerful beings. Technology doesn't make us smarter. People do not make technology smart. It is the combination of the two, the person plus the artifact, that is smart. (112)
 
 ## 4: Knowing What to Do: Constraints, Discoverability, and Feedback
-### Key Chapter Takeaways
+### Chapter Summary
 Not all knowledge needs to exist in the head, and there are several ways to convey knowledge in the world, including various flavors of constraints and forcing functions. Additionally, feedback via sound can also guide desired behavior. It is the task of the designer to understand how to leverage these sorts of mechanisms to impart knowledge to the users of their products.
 
 ### Four Kinds of Constraints
@@ -181,7 +181,7 @@ Not all knowledge needs to exist in the head, and there are several ways to conv
 - **skeuomorphic** - the technical term for incorporating old, familiar ideas into new technologies, even though they no longer play a functional role
 
 ## 5: Human Error? No, Bad Design
-### Key Chapter Takeaways
+### Chapter Summary
 We need design not only for when the system works perfectly, but also for when things do not go to plan. Understanding common error patterns, as well as the mechanisms to counteract them, is key to good design.
 
 > [W]hen an error happens, we should determine why, then redesign the product or procedure being followed so that it will never occur again or, if it does, so that it will have minimal impact. (164)
@@ -268,3 +268,91 @@ steps that should be taken:
 - put the knowledge required to operate the technology in the world. don't require that all the knowledge must be in the head. allow for efficient operations hen people have learned all the requirements, when they are experts who can perform without the knowledge in the world, but make it possible for non-experts to use the knowledge in the world. this will also help experts who need to perform a rare, infrequently performed operation or return to the technology after a prolonged absence
 - use the power of natural and artificial constrains: physical, logical, semantic, cultural. exploir the power of forcing functions and natural mappings.
 - bridge the two gulfs, the gulf of execution and the gulf of evaluation. make things visible, both for execution and evaluation. on the execution side, provide feedforward information: make the options readily available. on the evaluation side, provide feedback: make the results of each action apparent. make it possible to determine the system's status readily, easily, accurately, and in a form consistent with the person's goals, plans, and expectations.
+
+## 6: Design Thinking
+### Chapter Summary
+Defining the modes of interaction for someone using a product are all well and good, but what does the actual act of designing in the real world look like? It is first key to define your problem, first by interrogating it and getting to the real root problem. Then, you apply the same iterative diverge then converge thinking to finding a solution. These processes are best applied iteratively with occasional management gates, and through cross-functional teams. It is expensive and takes a lot of effort to deliver products that meet a real need.
+
+### Design Thinking
+> [I]n design, the secret to success is to understand what the real problem is. (217)
+
+- process is iterative and expansive
+- don't find solution until you understand what real problem is
+- apply human-centered design and the double-diamond diverge-converge model of design
+- solving the right problem that meets human needs and capabilities
+
+### Double-Diamond Model of Design
+- two phases, 1) finding the right problem, 2) finding the right solution
+- start by questioning the problem given to expand scope, then narrowing down to right problem
+- then, expand space of possible solutions before converging on a solution
+
+<div style="text-align:center">
+  <a href="/assets/img/the-design-of-everyday-things/diverge-converge.png">
+    <img src="/assets/img/the-design-of-everyday-things/diverge-converge.png" alt="">
+  </a>
+</div>
+
+### Human-Centered Design Process
+1. **Observation**
+    - observe would be customers in natural environment, in their normal lives, wherever the product being deigned would be used (_applied ethnography_)
+    - no substitute for interacting directly with customer
+    - marketing and design should work as complementary to each other -- they have different concerns
+2. **Idea Generation**
+    - generate possible solutions
+    - create numerous ideas, be creative without regards for constraints, and question everything
+3. **Prototyping**
+    - build quick mock-up of each potential solution
+4. **Testing**
+    - gather small group that correspond closely to target audience
+    - ideally 5 -- you can test with 5, change the product, test with 5, etc etc. iterate!
+
+<div style="text-align:center">
+  <a href="/assets/img/the-design-of-everyday-things/design-process.png">
+    <img src="/assets/img/the-design-of-everyday-things/design-process.png" alt="">
+  </a>
+</div>
+
+- **activity-centered design** - if the product is being used for many people, you can concentrate on the activities that will be performed, as opposed to a more human-centered design -- let the activity define the product and its structure
+
+### Tasks and Goals
+- task is a small sub-component of a goal
+- Carver and Schier suggest three types of goals:
+    1. be-goals -- these are foundational, long-lasting, and determine one's self image
+    2. do-goals -- determine the plans and actions to be performed for an activity
+    3. motor-goals -- specifies just how the actions are performed
+- design for goals, not tasks
+
+- **waterfall method of design** -- linear, progress in single direction, and once decisions have been made it is difficult to go back
+- contrast this with more iterative method, where decisions are deferred, time to experiment
+
+> The goal is to have best of both worlds: iterative experimentation to refine the problem and the solution, coupled with management reviews at the gates [...] The trick is to delay precise specifications of the product requirements until some iterative testing with rapidly deployed prototypes has been done. (235)
+
+- **implicit knowledge** - knowledge that only exists in the heads of workers
+- **Norman's Law of Product Development** - The day a product development process starts, it is behind schedule and above budget.
+- **inclusive/universal design** - designing for people with special needs
+
+> [C]omplexity is essential: it is confusion that is undesirable. I distinguished between "complexity", which we need to match the activities we take part in, and "complicated", which I defined to mean confusion. (247)
+
+> Standardization provides a major breakthrough in usability. (248)
+
+## 7: Design in the World of Business
+### Chapter Summary
+The previous six chapters are theory, this chapter discusses what the actual market forces that dictate the development of product look like. Leans strongly on two examples: videophones, which were conceived in 1897 but still haven't been realized, and the typewriter and how it settled on the QWERTY keyboard. The realities of market forces mean that most of your product development takes years, will already be behind schedule, and might build off radical innovation but really represents incremental innovation.
+
+**Stigler's Law** - the names of famous people often get attached to ideas even though they had nothing to do with them
+
+### Innovation
+two types of innovation:
+  1. radical -- changes lives and industries, takes years, decades, or even centuries, hard to predict (black swan)
+  2. incremental -- makes things better on a small scale, iterative
+- we need both types
+
+> Design is successful only if the final product is successful -- if people buy it, use it, and enjoy it, thus spreading the word. A design that people do not purchase is a failed design, no matter how great the design team might consider it. (293)
+
+## Two Key Takeaways
+1. In order to design good products, we need to think about the ways people interact with those products, through affordances, signifiers, constraints, mappings, feedback, and conceptual models. Signifiers are the most important component of good design because they signal what you can or can't do with a product, what capabilities a product affords based on who is using that product.
+2. We need our design to be human-centered, to not assume a happy path, to meet the needs and capabilities of those who use it rather than the other way around. Great design produces pleasurable experiences, experiences that delight, and the key to this is putting the human in the center of your design rather than building in the abstract.
+
+## Thoughts
+Rating: 9/10
+I think over time, this rating might drift up to a 10. This book has lent me a vocabulary to wield in the battle to build usable systems. It is no exaggeration to say that thinking about usability in the way Norman posits has been the difference between success and failure for systems and processes I've built. This book is canon for user-centered design and for anyone who designs anything to be used by humans.
