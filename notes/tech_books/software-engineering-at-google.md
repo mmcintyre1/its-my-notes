@@ -65,8 +65,65 @@ types of costs
 - Software is sustainable when, for the expected life span of the code, we are capable of responding to changes in dependencies, technology, or product requirements. We may choose to not change things, but we need to be capable.
 - Hyrum’s Law: with a sufficient number of users of an API, it does not matter what you promise in the contract: all observable behaviors of your system will be depended on by somebody.
 - Every task your organization has to do repeatedly should be scalable (linear or better) in terms of human input. Policies are a wonderful tool for making process scalable.
-• Process inefficiencies and other software-development tasks tend to scale up slowly. Be careful about boiled-frog problems.
-- Expertise pays off particularly well when combined with economies of scale. • “Because I said so” is a terrible reason to do things. • Being data driven is a good start, but in reality, most decisions are based on a mix of data, assumption, precedent, and argument. It’s best when objective data makes up the majority of those inputs, but it can rarely be all of them.
+- Process inefficiencies and other software-development tasks tend to scale up slowly. Be careful about boiled-frog problems.
+- Expertise pays off particularly well when combined with economies of scale.
+- “Because I said so” is a terrible reason to do things.
+- Being data driven is a good start, but in reality, most decisions are based on a mix of data, assumption, precedent, and argument. It’s best when objective data makes up the majority of those inputs, but it can rarely be all of them.
 - Being data driven over time implies the need to change directions when the data changes (or when assumptions are dispelled). Mistakes or revised plans are inevitable.
 
 ## 2: How to Work Well on Teams
+- software dev is a team endeavor
+- The **Genius Myth** is the tendency that we as humans need to ascribe the success of a team to a single person/leader
+  - need to avoid, since best creations are mostly group activities
+- **the bus factor** - the number of people that need to get hit by a bus before your project is completely doomed.
+  - Ensuring that there is at least good documentation in addition to a primary and a secondary owner for each area of responsibility helps future-proof your project’s success and increases your project’s bus factor.
+- key to software delivery - get feedback as early as possible, test as early as possible, think about security and the production environments as early as possible
+- working alone is inherently riskier than working with others
+
+### Three Pillars of Social Interaction
+**Pillar 1: Humility**
+- You are not the center of the universe (nor is your code!). You’re neither omniscient nor infallible. You’re open to self-improvement.
+
+**Pillar 2: Respect**
+- You genuinely care about others you work with. You treat them kindly and appreciate their abilities and accomplishments.
+
+**Pillar 3: Trust**
+- You believe others are competent and will do the right thing, and you’re OK with letting them drive when appropriate.
+
+> It’s not about tricking or manipulating people; it’s about creating relationships to get things done.
+
+> The trick is to make sure you (and those around you) understand the difference between a constructive criticism of someone’s creative output and a flat-out assault against someone’s character.
+
+> if you’re not failing now and then, you’re not being innovative enough or taking enough risks. Failure is viewed as a golden opportunity to learn and improve for the next go-around
+
+- **blameless post-mortems** are really important to learning -- always need to contain an explanation of what was learned and what is going to change as a result of the learning experience
+
+> The more open you are to influence, the more you are able to influence; the more vulnerable you are, the stronger you appear.
+
+### Being "Googley"
+rubric of behaviors for what is "googley":
+
+**Thrives in ambiguity**
+- Can deal with conflicting messages or directions, build consensus, and make progress against a problem, even when the environment is constantly shifting.
+
+**Values feedback**
+- Has humility to both receive and give feedback gracefully and understands how valuable feedback is for personal (and team) development.
+
+**Challenges status quo**
+- Is able to set ambitious goals and pursue them even when there might be resistance or inertia from others.
+
+**Puts the user first**
+- Has empathy and respect for users of Google’s products and pursues actions that are in their best interests.
+
+**Cares about the team**
+- Has empathy and respect for coworkers and actively works to help them without being asked, improving team cohesion.
+
+**Does the right thing**
+- Has a strong sense of ethics about everything they do; willing to make difficult or inconvenient decisions to protect the integrity of the team and product.
+
+### Chapter Summary
+- Be aware of the trade-offs of working in isolation.
+- Acknowledge the amount of time that you and your team spend communicating and in interpersonal conflict. A small investment in understanding personalities and working styles of yourself and others can go a long way toward improving productivity.
+- If you want to work effectively with a team or a large organization, be aware of your preferred working style and that of others.
+
+## 3: Knowledge Sharing
