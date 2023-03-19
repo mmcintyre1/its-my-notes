@@ -76,3 +76,52 @@ publication_year:
 - China produced more concrete in 2018 and 2019 than the entire world in the 20th century
 
 ## 4: Understanding Globalization
+> The fourth chapter is the story of globalization, or how the world has become so interconnected by transportation and communication. This historical perspective shows how old (or indeed ancient) the origins of this process are, and how recent is its highest—and finally truly global—extent. And a closer look makes it clear that there is nothing inevitable about the future course of this ambivalently perceived (much praised, much questioned, and much criticized) phenomenon. Recently, there have been some clear retreats around the world, and a general trend toward populism and nationalism, but it is not clear how far these will continue, or to what extent these changes will be modified due to a combination of economic, security, and political considerations.
+
+definition of globalization:
+- the growing interdependence of the world’s economies, cultures, and populations, brought about by cross-border trade in goods and services, technology, and flows of investment, people, and information.
+
+- globalization isn't an historical inevitability preordained by economic and social evolution
+
+### 4 distinct eras of globalization
+1. wind-driven globalization (15th-18th century)
+    - spurred by sailing, but limited by the fact that it takes a while to sail anywhere
+2. steam engines and telegraph (19th century)
+    - steam engines capable of much faster movement
+    - telegraph allows much faster communication
+3. the first diesel engines, flight, radio (end of 19th - early 20th)
+    - diesel was a step-shift more efficient and reliable than steam
+4. large diesel, turbines, containers, and microchips (mid 20th - present)
+    - more powerful and efficient diesels, the gas turbine for propulsion of jetliners, superior design for intercontinental shipping, and quantum leaps in computing and information processing
+
+
+- new stage of globalization with entry of China, India, and Russia to world markets
+
+## 5: Understanding Risks
+> The fifth chapter provides a realistic framework for judging the risks we face: modern societies have succeeded in eliminating or reducing many previously mortal or crippling risks—polio and giving birth, for example—but many perils will always be with us, and we repeatedly fail to make proper risk assessments, both underestimating and exaggerating the dangers we face. After finishing this chapter, readers will have a good appreciation of the relative risks of many common involuntary exposures and voluntary activities (from falling at home to flying between continents; from living in a hurricane-prone city to parachuting)—and, cutting through the diet industry nonsense, we will see a range of options of what we could eat to help us live longer.
+
+## 6: Understanding the Environment
+> The sixth chapter will look first at how unfolding environmental changes might affect our three existential necessities: oxygen, water, and food. The rest of the chapter will focus on global warming, the change that has dominated recent environmental concerns and has led to the emergence of new—near apocalyptic—catastrophism on one hand, and complete denials of the process on the other. Instead of recounting and adjudging these contested claims (too many books have already done so), I will stress that, contrary to widespread perceptions, this is not a recently discovered phenomenon: we have understood the fundamentals of this process for more than 150 years.
+
+### nine categories of biospheric boundaries
+1. climate change - now interchangeably, albeit inaccurately, called simply global warming
+2. ocean acidification - endangering marine organisms that build structures of calcium carbonate
+3. depletion of stratospheric ozone - shielding the Earth from excessive ultraviolet radiation and threatened by releases of chlorofluorocarbons
+4. atmospheric aerosols - pollutants reducing visibility and causing lung impairment
+5. interference in nitrogen and phosphorus cycles - above all, the release of these nutrients into fresh and coastal waters
+6. freshwater use - excessive withdrawals of underground, stream, and lake waters
+7. land use changes - due to deforestation, farming, and urban and industrial expansion
+8. biodiversity loss
+9. various forms of chemical pollution
+
+## 7: Understanding the Future
+> In the closing chapter I will look to the future, specifically at the recent opposing propensities to embrace catastrophism (those that say there are just years left before the final curtain descends on modern civilization) and techno-optimism (those that predict that the powers of invention will open unlimited horizons beyond the confines of the Earth, turning all terrestrial challenges into inconsequential histories). Predictably, I have little use for either of these positions, and my perspective will find no favor with either doctrine. I do not foresee any imminent break with history in either direction; I do not see any already predetermined outcomes, but rather a complicated trajectory contingent on our—far from foreclosed—choices.
+
+## Thoughts
+- one of the central messages is that a promise of countermeasures to climate change that are instant and magical is a fool's gold. The processes of energy consumption, the infrastructure of reliance on fossil fuels, this is centuries in the making, and that "any sufficiently effective steps [to mitigate climate change] will be decidedly non-magical, gradual, and costly" (204)
+
+> To believe that our understanding of these dynamic, multifactorial realities has reached the state of perfection is to mistake the science of global warming for the religion of climate change.
+
+- Smil presents a unrelentingly realist take on the realities of our current dependence on energy and by virtue the fuel that creates that energy, fossil fuels. He paints a picture that disambiguates between the science of global warming and the religion of climate change, and argues for a measured approach stripped of the-world-is-going-to-end catastrophism or technology-will-solve-all-our-problems techno-optimism. The fact is, there is no silver bullet to eliminate our dependence on fossil fuels. The system is now too large, with too many pieces that would need to be replaced or updated even if we create some wonder-fuel. As a system gets larger, it is subject to more and more inertia, and the mechanisms of our global economy, built on shipping and transport, are too entrenched to be changed overnight.
+
+- The one argument I can broker is that while Smil acknowledges black swan events for technological innovation, he dismisses the sort of world-changing nature of these events. While the internet and computing didn't change the fundamental profile of our energy use drastically, there might be some sort of breakthrough in clean fueling, or energy storage, or energy generation that changes the game and allows us to pivot. But point taken that prayers aren't policy, and so banking on some revelatory new tech is waiting for technology Godot.
