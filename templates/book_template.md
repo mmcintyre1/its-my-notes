@@ -2,6 +2,7 @@
 last_modified_date:
 nav_order: 1
 book_title: ""
+subtitle: ""
 author: ""
 publication_year:
 parent: Business Books
