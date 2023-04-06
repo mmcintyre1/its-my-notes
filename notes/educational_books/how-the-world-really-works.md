@@ -4,8 +4,8 @@ nav_order: 1
 nav_exclude: true
 parent: Educational Books
 title: "How the World Really Works"
-author:
-publication_year:
+author: Vaclav Smil
+publication_year: 2022
 ---
 # How the World Really Works
 
