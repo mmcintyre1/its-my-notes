@@ -1,6 +1,6 @@
 ---
 last_modified_date: "2022-09-03 14:49:16.335041"
-nav_order: 2
+nav_order: 7
 book_title: "The Goldfinch"
 author: "Donna Tartt"
 publication_year: 2013

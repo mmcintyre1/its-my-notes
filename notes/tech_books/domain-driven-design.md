@@ -2,7 +2,7 @@
 last_modified_date: "2021-08-11 19:40:54.029576"
 parent: Tech Books
 nav_exclude: true
-nav_order: 6
+nav_order: 9
 ---
 # Domain Driven Design: Tackling Complexity in the Heart of Software
 {: .no_toc }

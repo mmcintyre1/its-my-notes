@@ -1,6 +1,6 @@
 ---
 last_modified_date: "2022-06-20 13:14:26.949657"
-nav_order: 3
+nav_order: 7
 nav_exclude: true
 parent: Educational Books
 title: "Language at the Speed of Sight"

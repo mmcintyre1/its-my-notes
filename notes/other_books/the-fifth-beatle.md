@@ -2,7 +2,7 @@
 last_modified_date: "2021-01-20 13:14:26.949657"
 parent: Other Books
 nav_exclude: true
-nav_order: 20
+nav_order: 26
 book_title: ""
 author: ""
 publication_year:

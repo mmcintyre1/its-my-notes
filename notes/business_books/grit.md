@@ -2,7 +2,7 @@
 last_modified_date: "2021-08-31 19:41:28.093960"
 parent: Business Books
 nav_exclude: true
-nav_order: 7
+nav_order: 9
 ---
 # Grit
 {: .no_toc }

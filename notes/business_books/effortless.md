@@ -1,6 +1,6 @@
 ---
 last_modified_date: "2022-09-05 10:23:29.282321"
-nav_order: 1
+nav_order: 3
 book_title: "Effortless"
 author: "Greg McKeown"
 publication_year: 2021

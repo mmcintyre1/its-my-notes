@@ -1,6 +1,6 @@
 ---
 last_modified_date: "2023-01-21 20:13:00.245224"
-nav_order: 1
+nav_order: 3
 book_title: "The Ministry for the Future"
 author: "Kim Stanley Robinson"
 publication_year: 2020

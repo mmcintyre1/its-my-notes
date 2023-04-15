@@ -2,7 +2,7 @@
 last_modified_date: "2021-11-14 19:41:28.093960"
 parent: Business Books
 nav_exclude: true
-nav_order: 5
+nav_order: 8
 ---
 
 # The Fifth Discipline: The Art & Practice of The Learning Organization

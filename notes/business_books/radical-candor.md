@@ -2,7 +2,7 @@
 last_modified_date: "2021-07-28 19:40:54.029576"
 parent: Business Books
 nav_exclude: true
-nav_order: 11
+nav_order: 13
 ---
 
 # Radical Candor: Be a Kick-Ass Boss without Losing Your Humanity

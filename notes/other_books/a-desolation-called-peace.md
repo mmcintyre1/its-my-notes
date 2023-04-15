@@ -1,6 +1,6 @@
 ---
 last_modified_date: "2023-04-06 12:32:12.938989"
-nav_order: 1
+nav_order: 0
 book_title: "A Desolation Called Peace"
 subtitle: ""
 author: "Arkady Martine"

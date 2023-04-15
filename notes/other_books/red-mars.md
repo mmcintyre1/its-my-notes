@@ -1,6 +1,6 @@
 ---
 last_modified_date: "2023-03-11 18:14:58.606226"
-nav_order: 0
+nav_order: 1
 book_title: "Red Mars"
 author: "Kim Stanley Robinson"
 publication_year: 1992
