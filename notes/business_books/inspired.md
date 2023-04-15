@@ -149,7 +149,7 @@ nav_order: 3
 - **customer interviews**
 - **concierge test** - do the customers job for them to get a feel for what it's like
 - **customer misbehavior** - monitor what the customer _wants_ to do outside of typical behavior
-- **hcak days** - either directed or undirected, but useful for developer ideas
+- **hack days** - either directed or undirected, but useful for developer ideas
 
 #### discovery prototyping
 - many different forms of prototypes, different characteristics suited for different things
@@ -166,3 +166,70 @@ main principles
 5. the primary purpose of a prototype is to tackle one or more product risks
 
 #### discovery testing
+1. testing usability
+    - need to round up users
+    - use a high-fidelity user prototype
+    - need to keep users in _use mode_ rather than _critique mode_
+    - act like a parrot -- repeat to users what you are hearing them say
+2. testing value
+    - can test demand, and can test value qualitatively or quantitatively
+    - use a _fake door demand_ test, where a button for some functionality exists but the functionality hasn't been implemented
+    - to test qualitatively, you can have users stake money, reputation (would they recommend it), time, or access (will they provide login creds to port current application to new one)
+    - can test qualitatively through A/B testing (gold standard), invite only testing
+3. testing feasibility
+    - do we know _how_ to build this?
+    - do we have the _skills_ on teams to build this?
+    - do we have enough _time_ to build this?
+    - do we need _architectural_ changes to build this?
+    - do we have all the _components_?
+    - do we understand _dependencies_?
+    - will _performance_ be acceptable?
+    - will it _scale_?
+    - do we have the _infrastructure_?
+    - can we afford the _cost_?
+4. testing business viability
+    - need to go through all stakeholders to assess viability: marketing, sales, customer success, finance, legal, security, bus dev
+
+### transformation techniques
+- **discovery sprint**: one week time box of product discovery designed to tackle a substantial problem or risk the product team is facing
+- **pilot team**: allow the roll out of change to a limited part of the org before implementing more broadly
+- **moving off roadmaps** - to wean an organization off of roadmaps, include the actual business outcome a feature is intended to help
+
+> Teams work on the prioritized business objectives determined by the leaders; we share key results transparently, and we commit to high-integrity commitments when critical delivery dates are needed.
+
+## stakeholders
+- a stakeholder is a person who has veto power or can otherwise prevent the work from launching
+- success for stakeholder management means they respect you and your contributions, they trust you understand their concerns, and will keep thme informed of important decisions or changes, and they will give you the room to come up with the best possible solutions
+
+> A group setting is not the forum for designing strong products. It results in design by committee, which yields mediocre results at best. Instead, meet privately with each stakeholder, show them the high-fidelity prototype, and five them the chance to raise any concerns.
+
+## good culture
+### top reasons for loss of innovation
+organizations that lose the ability to innovate at scale are missing these attributes:
+1. customer-centric culture
+2. compelling product vision
+3. focused product strategy
+4. strong product managers
+5. stable product teams
+6. engineers in discovery
+7. corporate courage
+8. empowered product teams
+9. product mindset
+10. time to innovate
+
+### top reasons for loss of velocity
+1. technical debt
+2. lack of strong product managers
+3. lack of delivery management
+4. infrequent release cycles
+5. lack of product vision and strategy
+6. lack of co-located, durable product teams
+7. not including engineers early enough in product discovery
+8. not utilizing product design in discovery and instead having them try to do their work at the same time the engineers are trying to build
+9. changing priorities
+10. a consensus culture
+
+### innovation vs execution culture
+- to be strong at innovation, you need a culture of experimentation, open minds, technology, business and customer-savvy teams, skill-set and staff diversity, and discovery techniques
+- to be strong at execution, you need a culture of urgency, high-integrity commitments, empowerment, accountability, collaboration, results, and recognition
+- innovation and execution are often at odds
