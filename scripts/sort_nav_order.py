@@ -57,7 +57,7 @@ def main():
 
         # sort by last_modified, which is used to set nav_order
         sorted_files = sorted(
-            all_file_data, key=lambda x: x.last_modified, reverse=True
+            all_file_data, key=lambda x: x.filename.name, reverse=False
         )
 
         # rewrite all files with new nav_order, after using regex to sub it in

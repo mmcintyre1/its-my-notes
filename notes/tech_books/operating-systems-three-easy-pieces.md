@@ -2,7 +2,7 @@
 last_modified_date: "2022-02-22 12:24:15.090424"
 parent: Tech Books
 nav_exclude: true
-nav_order: 6
+nav_order: 10
 ---
 # Operating Systems: Three Easy Pieces
 {: .no_toc }

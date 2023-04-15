@@ -2,7 +2,7 @@
 last_modified_date: "2022-01-07 19:40:54.029576"
 parent: Business Books
 nav_exclude: true
-nav_order: 7
+nav_order: 12
 ---
 
 # The Startup of You

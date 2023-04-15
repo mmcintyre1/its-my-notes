@@ -2,7 +2,7 @@
 last_modified_date: "2023-03-04 15:30:29.801107"
 parent: Business Books
 nav_exclude: true
-nav_order: 0
+nav_order: 3
 ---
 
 # Inspired

@@ -1,6 +1,6 @@
 ---
 last_modified_date: "2023-01-07 17:19:25.653976"
-nav_order: 4
+nav_order: 2
 book_title: "A Master of Djinn"
 author: "P. Djèlí Clark"
 publication_year: 2021

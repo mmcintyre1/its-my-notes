@@ -1,6 +1,6 @@
 ---
 last_modified_date: "2022-08-13 19:40:54.029576"
-nav_order: 3
+nav_order: 8
 book_title: "The Fundamentals of Software Architecture"
 subtitle: "An Engineering Approach"
 author: "Mark Richards and Neal Ford"

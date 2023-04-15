@@ -1,6 +1,6 @@
 ---
 last_modified_date: "2021-10-17 13:14:26.949657"
-nav_order: 11
+nav_order: 4
 nav_exclude: true
 parent: Educational Books
 title: "How the World Really Works"

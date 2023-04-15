@@ -1,6 +1,6 @@
 ---
 last_modified_date: "2022-11-25 13:44:51.764524"
-nav_order: 1
+nav_order: 6
 book_title: "Never Split the Difference"
 author: "Chris Voss"
 publication_year: 2016

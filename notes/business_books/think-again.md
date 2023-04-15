@@ -1,6 +1,6 @@
 ---
 last_modified_date: "2022-09-12 19:40:54.029576"
-nav_order: 2
+nav_order: 13
 book_title: "Think Again"
 author: "Adam Grant"
 publication_year: 2021

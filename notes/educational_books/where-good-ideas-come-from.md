@@ -1,6 +1,6 @@
 ---
 last_modified_date: "2023-04-06 12:06:12.429796"
-nav_order: 0
+nav_order: 14
 nav_exclude: true
 parent: Educational Books
 title: "Where Good Ideas Come From"
