@@ -2,7 +2,7 @@
 last_modified_date: "2021-08-11 19:40:54.029576"
 parent: Tech Books
 nav_exclude: true
-nav_order: 7
+nav_order: 0
 ---
 # AWS for Solution Architects
 {: .no_toc }

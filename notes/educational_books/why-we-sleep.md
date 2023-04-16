@@ -2,7 +2,7 @@
 last_modified_date: "2021-11-06 13:14:26.949657"
 parent: Educational Books
 nav_exclude: true
-nav_order: 6
+nav_order: 15
 ---
 
 # Why We Sleep: Unlocking the Power of Sleep and Dreams

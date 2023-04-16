@@ -24,7 +24,7 @@ class MarkdownMeta:
     nav_order: int
 
     def write(self):
-        with open(self.filename, "w") as f:
+        with open(self.filename, "w", encoding='utf-8') as f:
             f.write(self.file_contents)
 
 
@@ -36,7 +36,7 @@ def get_md_meta(path):
     nav_order = 0
     last_modified = datetime.now() - timedelta(days=365)
 
-    with open(path, "r") as f:
+    with open(path, "r", encoding='utf-8') as f:
         file_data = f.read()
         for line in file_data.split("\n"):
             if line.startswith("last_modified_date"):
@@ -57,7 +57,7 @@ def main():
 
         # sort by last_modified, which is used to set nav_order
         sorted_files = sorted(
-            all_file_data, key=lambda x: x.last_modified, reverse=True
+            all_file_data, key=lambda x: x.filename.name, reverse=False
         )
 
         # rewrite all files with new nav_order, after using regex to sub it in
