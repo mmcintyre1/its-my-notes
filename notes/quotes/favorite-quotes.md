@@ -39,3 +39,12 @@ nav_order: 1
 
 > Instead of imagining that our main task is to instruct a computer what to do, let us concentrate rather on explaining to human beings what we want a computer to do.
 - Donald Knuth
+
+> Any sufficiently advanced technology is indistinguishable from magic.
+- Arthur C. Clarke
+
+> I apologize for such a long letter - I didn't have time to write a short one.
+- Mark Twain
+
+> Perfection is achieved, not when there is nothing more to add, but when there is nothing left to take away.
+- Antoine de Saint-Exupéry
