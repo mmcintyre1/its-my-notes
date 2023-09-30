@@ -435,8 +435,144 @@ DataOps is a collection of technical practices, workflows, cultural norms, and a
 ### Data Lakehouse
 - The lakehouse incorporates the controls, data management, and data structures found in a data warehouse while still housing data in object storage and supporting a variety of query and transformation engines. In particular, the data lakehouse supports atomicity, consistency, isolation, and durability (ACID) transactions
 
-The Modern Data Stack
-Lambda Architecture
-Kappa Architecture
-IoT architecture
-data mesh
+### The Modern Data Stack
+> main objective of the modern data stack is to use cloud-based, plug-and-play, easy-to-use, off-the-shelf components to create a modular and cost-effective data architecture. These components include data pipelines, storage, transformation, data management/governance, monitoring, visualization, and exploration.
+
+> Key outcomes of the modern data stack are self-service (analytics and pipelines), agile data management, and using open source tools or simple proprietary tools with clear pricing structures.
+
+### Lambda Architecture
+In a Lambda architecture you have systems operating independently of each other—batch, streaming, and serving. The source system is ideally immutable and append-only, sending data to two destinations for processing: stream and batch.
+
+<div style="text-align:center">
+  <a href="/assets/img/fundamentals-of-data-engineering/lambda_arch.png">
+    <img src="/assets/img/fundamentals-of-data-engineering/lambda_arch.png" alt="">
+  </a>
+</div>
+
+### Kappa Architecture
+- response to shortcomings of Lambda architecture
+- Jay Kreps proposed a system where stream-processing platform is the backbone of all data handling
+- hasn't been widely adopted despite introduced in 2014 -- difficult to execute on and complicated to maintain
+
+### Dataflow Model
+> The core idea in the Dataflow model is to view all data as events, as the aggregation is performed over various types of windows. Ongoing real-time event streams are unbounded data. Data batches are simply bounded event streams, and the boundaries provide a natural window.
+
+"batch is a special case of streaming"
+
+### IoT architecture
+- data generated from devices (things) and sent to a destination
+- **devices** - physical hardware connected to the internet and collect data and transmit to downstream destination
+- **iot gateway** - hub for connecting devices and securely routing devices to appropriate destinations on the internet
+
+### Data Mesh
+- see [notes on Data Mesh](https://itsmynotes.com/notes/tech_books/data-mesh)
+- response to sprawling, monolithic data platforms
+- four key components
+  1. Domain-oriented decentralized data ownership and architecture
+  2. Data as a product
+  3. Self-serve data infrastructure as a platform
+  4. Federated computational governance
+
+# 4: Choosing Technologies Across the Data Engineering Lifecycle
+> Architecture is strategic; tools are tactical [...] Architecture is the high-level design, roadmap, and blueprint of data systems that satisfy the strategic aims for the business. Architecture is the what, why, and when. Tools are used to make the architecture a reality; tools are the how.
+
+## Team Size and Capabilities
+- There is a continuum of simple to complex technologies, and a team’s size roughly determines the amount of bandwidth your team can dedicate to complex solutions.
+- take inventory of team's skills, and use that to drive tool selection
+
+## Speed to Market
+- choosing the right technologies that help you deliver features and data faster while maintaining high-quality standards and security
+
+## Interoperability
+- describes how various tech or systems interact, connect, exchange data, etc.
+- need to be aware of how simple it is to connect systems
+
+## Cost Optimization and Business Value
+- budget and time and finite, and cost is major constraint in choosing the right arch
+
+### Total Cost of Ownership
+{:. no_toc }
+- _Total cost of ownership_ (TCO) is the total estimated cost of an initiative, including the direct and indirect costs of products and services utilized.
+- **direct costs** - directly attributed to an initiative (salaries, AWS bill, etc.)
+- **indirect costs (overhead)** - independent of the initiative, must be paid regardless
+- **capital expenses (capex)** - require up-front investment, need to be paid today
+- **operational expenses (opex)** - opposite of capex and gradual, over time
+
+### Total Opportunity Cost of Ownership
+{:. no_toc }
+- _total opportunity cost of ownership (toco)_ - cost of lost opportunities incur in choosing a tech, arch, or process
+
+### FinOps
+{:. no_toc }
+> If it seems that FinOps is about saving money, then think again. FinOps is about making money. Cloud spend can drive more revenue, signal customer base growth, enable more product and feature release velocity, or even help shut down a data center.
+
+
+## Today versus the future: immutable versus transitory technologies
+- **immutable tech** - components that underpin cloud or languages or paradigms that have stood the test of time, eg. block storage, networking, servers, SQL, bash
+- **transitory tech** - things that come and go, eg. Javascript front-end language
+- should evaluate tools every two years, find the immutable tech and use that as base
+
+## Location
+### cloud
+{:. no_toc }
+- much more flexible than on-prem, but you need to ensure compute optimization because pricing model is different than heavy upfront on-prem model
+- The key to finding value in the cloud is understanding and optimizing the cloud pricing model
+- **Data gravity** is real: once data lands in a cloud, the cost to extract it and migrate processes can be very high.
+
+### on-prem
+{:. no_toc }
+- often default for companies, but less elastic and flexible than cloud
+
+### hybrid cloud
+{:. no_toc }
+- both on-premise and in the cloud, depending on workload
+
+### multicloud
+{:. no_toc }
+- deploying to multiple public clouds to take advantage of the best services across several clouds
+
+## Build versus buy
+- argument for building is end to end control over solution and aren't at the mercy of a vendor or open source community
+- argument for buying is resource constraints and expertise
+- should invest in building and customizing when doing so provides a competitive advantage for your business
+
+### Open Source Software (OSS)
+{:. no_toc }
+- software distribution model where software and underlying code base made available for general use under specific licensing terms
+- **Community-managed OSS** - vibrant use base and strong community. Need to assess mindshare, maturity, troubleshooting, project management, team, developer relations and community management, contributing, roadmap, self-hosting and maintenance, and giving back to the community to assess
+- **Commercial OSS** - vendor will offer core of services for free and enhancements or managed services for a fee. Need to assess value, delivery model, support, releases and bug fixes, sales cycle and pricing, company finances, logos vs. revenue, and community support in choosing
+- **Proprietary Walled Gardens** - two examples: independent companies and cloud-platform offerings -- need to assess interoperability, mindshare and market share, documentation and support, pricing, and longevity
+
+> There’s excellent value in upskilling your existing data team to build sophisticated systems on managed platforms rather than babysitting on-premises servers.
+
+## Monolith versus modular
+- monolith
+  - pros: easier to reason about, costs lower cognitive burden and context switching.
+  - cons:  brittle, user-induced problems occur, multi-tenancy is a problem, and switching to a new system is painful
+- modular
+    - pros: is easier to swap components to take advantage of fast moving landscape, limits team's complexity and size
+    - cons: more to reason about, interoperability can be harder
+
+> While monoliths are attractive because of ease of understanding and reduced complexity, this comes at a high cost. The cost is the potential loss of flexibility, opportunity cost, and high-friction development cycles.
+
+## Serverless versus servers
+
+1. **Expect servers to fail**
+    Server failure will happen. Avoid using a “special snowflake” server that is overly customized and brittle, as this introduces a glaring vulnerability in your architec‐ ture. Instead, treat servers as ephemeral resources that you can create as needed and then delete. If your application requires specific code to be installed on the server, use a boot script or build an image. Deploy code to the server through a CI/CD pipeline.
+
+2. **Use clusters and autoscaling**
+    Take advantage of the cloud’s ability to grow and shrink compute resources on demand. As your application increases its usage, cluster your application servers, and use autoscaling capabilities to automatically horizontally scale your application as demand grows.
+
+3. **Treat your infrastructure as code**
+    Automation doesn’t apply to just servers and should extend to your infrastructure whenever possible. Deploy your infrastructure (servers or otherwise) using deployment managers such as Terraform, AWS CloudFormation, and Google Cloud Deployment Manager.
+
+4. **Use containers**
+    For more sophisticated or heavy-duty workloads with complex installed depen‐ dencies, consider using containers on either a single server or Kubernetes.
+
+## Optimization, performance, and the benchmark wars
+- do your homework before relying on vendor benchmarks to choose
+- **Dewitt clause** - forbids the publication of database benchmarks that the database vendor has not sanctioned
+
+> Always approach technology the same way as architecture: assess trade-offs and aim for reversible decisions.
+
+# 5: Data Generation in Source Systems
