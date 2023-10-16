@@ -576,3 +576,127 @@ In a Lambda architecture you have systems operating independently of each otherâ
 > Always approach technology the same way as architecture: assess trade-offs and aim for reversible decisions.
 
 # 5: Data Generation in Source Systems
+- **Analog data** -- occurs in real world, eg vocal speech, sign language, writing on paper, or playing an instrument creation
+- **Digital data** -- created by converting analog data to digital or native to a system
+
+### Source Systems - Main Ideas
+
+#### Files and Unstructured Data
+{:. no_toc }
+- files are universal medium of exchange
+- structured (Excel, CSV), semistructured (JSON, XML, CSV), or unstructured (TXT, CSV)
+
+#### APIs
+{:. no_toc }
+- application programming interface - standard way of exchanging data between systems
+
+#### Application Databases (OLTP Systems)
+{:. no_toc }
+- online transaction processing (OLTP) systemâ€” a database that reads and writes individual data records at a high rate
+- supports low latency and high concurrency
+- ACID - atomicity,consistency, isolation, durability. Consistency means that any database read will return the last written version of the retrieved item. Isolation entails that if two updates are in flight concurrently for the same thing, the end database state will be consistent with the sequential execution of these updates in the order they were submitted. Durability indicates that committed data will never be lost, even in the event of power loss.
+- running analytics on these machines works but is not scalable
+
+#### Online Analytical Processing System (OLAP)
+{:. no_toc }
+- OLAP to refer to any database system that supports high-scale interactive analytics queries
+
+#### Change Data Capture (CDC)
+{:. no_toc }
+- Change data capture (CDC) is a method for extracting each change event (insert, update, delete) that occurs in a database
+- used to replicate between databases in real time
+
+#### Logs
+{:. no_toc }
+- captures information about events that occur in systems
+- should capture who (human, system, service associated with event), what (the event and related metadata) and when (timestamp)
+- logs can be binary, semi-structured (eg JSON) or plain text / unstructured
+
+#### Messages and Streams
+{:. no_toc }
+- **message** - raw data communicated across two or more systems
+- **stream** - append-only log of event records
+
+### Types of Time
+- always include timestamps for each phase through which an event travels
+- **ingestion time** - when an event is ingested from source system into a message queue, cache, memory, etc.
+- **processing time** - how long the data took to process, measured in seconds, minutes, hours
+
+### Types of Databases
+
+#### relational database management system
+{:. no_toc }
+- RDBMS - data is stored in a table of relations (rows) and each row contains multiple fields (columns)
+- rows are typically stored as contiguous sequence of bytes on disk
+- tables indexed by primary key - unique field for each row -- indexing strategy is closely related to layout of table on disk
+- tables can have foreign key - fields iwth values connected with the values of PKs of other tables, facilitating joins and allowing for complex schemas
+- normalization - strategy for ensuring that data in records in not duplicated in multiple places
+- typically ACID compliant
+
+#### non-relational (nosql)
+{:. no_toc }
+- not only sql - abandons relational paradigm
+- far too many different types of nosql to cover in one section
+
+#### key-value stores
+{:. no_toc }
+- non-relational database that retrieves records using a key that uniquely identifies each record
+- similar to hash map / dictionary
+- good for caching data
+- also help applications that require high-durability persistence
+
+#### document stores
+{:. no_toc }
+- specialized key-value store
+- document is a nested object (like JSON)
+- doesn't support joins
+- generally not ACID compliant
+
+#### wide column
+{:. no_toc }
+- optimized for storing massive amounts of data with high transaction rates and extremely low latency
+- don't support complex queries
+- helpful for ad tech, IoT, real-time personalization apps
+
+#### graph database
+{:. no_toc }
+- explicitly store in mathematical graph structure (as a series of nodes and edges)
+- Neo4j
+- good fit when you want to analyze connectivity between elements
+
+#### search
+{:. no_toc }
+- nonrelational database used to search data's complex and straightforward semantic and structural characteristics
+- ideal for text search and log analysis
+
+#### time series
+{:. no_toc }
+- values organized by time
+- eg. stock prices, logs, etc.
+
+### APIs
+
+#### REST
+{:. no_toc }
+- REST stands for representational state transfer. This set of practices and philosophies for building HTTP web APIs was laid out by Roy Fielding in 2000 in a PhD dissertation
+- key principles are that interactions are stateless -- there is no notion of a session or context
+- if a REST call changes a systems state, these changes are global
+
+> However, low-level plumbing tasks still consume many resources. At virtually any large company, data engineers will need to deal with the problem of writing and maintaining custom code to pull data from APIs, which requires understanding the structure of the data as provided, developing appropriate data-extraction code, and determining a suitable data synchronization strategy.
+
+#### GraphQL
+{:. no_toc }
+- facebook query language for applicaiton data and an alternative to generic REST APIs
+- built around JSON and allows for more expressive queries than REST
+
+#### webhooks
+{:. no_toc }
+- simple event-based data-transmission pattern
+- when an event happens, it triggers a call to an HTTP endpoint hosted by data consumer
+
+#### rpc and grpc
+{:. no_toc }
+- remote procedure call (rpc) used in distributed computing -- allows you to run a procedure on a remote system
+- gRPC developed by google to utilize HTTP/2
+
+# 6: Storage
