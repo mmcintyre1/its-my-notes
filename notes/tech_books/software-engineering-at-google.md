@@ -127,3 +127,64 @@ rubric of behaviors for what is "googley":
 - If you want to work effectively with a team or a large organization, be aware of your preferred working style and that of others.
 
 ## 3: Knowledge Sharing
+
+## 12: Unit Testing
+> After preventing bugs, the most important purpose of a test is to improve engineers’ productivity.
+
+### properties of unit tests
+{: .no_toc }
+- tend to be small, which makes them fast and deterministic and can be run often
+- easy to write at the same time as the code they are testing
+- promote high levels of test coverage because they are quick and easy to write
+- easy to understand what is wrong with them when they fail
+- can serve as documentation and examples
+
+- shoot for a mix of 80% unit tests, 20% broader-scoped tests
+- when writing tests, you want maintainability, and want to avoid:
+  - **brittle**: breaking in response to harmless or unrelated changes
+  - **unclear**: difficult to determine what is wrong and how to fix it
+- strive for **unchanging** tests -- after a test is written, it never needs to change unless the requirements of the system change
+
+### four kinds of change
+{: .no_toc }
+1. **pure refactorings** -- shouldn't require unit test changes because you shouldn't be changing the API, just implementation underneath
+2. **new features** -- should just be adding new unit tests, not changing what already exists
+3. **bug fixes** -- an uncaught bug means a test didn't exist, so additive
+4. **behavior changes** -- only case where you need to update unit tests
+
+> write tests that invoke the system being tested in the same way its users would; that is, make calls against its public API rather than its implementation details.
+
+### state and interaction testing
+{: .no_toc }
+1. state testing: you observe the system itself to see what it looks like after invoking with it
+2. interaction testing: check that the system took an expected sequence of actions on its collaborators in response to invoking it
+
+- you should prefer state testing because we generally don't care how a system arrives at state, just that it is in a particular state
+
+> Two high-level properties that help tests achieve clarity are completeness and conciseness. A test is complete when its body contains all of the information a reader needs in order to understand how it arrives at its result. A test is concise when it contains no other distracting or irrelevant information.
+
+### behavior testing
+{: .no_toc }
+- rather than write tests for each method, write tests for each behavior
+- a **behavior** is a guarantee that a system makes about how it will respond to a series of inputs while in a particular state
+- behaviors can often be expressed via "given", "when", and "then"
+- name and structure tests around the behaviors being tested
+
+- don't put logic in tests
+- write clear failure messages
+
+> Instead of being completely DRY, test code should often strive to be DAMP—that is, to promote “Descriptive And Meaningful Phrases.” A little bit of duplication is OK in tests so long as that duplication makes the test simpler and clearer.
+
+### TL;DR
+- Strive for unchanging tests.
+- Test via public APIs.
+- Test state, not interactions.
+- Make your tests complete and concise.
+- Test behaviors, not methods.
+- Structure tests to emphasize behaviors.
+- Name tests after the behavior being tested.
+- Don’t put logic in tests.
+- Write clear failure messages.
+- Follow DAMP over DRY when sharing code for tests.
+
+## 13: Test Doubles
