@@ -188,3 +188,47 @@ rubric of behaviors for what is "googley":
 - Follow DAMP over DRY when sharing code for tests.
 
 ## 13: Test Doubles
+- **test double** - an object or function that can stand in for a real implementation
+  - sometimes referred to as "mocking", but often mocking refers to more specific type of test double
+- key concepts:
+  1. **testability**: it should be possible for tests to swap out real implementations with test doubles
+  2. **applicability**: there is a tradeoff between engineer velocity introduced by applying test doubles, and over-usage resulting in brittle, complex, ineffective tests
+  3. **fidelity**: how closely a behavior a test double tests to the actual implementation
+
+- Code is said to be testable if it is written in a way that makes it possible to write unit tests for the code. A **seam** is a way to make code testable by allowing for the use of test doubles—it makes it possible to use different dependencies for the system under test rather than the dependencies used in a production environment.
+- **Dependency injection** is a common technique for introducing seams. In short, when a class utilizes dependency injection, any classes it needs to use (i.e., the class’s dependencies) are passed to it rather than instantiated directly, making it possible for these dependencies to be substituted in tests.
+- a **mock** is a test double whose behavior is specified inline in a test
+
+<div style="text-align:center">
+  <a href="/assets/img/software-engineering-at-google/mock.png">
+    <img src="/assets/img/software-engineering-at-google/mock.png" alt="">
+  </a>
+</div>
+
+- a **fake** is a lightweight implementation of an API that behaves similar to the real implementation but isn't suitable for production
+
+<div style="text-align:center">
+  <a href="/assets/img/software-engineering-at-google/fake.png">
+    <img src="/assets/img/software-engineering-at-google/fake.png" alt="">
+  </a>
+</div>
+
+- a **stub** is the process of giving behavior to a function that otherwise has no behavior on its own
+
+<div style="text-align:center">
+  <a href="/assets/img/software-engineering-at-google/stub.png">
+    <img src="/assets/img/software-engineering-at-google/stub.png" alt="">
+  </a>
+</div>
+
+- **interaction testing**: a way to validate _how_ a function is called without actually calling impl. of the function
+- **classical testing**: preferring real impl. in tests, and generally a more robust and diagnostic way to test
+- a real implementation is preferred if it is fast, deterministic, and has simple dependencies
+  - a test is **deterministic** if, for a given version of the system under test, running the test always results in the same outcome
+  - **hermetic**: self-contained; dependencies on external services outside the control of the test means it might not be deterministic
+
+### TL;DR
+- A real implementation should be preferred over a test double.
+- A fake is often the ideal solution if a real implementation can’t be used in a test.
+- Overuse of stubbing leads to tests that are unclear and brittle.
+- Interaction testing should be avoided when possible: it leads to tests that are brittle because it exposes implementation details of the system under test.
