@@ -1,6 +1,9 @@
 ---
 last_modified_date: "2023-03-04 15:30:29.801107"
 parent: Business Books
+book_title: "The Lean Startup"
+author: "Eric Ries"
+publication_year: 2011
 nav_exclude: true
 nav_order: 3
 ---
