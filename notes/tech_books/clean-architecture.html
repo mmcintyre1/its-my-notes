@@ -1,0 +1,1598 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+
+  
+
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+  <link rel="stylesheet" href="/assets/css/just-the-docs-default.css">
+  <link rel="stylesheet" href="/assets/css/native.css">
+
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-M6EEXPRNWS"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-M6EEXPRNWS', { 'anonymize_ip': true });
+  </script>
+
+  
+
+  
+  <script type="text/javascript" src="/assets/js/vendor/lunr.min.js"></script>
+  
+  <script type="text/javascript" src="/assets/js/just-the-docs.js"></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Clean Architecture | Notes</title>
+<meta name="generator" content="Jekyll v3.9.2">
+<meta property="og:title" content="Clean Architecture">
+<meta property="og:locale" content="en_US">
+<meta name="description" content="My Notes">
+<meta property="og:description" content="My Notes">
+<link rel="canonical" href="https://itsmynotes.com/notes/tech_books/clean-architecture">
+<meta property="og:url" content="https://itsmynotes.com/notes/tech_books/clean-architecture">
+<meta property="og:site_name" content="Notes">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<meta property="twitter:title" content="Clean Architecture">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"My Notes","headline":"Clean Architecture","url":"https://itsmynotes.com/notes/tech_books/clean-architecture"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+  
+
+<script>MathJax={"tex":{"inlineMath":[["$","$"],["\\(","\\)"]],"displayMath":[["$$","$$"],["\\[","\\]"]]},"svg":{"fontCache":"global"}}</script><script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+  <a class="skip-to-main" href="#main-content">Skip to main content</a>
+  <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+  <symbol id="svg-link" viewbox="0 0 24 24">
+  <title>Link</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link">
+    <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+  </svg>
+</symbol>
+
+  <symbol id="svg-menu" viewbox="0 0 24 24">
+  <title>Menu</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu">
+    <line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line>
+  </svg>
+</symbol>
+
+  <symbol id="svg-arrow-right" viewbox="0 0 24 24">
+  <title>Expand</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+    <polyline points="9 18 15 12 9 6"></polyline>
+  </svg>
+</symbol>
+
+  <!-- Feather. MIT License: https://github.com/feathericons/feather/blob/master/LICENSE -->
+<symbol id="svg-external-link" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-external-link">
+  <title id="svg-external-link-title">(external link)</title>
+  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line>
+</symbol>
+
+  
+    <symbol id="svg-doc" viewbox="0 0 24 24">
+  <title>Document</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file">
+    <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline>
+  </svg>
+</symbol>
+
+    <symbol id="svg-search" viewbox="0 0 24 24">
+  <title>Search</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search">
+    <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+  </svg>
+</symbol>
+
+  
+  
+    <!-- Bootstrap Icons. MIT License: https://github.com/twbs/icons/blob/main/LICENSE.md -->
+<symbol id="svg-copy" viewbox="0 0 16 16">
+  <title>Copy</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard" viewbox="0 0 16 16">
+    <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"></path>
+    <path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"></path>
+  </svg>
+</symbol>
+<symbol id="svg-copied" viewbox="0 0 16 16">
+  <title>Copied</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard-check-fill" viewbox="0 0 16 16">
+    <path d="M6.5 0A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3Zm3 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3Z"></path>
+    <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1A2.5 2.5 0 0 1 9.5 5h-3A2.5 2.5 0 0 1 4 2.5v-1Zm6.854 7.354-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L7.5 10.793l2.646-2.647a.5.5 0 0 1 .708.708Z"></path>
+  </svg>
+</symbol>
+
+  
+</svg>
+
+  <div class="side-bar">
+  <div class="site-header" role="banner">
+    <a href="/" class="site-title lh-tight">
+  Notes
+
+</a>
+    <button id="menu-button" class="site-button btn-reset" aria-label="Toggle menu" aria-pressed="false">
+      <svg viewbox="0 0 24 24" class="icon" aria-hidden="true"><use xlink:href="#svg-menu"></use></svg>
+    </button>
+  </div>
+
+  <nav aria-label="Main" id="site-nav" class="site-nav">
+  
+  
+    <ul class="nav-list">
+<li class="nav-list-item">
+<button class="nav-list-expander btn-reset" aria-label="toggle items in Projects category" aria-pressed="false">
+      <svg viewbox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+    </button><a href="/notes/projects" class="nav-list-link">Projects</a><ul class="nav-list"></ul>
+</li>
+<li class="nav-list-item">
+<button class="nav-list-expander btn-reset" aria-label="toggle items in Vocabulary category" aria-pressed="false">
+      <svg viewbox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+    </button><a href="/notes/vocabulary" class="nav-list-link">Vocabulary</a><ul class="nav-list"></ul>
+</li>
+<li class="nav-list-item">
+<button class="nav-list-expander btn-reset" aria-label="toggle items in Business Books category" aria-pressed="false">
+      <svg viewbox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+    </button><a href="/notes/business-books" class="nav-list-link">Business Books</a><ul class="nav-list"></ul>
+</li>
+<li class="nav-list-item">
+<button class="nav-list-expander btn-reset" aria-label="toggle items in Other Books category" aria-pressed="false">
+      <svg viewbox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+    </button><a href="/notes/other-books" class="nav-list-link">Other Books</a><ul class="nav-list"></ul>
+</li>
+<li class="nav-list-item">
+<button class="nav-list-expander btn-reset" aria-label="toggle items in Educational Books category" aria-pressed="false">
+      <svg viewbox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+    </button><a href="/notes/educational-books" class="nav-list-link">Educational Books</a><ul class="nav-list"></ul>
+</li>
+<li class="nav-list-item">
+<button class="nav-list-expander btn-reset" aria-label="toggle items in Articles category" aria-pressed="false">
+      <svg viewbox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+    </button><a href="/notes/articles" class="nav-list-link">Articles</a><ul class="nav-list"></ul>
+</li>
+<li class="nav-list-item">
+<button class="nav-list-expander btn-reset" aria-label="toggle items in Quotes category" aria-pressed="false">
+      <svg viewbox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+    </button><a href="/notes/quotes" class="nav-list-link">Quotes</a><ul class="nav-list"></ul>
+</li>
+<li class="nav-list-item">
+<button class="nav-list-expander btn-reset" aria-label="toggle items in Classes category" aria-pressed="false">
+      <svg viewbox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+    </button><a href="/notes/classes" class="nav-list-link">Classes</a><ul class="nav-list"></ul>
+</li>
+<li class="nav-list-item">
+<button class="nav-list-expander btn-reset" aria-label="toggle items in Tech Books category" aria-pressed="false">
+      <svg viewbox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+    </button><a href="/notes/tech-books" class="nav-list-link">Tech Books</a><ul class="nav-list"></ul>
+</li>
+<li class="nav-list-item">
+<button class="nav-list-expander btn-reset" aria-label="toggle items in Podcasts category" aria-pressed="false">
+      <svg viewbox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+    </button><a href="/notes/podcasts" class="nav-list-link">Podcasts</a><ul class="nav-list"></ul>
+</li>
+</ul>
+
+  
+</nav>
+
+
+  
+  
+    <footer class="site-footer">
+      This site uses <a href="https://github.com/just-the-docs/just-the-docs">Just the Docs</a>, a documentation theme for Jekyll.
+    </footer>
+  
+</div>
+
+  <div class="main" id="top">
+    <div id="main-header" class="main-header">
+  
+    
+
+<div class="search" role="search">
+  <div class="search-input-wrap">
+    <input type="text" id="search-input" class="search-input" tabindex="0" placeholder="Search Notes" aria-label="Search Notes" autocomplete="off">
+    <label for="search-input" class="search-label"><svg viewbox="0 0 24 24" class="search-icon"><use xlink:href="#svg-search"></use></svg></label>
+  </div>
+  <div id="search-results" class="search-results"></div>
+</div>
+
+  
+  
+  
+    <nav aria-label="Auxiliary" class="aux-nav">
+  <ul class="aux-nav-list">
+    
+      <li class="aux-nav-list-item">
+        <a href="https://github.com/mmcintyre1/its-my-notes" class="site-button">
+          It's My Notes on GitHub
+        </a>
+      </li>
+    
+  </ul>
+</nav>
+
+  
+</div>
+
+    <div class="main-content-wrap">
+      <nav aria-label="Breadcrumb" class="breadcrumb-nav">
+  <ol class="breadcrumb-nav-list">
+  
+    <li class="breadcrumb-nav-list-item"><a href="/notes/tech-books">Tech Books</a></li>
+  <li class="breadcrumb-nav-list-item"><span>Clean Architecture</span></li>
+  </ol>
+</nav>
+      <div id="main-content" class="main-content">
+        <main>
+          
+            <h1 class="no_toc" id="clean-architecture">
+  
+  
+    <a href="#clean-architecture" class="anchor-heading" aria-labelledby="clean-architecture"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Clean Architecture
+  
+  
+</h1>
+    
+
+<details open="">
+  <summary>
+    Table of contents
+  </summary>
+<ol id="markdown-toc">
+  <li>
+<a href="#part-i-introduction" id="markdown-toc-part-i-introduction">Part I: Introduction</a>    <ol>
+      <li><a href="#chapter-1-what-is-design-and-architecture" id="markdown-toc-chapter-1-what-is-design-and-architecture">Chapter 1: What is Design and Architecture?</a></li>
+      <li><a href="#chapter-2-a-tale-of-two-values" id="markdown-toc-chapter-2-a-tale-of-two-values">Chapter 2: A Tale of Two Values</a></li>
+    </ol>
+  </li>
+  <li>
+<a href="#part-ii-programming-paradigms" id="markdown-toc-part-ii-programming-paradigms">Part II: Programming Paradigms</a>    <ol>
+      <li><a href="#chapter-3-paradigm-overview" id="markdown-toc-chapter-3-paradigm-overview">Chapter 3: Paradigm Overview</a></li>
+      <li><a href="#chapter-4-structured-programming" id="markdown-toc-chapter-4-structured-programming">Chapter 4: Structured Programming</a></li>
+      <li><a href="#chapter-5-object-oriented-programming" id="markdown-toc-chapter-5-object-oriented-programming">Chapter 5: Object-Oriented Programming</a></li>
+      <li><a href="#chapter-6-functional-programming" id="markdown-toc-chapter-6-functional-programming">Chapter 6: Functional Programming</a></li>
+    </ol>
+  </li>
+  <li>
+<a href="#part-iii-design-principles" id="markdown-toc-part-iii-design-principles">Part III: Design Principles</a>    <ol>
+      <li><a href="#chapter-7-srp-single-responsibility-principle" id="markdown-toc-chapter-7-srp-single-responsibility-principle">Chapter 7: SRP: Single Responsibility Principle</a></li>
+      <li><a href="#chapter-8-ocp-the-open-closed-principle" id="markdown-toc-chapter-8-ocp-the-open-closed-principle">Chapter 8: OCP: The Open-Closed Principle</a></li>
+      <li><a href="#chapter-9-lsp-the-liskov-substitution-principle" id="markdown-toc-chapter-9-lsp-the-liskov-substitution-principle">Chapter 9: LSP: The Liskov Substitution Principle</a></li>
+      <li><a href="#chapter-10-isp-interface-segregation-principle" id="markdown-toc-chapter-10-isp-interface-segregation-principle">Chapter 10: ISP: Interface Segregation Principle</a></li>
+      <li><a href="#chapter-11-dip-the-dependency-inversion-principle" id="markdown-toc-chapter-11-dip-the-dependency-inversion-principle">Chapter 11: DIP: The Dependency Inversion Principle</a></li>
+    </ol>
+  </li>
+  <li>
+<a href="#part-iv-component-principles" id="markdown-toc-part-iv-component-principles">Part IV: Component Principles</a>    <ol>
+      <li><a href="#chapter-12-components" id="markdown-toc-chapter-12-components">Chapter 12: Components</a></li>
+      <li>
+<a href="#chapter-13-component-cohesion" id="markdown-toc-chapter-13-component-cohesion">Chapter 13: Component Cohesion</a>        <ol>
+          <li><a href="#tension-diagram-for-component-cohesion" id="markdown-toc-tension-diagram-for-component-cohesion">Tension Diagram for Component Cohesion</a></li>
+        </ol>
+      </li>
+      <li><a href="#chapter-14-component-coupling" id="markdown-toc-chapter-14-component-coupling">Chapter 14: Component Coupling</a></li>
+    </ol>
+  </li>
+  <li>
+<a href="#part-v-architecture" id="markdown-toc-part-v-architecture">Part V: Architecture</a>    <ol>
+      <li><a href="#chapter-15-what-is-architecture" id="markdown-toc-chapter-15-what-is-architecture">Chapter 15: What is Architecture?</a></li>
+      <li><a href="#chapter-16-independence" id="markdown-toc-chapter-16-independence">Chapter 16: Independence</a></li>
+      <li><a href="#chapter-17-boundaries-drawing-lines" id="markdown-toc-chapter-17-boundaries-drawing-lines">Chapter 17: Boundaries: Drawing Lines</a></li>
+      <li><a href="#chapter-18-boundary-anatomy" id="markdown-toc-chapter-18-boundary-anatomy">Chapter 18: Boundary Anatomy</a></li>
+      <li><a href="#chapter-19-policy-and-level" id="markdown-toc-chapter-19-policy-and-level">Chapter 19: Policy and Level</a></li>
+      <li><a href="#chapter-20-business-rules" id="markdown-toc-chapter-20-business-rules">Chapter 20: Business Rules</a></li>
+      <li><a href="#chapter-21-screaming-architecture" id="markdown-toc-chapter-21-screaming-architecture">Chapter 21: Screaming Architecture</a></li>
+      <li><a href="#chapter-22-the-clean-architecture" id="markdown-toc-chapter-22-the-clean-architecture">Chapter 22: The Clean Architecture</a></li>
+      <li><a href="#chapter-23-presenters-and-humble-objects" id="markdown-toc-chapter-23-presenters-and-humble-objects">Chapter 23: Presenters and Humble Objects</a></li>
+      <li><a href="#chapter-23-partial-boundaries" id="markdown-toc-chapter-23-partial-boundaries">Chapter 23: Partial Boundaries</a></li>
+      <li><a href="#chapter-26-layers-and-boundaries" id="markdown-toc-chapter-26-layers-and-boundaries">Chapter 26: Layers and Boundaries</a></li>
+      <li><a href="#chapter-27-the-main-component" id="markdown-toc-chapter-27-the-main-component">Chapter 27: The Main Component</a></li>
+      <li><a href="#chapter-28-services-great-and-small" id="markdown-toc-chapter-28-services-great-and-small">Chapter 28: Services Great and Small</a></li>
+      <li><a href="#chapter-28-the-test-boundary" id="markdown-toc-chapter-28-the-test-boundary">Chapter 28: The Test Boundary</a></li>
+      <li><a href="#chapter-29-clean-embedded-architecture" id="markdown-toc-chapter-29-clean-embedded-architecture">Chapter 29: Clean Embedded Architecture</a></li>
+    </ol>
+  </li>
+  <li>
+<a href="#part-v-details" id="markdown-toc-part-v-details">Part V: Details</a>    <ol>
+      <li><a href="#chapter-30-the-database-is-a-detail" id="markdown-toc-chapter-30-the-database-is-a-detail">Chapter 30: The Database is a Detail</a></li>
+      <li><a href="#chapter-31-the-web-is-a-detail" id="markdown-toc-chapter-31-the-web-is-a-detail">Chapter 31: The Web is a Detail</a></li>
+      <li><a href="#chapter-32-frameworks-are-details" id="markdown-toc-chapter-32-frameworks-are-details">Chapter 32: Frameworks are Details</a></li>
+      <li><a href="#chapter-33-a-use-case" id="markdown-toc-chapter-33-a-use-case">Chapter 33: A Use Case</a></li>
+      <li><a href="#chapter-34-the-missing-chapter" id="markdown-toc-chapter-34-the-missing-chapter">Chapter 34: The Missing Chapter</a></li>
+    </ol>
+  </li>
+</ol>
+
+</details>
+<h2 id="part-i-introduction">
+  
+  
+    <a href="#part-i-introduction" class="anchor-heading" aria-labelledby="part-i-introduction"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Part I: Introduction
+  
+  
+</h2>
+    
+<h3 id="chapter-1-what-is-design-and-architecture">
+  
+  
+    <a href="#chapter-1-what-is-design-and-architecture" class="anchor-heading" aria-labelledby="chapter-1-what-is-design-and-architecture"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Chapter 1: What is Design and Architecture?
+  
+  
+</h3>
+    
+<p>Traditionally, architecture seems to imply high level details, while design is low-level structures and details, but little details support high-level details– it’s all part of the same whole of the system.</p>
+
+<p><strong>The goal of software architecture is to minimize the human resources required to build and maintain the required system.</strong></p>
+
+<p>The measure of design quality is measure of effort required to meet needs of customer.</p>
+
+<p>Developers tell themselves two lies:</p>
+<ol>
+  <li>“We can clean it up later; we just have to get to market first” – never clean it up because market is always moving</li>
+  <li>writing messy code is faster than clean code – it never is</li>
+</ol>
+
+<p>“The only way to go fast is to go well”.</p>
+<h4 class="no_toc" id="summary">
+  
+  
+    <a href="#summary" class="anchor-heading" aria-labelledby="summary"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Summary
+  
+  
+</h4>
+    
+<p>Avoid overconfidence and take software design seriously.</p>
+
+<p>In order to take software design seriously, you need to know what good design and architecture is – you need to know attributes of a system that minimizes effort and maximizes productivity.</p>
+<h3 id="chapter-2-a-tale-of-two-values">
+  
+  
+    <a href="#chapter-2-a-tale-of-two-values" class="anchor-heading" aria-labelledby="chapter-2-a-tale-of-two-values"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Chapter 2: A Tale of Two Values
+  
+  
+</h3>
+    
+<p>Every software system provides two different values to stakeholders:</p>
+
+<p><strong>Behavior</strong></p>
+<ul>
+  <li>the way a system behaves, written in a functional specification or requirements document then written in code</li>
+  <li>when system doesn’t behave the way it is supposed to, programmers then debug</li>
+</ul>
+
+<p><strong>Architecture</strong></p>
+<ul>
+  <li>software of a system, subject to change</li>
+  <li>difficulty in making a change should be proportional to the scope of the change, not shape</li>
+  <li>new requirements roughly fit the same scope, but they often no longer fit the shape of the system and thus are increasingly difficult</li>
+  <li>architectures should be as shape-agnostic as practical</li>
+</ul>
+
+<p>Is a system working (behavior) or the ease of change (architecture) more important? If a program is impossible to change, it will become useless, but if it is easy to change, it can be made useful.</p>
+
+<p><strong>Eisenhower’s Matrix</strong></p>
+
+<div class="table-wrapper"><table>
+  <tbody>
+    <tr>
+      <td>important &amp; urgent</td>
+      <td>important &amp; NOT urgent</td>
+    </tr>
+    <tr>
+      <td>NOT important &amp; urgent</td>
+      <td>NOT important &amp; NOT urgent</td>
+    </tr>
+  </tbody>
+</table></div>
+
+<ul>
+  <li>
+<em>behavior</em> is urgent but not always particularly important</li>
+  <li>
+<em>architecture</em> is important but never particularly urgent</li>
+</ul>
+
+<p>Business managers are not equipped to evaluate the importance of architecture, so it is responsibility of software dev team to assert importance of architecture over urgency of features.</p>
+<h2 id="part-ii-programming-paradigms">
+  
+  
+    <a href="#part-ii-programming-paradigms" class="anchor-heading" aria-labelledby="part-ii-programming-paradigms"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Part II: Programming Paradigms
+  
+  
+</h2>
+    
+<h3 id="chapter-3-paradigm-overview">
+  
+  
+    <a href="#chapter-3-paradigm-overview" class="anchor-heading" aria-labelledby="chapter-3-paradigm-overview"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Chapter 3: Paradigm Overview
+  
+  
+</h3>
+    
+<h4 class="no_toc" id="structured-programming">
+  
+  
+    <a href="#structured-programming" class="anchor-heading" aria-labelledby="structured-programming"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Structured Programming
+  
+  
+</h4>
+    
+<ul>
+  <li>discovered by Edsger Wybe Dijkstra in 1968</li>
+  <li>
+<code class="language-plaintext highlighter-rouge">goto</code> statements harmful to program structure, replace with <code class="language-plaintext highlighter-rouge">if/then/else</code> and <code class="language-plaintext highlighter-rouge">do/while/until</code> constructs</li>
+  <li><em>“Structured programming imposes discipline on the direct transfer of control”</em></li>
+</ul>
+<h4 class="no_toc" id="object-oriented-programming">
+  
+  
+    <a href="#object-oriented-programming" class="anchor-heading" aria-labelledby="object-oriented-programming"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Object-Oriented Programming
+  
+  
+</h4>
+    
+<ul>
+  <li>discovered by Ole Johan Dahl and Kristen Nygaard in 1966</li>
+  <li><em>“Object-oriented programming imposes discipline on the indirect transfer of control”</em></li>
+</ul>
+<h4 class="no_toc" id="functional-programming">
+  
+  
+    <a href="#functional-programming" class="anchor-heading" aria-labelledby="functional-programming"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Functional Programming
+  
+  
+</h4>
+    
+<ul>
+  <li>discovered before computers by Alonzo Church who in 1936 invented $ \lambda$-calculus (lambda calculus)</li>
+  <li>typically no assignment statements</li>
+  <li><em>“Functional programming imposes discipline on assignment”</em></li>
+</ul>
+
+<p>Patterns typically <em>take</em> something away and are negative in intent, meaning there likely isn’t anything else to take away and there won’t be any other paradigms. All three were invented before 1968 and there’s been nothing since.</p>
+<h4 class="no_toc" id="summary-1">
+  
+  
+    <a href="#summary-1" class="anchor-heading" aria-labelledby="summary-1"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Summary
+  
+  
+</h4>
+    
+<ul>
+  <li>we use polypmorphism to cross architectural boundaries</li>
+  <li>we use functional programming to impose discipline on the location of and access to data</li>
+  <li>we use structured programming as the algorithmic foundation of our modules</li>
+</ul>
+<h3 id="chapter-4-structured-programming">
+  
+  
+    <a href="#chapter-4-structured-programming" class="anchor-heading" aria-labelledby="chapter-4-structured-programming"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Chapter 4: Structured Programming
+  
+  
+</h3>
+    
+<p>Dijkstra saw that programming was hard, and the cognitive load was too high to keep all details in mind at once. His answer was to use the mathematical discipline of <em>proof</em>, or the idea of using composable elements to create programs.</p>
+
+<p>The use of <code class="language-plaintext highlighter-rouge">goto</code> prevented a program from being able to be decomposed recursively, and that good uses of <code class="language-plaintext highlighter-rouge">goto</code> really corresponded to <code class="language-plaintext highlighter-rouge">if/then/else</code> or <code class="language-plaintext highlighter-rouge">do/while</code> control structures.</p>
+
+<p>All programs can be built from three elements: <em>sequence</em>, <em>selection</em>, and <em>iteration</em>.</p>
+
+<p>Eventually, <code class="language-plaintext highlighter-rouge">goto</code> was phased out, and we are all ‘structured’ programmers in the sense that languages don’t give us the option to use undisciplined direct transfer of control.</p>
+
+<p>Proofs ended up being too difficult, but the scientific method replaced proofs. The central idea is that things are <em>falsifiable</em> but not provable, as in, you can only prove something is false rather than proving it is true.</p>
+
+<p>Dijkstra: “Testing shows the presence, not the absence, of bugs”.</p>
+
+<p>Structured programming allows us to decompose a program into small provable functions that are falsifiable, i.e., testable.</p>
+<h4 class="no_toc" id="summary-2">
+  
+  
+    <a href="#summary-2" class="anchor-heading" aria-labelledby="summary-2"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Summary
+  
+  
+</h4>
+    
+<p>Ability to create falsifiable units of programming that makes structured programming valuable today, and the reason unrestrained <code class="language-plaintext highlighter-rouge">goto</code>s aren’t used.</p>
+
+<p>Functional decomposition is great practice.</p>
+
+<p>Software is like a science, from low to high level, and is driven by falsifiability. Architects define modules, components, and services that are easily testable (falsifiable), using restrictive disciplines.</p>
+<h3 id="chapter-5-object-oriented-programming">
+  
+  
+    <a href="#chapter-5-object-oriented-programming" class="anchor-heading" aria-labelledby="chapter-5-object-oriented-programming"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Chapter 5: Object-Oriented Programming
+  
+  
+</h3>
+    
+<p>What is OOP? Some say “combo of data and function”, but that implies that <code class="language-plaintext highlighter-rouge">o.f()</code> is different from <code class="language-plaintext highlighter-rouge">f(o)</code> , which is absurd. Others say it is a way to model real world, but this is too loose and evasive.</p>
+
+<p>Many say it is attributes of <em>polymorphism</em>, <em>encapsulation</em>, and <em>inheritance</em>.</p>
+<h4 class="no_toc" id="encapsulation">
+  
+  
+    <a href="#encapsulation" class="anchor-heading" aria-labelledby="encapsulation"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Encapsulation
+  
+  
+</h4>
+    
+<p>Being able to draw a cohesive line around data and functions, seen as private data members and public functions of a class.</p>
+
+<p>Perfect encapsulation exists in C, a non-OO language. Data structures and functions would be declared in header files and implementation files would take care of the details, and users didn’t have access to implementation files. Once OO was introduced with C++, you lost perfect encapsulation.</p>
+
+<p>Introducing <code class="language-plaintext highlighter-rouge">public</code>, <code class="language-plaintext highlighter-rouge">private</code>, and <code class="language-plaintext highlighter-rouge">protected</code> keywords a way to regain encapsulation, but this is a hack. <strong>Many OO languages have little or no encapsulation.</strong></p>
+<h4 class="no_toc" id="inheritance">
+  
+  
+    <a href="#inheritance" class="anchor-heading" aria-labelledby="inheritance"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Inheritance
+  
+  
+</h4>
+    
+<p>Inheritance is simply the redeclaration of a group of variables and functions within an enclosing scope.</p>
+
+<p>OO languages allow for easier inheritance that isn’t a workaround, as well as multiple inheritance, but this functionality exists in non-OO languages</p>
+<h4 class="no_toc" id="polymorphism">
+  
+  
+    <a href="#polymorphism" class="anchor-heading" aria-labelledby="polymorphism"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Polymorphism
+  
+  
+</h4>
+    
+<p>Giving a single interface to entities of different types (think, file interface in Unix)</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><div class="table-wrapper"><table class="rouge-table"><tbody><tr>
+<td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td>
+<td class="rouge-code"><pre><span class="k">struct</span> <span class="kt">FILE</span> <span class="p">{</span>
+  <span class="kt">void</span> <span class="p">(</span><span class="o">*</span><span class="n">open</span><span class="p">)</span> <span class="p">(</span><span class="kt">char</span><span class="o">*</span> <span class="n">name</span><span class="p">,</span> <span class="kt">int</span> <span class="n">mode</span><span class="p">);</span>
+  <span class="kt">void</span> <span class="p">(</span><span class="o">*</span><span class="n">close</span><span class="p">)</span> <span class="p">();</span>
+  <span class="kt">int</span> <span class="p">(</span><span class="o">*</span><span class="n">read</span><span class="p">)</span> <span class="p">();</span>
+  <span class="kt">void</span> <span class="p">(</span><span class="o">*</span><span class="n">write</span><span class="p">)</span> <span class="p">(</span><span class="kt">char</span><span class="p">)</span> <span class="p">;</span>
+  <span class="kt">void</span> <span class="p">(</span><span class="o">*</span><span class="n">seek</span><span class="p">)</span> <span class="p">(</span><span class="kt">long</span> <span class="n">index</span><span class="p">,</span> <span class="kt">int</span> <span class="n">mode</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></td>
+</tr></tbody></table></div></code></pre></div></div>
+
+<p>Polymorphism is an application of pointers to functions, which have been in use for a long time. OO allowed this to be much safer, however, as pointers to functions are <em>dangerous</em>, relying on manual conventions. OO eliminates these conventions.</p>
+
+<p>Unix chose to make IO devices plugins (polymorphism allows things to becomes plugins to the source code) because <em>device independent</em> programs are more adaptable. For example, punch cards to magnetic tape. Most OS’s implement this device independence.</p>
+<h4 class="no_toc" id="dependency-inversion">
+  
+  
+    <a href="#dependency-inversion" class="anchor-heading" aria-labelledby="dependency-inversion"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Dependency Inversion
+  
+  
+</h4>
+    
+<p>In typical calling tree, high level functions call mid level functions, which call low level functions, etc. The caller was forced to mention the name of the module that contained the callee, meaning that the flow of control was dictated by the behavior of the system.</p>
+
+<p><img class="plantuml" src="http://www.plantuml.com/plantuml/svg/~h407374617274756d6c0a616c6c6f775f6d6978696e670a0a696e7465726661636520696e74657266616365207b0a2b4628290a7d0a0a636c617373204d4c31207b0a2b4628290a7d0a0a636f6d706f6e656e7420484c310a0a484c31202d722d3e20696e746572666163650a4d4c31202d752d7c3e20696e746572666163650a484c31202e642e3e204d4c310a40656e64756d6c"></p>
+
+<p>Polymorphism means any source code dependency, no matter where it is, can be inverted. What this means is that working in systems written in OO languages have <em>absolute control</em> over direction of all source code dependencies.</p>
+
+<p><img class="plantuml" src="http://www.plantuml.com/plantuml/svg/~h407374617274756d6c0a5b55495d202d6c2d3e205b427573696e6573732052756c65735d0a5b44617461626173655d202d722d3e205b427573696e6573732052756c65735d0a5b427573696e6573732052756c65735d202e6c2e3e205b55495d0a5b427573696e6573732052756c65735d202e722e3e205b44617461626173655d0a40656e64756d6c"></p>
+
+<p>Database and UI depend on the Business Rules, and from here components can be <em>deployed independently</em>.</p>
+<h4 class="no_toc" id="summary-3">
+  
+  
+    <a href="#summary-3" class="anchor-heading" aria-labelledby="summary-3"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Summary
+  
+  
+</h4>
+    
+<p>OO is the ability, through the use of polymorphism, to gain absolute control over every source code dependency in the system. Architect can create plugin architecture where modules that contain high-level policies are independent of modules that contain low-level details, and all these modules can be deployed independently.</p>
+<h3 id="chapter-6-functional-programming">
+  
+  
+    <a href="#chapter-6-functional-programming" class="anchor-heading" aria-labelledby="chapter-6-functional-programming"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Chapter 6: Functional Programming
+  
+  
+</h3>
+    
+<p>We might write a program to compute squares in Java like this:</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><div class="table-wrapper"><table class="rouge-table"><tbody><tr>
+<td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td>
+<td class="rouge-code"><pre><span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span><span class="mi">25</span><span class="o">;</span> <span class="n">i</span> <span class="o">++&gt;)</span> <span class="o">{</span>
+  <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">i</span><span class="o">*</span><span class="n">i</span><span class="o">);</span>
+<span class="o">}</span>
+</pre></td>
+</tr></tbody></table></div></code></pre></div></div>
+
+<p>In Clojure, a derivative of Lisp, it’d look like this:</p>
+<div class="language-clojure highlighter-rouge"><div class="highlight"><pre class="highlight"><code><div class="table-wrapper"><table class="rouge-table"><tbody><tr>
+<td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td>
+<td class="rouge-code"><pre><span class="p">(</span><span class="nb">println</span><span class="w"> </span><span class="p">(</span><span class="nb">take</span><span class="w"> </span><span class="mi">25</span><span class="w"> </span><span class="p">(</span><span class="nb">map</span><span class="w"> </span><span class="p">(</span><span class="k">fn</span><span class="w"> </span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="w"> </span><span class="p">(</span><span class="nb">*</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="n">x</span><span class="p">))</span><span class="w"> </span><span class="p">(</span><span class="nb">range</span><span class="p">))))</span><span class="w">
+</span></pre></td>
+</tr></tbody></table></div></code></pre></div></div>
+
+<p>The key to functional programming is that variables do not vary (are immutable). In Java, the <code class="language-plaintext highlighter-rouge">i</code> variable mutates.</p>
+<h4 class="no_toc" id="immutability-and-architecture">
+  
+  
+    <a href="#immutability-and-architecture" class="anchor-heading" aria-labelledby="immutability-and-architecture"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Immutability and Architecture
+  
+  
+</h4>
+    
+<p>All race conditions, deadlock conditions, and concurrent update problems are due to mutable variables, and if no variable is ever updated you can’t have these concurrency problems.</p>
+
+<p>We might be able to make everything immutable, if we had infinite storage and infinite processing power.</p>
+
+<p>One compromise is to split mutable and immutable components, and to protect the mutable component by using a transaction or retry-based memory in front of that mutable component.</p>
+
+<p><img class="plantuml" src="http://www.plantuml.com/plantuml/svg/~h407374617274756d6c0a5b496d6d757461626c6520436f6d706f6e656e7420315d202d642d3e205b4d757461626c6520436f6d706f6e656e7420315d0a5b496d6d757461626c6520436f6d706f6e656e7420325d202d642d3e205b4d757461626c6520436f6d706f6e656e7420315d0a5b496d6d757461626c6520436f6d706f6e656e7420335d202d642d3e205b4d757461626c6520436f6d706f6e656e7420315d0a5b4d757461626c6520436f6d706f6e656e7420315d203c2d642d3e205b5472616e73616374696f6e616c204d656d6f72795d0a40656e64756d6c"></p>
+
+<p>Architects should push as much processing as possible to immutable components.</p>
+<h4 class="no_toc" id="event-sourcing">
+  
+  
+    <a href="#event-sourcing" class="anchor-heading" aria-labelledby="event-sourcing"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Event Sourcing
+  
+  
+</h4>
+    
+<p>Store only the transactions, and re-compute the state as needed. For example, banks store withdrawals and debits, and if the account balance is needed, all the debits and withdrawals are tallied. Nothing is ever deleted or updated, instead of CRUD we have CR.</p>
+
+<p>This is the way source control system works.</p>
+<h4 class="no_toc" id="summary-4">
+  
+  
+    <a href="#summary-4" class="anchor-heading" aria-labelledby="summary-4"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Summary
+  
+  
+</h4>
+    
+<p>Each paradigm takes something away. We have learned what not to do, but software is not a rapidly advancing tech, and the rules are the same as they were in 1946. Software is still composed of sequence, selection, iteration, and indirection.</p>
+<h2 id="part-iii-design-principles">
+  
+  
+    <a href="#part-iii-design-principles" class="anchor-heading" aria-labelledby="part-iii-design-principles"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Part III: Design Principles
+  
+  
+</h2>
+    
+<p>SOLID principles tell us how to arrange functions and data into classes. The goal of the principles is the creation of mid-level software structures that:</p>
+<ul>
+  <li>tolerate change</li>
+  <li>are easy to understand</li>
+  <li>are the basis of components that can be used in many software systems</li>
+</ul>
+<h3 class="no_toc" id="solid-principles">
+  
+  
+    <a href="#solid-principles" class="anchor-heading" aria-labelledby="solid-principles"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> SOLID Principles
+  
+  
+</h3>
+    
+<p><strong>SRP</strong>: The Single Responsibility Principle</p>
+<ul>
+  <li>each software module has one, and only one, reason to change</li>
+</ul>
+
+<p><strong>OCP</strong>: The Open-Closed Principle</p>
+<ul>
+  <li>systems should be easy to amend by adding new code, not changing existing code</li>
+</ul>
+
+<p><strong>LSP</strong>: The Liskov Substitution Principle</p>
+<ul>
+  <li>to build a software system from interchangeable parts, those parts must adhere to a contract that allows those parts to be substituted for one another</li>
+</ul>
+
+<p><strong>ISP</strong>: The Interface Segregation Principle</p>
+<ul>
+  <li>avoid depending on things you don’t use</li>
+</ul>
+
+<p><strong>DIP</strong>: The Dependency Inversion Principle</p>
+<ul>
+  <li>code that implements high-level policy should not depend on the code that implements low-level details but rather should rely on policies</li>
+</ul>
+<h3 id="chapter-7-srp-single-responsibility-principle">
+  
+  
+    <a href="#chapter-7-srp-single-responsibility-principle" class="anchor-heading" aria-labelledby="chapter-7-srp-single-responsibility-principle"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Chapter 7: SRP: Single Responsibility Principle
+  
+  
+</h3>
+    
+<p><em>“A module should be responsible to one, and only one, actor.”</em></p>
+
+<p>A module is a cohesive set of functions and data, typically a source file.</p>
+
+<p>Best to look at symptoms of violating this principle.</p>
+<h4 class="no_toc" id="symptom-1-accidental-duplication">
+  
+  
+    <a href="#symptom-1-accidental-duplication" class="anchor-heading" aria-labelledby="symptom-1-accidental-duplication"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Symptom 1: Accidental Duplication
+  
+  
+</h4>
+    
+<p><img class="plantuml" src="http://www.plantuml.com/plantuml/svg/~h407374617274756d6c0a616c6c6f775f6d6978696e670a6c65667420746f20726967687420646972656374696f6e0a0a636c61737320456d706c6f796565207b0a20202b63616c63756c61746550617928293b0a20202b7265706f7274486f75727328293b0a20202b7361766528293b0a7d0a0a6163746f72206163636f756e74696e670a6163746f722068756d616e7265736f75726365730a6163746f7220646261730a0a6163636f756e74696e67202d2d3e20456d706c6f7965650a68756d616e7265736f7572636573202d2d3e20456d706c6f7965650a64626173202d2d3e20456d706c6f7965650a40656e64756d6c"></p>
+
+<p>Three different actors responsible for three different methods - accounting department for <code class="language-plaintext highlighter-rouge">calculatePay()</code>, human resources for <code class="language-plaintext highlighter-rouge">reportHours()</code>, and DBAs for <code class="language-plaintext highlighter-rouge">save()</code>. If two methods rely on the same underlying algorithm, changing it will change its affect on both methods, which might cause problems.</p>
+<h4 class="no_toc" id="symptom-2-merges">
+  
+  
+    <a href="#symptom-2-merges" class="anchor-heading" aria-labelledby="symptom-2-merges"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Symptom 2: Merges
+  
+  
+</h4>
+    
+<p>If there are two actors that need to change a source file and those file changes need to be merged together, this is a symptom of violation of SRP.</p>
+
+<p>There are a few solutions to this problem, and they all involve separating the code from the single class. We could create three classes, one for each method, and then thread them together using the <em>Facade</em> pattern.</p>
+<h4 class="no_toc" id="summary-5">
+  
+  
+    <a href="#summary-5" class="anchor-heading" aria-labelledby="summary-5"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Summary
+  
+  
+</h4>
+    
+<p>SRP is about functions and classes, but it appears at two more levels:</p>
+<ul>
+  <li>at components, it becomes Common Closure Principle</li>
+  <li>at architectural, it is Axis of Change (responsible for creating Architectural Boundaries)</li>
+</ul>
+<h3 id="chapter-8-ocp-the-open-closed-principle">
+  
+  
+    <a href="#chapter-8-ocp-the-open-closed-principle" class="anchor-heading" aria-labelledby="chapter-8-ocp-the-open-closed-principle"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Chapter 8: OCP: The Open-Closed Principle
+  
+  
+</h3>
+    
+<p><em>“A software artifact should be open for extension but closed for modification”</em></p>
+
+<p>The behavior of a software artifact should be extendible without having to modify that artifact.</p>
+
+<p>When we design architecture, we want component relationships to be unidirectional, and components that should be protected from change should be depended on by lower level components, i.e., if component A should be protected from changes in component B, component B should rely on component A.</p>
+
+<p>At the architectural level, we separate functionality based on how, why, and when things change, and then organize that separated functionality into a hierarchy of components. High-level components are protected from changes made to low-level components.</p>
+<h4 class="no_toc" id="summary-6">
+  
+  
+    <a href="#summary-6" class="anchor-heading" aria-labelledby="summary-6"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Summary
+  
+  
+</h4>
+    
+<p>The goal of OCP, one of the driving forces behind architecture of systems, is to make the system easy to extend without incurring a high impact of change. We partition the system into components, and arrange those components in a dependency hierarchy that protects higher-level components from changes in lower-level components.</p>
+<h3 id="chapter-9-lsp-the-liskov-substitution-principle">
+  
+  
+    <a href="#chapter-9-lsp-the-liskov-substitution-principle" class="anchor-heading" aria-labelledby="chapter-9-lsp-the-liskov-substitution-principle"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Chapter 9: LSP: The Liskov Substitution Principle
+  
+  
+</h3>
+    
+
+<p><em>“What is wanted here is something like the following substituion property: If for each object <code class="language-plaintext highlighter-rouge">o1</code> of type <code class="language-plaintext highlighter-rouge">S</code> there is an object <code class="language-plaintext highlighter-rouge">o2</code> of type <code class="language-plaintext highlighter-rouge">T</code> such that for all programs <code class="language-plaintext highlighter-rouge">P</code> defined in terms of <code class="language-plaintext highlighter-rouge">T</code>, the behavior of <code class="language-plaintext highlighter-rouge">P</code> is unchanged when <code class="language-plaintext highlighter-rouge">o1</code> is substituted for <code class="language-plaintext highlighter-rouge">o2</code> then <code class="language-plaintext highlighter-rouge">S</code> is a subtype of <code class="language-plaintext highlighter-rouge">T</code>.”</em></p>
+
+<p>The following design conforms to LSP because Billing does not depend in any way on the two subtypes of License.</p>
+
+<p><img class="plantuml" src="http://www.plantuml.com/plantuml/svg/~h407374617274756d6c0a6f626a6563742042696c6c696e670a0a696e74657266616365204c6963656e7365207b0a2b63616c634665650a7d0a0a6f626a65637420506572736f6e616c4c6963656e73650a6f626a65637420427573696e6573734c6963656e73650a0a42696c6c696e67202d722d3e204c6963656e73650a506572736f6e616c4c6963656e7365202d752d3e204c6963656e73650a427573696e6573734c6963656e7365202d752d3e204c6963656e73650a40656e64756d6c"></p>
+
+<p>The canonical violation of LSP, the Square/Rectangle problem below:</p>
+
+<p><img class="plantuml" src="http://www.plantuml.com/plantuml/svg/~h407374617274756d6c0a6f626a65637420557365720a0a636c6173732052656374616e676c65207b0a2b736574480a2b736574570a7d0a0a636c61737320537175617265207b0a2b736574536964650a7d0a0a55736572202d722d3e2052656374616e676c650a537175617265202d752d7c3e2052656374616e676c650a40656e64756d6c"></p>
+<h4 class="no_toc" id="summary-7">
+  
+  
+    <a href="#summary-7" class="anchor-heading" aria-labelledby="summary-7"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Summary
+  
+  
+</h4>
+    
+<p>LSP should be extended to the level of architecture. Violating substitutability can cause a system’s architecture to be polluted with a significant amount of extra mechanisms.</p>
+<h3 id="chapter-10-isp-interface-segregation-principle">
+  
+  
+    <a href="#chapter-10-isp-interface-segregation-principle" class="anchor-heading" aria-labelledby="chapter-10-isp-interface-segregation-principle"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Chapter 10: ISP: Interface Segregation Principle
+  
+  
+</h3>
+    
+<p><em>“No client should be forced to depend on methods it does not use.”</em></p>
+
+<p>Source code dependencies are often language dependent: in statically typed languages like Java, programmers declare source code dependencies, and changes would force recompile and redeploy. In dynamically typed languages like Python and Ruby, these dependencies are inferred at runtime and thus allow more flexible and loosely coupled systems to be created.</p>
+
+<p>ISP still has architectural ramifications, however: imagine System S implementing Framework F on top of Database D. Changes to Framework F, even if System S doesn’t use them, might require redeploys to Database D and System S.</p>
+<h3 id="chapter-11-dip-the-dependency-inversion-principle">
+  
+  
+    <a href="#chapter-11-dip-the-dependency-inversion-principle" class="anchor-heading" aria-labelledby="chapter-11-dip-the-dependency-inversion-principle"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Chapter 11: DIP: The Dependency Inversion Principle
+  
+  
+</h3>
+    
+<p><em>“The most flexible systems are those in which source code dependencies only refer to abstractions, not concretions.”</em></p>
+
+<p>While we can’t completely avoid relying on concretions (<code class="language-plaintext highlighter-rouge">String</code> in Java, for example), we should be worried about <em>volatile</em> concrete elements, those subject to frequent change. We can rely on stable abstractions and reduce the volatility of interfaces by adding functionality to implementations without making changes to interfaces.</p>
+
+<p>This boils down to a specific set of coding practices:</p>
+<ul>
+  <li>
+<strong>Don’t refer to volatile concrete classes</strong> - refer to abstract classes instead</li>
+  <li>
+<strong>Don’t derive from volatile concrete classes</strong> - corollary of previous rule</li>
+  <li>
+<strong>Don’t override concrete functions</strong> - concrete functions require source code dependencies, and overriding them does not eliminate those dependencies, you inherit them</li>
+  <li>
+<strong>Never mention the name of anything concrete and volatile</strong> - a restatement of the principle itself</li>
+</ul>
+
+<p>We use <em>Factories</em> to manage the dependency and create the class. This allows us to separate the system into two components, one concrete, the other abstract.</p>
+<h4 class="no_toc" id="summary-8">
+  
+  
+    <a href="#summary-8" class="anchor-heading" aria-labelledby="summary-8"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Summary
+  
+  
+</h4>
+    
+<p>DIP is the most visible organizing principle in architecture diagrams, and the separation between concrete and abstract will inform all diagrams. The <em>Dependency Rule</em> is the way in which dependencies cross from concrete to more abstract in a single direction.</p>
+<h2 id="part-iv-component-principles">
+  
+  
+    <a href="#part-iv-component-principles" class="anchor-heading" aria-labelledby="part-iv-component-principles"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Part IV: Component Principles
+  
+  
+</h2>
+    
+<h3 id="chapter-12-components">
+  
+  
+    <a href="#chapter-12-components" class="anchor-heading" aria-labelledby="chapter-12-components"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Chapter 12: Components
+  
+  
+</h3>
+    
+<p><strong>Components are the units of deployment.</strong> jar files in java, gem files in Ruby, DLL in .NET. In compiled languages, they are aggregation of binary files, and in interpreted languages they are aggregations of source files.</p>
+
+<p>Well-designed components retain the ability to be independently deployable and thus independently developable.</p>
+<h3 id="chapter-13-component-cohesion">
+  
+  
+    <a href="#chapter-13-component-cohesion" class="anchor-heading" aria-labelledby="chapter-13-component-cohesion"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Chapter 13: Component Cohesion
+  
+  
+</h3>
+    
+<p>Three principles of component cohesion:</p>
+<ol>
+  <li>
+<strong>The Reuse/Release Equivalence Principle</strong> (REP)
+    <ul>
+      <li>people who want to reuse software components can not and will not do so unless those components are tracked through a release process and are given release numbers, and developers might choose to upgrade or not based on change log</li>
+      <li>from arch. view, classes and modules that are formed into a component must belong to a cohesive group; grouped classes and modules should be releasable together</li>
+    </ul>
+  </li>
+  <li>
+<strong>The Common Closure Principle</strong> (CCP)
+    <ul>
+      <li><em>“Gather into components those classes that change for the same reasons and at the same times. Separate into different components those classes that change at different times and for different reasons.”</em></li>
+      <li>most of the time maintainability is more important than reusability, so gathering components that change at the same time together enhances maintainability</li>
+      <li>SRP restated for components, as well as Open Closed principle (open for extension but closed for modification)</li>
+    </ul>
+  </li>
+  <li>
+<strong>The Common Reuse Principle</strong> (CRP)
+    <ul>
+      <li>Classes and modules that tend to be reused together belong in the same component</li>
+      <li>CRP tells us more about which classes <em>shouldn’t</em> be part of a component – if classes and modules are together, they should be inseparable. \</li>
+      <li><em>“Don’t depend on things you don’t need”</em></li>
+    </ul>
+  </li>
+</ol>
+<h4 id="tension-diagram-for-component-cohesion">
+  
+  
+    <a href="#tension-diagram-for-component-cohesion" class="anchor-heading" aria-labelledby="tension-diagram-for-component-cohesion"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Tension Diagram for Component Cohesion
+  
+  
+</h4>
+    
+<p>These principles are often in contention.</p>
+
+<div style="text-align:center">
+  <a href="/assets/img/clean-architecture/tension-diagram-for-component-cohesion.png">
+    <img src="/assets/img/clean-architecture/tension-diagram-for-component-cohesion.png" alt="">
+  </a>
+</div>
+<h3 id="chapter-14-component-coupling">
+  
+  
+    <a href="#chapter-14-component-coupling" class="anchor-heading" aria-labelledby="chapter-14-component-coupling"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Chapter 14: Component Coupling
+  
+  
+</h3>
+    
+<h4 class="no_toc" id="the-acyclic-dependencies-principle">
+  
+  
+    <a href="#the-acyclic-dependencies-principle" class="anchor-heading" aria-labelledby="the-acyclic-dependencies-principle"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> The Acyclic Dependencies Principle
+  
+  
+</h4>
+    
+<p>In the past, there was an idea to allow relative isolation for developers to work collaboratively which was to defer that integration until the end of the week, i.e., <em>a weekly build</em>. Eventually, the integration time creeps earlier in the week, and the build schedule grows, and this is not ideal.</p>
+
+<p>A solution to the above would be to partition development into releasable components owned by a single dev or a team of devs, so consuming teams might choose whether they want to update their used components.</p>
+
+<p>Integration now happens in small increments, and no team is at the mercy of others; integration can be continuous.</p>
+
+<p>In order to make this work, you need to manage the <em>dependency structure</em>, and there can be no cycles; regardless of what component you end up at, it is impossible to follow the dependency tree and end up at the original component. We need a <em>directed acyclic graph</em> (DAG).</p>
+
+<p>We know how to build systems when we understand the dependencies between its parts.</p>
+
+<p>With cycles in the dependency graph, it is very difficult to work out order in which you must build components.</p>
+
+<p>There are two ways we could break the cycle:</p>
+<ol>
+  <li>Use the dependency inversion principle (DIP) to create an interface of the used methods</li>
+  <li>create a new component with the classes that the two components depend on</li>
+</ol>
+
+<p>As systems grow, these dependencies will appear; the component structure can’t be designed from the top down. We have come to expect that large-grained decompositions like components, will also be high-level functional decompositions.</p>
+
+<blockquote>
+  <p>Decomposition in computer science, also known as factoring, is breaking a complex problem or system into parts that are easier to conceive, understand, program, and maintain.</p>
+</blockquote>
+
+<p>In reality, component dependency diagrams have little to do with the function of a system, they are merely describing <em>buildability</em> and <em>maintainability</em>.</p>
+
+<p>One of the overriding concerns is the isolation of volatility: we don’t want frequently changing components to affect stable, high-value components. We don’t want to change business rules because our GUI changes.</p>
+
+<p>This process needs to happen after we’ve built the system a bit: we don’t know about common closure, we don’t know about reusable elements, and we almost certainly would create dependency cycles.</p>
+<h4 class="no_toc" id="stable-dependencies-principle">
+  
+  
+    <a href="#stable-dependencies-principle" class="anchor-heading" aria-labelledby="stable-dependencies-principle"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Stable Dependencies Principle
+  
+  
+</h4>
+    
+<p>Ensures that modules that are intended to be easy to change are not depended on by modules that are harder to change.</p>
+
+<p><strong>Stability</strong> is related to the amount of work required to make a change.</p>
+
+<p><img class="plantuml" src="http://www.plantuml.com/plantuml/svg/~h407374617274756d6c0a5b415d202d642d3e205b585d0a5b425d202d642d3e205b585d0a5b435d202d642d3e205b585d0a40656e64756d6c"></p>
+
+<p>Component X is stable, because three components depend on it. X is <em>responsible</em> for three components, but depends on none, so it is <em>independent</em>.</p>
+
+<p><img class="plantuml" src="http://www.plantuml.com/plantuml/svg/~h407374617274756d6c0a5b595d202d642d3e205b415d0a5b595d202d642d3e205b425d0a5b595d202d642d3e205b435d0a40656e64756d6c"></p>
+
+<p>Component Y is very unstable. No components depend on it, so it is irresponsible, and it is dependent. Changes may come from three external sources.</p>
+
+<p><strong>Stability Metrics</strong>
+We can count the dependencies coming in and going out of a component, and this is the <em>positional</em> stability of the component</p>
+<ul>
+  <li>
+<em>Fan-in</em>: incoming dependencies</li>
+  <li>
+<em>Fan-out</em>: outgoing dependencies</li>
+  <li>
+<em>Instability</em>: $ \int_0^1 I = Fanout \div (Fanin + Fanout) $</li>
+</ul>
+
+<p>When I is equal to 1, no other component depends on this component – it is irresponsible and dependent, meaning there is no reason not to change it if needed</p>
+
+<p>When I  is equal to 0, it means the component is depended on by other components but does not itself depend on other components. It is responsible and independent (and stable) – lots of dependents make it hard to change and nothing forces it to change.</p>
+
+<p>I metric of a component should be larger than the I metrics of the components that it depends on, that it should decrease in the direction of the dependency.</p>
+
+<p>Changeable components on top and stable components on bottom.</p>
+<h4 class="no_toc" id="the-stable-abstractions-principle">
+  
+  
+    <a href="#the-stable-abstractions-principle" class="anchor-heading" aria-labelledby="the-stable-abstractions-principle"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> The Stable Abstractions Principle
+  
+  
+</h4>
+    
+<p><em>“A component should be as abstract as it is stable”</em></p>
+
+<ul>
+  <li>$ Nc $: the number of classes in the component</li>
+  <li>$ Na $: the number of abstract classes and interfaces in the component</li>
+  <li>$ A $: abstractness.$ A = Na \div Nc $</li>
+</ul>
+
+<p>Best components are maximally stable and abstract, and maximally unstable and concrete.</p>
+
+<ul>
+  <li>
+<strong>Zone of Pain</strong> - highly stable, concrete – if these components are volatile (need to be changed often), this is painful</li>
+  <li>
+<strong>Zone of Uselessness</strong> - maximally abstract but no dependents – these components are useless</li>
+</ul>
+<h2 id="part-v-architecture">
+  
+  
+    <a href="#part-v-architecture" class="anchor-heading" aria-labelledby="part-v-architecture"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Part V: Architecture
+  
+  
+</h2>
+    
+<h3 id="chapter-15-what-is-architecture">
+  
+  
+    <a href="#chapter-15-what-is-architecture" class="anchor-heading" aria-labelledby="chapter-15-what-is-architecture"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Chapter 15: What is Architecture?
+  
+  
+</h3>
+    
+<p>A software architect is a programmer, the best programmer, and they continue to take programming tasks, because it is important they experience the problems they are creating for the rest of programmers.</p>
+
+<p>The architecture of a software system is the shape given to that system by those who build it, and the purpose of the shape is to facilitate the <em>development</em>, <em>deployment</em>, <em>operation</em>, and <em>maintenance</em> of the software system.</p>
+
+<p><em>“The strategy behind that facilitation is to leave as many options open as possible for as long as possible.”</em></p>
+
+<p>The primary purpose of architecture is to support the life cycle of the system, and good architecture makes the system easy to understand, easy to develop, easy to maintain, and easy to deploy, to minimize lifetime cost and maximize programmer productivity.</p>
+<h4 class="no_toc" id="development">
+  
+  
+    <a href="#development" class="anchor-heading" aria-labelledby="development"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> development
+  
+  
+</h4>
+    
+<p>systems need to be easy to develop, and this ease is dictated by different team structures. small teams might be predisposed to a monolith, while distributed teams to microservices.</p>
+<h4 class="no_toc" id="deployment">
+  
+  
+    <a href="#deployment" class="anchor-heading" aria-labelledby="deployment"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> deployment
+  
+  
+</h4>
+    
+<p>a goal of architecture should be to make sure a system is deployable with a single action</p>
+
+<p>some things might leave a system easy to develop but hard to deploy: e.g., microservices</p>
+<h4 class="no_toc" id="operation">
+  
+  
+    <a href="#operation" class="anchor-heading" aria-labelledby="operation"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> operation
+  
+  
+</h4>
+    
+<p>it is easier to scale out hardware to help operation, so its impact on architecture is less pronounced. hardware is cheap and people are expensive.</p>
+
+<p>The architecture of a system makes the operation of the system readily apparent to the developers; it should reveal operation.</p>
+<h4 class="no_toc" id="maintenance">
+  
+  
+    <a href="#maintenance" class="anchor-heading" aria-labelledby="maintenance"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> maintenance
+  
+  
+</h4>
+    
+<p>likely the most costly aspect of software systems, and the primary cost is <em>spelunking</em> (digging through existing software, trying to find the best place and strategy to add a new feature or repair a defect) and risk.</p>
+
+<p>Software has two types of value: behavior and structure. We keep software soft by leaving as many options open as possible. The details we leave open are the ones that don’t matter.</p>
+
+<p>Every software system can be decomposed into two major elements: <strong>policy</strong> and <strong>details</strong>. Policy is where the value of the system lives, details enable computers or humans to communicate with policy, and the goal of architect is to make a system that recognizes policy as most essential, and ensures details are irrelevant to that policy. These details can be delayed and deferred, e.g., what database, whether REST compliant, web server, etc.</p>
+<h3 id="chapter-16-independence">
+  
+  
+    <a href="#chapter-16-independence" class="anchor-heading" aria-labelledby="chapter-16-independence"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Chapter 16: Independence
+  
+  
+</h3>
+    
+<p>Good architecture must support:</p>
+<ul>
+  <li>use cases and operation of the system</li>
+  <li>maintenance of the system</li>
+  <li>development of the system</li>
+  <li>deployment of the system</li>
+</ul>
+<h4 class="no_toc" id="use-cases">
+  
+  
+    <a href="#use-cases" class="anchor-heading" aria-labelledby="use-cases"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Use Cases
+  
+  
+</h4>
+    
+<p>Architecture must support intent of the system. Architecture does not wield much influence over <em>behavior</em>, so best thing architecture can do is clarify and expose intent of the system and make it visible at the architectural level.</p>
+
+<p>These exposed elements will be classes or functions that have prominent positions within architecture and will be clearly named to describe that.</p>
+<h4 class="no_toc" id="operation-1">
+  
+  
+    <a href="#operation-1" class="anchor-heading" aria-labelledby="operation-1"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Operation
+  
+  
+</h4>
+    
+<p>A system must be structured to allow its operation, whether that is 100,000 customer orders per second or 2,000 records per second throughput. It is best to leave open decisions on system structure (monolith, microservices).</p>
+<h4 class="no_toc" id="development-1">
+  
+  
+    <a href="#development-1" class="anchor-heading" aria-labelledby="development-1"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Development
+  
+  
+</h4>
+    
+<p><em>“Any organization that designs a system will produce a design whose structure is a copy of the organization’s communication structure”</em> - Conway’s Law</p>
+
+<p>A system that must be developed by an organization with many teams and many concerns must have an architecture that facilitates independent actions by those teams.</p>
+<h4 class="no_toc" id="deployment-1">
+  
+  
+    <a href="#deployment-1" class="anchor-heading" aria-labelledby="deployment-1"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Deployment
+  
+  
+</h4>
+    
+<p>The goal is “immediate deployment”, achieved through the proper partitioning and isolation of the components of the system.</p>
+
+<p>A good architecture supports use cases and balances that with a component structure that mutually satisfies them all. This is hard because all use cases are not known, so leaving the system open to change in all the ways it must change is important.</p>
+<h4 class="no_toc" id="decoupling-layers">
+  
+  
+    <a href="#decoupling-layers" class="anchor-heading" aria-labelledby="decoupling-layers"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Decoupling Layers
+  
+  
+</h4>
+    
+<p>Use SRP and CCP to separate components that change for different reasons and collect what changes for the same reasons, and divide those into decoupled horizontal layers.</p>
+<h4 class="no_toc" id="decoupling-use-cases">
+  
+  
+    <a href="#decoupling-use-cases" class="anchor-heading" aria-labelledby="decoupling-use-cases"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Decoupling Use Cases
+  
+  
+</h4>
+    
+<p>Group together use cases in the same way we did for components, and make those the vertical slices across your horizontal layers. We shouldn’t have to modify use cases, just add more.</p>
+
+<p>Then, we can choose a decoupling mode – is it service-oriented architecture (SOA)? What needs to be run in the same address space, what can be separated to a different service? This option can be left open.</p>
+
+<p>If decoupling is done well, it should be easy to hot-swap components in the live system. Adding a new use case should be as simples as adding a new jar file or service to the system.</p>
+
+<p>Be wary of true duplication vs false duplication. If you have a change that needs to be reflected in all its duplicated elements, that is true duplication, but if you build an abstraction over duplicated code that is really two separate entities that evolve along separate paths, this is accidental duplication and can be largely ignored.</p>
+<h4 class="no_toc" id="decoupling-modes">
+  
+  
+    <a href="#decoupling-modes" class="anchor-heading" aria-labelledby="decoupling-modes"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Decoupling Modes
+  
+  
+</h4>
+    
+<ul>
+  <li>
+<strong>Source level</strong> - we can control dependencies between source code modules so changes to one don’t force changes or recomp. to others</li>
+  <li>
+<strong>Deployment level</strong> - decoupled components are partitioned into independently deployable units such as jar files, gem files, or dlls</li>
+  <li>
+<strong>Service level</strong> - reduce dependencies down to data structures and only communicate through network packets</li>
+</ul>
+
+<p>How to choose? One method is to decouple at the service-level by default, but this is often a waste in effort, memory, and cycles (the first being most expensive).</p>
+
+<p>Good architecture protects the majority of the source code from these changes, and leaves the option open as long as possible.</p>
+<h3 id="chapter-17-boundaries-drawing-lines">
+  
+  
+    <a href="#chapter-17-boundaries-drawing-lines" class="anchor-heading" aria-labelledby="chapter-17-boundaries-drawing-lines"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Chapter 17: Boundaries: Drawing Lines
+  
+  
+</h3>
+    
+<p>Software architecture is the art of drawing boundaries that separate software elements from one another and restrict one side from knowing about those on the other. Coupling saps human resources required to build systems.</p>
+
+<p>Draw lines between things that matter and things that do not. E.g., the database doesn’t matter to the GUI, so there should be a line between the two.</p>
+
+<p>Some have thought that the database is the embodiment of the business rules, but that is false. The database is a tool that the business rules use <em>indirectly</em>. All the business rules need to know about is that there is a set of functions to fetch/save data.</p>
+
+<p><img class="plantuml" src="http://www.plantuml.com/plantuml/svg/~h407374617274756d6c0a616c6c6f775f6d6978696e670a636f6d706f6e656e7420427573696e65737352756c65730a696e74657266616365204461746162617365496e746572666163650a636f6d706f6e656e742044617461626173654163636573730a64617461626173652044617461626173650a0a427573696e65737352756c6573202d642d3e204461746162617365496e746572666163650a4461746162617365416363657373202d752d7c3e204461746162617365496e746572666163650a4461746162617365416363657373202d722d3e2044617461626173650a40656e64756d6c"></p>
+
+<p>We can draw a line across the inheritance relationship, just below the DatabaseInterface. The Database could be implemented with Oracle or MySQL or Couch or Datomic or flat files, and the business rules don’t care.</p>
+
+<p>Also worth noting, <em>IO is irrelevant</em>.</p>
+
+<p>This is all a <em>plugin architecture</em>, or the idea that we could swap layers as plugins to business rules.</p>
+<h4 class="no_toc" id="summary-9">
+  
+  
+    <a href="#summary-9" class="anchor-heading" aria-labelledby="summary-9"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Summary
+  
+  
+</h4>
+    
+<p>To draw boundary lines in software architecture, you first partition the system into components. Some of those components are core business rules, others are plugins that contain necessary functions that are not related to the core business. Then you arrange the code in those components such that the arrows between them point in one direction – toward the core business.</p>
+<h3 id="chapter-18-boundary-anatomy">
+  
+  
+    <a href="#chapter-18-boundary-anatomy" class="anchor-heading" aria-labelledby="chapter-18-boundary-anatomy"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Chapter 18: Boundary Anatomy
+  
+  
+</h3>
+    
+<p><strong>monolith</strong> - the simplest and most common architectural boundary, simply disciplined segregation of functions and data within a single processor and a single address space. From a deployment view, this is a single executable file.</p>
+
+<p>Even in a monolith, OO paradigms allow us to decouple classes and function calls; dependencies cross boundaries <em>towards the higher-level component</em>.</p>
+<h3 id="chapter-19-policy-and-level">
+  
+  
+    <a href="#chapter-19-policy-and-level" class="anchor-heading" aria-labelledby="chapter-19-policy-and-level"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Chapter 19: Policy and Level
+  
+  
+</h3>
+    
+<p>Software systems are statements of policy: a program is a detailed description of the policy by which inputs are transformed to outputs.</p>
+
+<p>Within a system are many smaller statements of policy, and architecture is separating those policies and regrouping based on the ways that they change, often in a directed acyclic graph, and the direction of those dependencies is based on the level of the components they connect. Low-level components to depend on high-level components.</p>
+
+<p>A definition of level would be distance from the inputs and outputs. Higher level policies that are farthest from the inputs and outputs tend to change less frequently and for more important reasons, while lower level policies change more frequently and with more urgency but for less important reasons.</p>
+<h3 id="chapter-20-business-rules">
+  
+  
+    <a href="#chapter-20-business-rules" class="anchor-heading" aria-labelledby="chapter-20-business-rules"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Chapter 20: Business Rules
+  
+  
+</h3>
+    
+<p>If we divide our apps into business rules and plugins, what is a business rule? Simply they are rules or procedures that make or save money. They would make or save the business money even if implemented manually. E.g., a bank charging N% interest on a loan. These are <em>Critical Business Rules</em>, because they are critical to the business itself. These items typically need data, called <em>Critical Business Data</em>. Bounded together, they are an object called an <em>Entity</em>.</p>
+
+<p><img class="plantuml" src="http://www.plantuml.com/plantuml/svg/~h407374617274756d6c0a636c617373204c6f616e207b0a20202b207072696e6369706c650a20202b20726174650a20202b20706572696f640a20202b206d616b655061796d656e7428290a20202b206170706c79496e74657265737428290a20202b206368617267654c61746546656528290a7d0a40656e64756d6c"></p>
+
+<p>We can see Critical Business Data and Critical Business Rules together in the above class, although it doesn’t have to be a class – it could be any object.</p>
+
+<p>Sometimes, business rules might only save money when used in an automated way. This is a <em>use case</em>, or a description of the way an automated system would be used. Use cases control when Critical Business Rules within entities are invoked. These use cases use the Request and Response model, where a use case accepts simple request data structures for its input and returns simple response data structures as its output.</p>
+<h3 id="chapter-21-screaming-architecture">
+  
+  
+    <a href="#chapter-21-screaming-architecture" class="anchor-heading" aria-labelledby="chapter-21-screaming-architecture"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Chapter 21: Screaming Architecture
+  
+  
+</h3>
+    
+<p>If you look at a home, or a library, the architecture screams the function. A software application should scream about the use cases of the application.</p>
+
+<p>A good architecture allows decisions about frameworks, databases, web servers, and other environmental issues and tools to be deferred and delayed.</p>
+
+<p>Also, the Web is an IO device, not an architecture.</p>
+
+<p>Frameworks are tools, not ways of life.</p>
+
+<p>If your system architecture is all about use cases, you should be able to unit test all those use cases without any frameworks in place.</p>
+<h3 id="chapter-22-the-clean-architecture">
+  
+  
+    <a href="#chapter-22-the-clean-architecture" class="anchor-heading" aria-labelledby="chapter-22-the-clean-architecture"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Chapter 22: The Clean Architecture
+  
+  
+</h3>
+    
+<p>Most architectures try to achieve the same thing, <em>separation of concerns</em>, through dividing the system into layers that have the following characteristics:</p>
+<ul>
+  <li>independent of frameworks</li>
+  <li>testable</li>
+  <li>independent of the UI</li>
+  <li>independent of the database</li>
+  <li>independent of any external agency</li>
+</ul>
+
+<div style="text-align:center">
+  <a href="/assets/img/clean-architecture/circles.jpg">
+    <img src="/assets/img/clean-architecture/circles.jpg" alt="">
+  </a>
+</div>
+
+<p>The further in you move, the higher level the software is.</p>
+
+<p><em>“Source code dependencies must point only inward, toward higher-level policies.”</em></p>
+
+<p><strong>entities</strong> - describe enterprise-wide Critical Business Rules; can be object with methods, or set of data structures and functions
+<strong>use cases</strong> - contains application specific business rules, encapsulating and implementing all the use cases of the system
+<strong>interface adapters</strong> - converts data from a format most useful for use cases and identities to a format for some external agency
+<strong>framework and drivers</strong> - this is where all the details go, and there isn’t much code here other than glue code</p>
+
+<p>isolated, simple data structures are passed across the boundaries – we don’t want the data structures to have any sort of dependency that violates the dependency rule.</p>
+<h3 id="chapter-23-presenters-and-humble-objects">
+  
+  
+    <a href="#chapter-23-presenters-and-humble-objects" class="anchor-heading" aria-labelledby="chapter-23-presenters-and-humble-objects"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Chapter 23: Presenters and Humble Objects
+  
+  
+</h3>
+    
+<p><strong>The Humble Object Pattern</strong> - originally used by unit testers to split the hard to test behaviors from the easy to test behaviors. we can use that to split into two modules or classes, the hard to test (humble) and the easy.</p>
+
+<p>The GUI is hard to test, but the functionality isn’t. So splitting them gives us the Presenter and the View.</p>
+
+<p>Code in the hard to test object (humble) is as simple as possible. The Presenter is the testable object. In this scenario, its role is to format data for presentation so the View can simply move it to screen. Everything that appears on the screen is presented as a string, a boolean, or an enum.</p>
+
+<p>Where do ORMs belong? In the database layer, between gateway interfaces and the database.</p>
+<h3 id="chapter-23-partial-boundaries">
+  
+  
+    <a href="#chapter-23-partial-boundaries" class="anchor-heading" aria-labelledby="chapter-23-partial-boundaries"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Chapter 23: Partial Boundaries
+  
+  
+</h3>
+    
+<p>Proper boundaries are expensive to create – you need to create reciprocal <code class="language-plaintext highlighter-rouge">Boundary</code> interfaces, <code class="language-plaintext highlighter-rouge">Input</code> and <code class="language-plaintext highlighter-rouge">Output</code> data structures, and all the dependency management to ensure the two sides are independently compilable and deployable. We can create partial boundaries to give us flexibility later (this might be a violation of agile’s YAGNI - you ain’t gonna need it).</p>
+
+<p>Do all the work of creating the boundary but then keep it in the same component. Requires same amount of code, but not of administration of multiple components.</p>
+
+<p>Another pattern is the <em>Strategy</em> pattern, or getting the boundary behavior at runtime.</p>
+
+<p>Another pattern might be the <em>Façade</em> pattern, which sacrifices dependency inversion, where the Façade deploys service calls to classes the Client is not supposed to access.</p>
+<h4 class="no_toc" id="summary-10">
+  
+  
+    <a href="#summary-10" class="anchor-heading" aria-labelledby="summary-10"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Summary
+  
+  
+</h4>
+    
+<p>Three ways to implement boundary:</p>
+<ol>
+  <li>partial boundary</li>
+  <li>one-dimensional boundary</li>
+  <li>façade</li>
+</ol>
+
+<p>each boundary can be degraded if that boundary never materializes. It is a function of an architect to decide where boundaries might one day exist.</p>
+<h3 id="chapter-26-layers-and-boundaries">
+  
+  
+    <a href="#chapter-26-layers-and-boundaries" class="anchor-heading" aria-labelledby="chapter-26-layers-and-boundaries"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Chapter 26: Layers and Boundaries
+  
+  
+</h3>
+    
+<p>It’s easy to think a system is comprised of only three systems: UI, Business Rules, and Database, but there is more.</p>
+<h3 id="chapter-27-the-main-component">
+  
+  
+    <a href="#chapter-27-the-main-component" class="anchor-heading" aria-labelledby="chapter-27-the-main-component"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Chapter 27: The Main Component
+  
+  
+</h3>
+    
+<p>Think of <code class="language-plaintext highlighter-rouge">Main</code> as a plugin to the application that sets up initial conditions and configurations, gathers all the outside resources, and then hands control over to the high-level policy of the application. There might be a <code class="language-plaintext highlighter-rouge">Main</code> plugin for dev, for test, for production. If we think of <code class="language-plaintext highlighter-rouge">Main</code> sitting behind an architectural boundary, configuration becomes a lot easier to reason about.</p>
+<h3 id="chapter-28-services-great-and-small">
+  
+  
+    <a href="#chapter-28-services-great-and-small" class="anchor-heading" aria-labelledby="chapter-28-services-great-and-small"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Chapter 28: Services Great and Small
+  
+  
+</h3>
+    
+<p>Service-oriented and microservice architecture are popular in part because:</p>
+<ul>
+  <li>services seem strongly decoupled from each other</li>
+  <li>services appear to support independence of development and deployment</li>
+</ul>
+
+<p>Using services isn’t an “architecture”. An architecture is defined by the boundaries that separate high-level policy from low-level details. Services might be <em>part</em> of an architecture, but they don’t define it.</p>
+<h4 class="no_toc" id="the-decoupling-fallacy">
+  
+  
+    <a href="#the-decoupling-fallacy" class="anchor-heading" aria-labelledby="the-decoupling-fallacy"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> the decoupling fallacy
+  
+  
+</h4>
+    
+<p>It is a myth that services are fully decoupled. They might share resources within a processor or on a network, and they are certainly coupled by the data they share. If a new field is added to a data record passed between services, the receiving service needs to be changed.</p>
+
+<p>Additionally, while interfaces are well-defined, so are they between functions. Services aren’t any more rigorously defined.</p>
+<h4 class="no_toc" id="the-fallacy-of-independent-development-and-deployment">
+  
+  
+    <a href="#the-fallacy-of-independent-development-and-deployment" class="anchor-heading" aria-labelledby="the-fallacy-of-independent-development-and-deployment"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> the fallacy of independent development and deployment
+  
+  
+</h4>
+    
+<p>Teams can be solely responsible for writing, maintaining, and operating the service as part of a dev-ops strategy, and this is scalalable. This is only partially true.</p>
+<ol>
+  <li>large orgs can be built on monoliths and component-based systems as well as service based</li>
+  <li>services cannot always be independently developed, deployed, and operated (based on decoupling fallacy)</li>
+</ol>
+<h3 id="chapter-28-the-test-boundary">
+  
+  
+    <a href="#chapter-28-the-test-boundary" class="anchor-heading" aria-labelledby="chapter-28-the-test-boundary"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Chapter 28: The Test Boundary
+  
+  
+</h3>
+    
+<p><em>Tests are part of the system</em>. From an architectural standpoint, all tests are the same. We can think of tests as the outermost circle, and they follow the Dependency principle, as in, their dependencies point inward.</p>
+
+<p>Tests tend to be tightly coupled to system code, so changes to common systems can cause hundreds or even thousands of tests to fail, called the <em>Fragile Tests Problem</em>, which has the effect of making the system rigid because people resist changes so tests don’t fail. Design for testability – don’t depend on volatile things, so build a system so tests don’t rely on volatile things.</p>
+
+<p>One way to achieve this is to build a testing API so tests can verify business rules. This API will be a superset of <em>interactors</em> and <em>interface adapters</em>. We want to decouple the structure of the tests from the structure of the application.</p>
+
+<p>This avoids the <em>structural</em> coupling of test and application.</p>
+
+<p>Tests must be well-designed if they are to provide the desired benefits of stability and regression, and those tests that are not designed as part of the system tend to be fragile and difficult to maintain.</p>
+<h3 id="chapter-29-clean-embedded-architecture">
+  
+  
+    <a href="#chapter-29-clean-embedded-architecture" class="anchor-heading" aria-labelledby="chapter-29-clean-embedded-architecture"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Chapter 29: Clean Embedded Architecture
+  
+  
+</h3>
+    
+<p><em>“Although software does not wear out, firmware and hardware become obsolete, thereby requiring software modifications.”</em></p>
+<h2 id="part-v-details">
+  
+  
+    <a href="#part-v-details" class="anchor-heading" aria-labelledby="part-v-details"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Part V: Details
+  
+  
+</h2>
+    
+<h3 id="chapter-30-the-database-is-a-detail">
+  
+  
+    <a href="#chapter-30-the-database-is-a-detail" class="anchor-heading" aria-labelledby="chapter-30-the-database-is-a-detail"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Chapter 30: The Database is a Detail
+  
+  
+</h3>
+    
+<p>“From an architectural view, the database is a non-entity – it is a detail that does not rise to the level of an architectural element.” This doesn’t mean data models are details; those are highly significant to architecture.</p>
+
+<p>Edgar Codd defined the principles of relational databases in 1970, and its very valuable technology.</p>
+
+<p>Accessing things on memory is hard. Data access takes milliseconds, meaning you need indexes, caches, and query optimizers for fast and efficient access of data. This has taken two dominant forms: <strong>file systems</strong> and <strong>relational database management systems (RDBMS)</strong>. File systems are document based, and they work well when you need to find a file by name but not search its contents. Databases are content based, and are good if you need to find a record by content.</p>
+
+<p>Once disks go away, all data will be stored in RAM. The format it takes on RAM will be the format all programmers are used to and what data from tables is turned into: stacks, queues, linked lists, hash tables, trees, etc.</p>
+
+<p>What about performance? When it comes to data storage, that concern can be encapsulated and separated from business rules. Efficient data access and storage is a low level concern.</p>
+
+<p>The data is significant. The database is a detail.</p>
+<h3 id="chapter-31-the-web-is-a-detail">
+  
+  
+    <a href="#chapter-31-the-web-is-a-detail" class="anchor-heading" aria-labelledby="chapter-31-the-web-is-a-detail"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Chapter 31: The Web is a Detail
+  
+  
+</h3>
+    
+<p>Abstracting the business rules from the UI and web isn’t easy, but it can be done.</p>
+<h3 id="chapter-32-frameworks-are-details">
+  
+  
+    <a href="#chapter-32-frameworks-are-details" class="anchor-heading" aria-labelledby="chapter-32-frameworks-are-details"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Chapter 32: Frameworks are Details
+  
+  
+</h3>
+    
+<p>Frameworks are popular and useful, but they are not architectures.</p>
+
+<p>The relationship between you and the framework author is asymmetric – you rely entirely on the framework and they don’t know you exist.</p>
+
+<p>This is a weird chapter full of parasitic references of invasion.</p>
+
+<p>You can use the framework, but try not to couple completely to it. Inject it into your Main component but leave it there.</p>
+<h3 id="chapter-33-a-use-case">
+  
+  
+    <a href="#chapter-33-a-use-case" class="anchor-heading" aria-labelledby="chapter-33-a-use-case"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Chapter 33: A Use Case
+  
+  
+</h3>
+    
+<p>No notes for this chapter.</p>
+<h3 id="chapter-34-the-missing-chapter">
+  
+  
+    <a href="#chapter-34-the-missing-chapter" class="anchor-heading" aria-labelledby="chapter-34-the-missing-chapter"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Chapter 34: The Missing Chapter
+  
+  
+</h3>
+    
+<p>4 ways to package your application:</p>
+<ol>
+  <li>
+<strong>Package by Layer</strong>
+    <ul>
+      <li>traditional horizontal-layered application</li>
+      <li>layers only depend on lower adjacent layer</li>
+      <li>good way to start a project, but problems are 1) you probably need to increase modularizing 2) it doesn’t scream its architecture</li>
+    </ul>
+  </li>
+  <li>
+<strong>Package by Feature</strong>
+    <ul>
+      <li>switch from horizontal to vertical layering</li>
+      <li>closer to screaming architecture, but still problematic</li>
+    </ul>
+  </li>
+  <li>
+<strong>Ports and Adapters</strong>
+    <ul>
+      <li>like hexagonal, or boundaries, controllers, and entities architecture patterns</li>
+      <li>business-domain-focused code is independent and separate from technical implementation details such as frameworks and databases</li>
+      <li>inside contains domain concepts expressed in ubiquitous domain language, and the outside depends on the inside by never the other way around</li>
+    </ul>
+  </li>
+  <li>
+<strong>Package by Component</strong>
+    <ul>
+      <li>an additional way of packaging</li>
+      <li>bundle up business logic and persistence code into single element, which is a mechanism to enforce certain access schemes (i.e., a controller not accessing a persistence layer around the service layer)</li>
+    </ul>
+  </li>
+</ol>
+
+          
+
+          
+        </main>
+        
+
+  <hr>
+  <footer>
+    
+      <p><a href="#top" id="back-to-top">Back to top</a></p>
+    
+
+    <p class="text-small text-grey-dk-100 mb-0">Copyright © 2022 Michael McIntyre. </p>
+
+    
+      <div class="d-flex mt-2">
+        
+          <p class="text-small text-grey-dk-000 mb-0 mr-2">
+            Page last modified: <span class="d-inline-block">Aug  7 2021 at 07:40 PM</span>.
+          </p>
+        
+        
+      </div>
+    
+  </footer>
+
+
+      </div>
+    </div>
+    
+      
+
+<div class="search-overlay"></div>
+
+    
+  </div>
+
+  
+</body>
+</html>

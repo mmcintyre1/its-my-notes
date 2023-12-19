@@ -1,0 +1,1195 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+
+  
+
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+  <link rel="stylesheet" href="/assets/css/just-the-docs-default.css">
+  <link rel="stylesheet" href="/assets/css/native.css">
+
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-M6EEXPRNWS"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-M6EEXPRNWS', { 'anonymize_ip': true });
+  </script>
+
+  
+
+  
+  <script type="text/javascript" src="/assets/js/vendor/lunr.min.js"></script>
+  
+  <script type="text/javascript" src="/assets/js/just-the-docs.js"></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Domain Driven Design: Tackling Complexity in the Heart of Software | Notes</title>
+<meta name="generator" content="Jekyll v3.9.2">
+<meta property="og:title" content="Domain Driven Design: Tackling Complexity in the Heart of Software">
+<meta property="og:locale" content="en_US">
+<meta name="description" content="My Notes">
+<meta property="og:description" content="My Notes">
+<link rel="canonical" href="https://itsmynotes.com/notes/tech_books/domain-driven-design">
+<meta property="og:url" content="https://itsmynotes.com/notes/tech_books/domain-driven-design">
+<meta property="og:site_name" content="Notes">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<meta property="twitter:title" content="Domain Driven Design: Tackling Complexity in the Heart of Software">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"My Notes","headline":"Domain Driven Design: Tackling Complexity in the Heart of Software","url":"https://itsmynotes.com/notes/tech_books/domain-driven-design"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+  
+
+</head>
+<body>
+  <a class="skip-to-main" href="#main-content">Skip to main content</a>
+  <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+  <symbol id="svg-link" viewbox="0 0 24 24">
+  <title>Link</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link">
+    <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+  </svg>
+</symbol>
+
+  <symbol id="svg-menu" viewbox="0 0 24 24">
+  <title>Menu</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu">
+    <line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line>
+  </svg>
+</symbol>
+
+  <symbol id="svg-arrow-right" viewbox="0 0 24 24">
+  <title>Expand</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+    <polyline points="9 18 15 12 9 6"></polyline>
+  </svg>
+</symbol>
+
+  <!-- Feather. MIT License: https://github.com/feathericons/feather/blob/master/LICENSE -->
+<symbol id="svg-external-link" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-external-link">
+  <title id="svg-external-link-title">(external link)</title>
+  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line>
+</symbol>
+
+  
+    <symbol id="svg-doc" viewbox="0 0 24 24">
+  <title>Document</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file">
+    <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline>
+  </svg>
+</symbol>
+
+    <symbol id="svg-search" viewbox="0 0 24 24">
+  <title>Search</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search">
+    <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+  </svg>
+</symbol>
+
+  
+  
+    <!-- Bootstrap Icons. MIT License: https://github.com/twbs/icons/blob/main/LICENSE.md -->
+<symbol id="svg-copy" viewbox="0 0 16 16">
+  <title>Copy</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard" viewbox="0 0 16 16">
+    <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"></path>
+    <path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"></path>
+  </svg>
+</symbol>
+<symbol id="svg-copied" viewbox="0 0 16 16">
+  <title>Copied</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard-check-fill" viewbox="0 0 16 16">
+    <path d="M6.5 0A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3Zm3 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3Z"></path>
+    <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1A2.5 2.5 0 0 1 9.5 5h-3A2.5 2.5 0 0 1 4 2.5v-1Zm6.854 7.354-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L7.5 10.793l2.646-2.647a.5.5 0 0 1 .708.708Z"></path>
+  </svg>
+</symbol>
+
+  
+</svg>
+
+  <div class="side-bar">
+  <div class="site-header" role="banner">
+    <a href="/" class="site-title lh-tight">
+  Notes
+
+</a>
+    <button id="menu-button" class="site-button btn-reset" aria-label="Toggle menu" aria-pressed="false">
+      <svg viewbox="0 0 24 24" class="icon" aria-hidden="true"><use xlink:href="#svg-menu"></use></svg>
+    </button>
+  </div>
+
+  <nav aria-label="Main" id="site-nav" class="site-nav">
+  
+  
+    <ul class="nav-list">
+<li class="nav-list-item">
+<button class="nav-list-expander btn-reset" aria-label="toggle items in Projects category" aria-pressed="false">
+      <svg viewbox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+    </button><a href="/notes/projects" class="nav-list-link">Projects</a><ul class="nav-list"></ul>
+</li>
+<li class="nav-list-item">
+<button class="nav-list-expander btn-reset" aria-label="toggle items in Vocabulary category" aria-pressed="false">
+      <svg viewbox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+    </button><a href="/notes/vocabulary" class="nav-list-link">Vocabulary</a><ul class="nav-list"></ul>
+</li>
+<li class="nav-list-item">
+<button class="nav-list-expander btn-reset" aria-label="toggle items in Business Books category" aria-pressed="false">
+      <svg viewbox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+    </button><a href="/notes/business-books" class="nav-list-link">Business Books</a><ul class="nav-list"></ul>
+</li>
+<li class="nav-list-item">
+<button class="nav-list-expander btn-reset" aria-label="toggle items in Other Books category" aria-pressed="false">
+      <svg viewbox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+    </button><a href="/notes/other-books" class="nav-list-link">Other Books</a><ul class="nav-list"></ul>
+</li>
+<li class="nav-list-item">
+<button class="nav-list-expander btn-reset" aria-label="toggle items in Educational Books category" aria-pressed="false">
+      <svg viewbox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+    </button><a href="/notes/educational-books" class="nav-list-link">Educational Books</a><ul class="nav-list"></ul>
+</li>
+<li class="nav-list-item">
+<button class="nav-list-expander btn-reset" aria-label="toggle items in Articles category" aria-pressed="false">
+      <svg viewbox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+    </button><a href="/notes/articles" class="nav-list-link">Articles</a><ul class="nav-list"></ul>
+</li>
+<li class="nav-list-item">
+<button class="nav-list-expander btn-reset" aria-label="toggle items in Quotes category" aria-pressed="false">
+      <svg viewbox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+    </button><a href="/notes/quotes" class="nav-list-link">Quotes</a><ul class="nav-list"></ul>
+</li>
+<li class="nav-list-item">
+<button class="nav-list-expander btn-reset" aria-label="toggle items in Classes category" aria-pressed="false">
+      <svg viewbox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+    </button><a href="/notes/classes" class="nav-list-link">Classes</a><ul class="nav-list"></ul>
+</li>
+<li class="nav-list-item">
+<button class="nav-list-expander btn-reset" aria-label="toggle items in Tech Books category" aria-pressed="false">
+      <svg viewbox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+    </button><a href="/notes/tech-books" class="nav-list-link">Tech Books</a><ul class="nav-list"></ul>
+</li>
+<li class="nav-list-item">
+<button class="nav-list-expander btn-reset" aria-label="toggle items in Podcasts category" aria-pressed="false">
+      <svg viewbox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+    </button><a href="/notes/podcasts" class="nav-list-link">Podcasts</a><ul class="nav-list"></ul>
+</li>
+</ul>
+
+  
+</nav>
+
+
+  
+  
+    <footer class="site-footer">
+      This site uses <a href="https://github.com/just-the-docs/just-the-docs">Just the Docs</a>, a documentation theme for Jekyll.
+    </footer>
+  
+</div>
+
+  <div class="main" id="top">
+    <div id="main-header" class="main-header">
+  
+    
+
+<div class="search" role="search">
+  <div class="search-input-wrap">
+    <input type="text" id="search-input" class="search-input" tabindex="0" placeholder="Search Notes" aria-label="Search Notes" autocomplete="off">
+    <label for="search-input" class="search-label"><svg viewbox="0 0 24 24" class="search-icon"><use xlink:href="#svg-search"></use></svg></label>
+  </div>
+  <div id="search-results" class="search-results"></div>
+</div>
+
+  
+  
+  
+    <nav aria-label="Auxiliary" class="aux-nav">
+  <ul class="aux-nav-list">
+    
+      <li class="aux-nav-list-item">
+        <a href="https://github.com/mmcintyre1/its-my-notes" class="site-button">
+          It's My Notes on GitHub
+        </a>
+      </li>
+    
+  </ul>
+</nav>
+
+  
+</div>
+
+    <div class="main-content-wrap">
+      <nav aria-label="Breadcrumb" class="breadcrumb-nav">
+  <ol class="breadcrumb-nav-list">
+  
+    <li class="breadcrumb-nav-list-item"><a href="/notes/tech-books">Tech Books</a></li>
+  <li class="breadcrumb-nav-list-item"><span>Domain Driven Design: Tackling Complexity in the Heart of Software</span></li>
+  </ol>
+</nav>
+      <div id="main-content" class="main-content">
+        <main>
+          
+            <h1 class="no_toc" id="domain-driven-design-tackling-complexity-in-the-heart-of-software">
+  
+  
+    <a href="#domain-driven-design-tackling-complexity-in-the-heart-of-software" class="anchor-heading" aria-labelledby="domain-driven-design-tackling-complexity-in-the-heart-of-software"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Domain Driven Design: Tackling Complexity in the Heart of Software
+  
+  
+</h1>
+    
+<p>Eric Evans, 2003</p>
+
+<details open="">
+  <summary>
+    Table of contents
+  </summary>
+<ol id="markdown-toc">
+  <li>
+<a href="#ubiquitous-language" id="markdown-toc-ubiquitous-language">Ubiquitous Language</a>    <ol>
+      <li><a href="#knowledge-crunching" id="markdown-toc-knowledge-crunching">Knowledge Crunching</a></li>
+      <li><a href="#modelling-documents-and-diagrams" id="markdown-toc-modelling-documents-and-diagrams">Modelling Documents and Diagrams</a></li>
+    </ol>
+  </li>
+  <li><a href="#model-driven-design" id="markdown-toc-model-driven-design">Model-Driven Design</a></li>
+  <li>
+<a href="#modelling-building-blocks" id="markdown-toc-modelling-building-blocks">Modelling Building Blocks</a>    <ol>
+      <li><a href="#layered-architecture" id="markdown-toc-layered-architecture">Layered Architecture</a></li>
+      <li><a href="#smart-ui-anti-pattern" id="markdown-toc-smart-ui-anti-pattern">Smart UI (Anti-Pattern)</a></li>
+      <li><a href="#entities-reference-objects" id="markdown-toc-entities-reference-objects">Entities (Reference Objects)</a></li>
+      <li><a href="#value-objects" id="markdown-toc-value-objects">Value Objects</a></li>
+      <li><a href="#services" id="markdown-toc-services">Services</a></li>
+      <li><a href="#modules-packages" id="markdown-toc-modules-packages">Modules (Packages)</a></li>
+      <li><a href="#aggregates" id="markdown-toc-aggregates">Aggregates</a></li>
+      <li><a href="#factories" id="markdown-toc-factories">Factories</a></li>
+      <li><a href="#repositories" id="markdown-toc-repositories">Repositories</a></li>
+    </ol>
+  </li>
+  <li>
+<a href="#supple-design" id="markdown-toc-supple-design">Supple Design</a>    <ol>
+      <li><a href="#intention-revealing-interfaces" id="markdown-toc-intention-revealing-interfaces">Intention-Revealing Interfaces</a></li>
+      <li><a href="#side-effect-free-functions" id="markdown-toc-side-effect-free-functions">Side-Effect-Free Functions</a></li>
+      <li><a href="#assertions" id="markdown-toc-assertions">Assertions</a></li>
+      <li><a href="#conceptual-contours" id="markdown-toc-conceptual-contours">Conceptual Contours</a></li>
+      <li><a href="#standalone-classes" id="markdown-toc-standalone-classes">Standalone Classes</a></li>
+    </ol>
+  </li>
+  <li>
+<a href="#context" id="markdown-toc-context">Context</a>    <ol>
+      <li><a href="#bounded-context" id="markdown-toc-bounded-context">Bounded Context</a></li>
+      <li><a href="#continuous-integration" id="markdown-toc-continuous-integration">Continuous Integration</a></li>
+      <li><a href="#context-map" id="markdown-toc-context-map">Context Map</a></li>
+      <li>
+<a href="#relationships-between-bounded-contexts" id="markdown-toc-relationships-between-bounded-contexts">Relationships Between Bounded Contexts</a>        <ol>
+          <li><a href="#shared-kernel" id="markdown-toc-shared-kernel">Shared Kernel</a></li>
+          <li><a href="#customersupplier-dev-teams" id="markdown-toc-customersupplier-dev-teams">Customer/Supplier Dev Teams</a></li>
+          <li><a href="#conformist" id="markdown-toc-conformist">Conformist</a></li>
+          <li><a href="#anti-corruption-layer" id="markdown-toc-anti-corruption-layer">Anti-Corruption Layer</a></li>
+          <li><a href="#separate-ways" id="markdown-toc-separate-ways">Separate Ways</a></li>
+          <li><a href="#open-host-service" id="markdown-toc-open-host-service">Open Host Service</a></li>
+          <li><a href="#published-language" id="markdown-toc-published-language">Published Language</a></li>
+        </ol>
+      </li>
+    </ol>
+  </li>
+  <li>
+<a href="#distillation" id="markdown-toc-distillation">Distillation</a>    <ol>
+      <li><a href="#core-domain" id="markdown-toc-core-domain">Core Domain</a></li>
+      <li><a href="#generic-subdomains" id="markdown-toc-generic-subdomains">Generic Subdomains</a></li>
+      <li><a href="#domain-vision-statement" id="markdown-toc-domain-vision-statement">Domain Vision Statement</a></li>
+      <li><a href="#highlighted-core" id="markdown-toc-highlighted-core">Highlighted Core</a></li>
+      <li><a href="#cohesive-mechanisms" id="markdown-toc-cohesive-mechanisms">Cohesive Mechanisms</a></li>
+      <li><a href="#segregated-core" id="markdown-toc-segregated-core">Segregated Core</a></li>
+      <li><a href="#declarative-style" id="markdown-toc-declarative-style">Declarative Style</a></li>
+    </ol>
+  </li>
+  <li>
+<a href="#large-scale-structures" id="markdown-toc-large-scale-structures">Large-Scale Structures</a>    <ol>
+      <li><a href="#evolving-order" id="markdown-toc-evolving-order">Evolving Order</a></li>
+      <li><a href="#system-metaphor" id="markdown-toc-system-metaphor">System Metaphor</a></li>
+      <li><a href="#responsibility-layers" id="markdown-toc-responsibility-layers">Responsibility Layers</a></li>
+      <li><a href="#knowledge-level" id="markdown-toc-knowledge-level">Knowledge Level</a></li>
+      <li><a href="#pluggable-component-framework" id="markdown-toc-pluggable-component-framework">Pluggable Component Framework</a></li>
+    </ol>
+  </li>
+  <li><a href="#six-essentials-for-strategic-design-decision-making-492" id="markdown-toc-six-essentials-for-strategic-design-decision-making-492">Six Essentials for Strategic Design Decision Making (492)</a></li>
+</ol>
+
+</details>
+<h2 id="ubiquitous-language">
+  
+  
+    <a href="#ubiquitous-language" class="anchor-heading" aria-labelledby="ubiquitous-language"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Ubiquitous Language
+  
+  
+</h2>
+    
+<ul>
+  <li>a common language that is more robust than lowest common denominator</li>
+  <li>made up of names of classes, prominent operations</li>
+  <li>supplemented with terms from high-level organizing principles and names of patterns identified by team</li>
+  <li>should be used to describe not just <em>artifacts</em> but <em>tasks</em> and <em>functionality</em>
+</li>
+  <li>when language is fractured between technical members and subject matter experts (speaking two different nomenclatures), project faces serious problems
+    <ul>
+      <li>translation is required between the two, and this blunts communication and requires significant knowledge crunching</li>
+    </ul>
+  </li>
+  <li>holds all the parts together</li>
+  <li>should be a dynamic and evolving language based on <strong>knowledge crunching</strong>
+</li>
+  <li><em>If sophisticated domain experts don’t understand the model, there is something wrong with the model</em></li>
+</ul>
+<h3 id="knowledge-crunching">
+  
+  
+    <a href="#knowledge-crunching" class="anchor-heading" aria-labelledby="knowledge-crunching"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Knowledge Crunching
+  
+  
+</h3>
+    
+<ul>
+  <li>take a torrent of info and probe for relevant trickly</li>
+  <li>continuously try one organizing principle after another until one fits</li>
+  <li>process of distillation – move away from waterfall where all knowledge defined up front (knowledge trickles in one direction but never accumulates)</li>
+  <li>without input from domain experts, knowledge is anemic and naive</li>
+  <li><em>When we set out to write software, we never know enough</em></li>
+  <li>all projects leak knowledge, so hard-earned knowledge needs to be expressed in a usable (and durable) form to protect against when the oral tradition is interrupted (and knowledge is lost)</li>
+</ul>
+<h3 id="modelling-documents-and-diagrams">
+  
+  
+    <a href="#modelling-documents-and-diagrams" class="anchor-heading" aria-labelledby="modelling-documents-and-diagrams"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Modelling Documents and Diagrams
+  
+  
+</h3>
+    
+<ul>
+  <li>
+<em>the model is not the diagram</em> – the diagrams and documents purpose is to help communicate and explain the model</li>
+  <li>UML documents miss two important things 1) the meaning of the objects it represents &amp; 2) what the objects are meant to do</li>
+  <li>using UML as an implementation language is missing the point, because you will still need something to communicate the uncluttered model (the model isn’t just the code)</li>
+  <li>greatest value of a design document is to:
+    <ol>
+      <li>explain the concepts of the model</li>
+      <li>help navigate the detail of the code</li>
+      <li>give insight into the model’s intended style of use</li>
+    </ol>
+  </li>
+</ul>
+
+<div style="text-align:center">
+  <a href="/assets/img/domain-driven-design/diagram.svg">
+    <img src="/assets/img/domain-driven-design/diagram.svg" alt="ddd-diagram">
+  </a>
+</div>
+<h2 id="model-driven-design">
+  
+  
+    <a href="#model-driven-design" class="anchor-heading" aria-labelledby="model-driven-design"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Model-Driven Design
+  
+  
+</h2>
+    
+<ul>
+  <li>tightly relating the code to an underlying model gives the code meaning and makes the model relevant</li>
+  <li>need to relate the design to the domain model – key is not to divide analysis and design as two separate models – they both serve to create and refine the same model</li>
+  <li>one approach:
+    <ul>
+      <li>design portion of software to reflect the domain model so mapping is obvious, then build upon that</li>
+    </ul>
+  </li>
+  <li>code is an expression of the model, and changes to the code require changes to the model</li>
+  <li>this sort of development really only makes sense for object-oriented programming (based on modelling paradigm) where you can slavishly tie model to implementation</li>
+  <li>revealing the model to the user (e.g., bookmarks as files rather than obscuring the model via abstraction) gives the user more access to the potential of the software and yields consistent, predictable behavior</li>
+  <li>need <em>hands-on modellers</em> – people who write code should feel responsible to update model. needs to be that feedback</li>
+</ul>
+<h2 id="modelling-building-blocks">
+  
+  
+    <a href="#modelling-building-blocks" class="anchor-heading" aria-labelledby="modelling-building-blocks"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Modelling Building Blocks
+  
+  
+</h2>
+    
+<h3 id="layered-architecture">
+  
+  
+    <a href="#layered-architecture" class="anchor-heading" aria-labelledby="layered-architecture"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Layered Architecture
+  
+  
+</h3>
+    
+
+<div style="text-align:center">
+  <a href="/assets/img/domain-driven-design/layered.png">
+    <img src="/assets/img/domain-driven-design/layered.png" alt="ddd-layered-architecture">
+  </a>
+</div>
+
+<ul>
+  <li>business logic and UI and infra can become intertwined, making changes to anything (for example, an update to a widget in the UI) require large changes and be difficult to reason about</li>
+  <li>essential principle is that any element of a layer depends only on other elements in the same layer or on elements of the layers “beneath” it, and communication upwards must pass through some indirect method</li>
+  <li>need to partition complex program into layers</li>
+  <li>each layer is cohesive and depends only on layers below</li>
+  <li>then, concentrate all code that pertaints to domain model and isolate from the UI, application, and infrastructure code</li>
+  <li>domain objects can then worry solely about expressing the domain model, which allows a model to evolve and be rich and clear enough to capture essential business knowledge</li>
+  <li>also important to judiciously apply frameworks, as they can be heavyweight and obscure the domain model</li>
+</ul>
+<h3 id="smart-ui-anti-pattern">
+  
+  
+    <a href="#smart-ui-anti-pattern" class="anchor-heading" aria-labelledby="smart-ui-anti-pattern"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Smart UI (Anti-Pattern)
+  
+  
+</h3>
+    
+<ul>
+  <li>sometimes, a simple project doesn’t require all the overhead of domain-driven design, which is costly, takes a while to onboard new team members, time consuming, etc.</li>
+  <li>can use the Smart UI pattern (which is an anti-pattern generally)
+    <ul>
+      <li>put all business logic into the user interface</li>
+      <li>chop application into small functions and implement as separate user interfaces</li>
+      <li>automate as much of the UI building as possible</li>
+    </ul>
+  </li>
+  <li>downsides are: 1) integrations are difficult (except through the db), 2) no reuse of behavior or abstractions 3) rapid prototyping and iteration eventually reach a natural limit 4) complexity buries you quickly</li>
+</ul>
+<h3 id="entities-reference-objects">
+  
+  
+    <a href="#entities-reference-objects" class="anchor-heading" aria-labelledby="entities-reference-objects"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Entities (Reference Objects)
+  
+  
+</h3>
+    
+<ul>
+  <li>an object defined by its identity, not just its attributes</li>
+  <li>has continuity through a lifecycle and distinctions independent of attributes that are important to the app’s user</li>
+  <li>need to keep a means of distinguishing each object via its <em>identity</em> that is guaranteed to return <strong>unique</strong> result to that object and be <strong>immutable</strong>
+</li>
+  <li>most basic responsibility of an <strong>ENTITY</strong> is to establish continuity so that behavior can be clear and predictable</li>
+</ul>
+<h3 id="value-objects">
+  
+  
+    <a href="#value-objects" class="anchor-heading" aria-labelledby="value-objects"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Value Objects
+  
+  
+</h3>
+    
+<ul>
+  <li>an object that represents a descriptive aspect of the domain with no conceptual identiy</li>
+  <li>objects that describe things</li>
+  <li>transient, immutable pieces of data without identity, but could give information about an <strong>ENTITY</strong>
+</li>
+  <li>e.g., a <code class="language-plaintext highlighter-rouge">Customer</code> could be an <strong>ENTITY</strong> but that <code class="language-plaintext highlighter-rouge">Customer</code>’s name is a <strong>VALUE OBJECT</strong>
+</li>
+  <li>if a value object must be shared between objects, it must be immutable. otherwise, it <em>should not</em> be shared</li>
+</ul>
+<h3 id="services">
+  
+  
+    <a href="#services" class="anchor-heading" aria-labelledby="services"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Services
+  
+  
+</h3>
+    
+<ul>
+  <li>an operation that is offered as an interface that stands alone in the model, without encapsulating state</li>
+  <li>tends to be named for an activity, a verb, not a noun</li>
+  <li>a <strong>SERVICE</strong> should still have a defined responsibility</li>
+  <li>a good <strong>SERVICE</strong> has three characteristics:
+    <ol>
+      <li>the operation relates to a domain concept that is not a natural part of an <strong>ENTITY</strong> or <strong>VALUE OBJECT</strong>
+</li>
+      <li>the interface is defined in terms of other elements of the domain model</li>
+      <li>the operation is stateless</li>
+    </ol>
+  </li>
+  <li>most <strong>SERVICES</strong> are purely technical and belong in infra layer</li>
+</ul>
+<h3 id="modules-packages">
+  
+  
+    <a href="#modules-packages" class="anchor-heading" aria-labelledby="modules-packages"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Modules (Packages)
+  
+  
+</h3>
+    
+<ul>
+  <li>cognitive overload is the primary motivation for modularity</li>
+  <li>low coupling (decreases cost of understanding modules place) between modules and high cohesion (reduces scale of complexity within single module to manageable) within them</li>
+  <li>give <strong>MODULES</strong> names that become part of the <strong>UBIQUITOUS LANGUAGE</strong>
+</li>
+  <li>
+<strong>MODULES</strong> also tend to follow distribution model (e.g., code that is intended to run on the same server can be part of the same <strong>MODULE</strong>)</li>
+</ul>
+
+<p><strong>Life cycle of a Domain Object</strong></p>
+<div style="text-align:center">
+  <a href="/assets/img/domain-driven-design/lifecycle-of-domain-object.svg">
+    <img src="/assets/img/domain-driven-design/lifecycle-of-domain-object.svg" alt="lifecycle-of-domain-object">
+  </a>
+</div>
+<h3 id="aggregates">
+  
+  
+    <a href="#aggregates" class="anchor-heading" aria-labelledby="aggregates"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Aggregates
+  
+  
+</h3>
+    
+<ul>
+  <li>a cluster of associated objects that we treat as a unit for the purpose of data changes</li>
+  <li>the root of an aggregate is the only member of the <strong>AGGREGATE</strong> that outside objects are allowed to hold references to</li>
+  <li>it is difficult to guarantee consistency of changes to objects in a model with complex associations</li>
+  <li>invariants need to be maintained that apply to closely related groups of objects, not just discrete objects</li>
+  <li>cautious locking schemes cause multiple useers to interfere pointlessly with each other to make the system almost unusable</li>
+</ul>
+
+<div style="text-align:center">
+  <a href="/assets/img/domain-driven-design/aggregate.svg">
+    <img src="/assets/img/domain-driven-design/aggregate.svg" alt="aggregate">
+  </a>
+</div>
+
+<ul>
+  <li>cluster <strong>ENTITIES</strong> and <strong>VALUE OBJECTS</strong> into <strong>AGGREGATES</strong> and define boundaries around each</li>
+  <li>choose one <strong>ENTITY</strong> to be root, and control access for everything inside via the root (external objects can only hold reference to the root)</li>
+  <li>transient references to internal members can be passed out only for single operation</li>
+  <li>because root controls access, it will be aware of changes to internals</li>
+  <li>you can then enforce invariants for anything within the <strong>AGGREGATE</strong>
+</li>
+</ul>
+<h3 id="factories">
+  
+  
+    <a href="#factories" class="anchor-heading" aria-labelledby="factories"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Factories
+  
+  
+</h3>
+    
+<ul>
+  <li>instantiating objects can be ungainly, and when client needs to do it itself, it breaches encapsulation and overly couples the client to the implementation of the created object</li>
+  <li>encapsulates knowledge required to create a complex object or <strong>AGGREGATE</strong>
+</li>
+  <li>shift responsibility for creating objects to a separate object that might have no responsibility itself in the domain</li>
+  <li>create a <strong>FACTORY</strong> to build something whose details you want to hide</li>
+  <li>that said, sometimes a simple constructor is all you need (e.g., client cares about implementation like in the <strong>STRATEGY</strong> pattern)</li>
+  <li>key parts of <strong>FACTORY</strong>: each operation is atomic, and the <strong>FACTORY</strong> will be coupled to its arguments</li>
+  <li>can also use <strong>FACTORY</strong> to reconstitute objects – need to make sure tracking ID is the same, and any invariant violation is handled appropriately</li>
+</ul>
+<h3 id="repositories">
+  
+  
+    <a href="#repositories" class="anchor-heading" aria-labelledby="repositories"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Repositories
+  
+  
+</h3>
+    
+<ul>
+  <li>client needs a way to acquire references to pre-existing domain objects</li>
+  <li>
+<strong>REPOSITORY</strong> provides a global access method to domain objects (querying, persisting, updating, etc.) – delegate all storage and access</li>
+  <li>without <strong>REPOSITORY</strong> pattern, devs might take shortcuts e.g., direct database queries, which, while faster, break encapsulation and sprawl logic</li>
+  <li>
+<em>reconstitution</em> - restoring instance from stored data</li>
+  <li>Evans recommends 1) abstracting type, 2) taking advantage of decoupling data access from the client, and 3) leave transaction control to the client</li>
+  <li>
+<strong>REPOSITORY</strong> similar to <strong>FACTORY</strong> – the former finds old objects, the latter makes new objects</li>
+  <li>Evans also recommends against “find or create” functionality because usually the distinction between new object and existing object is important in the domain, and a framework that transparently combines them might muddy the waters</li>
+</ul>
+<h2 id="supple-design">
+  
+  
+    <a href="#supple-design" class="anchor-heading" aria-labelledby="supple-design"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Supple Design
+  
+  
+</h2>
+    
+
+<div style="text-align:center">
+  <a href="/assets/img/domain-driven-design/supple-design.jpg">
+    <img src="/assets/img/domain-driven-design/supple-design.jpg" alt="supple-design">
+  </a>
+</div>
+<h3 id="intention-revealing-interfaces">
+  
+  
+    <a href="#intention-revealing-interfaces" class="anchor-heading" aria-labelledby="intention-revealing-interfaces"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Intention-Revealing Interfaces
+  
+  
+</h3>
+    
+<ul>
+  <li>if you need to be aware of implementation of component to use it, you lose value of encapsulation</li>
+  <li>name classes and operations to describe effect and purpose without means to which they do what they promise</li>
+  <li>names should conform to <strong>ubiquitous language</strong>
+</li>
+  <li>use test-driven development by writing test for behavior before implementing</li>
+</ul>
+<h3 id="side-effect-free-functions">
+  
+  
+    <a href="#side-effect-free-functions" class="anchor-heading" aria-labelledby="side-effect-free-functions"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Side-Effect-Free Functions
+  
+  
+</h3>
+    
+<ul>
+  <li>
+<strong>side effect</strong> - any change in the state of the system that will affect future operations</li>
+  <li>
+<strong>command</strong> - method that result in modification to observable state</li>
+  <li>need to limit so developers can make changes without needing to understand full cascading effects</li>
+  <li>place logic of program into functions that return results with no observable side effects</li>
+  <li>segregate commands into simple operations that do not return domain information</li>
+</ul>
+<h3 id="assertions">
+  
+  
+    <a href="#assertions" class="anchor-heading" aria-labelledby="assertions"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Assertions
+  
+  
+</h3>
+    
+<ul>
+  <li>can be used to state post-conditions of operations and invariants of class <strong>AGGREGATES</strong>
+</li>
+  <li>most OO languages don’t directly support, but good unit tests can make up gap</li>
+</ul>
+<h3 id="conceptual-contours">
+  
+  
+    <a href="#conceptual-contours" class="anchor-heading" aria-labelledby="conceptual-contours"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Conceptual Contours
+  
+  
+</h3>
+    
+<ul>
+  <li>without boundaries between elements of a model, functionality gets duplicated, and meaning is hard to understand</li>
+  <li>conversely, too fine-grained of boundaries make objects lose all meaning (half a uranium atom isn’t uranium)</li>
+  <li>decompose design elements into cohesive units</li>
+  <li>observe <em>axes of change</em> to identify <strong>CONCEPTUAL CONTOURS</strong>
+</li>
+</ul>
+<h3 id="standalone-classes">
+  
+  
+    <a href="#standalone-classes" class="anchor-heading" aria-labelledby="standalone-classes"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Standalone Classes
+  
+  
+</h3>
+    
+<ul>
+  <li>adding dependencies to a module increases difficulties in understanding drastically</li>
+  <li>implicit is much more difficult than explicit concepts</li>
+  <li><em>low coupling is fundamental to object design</em></li>
+  <li>if you can, eliminate all other concepts from the class, so it can be studied and understood alone</li>
+</ul>
+
+<p><strong>Closure of Operations</strong> (p 268)
+<strong>Domain-Specific Languages</strong> (p 272)</p>
+
+<blockquote>
+  <p>Generating a running program from a declaration of model properties is a kind of Holy Grail of MODEL-DRIVEN DESIGN (271)</p>
+</blockquote>
+
+<ul>
+  <li>
+<strong>Strategy (AKA Policy)</strong> (p 311)</li>
+  <li>
+<strong>Composite</strong> (p 315)</li>
+</ul>
+<h2 id="context">
+  
+  
+    <a href="#context" class="anchor-heading" aria-labelledby="context"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Context
+  
+  
+</h2>
+    
+<h3 id="bounded-context">
+  
+  
+    <a href="#bounded-context" class="anchor-heading" aria-labelledby="bounded-context"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Bounded Context
+  
+  
+</h3>
+    
+<ul>
+  <li>always multiple models on any large project, but when you combine code from distinct models, things are buggy and hard to understand</li>
+  <li>need to explicitly define context within which a model applies</li>
+  <li>boundaries defined via –&gt; teams organization, usage within parts of app, physical manifestations (code bases, database schemas, infra)</li>
+  <li>delimits applicability of particular model so there is a clear and shared understanding of what has to be consistent</li>
+  <li><em>bounded contexts are not modules</em></li>
+  <li>
+<em>duplicate concepts</em> - two model elements that represent the same thing</li>
+  <li>
+<em>false cognates</em> - the same term applied to two different things (similar to polysemes)</li>
+</ul>
+<h3 id="continuous-integration">
+  
+  
+    <a href="#continuous-integration" class="anchor-heading" aria-labelledby="continuous-integration"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Continuous Integration
+  
+  
+</h3>
+    
+<ul>
+  <li>general tendency for a model to fragment, to lose valuable coherency and integration</li>
+  <li>all work within context is being merged and made consistent frequently enough that splinters are caught and corrected quickly</li>
+  <li>for code, requires:
+    <ul>
+      <li>step-by-step, reproducible merge/build technique</li>
+      <li>automated test suites</li>
+      <li>rules that set some reasonably small upper limit on lifetime of unintegrated changes</li>
+    </ul>
+  </li>
+  <li>for conceptual integration, requires:
+    <ul>
+      <li>constant exercise of the ubiquitous language</li>
+    </ul>
+  </li>
+</ul>
+<h3 id="context-map">
+  
+  
+    <a href="#context-map" class="anchor-heading" aria-labelledby="context-map"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Context Map
+  
+  
+</h3>
+    
+<ul>
+  <li>the act of defining each model in a project’s <strong>BOUNDED CONTEXT</strong>,</li>
+  <li>including points of contact between models and any explicit translation between models or shared info</li>
+  <li>after you make context map, you might see changes to org of teams or design you want to change</li>
+  <li>important to test points of contact between bounded contexts</li>
+</ul>
+<h3 id="relationships-between-bounded-contexts">
+  
+  
+    <a href="#relationships-between-bounded-contexts" class="anchor-heading" aria-labelledby="relationships-between-bounded-contexts"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Relationships Between Bounded Contexts
+  
+  
+</h3>
+    
+<div style="text-align:center">
+  <a href="/assets/img/domain-driven-design/context-relations.jpg">
+    <img src="/assets/img/domain-driven-design/context-relations.jpg" alt="relationship between contexts">
+  </a>
+</div>
+<h4 id="shared-kernel">
+  
+  
+    <a href="#shared-kernel" class="anchor-heading" aria-labelledby="shared-kernel"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Shared Kernel
+  
+  
+</h4>
+    
+
+<div style="text-align:center">
+  <a href="/assets/img/domain-driven-design/shared-kernel.jpg">
+    <img src="/assets/img/domain-driven-design/shared-kernel.jpg" alt="shared kernel">
+  </a>
+</div>
+
+<ul>
+  <li>subset of domain two teams agree to share</li>
+  <li>useful for when teams are moving quickly and don’t want to spend time on translation or integration of models</li>
+</ul>
+<h4 id="customersupplier-dev-teams">
+  
+  
+    <a href="#customersupplier-dev-teams" class="anchor-heading" aria-labelledby="customersupplier-dev-teams"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Customer/Supplier Dev Teams
+  
+  
+</h4>
+    
+<ul>
+  <li>establish clear customer/supplier relationship between teams, where downstream plays customer</li>
+  <li>jointly develop automated acceptances tests as part of upstreams continuous integration, freeing them to make changes that won’t affect downstream team</li>
+  <li>customer’s needs are paramount</li>
+</ul>
+<h4 id="conformist">
+  
+  
+    <a href="#conformist" class="anchor-heading" aria-labelledby="conformist"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Conformist
+  
+  
+</h4>
+    
+<ul>
+  <li>when two models are incompatible, downstream can choose to adopt upstream, esp. if code quality is decent and compatibility relatively high already</li>
+  <li>simplifies integration, but prevents downstream from designing and innovating on their domain</li>
+</ul>
+<h4 id="anti-corruption-layer">
+  
+  
+    <a href="#anti-corruption-layer" class="anchor-heading" aria-labelledby="anti-corruption-layer"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Anti-Corruption Layer
+  
+  
+</h4>
+    
+<ul>
+  <li>when two systems absolutely can’t integrate, you can create an isolating layer between the two</li>
+  <li>ADAPTER or FACADE pattern, essentially</li>
+</ul>
+<h4 id="separate-ways">
+  
+  
+    <a href="#separate-ways" class="anchor-heading" aria-labelledby="separate-ways"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Separate Ways
+  
+  
+</h4>
+    
+<ul>
+  <li>integration is always expensive and sometimes benefit is small</li>
+  <li>you can declare a bounded context to have no connection with others at all</li>
+</ul>
+<h4 id="open-host-service">
+  
+  
+    <a href="#open-host-service" class="anchor-heading" aria-labelledby="open-host-service"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Open Host Service
+  
+  
+</h4>
+    
+<ul>
+  <li>when a subsystem needs many integrations, design a protocol</li>
+  <li>anyone can use, and expand and extend to handle new requirements</li>
+</ul>
+<h4 id="published-language">
+  
+  
+    <a href="#published-language" class="anchor-heading" aria-labelledby="published-language"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Published Language
+  
+  
+</h4>
+    
+<ul>
+  <li>use a well-documented shared language that can express necessary domain language (e.g., XML and DTD)</li>
+</ul>
+<h2 id="distillation">
+  
+  
+    <a href="#distillation" class="anchor-heading" aria-labelledby="distillation"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Distillation
+  
+  
+</h2>
+    
+<ul>
+  <li>the process of separating the components of a mixture to extract the essence in a form that makes it more valuable and useful, e.g., a model is a distillation of knowledge</li>
+</ul>
+
+<div style="text-align:center">
+  <a href="/assets/img/domain-driven-design/distillation.jpg">
+    <img src="/assets/img/domain-driven-design/distillation.jpg" alt="distillation">
+  </a>
+</div>
+<h3 id="core-domain">
+  
+  
+    <a href="#core-domain" class="anchor-heading" aria-labelledby="core-domain"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Core Domain
+  
+  
+</h3>
+    
+<ul>
+  <li>a system that is hard to understand is hard to change</li>
+  <li>not all parts of design are refined equally, and priorities need to be set</li>
+  <li>need to boil model down, make the <strong>CORE DOMAIN</strong> small, bringing most valuable and specialized concepts into sharp relief</li>
+  <li>also need to apply top talent – investment in non-CORE needs to be justified</li>
+  <li>
+<strong>CORE DOMAIN</strong> is what you do in house</li>
+</ul>
+<h3 id="generic-subdomains">
+  
+  
+    <a href="#generic-subdomains" class="anchor-heading" aria-labelledby="generic-subdomains"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Generic Subdomains
+  
+  
+</h3>
+    
+<ul>
+  <li>some parts of model add complexity without specialized knowledge, muddying the <strong>CORE DOMAIN</strong>
+</li>
+  <li>need to identify cohesive subdomains that are not motivation for project, and factor out these to separate modules</li>
+  <li>consider buying off-shelf, don’t put best devs on these – little domain knowledge to be gained</li>
+</ul>
+
+<p><strong>Off-the-Shelf Solution</strong>
+pros:</p>
+<ul>
+  <li>less code, less maintenance, code is mature
+cons:</li>
+  <li>still need to evaluate and understand</li>
+  <li>might be over-engineered</li>
+  <li>might be difficult to integrate</li>
+</ul>
+
+<p><strong>Published Design or Model</strong>
+pros:</p>
+<ul>
+  <li>more mature than homegrown and reflects many people’s insight</li>
+  <li>instant, high-quality docs
+cons:</li>
+  <li>might not quite fit needs or is over-engineered</li>
+</ul>
+
+<p><strong>Outsourced Implementation</strong>
+pros:</p>
+<ul>
+  <li>keeps core team free</li>
+  <li>can do dev without permanently enlarging team</li>
+  <li>forces interface-oriented design
+cons:</li>
+  <li>still requires time</li>
+  <li>significant overhead in transferring ownership back</li>
+  <li>code quality can vary</li>
+</ul>
+
+<p><strong>In-House Implementation</strong>
+pros:</p>
+<ul>
+  <li>easy integration</li>
+  <li>get what you want and nothing extra</li>
+  <li>temporary contractors can be assigned
+cons:</li>
+  <li>ongoing maintenance and training</li>
+  <li>easy to underestimate time and cost of developing packages</li>
+</ul>
+<h3 id="domain-vision-statement">
+  
+  
+    <a href="#domain-vision-statement" class="anchor-heading" aria-labelledby="domain-vision-statement"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Domain Vision Statement
+  
+  
+</h3>
+    
+<ul>
+  <li>short description (one page) of <strong>CORE DOMAIN</strong> and value it will bring</li>
+  <li>write early and revise as you go</li>
+  <li>gives team shared direction</li>
+</ul>
+<h3 id="highlighted-core">
+  
+  
+    <a href="#highlighted-core" class="anchor-heading" aria-labelledby="highlighted-core"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Highlighted Core
+  
+  
+</h3>
+    
+<ul>
+  <li>write a distillation document that describes the <strong>CORE</strong> domain and primary interactions among <strong>CORE</strong> elements</li>
+  <li>useful as a process tool</li>
+</ul>
+<h3 id="cohesive-mechanisms">
+  
+  
+    <a href="#cohesive-mechanisms" class="anchor-heading" aria-labelledby="cohesive-mechanisms"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Cohesive Mechanisms
+  
+  
+</h3>
+    
+<ul>
+  <li>encapsulate mechanisms into separate light framework</li>
+  <li>frees the model to talk about the what and delegate the how to the cohesive mechanisms</li>
+  <li>motivated by same desire as generic subdomain, to unburden the <strong>CORE DOMAIN</strong>
+</li>
+  <li>a model proposes, a mechanism disposes</li>
+</ul>
+<h3 id="segregated-core">
+  
+  
+    <a href="#segregated-core" class="anchor-heading" aria-labelledby="segregated-core"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Segregated Core
+  
+  
+</h3>
+    
+<ul>
+  <li>similar to generic subdomains, but from the other direction</li>
+  <li>MM Note: not sure I understand the difference between segregated core and generic subdomain? These all seem pedantic distinctions to remove extraneous chaff from the core</li>
+</ul>
+<h3 id="declarative-style">
+  
+  
+    <a href="#declarative-style" class="anchor-heading" aria-labelledby="declarative-style"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Declarative Style
+  
+  
+</h3>
+    
+<ul>
+  <li>declare!</li>
+</ul>
+<h2 id="large-scale-structures">
+  
+  
+    <a href="#large-scale-structures" class="anchor-heading" aria-labelledby="large-scale-structures"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Large-Scale Structures
+  
+  
+</h2>
+    
+
+<div style="text-align:center">
+  <a href="/assets/img/domain-driven-design/large-scale.jpg">
+    <img src="/assets/img/domain-driven-design/large-scale.jpg" alt="large scale structures">
+  </a>
+</div>
+<h3 id="evolving-order">
+  
+  
+    <a href="#evolving-order" class="anchor-heading" aria-labelledby="evolving-order"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Evolving Order
+  
+  
+</h3>
+    
+<ul>
+  <li>need to find balance between design free-for-alls and too much design up front, which takes power out of the hands of the developer</li>
+  <li>have your structures evolve with the application – don’t overconstrain</li>
+  <li>ill-fitting structure is worse than none</li>
+  <li><em>less is more</em></li>
+</ul>
+<h3 id="system-metaphor">
+  
+  
+    <a href="#system-metaphor" class="anchor-heading" aria-labelledby="system-metaphor"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> System Metaphor
+  
+  
+</h3>
+    
+<ul>
+  <li>a loose easily understood large-scale structure that is harmonious with the object paradigm</li>
+  <li>however, a persuasive metaphor introduces risk that design will take on aspects of the metaphor that were not desirable</li>
+  <li>need to continuously re-assess metaphor, and drop if necessary – there to serve communication and understanding</li>
+</ul>
+<h3 id="responsibility-layers">
+  
+  
+    <a href="#responsibility-layers" class="anchor-heading" aria-labelledby="responsibility-layers"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Responsibility Layers
+  
+  
+</h3>
+    
+<ul>
+  <li>give coherence to model by assigning responsibilities to larger segments of structures</li>
+  <li>organize along axes of change, make sure that domain object, aggregate, and module fit neatly within on layer</li>
+  <li>responsibilities should tell a story of the high-level purpose and design of system</li>
+  <li>some good layers based on:
+    <ul>
+      <li>storytelling</li>
+      <li>conceptual dependency</li>
+      <li>conceptual contours</li>
+    </ul>
+  </li>
+  <li>example:</li>
+</ul>
+
+<div style="text-align:center">
+  <a href="/assets/img/domain-driven-design/con-layer.jpg">
+    <img src="/assets/img/domain-driven-design/con-layer.jpg" alt="conceptual layers example">
+  </a>
+</div>
+<h3 id="knowledge-level">
+  
+  
+    <a href="#knowledge-level" class="anchor-heading" aria-labelledby="knowledge-level"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Knowledge Level
+  
+  
+</h3>
+    
+<ul>
+  <li>a group of objects that describe how another group of objects should behave</li>
+  <li>used to describe and constrain the structure and behavior of the basic model</li>
+</ul>
+<h3 id="pluggable-component-framework">
+  
+  
+    <a href="#pluggable-component-framework" class="anchor-heading" aria-labelledby="pluggable-component-framework"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Pluggable Component Framework
+  
+  
+</h3>
+    
+<ul>
+  <li>distill abstract core of interfaces and interactions and build framework that allows diverse implementations of those interfaces to be freely substituted</li>
+</ul>
+
+<p>Three basic principles of strategic design:</p>
+<ol>
+  <li>context</li>
+  <li>distillation</li>
+  <li>large-scale structures</li>
+</ol>
+
+<div style="text-align:center">
+  <a href="/assets/img/domain-driven-design/all-together.jpg">
+    <img src="/assets/img/domain-driven-design/all-together.jpg" alt="bringing it all together">
+  </a>
+</div>
+<h2 id="six-essentials-for-strategic-design-decision-making-492">
+  
+  
+    <a href="#six-essentials-for-strategic-design-decision-making-492" class="anchor-heading" aria-labelledby="six-essentials-for-strategic-design-decision-making-492"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Six Essentials for Strategic Design Decision Making (492)
+  
+  
+</h2>
+    
+<ol>
+  <li>decisions must reach the entire team</li>
+  <li>the decision process must absorb feedback</li>
+  <li>the plan must allow for evolution</li>
+  <li>architecture teams must not siphon off all the best and brightest</li>
+  <li>strategic design requires minimalism and humility</li>
+  <li>objects are specialists; developers are generalists</li>
+</ol>
+
+          
+
+          
+        </main>
+        
+
+  <hr>
+  <footer>
+    
+      <p><a href="#top" id="back-to-top">Back to top</a></p>
+    
+
+    <p class="text-small text-grey-dk-100 mb-0">Copyright © 2022 Michael McIntyre. </p>
+
+    
+      <div class="d-flex mt-2">
+        
+          <p class="text-small text-grey-dk-000 mb-0 mr-2">
+            Page last modified: <span class="d-inline-block">Aug 11 2021 at 07:40 PM</span>.
+          </p>
+        
+        
+      </div>
+    
+  </footer>
+
+
+      </div>
+    </div>
+    
+      
+
+<div class="search-overlay"></div>
+
+    
+  </div>
+
+  
+</body>
+</html>

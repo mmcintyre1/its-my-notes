@@ -1,0 +1,1086 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+
+  
+
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+  <link rel="stylesheet" href="/assets/css/just-the-docs-default.css">
+  <link rel="stylesheet" href="/assets/css/native.css">
+
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-M6EEXPRNWS"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-M6EEXPRNWS', { 'anonymize_ip': true });
+  </script>
+
+  
+
+  
+  <script type="text/javascript" src="/assets/js/vendor/lunr.min.js"></script>
+  
+  <script type="text/javascript" src="/assets/js/just-the-docs.js"></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Patterns of Enterprise Application Architecture | Notes</title>
+<meta name="generator" content="Jekyll v3.9.2">
+<meta property="og:title" content="Patterns of Enterprise Application Architecture">
+<meta property="og:locale" content="en_US">
+<meta name="description" content="My Notes">
+<meta property="og:description" content="My Notes">
+<link rel="canonical" href="https://itsmynotes.com/notes/tech_books/patterns-of-enterprise-application-architecture">
+<meta property="og:url" content="https://itsmynotes.com/notes/tech_books/patterns-of-enterprise-application-architecture">
+<meta property="og:site_name" content="Notes">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<meta property="twitter:title" content="Patterns of Enterprise Application Architecture">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"My Notes","headline":"Patterns of Enterprise Application Architecture","url":"https://itsmynotes.com/notes/tech_books/patterns-of-enterprise-application-architecture"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+  
+
+</head>
+<body>
+  <a class="skip-to-main" href="#main-content">Skip to main content</a>
+  <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+  <symbol id="svg-link" viewbox="0 0 24 24">
+  <title>Link</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link">
+    <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+  </svg>
+</symbol>
+
+  <symbol id="svg-menu" viewbox="0 0 24 24">
+  <title>Menu</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu">
+    <line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line>
+  </svg>
+</symbol>
+
+  <symbol id="svg-arrow-right" viewbox="0 0 24 24">
+  <title>Expand</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+    <polyline points="9 18 15 12 9 6"></polyline>
+  </svg>
+</symbol>
+
+  <!-- Feather. MIT License: https://github.com/feathericons/feather/blob/master/LICENSE -->
+<symbol id="svg-external-link" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-external-link">
+  <title id="svg-external-link-title">(external link)</title>
+  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line>
+</symbol>
+
+  
+    <symbol id="svg-doc" viewbox="0 0 24 24">
+  <title>Document</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file">
+    <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline>
+  </svg>
+</symbol>
+
+    <symbol id="svg-search" viewbox="0 0 24 24">
+  <title>Search</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search">
+    <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+  </svg>
+</symbol>
+
+  
+  
+    <!-- Bootstrap Icons. MIT License: https://github.com/twbs/icons/blob/main/LICENSE.md -->
+<symbol id="svg-copy" viewbox="0 0 16 16">
+  <title>Copy</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard" viewbox="0 0 16 16">
+    <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"></path>
+    <path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"></path>
+  </svg>
+</symbol>
+<symbol id="svg-copied" viewbox="0 0 16 16">
+  <title>Copied</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard-check-fill" viewbox="0 0 16 16">
+    <path d="M6.5 0A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3Zm3 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3Z"></path>
+    <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1A2.5 2.5 0 0 1 9.5 5h-3A2.5 2.5 0 0 1 4 2.5v-1Zm6.854 7.354-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L7.5 10.793l2.646-2.647a.5.5 0 0 1 .708.708Z"></path>
+  </svg>
+</symbol>
+
+  
+</svg>
+
+  <div class="side-bar">
+  <div class="site-header" role="banner">
+    <a href="/" class="site-title lh-tight">
+  Notes
+
+</a>
+    <button id="menu-button" class="site-button btn-reset" aria-label="Toggle menu" aria-pressed="false">
+      <svg viewbox="0 0 24 24" class="icon" aria-hidden="true"><use xlink:href="#svg-menu"></use></svg>
+    </button>
+  </div>
+
+  <nav aria-label="Main" id="site-nav" class="site-nav">
+  
+  
+    <ul class="nav-list">
+<li class="nav-list-item">
+<button class="nav-list-expander btn-reset" aria-label="toggle items in Projects category" aria-pressed="false">
+      <svg viewbox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+    </button><a href="/notes/projects" class="nav-list-link">Projects</a><ul class="nav-list"></ul>
+</li>
+<li class="nav-list-item">
+<button class="nav-list-expander btn-reset" aria-label="toggle items in Vocabulary category" aria-pressed="false">
+      <svg viewbox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+    </button><a href="/notes/vocabulary" class="nav-list-link">Vocabulary</a><ul class="nav-list"></ul>
+</li>
+<li class="nav-list-item">
+<button class="nav-list-expander btn-reset" aria-label="toggle items in Business Books category" aria-pressed="false">
+      <svg viewbox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+    </button><a href="/notes/business-books" class="nav-list-link">Business Books</a><ul class="nav-list"></ul>
+</li>
+<li class="nav-list-item">
+<button class="nav-list-expander btn-reset" aria-label="toggle items in Other Books category" aria-pressed="false">
+      <svg viewbox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+    </button><a href="/notes/other-books" class="nav-list-link">Other Books</a><ul class="nav-list"></ul>
+</li>
+<li class="nav-list-item">
+<button class="nav-list-expander btn-reset" aria-label="toggle items in Educational Books category" aria-pressed="false">
+      <svg viewbox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+    </button><a href="/notes/educational-books" class="nav-list-link">Educational Books</a><ul class="nav-list"></ul>
+</li>
+<li class="nav-list-item">
+<button class="nav-list-expander btn-reset" aria-label="toggle items in Articles category" aria-pressed="false">
+      <svg viewbox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+    </button><a href="/notes/articles" class="nav-list-link">Articles</a><ul class="nav-list"></ul>
+</li>
+<li class="nav-list-item">
+<button class="nav-list-expander btn-reset" aria-label="toggle items in Quotes category" aria-pressed="false">
+      <svg viewbox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+    </button><a href="/notes/quotes" class="nav-list-link">Quotes</a><ul class="nav-list"></ul>
+</li>
+<li class="nav-list-item">
+<button class="nav-list-expander btn-reset" aria-label="toggle items in Classes category" aria-pressed="false">
+      <svg viewbox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+    </button><a href="/notes/classes" class="nav-list-link">Classes</a><ul class="nav-list"></ul>
+</li>
+<li class="nav-list-item">
+<button class="nav-list-expander btn-reset" aria-label="toggle items in Tech Books category" aria-pressed="false">
+      <svg viewbox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+    </button><a href="/notes/tech-books" class="nav-list-link">Tech Books</a><ul class="nav-list"></ul>
+</li>
+<li class="nav-list-item">
+<button class="nav-list-expander btn-reset" aria-label="toggle items in Podcasts category" aria-pressed="false">
+      <svg viewbox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+    </button><a href="/notes/podcasts" class="nav-list-link">Podcasts</a><ul class="nav-list"></ul>
+</li>
+</ul>
+
+  
+</nav>
+
+
+  
+  
+    <footer class="site-footer">
+      This site uses <a href="https://github.com/just-the-docs/just-the-docs">Just the Docs</a>, a documentation theme for Jekyll.
+    </footer>
+  
+</div>
+
+  <div class="main" id="top">
+    <div id="main-header" class="main-header">
+  
+    
+
+<div class="search" role="search">
+  <div class="search-input-wrap">
+    <input type="text" id="search-input" class="search-input" tabindex="0" placeholder="Search Notes" aria-label="Search Notes" autocomplete="off">
+    <label for="search-input" class="search-label"><svg viewbox="0 0 24 24" class="search-icon"><use xlink:href="#svg-search"></use></svg></label>
+  </div>
+  <div id="search-results" class="search-results"></div>
+</div>
+
+  
+  
+  
+    <nav aria-label="Auxiliary" class="aux-nav">
+  <ul class="aux-nav-list">
+    
+      <li class="aux-nav-list-item">
+        <a href="https://github.com/mmcintyre1/its-my-notes" class="site-button">
+          It's My Notes on GitHub
+        </a>
+      </li>
+    
+  </ul>
+</nav>
+
+  
+</div>
+
+    <div class="main-content-wrap">
+      <nav aria-label="Breadcrumb" class="breadcrumb-nav">
+  <ol class="breadcrumb-nav-list">
+  
+    <li class="breadcrumb-nav-list-item"><a href="/notes/tech-books">Tech Books</a></li>
+  <li class="breadcrumb-nav-list-item"><span>Patterns of Enterprise Application Architecture</span></li>
+  </ol>
+</nav>
+      <div id="main-content" class="main-content">
+        <main>
+          
+            <h1 id="patterns-of-enterprise-application-architecture">
+  
+  
+    <a href="#patterns-of-enterprise-application-architecture" class="anchor-heading" aria-labelledby="patterns-of-enterprise-application-architecture"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Patterns of Enterprise Application Architecture
+  
+  
+</h1>
+    
+<h2 id="what-is-architecture">
+  
+  
+    <a href="#what-is-architecture" class="anchor-heading" aria-labelledby="what-is-architecture"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> What is Architecture?
+  
+  
+</h2>
+    
+<ol>
+  <li>high level breakdown of system into parts</li>
+  <li>decisions that are hard to change</li>
+</ol>
+
+<blockquote>
+  <p>In the end, architecture boils down to the important stuff – whatever that is. (2)</p>
+</blockquote>
+
+<ul>
+  <li>most widely used technique is to break (decompose) the application into layers and how these layers work together</li>
+</ul>
+<h2 id="enterprise-applications">
+  
+  
+    <a href="#enterprise-applications" class="anchor-heading" aria-labelledby="enterprise-applications"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Enterprise Applications
+  
+  
+</h2>
+    
+<ul>
+  <li>they involve persistent data around for multiple runs of an application</li>
+  <li>lots of data</li>
+  <li>many users access data concurrently which involves potential access issues</li>
+  <li>lots of user interface screens to interact with data</li>
+  <li>need to integrate with other apps in a variety of different languages/stacks</li>
+  <li>conceptual dissonance between technology and data – needs to be read, munged, &amp; written in a variety of syntactic and semantic flavors</li>
+  <li>complex business “illogic” to handle domain complexity</li>
+</ul>
+<h2 id="performance">
+  
+  
+    <a href="#performance" class="anchor-heading" aria-labelledby="performance"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Performance
+  
+  
+</h2>
+    
+<ul>
+  <li>any performance advice shouldn’t be treated as fact until actually tested</li>
+  <li>basic, universal advice - <strong>minimize remote calls</strong>
+</li>
+  <li>significant changes to config will invalidate assumptions about performance</li>
+  <li>some performance vocab
+    <ul>
+      <li>
+<strong>response time</strong> - time it takes for system to process response fromt he outside</li>
+      <li>
+<strong>responsiveness</strong> - how quickly system acknowledges requests as opposed to processing</li>
+      <li>
+<strong>latency</strong> - minimum time required to get any form of response</li>
+      <li>
+<strong>throughput</strong> - how much stuff you can do in a given time</li>
+      <li>
+<strong>load</strong> - how much stress a system is under</li>
+      <li>
+<strong>load sensitivity</strong> - how response time varies under load (a system degrades under load)</li>
+      <li>
+<strong>efficiency</strong> - performance divided by resources</li>
+      <li>
+<strong>capacity</strong> - max effective throughput or load</li>
+      <li>
+<strong>scalability</strong> - how additional resources affect performance and can either be horizontal (scaling out, adding new machines) or vertical (scaling up, adding memory, CPU, storage to a machine)</li>
+    </ul>
+  </li>
+</ul>
+<h2 id="pattern">
+  
+  
+    <a href="#pattern" class="anchor-heading" aria-labelledby="pattern"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Pattern
+  
+  
+</h2>
+    
+
+<blockquote>
+  <p>Each  pattern  describes  a  problem which  occurs  over  and over  again in our environment, and then describes the core of the solution to that problem, in a  way  that  you  can  use  this  solution  a  million  times  over, without  ever doing it the same way twice. (9)</p>
+</blockquote>
+
+<ul>
+  <li>focus of a pattern is a common and effective solution to a particular problem</li>
+  <li>don’t read all the details of each pattern, just enough to know what to look up</li>
+  <li>never apply a solution blindly</li>
+  <li>value isn’t giving you the idea of a pattern but rather helping you communicate it</li>
+</ul>
+<h2 id="layers">
+  
+  
+    <a href="#layers" class="anchor-heading" aria-labelledby="layers"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Layers
+  
+  
+</h2>
+    
+<ul>
+  <li>way to decompose complicated software systems</li>
+  <li>high level layer uses lower level services, but lower level should remain unaware of higher level</li>
+  <li>benefits:
+    <ul>
+      <li>single layer as a coherent whole without knowing much about other layers</li>
+      <li>you can substitute layers</li>
+      <li>minimize dependencies between layers</li>
+      <li>layers are good places for standardization</li>
+      <li>lower layers can be reused for multiple higher level services</li>
+    </ul>
+  </li>
+  <li>downsides:
+    <ul>
+      <li>you can’t encapsulate everything (thinking adding an additional UI element requires database changes and corresponding changes to all intermediary layers)</li>
+      <li>performance hit for layering</li>
+    </ul>
+  </li>
+</ul>
+<h2 id="3-principal-layers">
+  
+  
+    <a href="#3-principal-layers" class="anchor-heading" aria-labelledby="3-principal-layers"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 3 Principal Layers
+  
+  
+</h2>
+    
+<ul>
+  <li>
+<strong>presentation</strong> - handles interaction between user and software - interprets actions/commands and displays info to user</li>
+  <li>
+<strong>data source</strong> - communicates with other systems that carry out task on behalf of the application</li>
+  <li>
+<strong>domain logic</strong> - business logic that is work the application does for the domain you’re working in</li>
+</ul>
+
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th>Layer</th>
+      <th>Responsibilities</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Presentation</td>
+      <td>Provision of services, display of information (e.g., in Win-dows or HTML, handling of user request (mouse clicks, keyboardhits), HTTP requests, command-line invoca-tions, batch API)</td>
+    </tr>
+    <tr>
+      <td>Domain Logic</td>
+      <td>that is the real point of the system</td>
+    </tr>
+    <tr>
+      <td>Data Source</td>
+      <td>Communication with databases, messaging systems, trans-action managers, other packages</td>
+    </tr>
+  </tbody>
+</table></div>
+
+<ul>
+  <li>
+<strong>hexagonal architecture</strong> - any system as a core surrounded by interfaces to external systems – this is a symmetrical view that doesn’t distinguish between services you provide and services you consume</li>
+  <li>choose most appropriate for of separation for problem, but make sure there is separation</li>
+  <li>domain and data source should never be dependent on presentation</li>
+  <li>generally, we are talking about logical layers – typically physical layers break down to client vs. server</li>
+  <li>don’t separate layers into discrete processes unless needed.</li>
+  <li>
+<strong>complexity boosters</strong>: they all come at a cost. <em>e.g.,</em> extreme performance requirements, explicit multi-threading, distribution, paradigm chasms</li>
+</ul>
+<h2 id="domain-logic">
+  
+  
+    <a href="#domain-logic" class="anchor-heading" aria-labelledby="domain-logic"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Domain Logic
+  
+  
+</h2>
+    
+<p>3 patterns to organize domain logic</p>
+<ul>
+  <li><em>transaction script</em></li>
+  <li><em>domain model</em></li>
+  <li><em>table module</em></li>
+</ul>
+<h2 id="transaction-script">
+  
+  
+    <a href="#transaction-script" class="anchor-heading" aria-labelledby="transaction-script"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Transaction Script
+  
+  
+</h2>
+    
+<ul>
+  <li>
+<em>transaction</em> here is used in the sense of a business operation, not an ACID-compliant database transaction</li>
+  <li>single procedure for each action a user might want to do</li>
+  <li>useful for very simple domains, since as logic increases in complexity, duplication increases, and application code becomes hard to untangle</li>
+  <li>all behavior for action is within the transaction script</li>
+</ul>
+<h2 id="domain-model">
+  
+  
+    <a href="#domain-model" class="anchor-heading" aria-labelledby="domain-model"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Domain Model
+  
+  
+</h2>
+    
+<ul>
+  <li>build a model of the domain around the nouns in the domain</li>
+  <li>behavior then is in the interactions between objects</li>
+  <li>moving to domain model involves a paradigm shift to object-oriented thinking</li>
+  <li>have to deal with more complex mapping to database</li>
+</ul>
+<h2 id="table-module">
+  
+  
+    <a href="#table-module" class="anchor-heading" aria-labelledby="table-module"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Table Module
+  
+  
+</h2>
+    
+<ul>
+  <li>looks like domain model, but instead of object for all nouns, you get an object for every table in the database</li>
+  <li>pulls all records as a <em>Record Set</em> from the database, and in order to work on 1 you’d pass in an <code class="language-plaintext highlighter-rouge">id</code> to that <em>Record Set</em>
+</li>
+  <li>there needs to be special tooling for these <em>Record Sets</em>
+</li>
+</ul>
+<h2 id="record-set">
+  
+  
+    <a href="#record-set" class="anchor-heading" aria-labelledby="record-set"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Record Set
+  
+  
+</h2>
+    
+<ul>
+  <li>in memory representation of tabular data</li>
+  <li>looks exactly like the result of a SQL query but can be manipulated by other parts of the system</li>
+  <li>can easily be manipulated by domain logic</li>
+  <li>typically a list of maps: <code class="language-plaintext highlighter-rouge">[{...}, {...} ...]</code>
+</li>
+  <li>can have an implicit or implicit interface (think <code class="language-plaintext highlighter-rouge">person['name']</code> vs <code class="language-plaintext highlighter-rouge">person.name</code>)</li>
+  <li>can be connected (need active connection to database), or disconnected (can be manipulated offline)</li>
+</ul>
+<h2 id="service-layer">
+  
+  
+    <a href="#service-layer" class="anchor-heading" aria-labelledby="service-layer"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Service Layer
+  
+  
+</h2>
+    
+<ul>
+  <li>defines application boundary with a layer of services that establish a set of available actions (API) &amp; coordinates the applications response to each operation</li>
+  <li>lay over a <em>Domain Model</em> or a <em>Table Module</em> and provides a clean API &amp; a good spot to put things like transaction control and security</li>
+  <li>minimal case is to make it a <em>Façade</em>, maximal is to put business logic in it</li>
+  <li>
+<strong>controller entity</strong> - have logic and behavior exclusive to use case or transaction in a separate <em>Transaction Script</em> called a controller or service type</li>
+</ul>
+<h2 id="gateway-base-pattern">
+  
+  
+    <a href="#gateway-base-pattern" class="anchor-heading" aria-labelledby="gateway-base-pattern"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Gateway (Base Pattern)
+  
+  
+</h2>
+    
+<ul>
+  <li>an object that encapsulates access to an external resource or system</li>
+  <li>in reality, this is a simple wrapper pattern</li>
+  <li>good spot to apply service stub</li>
+  <li>some overlap with Gang of Four patterns <em>Façade</em> and <em>Adapter</em>
+</li>
+  <li>useful for encapsulating an awkward interface for something rather than letting it affect rest of code</li>
+  <li>if you need to decouple subsystems, another choice is <em>Mapper</em>, but this is more complicated</li>
+</ul>
+<h2 id="mapper-base-pattern">
+  
+  
+    <a href="#mapper-base-pattern" class="anchor-heading" aria-labelledby="mapper-base-pattern"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Mapper (Base Pattern)
+  
+  
+</h2>
+    
+<ul>
+  <li>an object that sets up communication between two independent objects</li>
+  <li>similar to <em>Mediator</em>
+</li>
+  <li>useful when you want neither subsystem to have dependency on their interaction, like with a database (<em>Data Mapper</em>)</li>
+</ul>
+<h2 id="service-stub">
+  
+  
+    <a href="#service-stub" class="anchor-heading" aria-labelledby="service-stub"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Service Stub
+  
+  
+</h2>
+    
+<ul>
+  <li>removes dependence on problematic services while testing</li>
+  <li>in extreme programming, this is called a “mock object”</li>
+  <li>should be as simple as possible</li>
+  <li>replace service with service stub that runs in memory and locally</li>
+</ul>
+<h2 id="managing-database-connections">
+  
+  
+    <a href="#managing-database-connections" class="anchor-heading" aria-labelledby="managing-database-connections"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Managing Database Connections
+  
+  
+</h2>
+    
+<ul>
+  <li>connections act as the link between application code and the database</li>
+  <li>expensive to create, so preferable to use a pool (although verify a pool helps performance as with some modern data source tooling it doesn’t matter – best to use a connection manager to encapsulate the connection entirely)</li>
+  <li>connections must be closed as soon as you are done, and might be done in two ways:
+    <ul>
+      <li>rely on garbage collection to close, but garbage collection isn’t immediate</li>
+      <li>explicit closing, which is riskier and more prone to forgetting</li>
+    </ul>
+  </li>
+  <li>a good approach is to tie connection open and close with a transaction</li>
+</ul>
+<h2 id="table-data-gateway">
+  
+  
+    <a href="#table-data-gateway" class="anchor-heading" aria-labelledby="table-data-gateway"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Table Data Gateway
+  
+  
+</h2>
+    
+<ul>
+  <li>an object that acts as a gateway to a table – one object handles all rows in a table</li>
+  <li>way to stop mixing SQL into application logic</li>
+  <li>simple interface with several find, update, insert, delete methods</li>
+  <li>useful to think of as a wrapper for SQL statements</li>
+</ul>
+<h2 id="row-data-gateway">
+  
+  
+    <a href="#row-data-gateway" class="anchor-heading" aria-labelledby="row-data-gateway"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Row Data Gateway
+  
+  
+</h2>
+    
+<ul>
+  <li>an object that acts as a gateway to a single row in the database – one instance per row</li>
+  <li>exactly mimics a single record</li>
+  <li>if there is any domain logic in this object, then it is <em>Active Record</em>
+</li>
+  <li>useful with <em>Transaction Script</em> and less so with <em>Domain Model</em>
+</li>
+</ul>
+<h2 id="active-record">
+  
+  
+    <a href="#active-record" class="anchor-heading" aria-labelledby="active-record"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Active Record
+  
+  
+</h2>
+    
+<ul>
+  <li>an object that wraps a row in a database table or view, encapsulates database access, and adds domain logic to that object</li>
+  <li>each <em>Active Record</em> is responsible for saving to and loading from the database, and also any behavior (domain logic) that exercises on that object</li>
+  <li>should exactly match the database</li>
+  <li>good for domain logic that isn’t that complex – create, read, update, delete operations</li>
+</ul>
+<h2 id="data-mapper">
+  
+  
+    <a href="#data-mapper" class="anchor-heading" aria-labelledby="data-mapper"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Data Mapper
+  
+  
+</h2>
+    
+<ul>
+  <li>a layer of mappers that moves data between objects and a database while keeping them independent of each other and the mapper itself</li>
+  <li>separate in memory objects from the database via a layer of software</li>
+  <li>primary occasion to use is when you want the database schema and the object model to evolve independently</li>
+  <li>price is the extra layer required to maintain</li>
+  <li>more complicated business logic leads to <em>Domain Model</em> or <em>Data Mapper</em>
+</li>
+</ul>
+<h2 id="unit-of-work">
+  
+  
+    <a href="#unit-of-work" class="anchor-heading" aria-labelledby="unit-of-work"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Unit of Work
+  
+  
+</h2>
+    
+<ul>
+  <li>maintains a list of objects affected by a business transaction and coordinates the writing out of changes and the resolution of concurrency problems</li>
+  <li>when it comes time to commit, the <em>Unit of Work</em> decides what to do – <em>i.e.,</em> open a transaction, concurrency checks, writes changes to a database</li>
+  <li>keeps track of all objects you modify, so all you need to worry about are the objects altered in synching in memory data to database</li>
+  <li>great strength is that it keeps all info in one place</li>
+</ul>
+<h2 id="identity-map">
+  
+  
+    <a href="#identity-map" class="anchor-heading" aria-labelledby="identity-map"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Identity Map
+  
+  
+</h2>
+    
+<ul>
+  <li>ensures that every object only gets loaded once, and keeps each object in a map – looks up objects in the map when referring to them</li>
+  <li>primary key or surrogate key (any column or set of columns that can be used as a PK instead of natural key <em>e.g.,</em> incrementing integer)</li>
+  <li>either <strong>explicit</strong> (each data point has access method) or <strong>generic</strong> (one access method for all data)</li>
+  <li>useful if any data needs to be pulled from the database and modified</li>
+  <li>also useful as transactional cache</li>
+  <li>won’t help for cross-session concurrency protections, as this is meant for single session</li>
+</ul>
+<h2 id="lazy-load">
+  
+  
+    <a href="#lazy-load" class="anchor-heading" aria-labelledby="lazy-load"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Lazy Load
+  
+  
+</h2>
+    
+<ul>
+  <li>an object that doesn’t contain all the data you need but knows where to get it</li>
+  <li>
+<strong>lazy initialization</strong> - use <code class="language-plaintext highlighter-rouge">NULL</code> to signal field hasn’t been loaded yet</li>
+  <li>
+<strong>value holder</strong> object that wraps other object – ask the value holder for data and it goes to the data source (useful for avoiding identity problems of virtual proxy)</li>
+  <li>
+<strong>virtual proxy</strong> - object that looks like object in the field but doesn’t contain anything – only returns data when one of its methods are called</li>
+  <li>
+<strong>ghost</strong> - a real object in a partial state</li>
+  <li>
+<strong>ripple loading</strong> - when you cause more database accesses than needed, hurting performance</li>
+</ul>
+<h2 id="web-server">
+  
+  
+    <a href="#web-server" class="anchor-heading" aria-labelledby="web-server"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Web Server
+  
+  
+</h2>
+    
+<ul>
+  <li>web server’s job to interpret URL of request and hand over control to a web server program</li>
+  <li>2 ways of structuring program in a web server - as a script or as a server page</li>
+  <li>script works best for interpreting the request, server page for formatting a response</li>
+  <li>this leads to <em>Model-View-Controller</em> pattern</li>
+</ul>
+<h2 id="model-view-controller">
+  
+  
+    <a href="#model-view-controller" class="anchor-heading" aria-labelledby="model-view-controller"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Model-View-Controller
+  
+  
+</h2>
+    
+<ul>
+  <li>request comes to input controller</li>
+  <li>input controller pulls info from request</li>
+  <li>forwards business logic to model object</li>
+  <li>model object talks to data source and does what is indicated in request, as well as gathers info for response</li>
+  <li>control passed to input controller from model, which decides what view to select</li>
+  <li>control is passed to view along with response data for dipslay</li>
+  <li>most important reason for MVC is to separate models from presentation</li>
+</ul>
+
+<div style="text-align:center">
+  <a href="/assets/img/patterns-of-enterprise-architecture/mvc-sequence.png">
+    <img src="/assets/img/patterns-of-enterprise-architecture/mvc-sequence.png" alt="Model-View-Controller Sequence Diagram">
+  </a>
+</div>
+<h2 id="application-controller">
+  
+  
+    <a href="#application-controller" class="anchor-heading" aria-labelledby="application-controller"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Application Controller
+  
+  
+</h2>
+    
+<ul>
+  <li>different from input controller in MVC – controls the flow of the application</li>
+  <li>good rule of thumb is if machine is in control of screen flow, it is useful, and if the user is in control, it is not</li>
+</ul>
+<h2 id="offline-concurrency">
+  
+  
+    <a href="#offline-concurrency" class="anchor-heading" aria-labelledby="offline-concurrency"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Offline Concurrency
+  
+  
+</h2>
+    
+<ul>
+  <li>concurrency control for data that’s manipulated during multiple database transactions</li>
+</ul>
+<h2 id="lost-updates">
+  
+  
+    <a href="#lost-updates" class="anchor-heading" aria-labelledby="lost-updates"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Lost Updates
+  
+  
+</h2>
+    
+<ul>
+  <li>when someone starts an update after someone &amp; finishes before them, the first transaction will wipe out the second</li>
+</ul>
+<h2 id="inconsistent-reads">
+  
+  
+    <a href="#inconsistent-reads" class="anchor-heading" aria-labelledby="inconsistent-reads"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Inconsistent Reads
+  
+  
+</h2>
+    
+<ul>
+  <li>when a transaction reads object <code class="language-plaintext highlighter-rouge">x</code> twice and <code class="language-plaintext highlighter-rouge">x</code> has different values – between the two reads, someone modified <code class="language-plaintext highlighter-rouge">x</code>
+</li>
+</ul>
+<h2 id="correctness-vs-liveness">
+  
+  
+    <a href="#correctness-vs-liveness" class="anchor-heading" aria-labelledby="correctness-vs-liveness"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Correctness vs. Liveness
+  
+  
+</h2>
+    
+<ul>
+  <li>correctness (or safety, consistency) vs. liveness (how much concurrent activity can go on)</li>
+  <li>these concepts are in contention (think CAP theorem)</li>
+</ul>
+<h2 id="execution-contexts">
+  
+  
+    <a href="#execution-contexts" class="anchor-heading" aria-labelledby="execution-contexts"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Execution Contexts
+  
+  
+</h2>
+    
+<ul>
+  <li>
+<strong>request</strong> - a single call from outside world that the software works on a potentially sends a response back</li>
+  <li>
+<strong>session</strong> - a long-running interaction between client and service in which multiple requests can happen</li>
+  <li>
+<strong>process</strong> - a heavy weight execution context that provide isolation with internal data</li>
+  <li>
+<strong>thread</strong> - lighter weight active agent that’s set up for multiple threads in a single process but memory is often shared so there can be concurrency problems</li>
+  <li>
+<strong>isolated threads</strong> - threads that don’t share memory</li>
+  <li>
+<strong>transaction</strong> - pulls together several requests the client wants to treat as a single request</li>
+</ul>
+<h2 id="isolation">
+  
+  
+    <a href="#isolation" class="anchor-heading" aria-labelledby="isolation"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Isolation
+  
+  
+</h2>
+    
+<ul>
+  <li>partition data so it can only be access by one active agent, <em>e.g.,</em> OS memory or file locks</li>
+</ul>
+<h2 id="immutability">
+  
+  
+    <a href="#immutability" class="anchor-heading" aria-labelledby="immutability"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Immutability
+  
+  
+</h2>
+    
+<ul>
+  <li>if data can’t be modified there is no concurrency problem</li>
+</ul>
+<h2 id="optimistic-vs-pessimistic-concurrency-control">
+  
+  
+    <a href="#optimistic-vs-pessimistic-concurrency-control" class="anchor-heading" aria-labelledby="optimistic-vs-pessimistic-concurrency-control"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Optimistic vs Pessimistic Concurrency Control
+  
+  
+</h2>
+    
+<ul>
+  <li>optimistic allows multiple users to edit data and only reconciles differences on save</li>
+  <li>pessimistic allows one agent to edit data and gives others read only access</li>
+  <li>optimistic is conflict detection while pessimistic is conflict prevention</li>
+  <li>pessimistic reduces concurrency while optimistic makes conflict resolution tricky</li>
+  <li>choice comes down to frequency and severity of conflicts</li>
+</ul>
+<h2 id="deadlocks">
+  
+  
+    <a href="#deadlocks" class="anchor-heading" aria-labelledby="deadlocks"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Deadlocks
+  
+  
+</h2>
+    
+<ul>
+  <li>occurs with pessimistic control when 2 or more processes need to acquire locks the others are holding</li>
+  <li>can use victims, or when deadlocks appear the process that will lose data</li>
+  <li>also can use timeouts, or enforce all locks are acquired at the beginning</li>
+  <li>deadlocks are easy to get wrong so simple, conservative schemes work best</li>
+</ul>
+<h2 id="transaction">
+  
+  
+    <a href="#transaction" class="anchor-heading" aria-labelledby="transaction"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Transaction
+  
+  
+</h2>
+    
+<ul>
+  <li>a transaction is a bounded sequence of work with the start and end well-defined</li>
+  <li>all participating resources in a consistent state at the beginning and end</li>
+  <li>must complete on all or nothing basis</li>
+</ul>
+<h2 id="transaction-isolation">
+  
+  
+    <a href="#transaction-isolation" class="anchor-heading" aria-labelledby="transaction-isolation"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Transaction Isolation
+  
+  
+</h2>
+    
+
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th>Isolation Level</th>
+      <th>Dirty read</th>
+      <th>Non-repeatable read</th>
+      <th>Phantom Read</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>READ UNCOMMITTED</td>
+      <td>Possible</td>
+      <td>Possible</td>
+      <td>Possible</td>
+    </tr>
+    <tr>
+      <td>READ COMMITTED</td>
+      <td>Not Possible</td>
+      <td>Possible</td>
+      <td>Possible</td>
+    </tr>
+    <tr>
+      <td>REPEATABLE READ</td>
+      <td>Not Possible</td>
+      <td>Not Possible</td>
+      <td>Possible</td>
+    </tr>
+    <tr>
+      <td>SERIALIZABLE</td>
+      <td>Not Possible</td>
+      <td>Not Possible</td>
+      <td>Not Possible</td>
+    </tr>
+  </tbody>
+</table></div>
+<h2 id="acid">
+  
+  
+    <a href="#acid" class="anchor-heading" aria-labelledby="acid"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> ACID
+  
+  
+</h2>
+    
+<ul>
+  <li>
+<strong>atomicity</strong> - all steps in sequence must complete or be rolled back</li>
+  <li>
+<strong>consistency</strong> - system’s resources must be in a consistent, non-corrupt state</li>
+  <li>
+<strong>isolation</strong> - results of transaction must not be visible to any other transaction until the transaction is complete</li>
+  <li>
+<strong>durability</strong> - any results must be made permanent</li>
+</ul>
+<h2 id="process-per-session">
+  
+  
+    <a href="#process-per-session" class="anchor-heading" aria-labelledby="process-per-session"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Process Per Session
+  
+  
+</h2>
+    
+<ul>
+  <li>one way of handling concurrency is to have a single process per session</li>
+  <li>avoids all the problems of multi-threading, and is equally isolated memory-wise</li>
+  <li>downside is processes are expensive, so you can use pooled <strong>process-per-request</strong>
+</li>
+  <li>need to ensure all resources are released at end of request</li>
+  <li>
+<strong>thread-per-request</strong> if further performance is needed – this has a fair bit of multi-threading overhead, so process-per-request is often sufficient</li>
+</ul>
+<h2 id="session-state">
+  
+  
+    <a href="#session-state" class="anchor-heading" aria-labelledby="session-state"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Session State
+  
+  
+</h2>
+    
+<ul>
+  <li>state (data) retained in between requests or across business transactions</li>
+  <li>different from record data, which is session state persisted to disk</li>
+  <li>session state might not be consistent (ACID consistent) at any point</li>
+  <li>biggest problem with session state is isolation</li>
+  <li>three ways to store session state
+    <ul>
+      <li>
+<strong>client session state</strong> - stores on client, <em>e.g.,</em> cookies, encoding in URL, hidden forms</li>
+      <li>
+<strong>server session state</strong> - store on server <em>e.g.,</em> in memory, or more durably as a serialized object</li>
+      <li>
+<strong>database session state</strong> - stored in a database</li>
+    </ul>
+  </li>
+  <li>with client, data needs to be transferred over the wire, so ideal for smaller payloads</li>
+  <li>also need to deal with security and encryption, so client-side presume all data is available</li>
+</ul>
+<h2 id="session-migration-vs-server-affinity">
+  
+  
+    <a href="#session-migration-vs-server-affinity" class="anchor-heading" aria-labelledby="session-migration-vs-server-affinity"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Session Migration vs. Server Affinity
+  
+  
+</h2>
+    
+<ul>
+  <li>session migration allows a session to move from server to server as it handles a request</li>
+  <li>server affinity forces one server to handle all requests
+    <ul>
+      <li>might be problematic if all requests are clustered and go to same server</li>
+    </ul>
+  </li>
+</ul>
+<h2 id="other-session-state-concerns">
+  
+  
+    <a href="#other-session-state-concerns" class="anchor-heading" aria-labelledby="other-session-state-concerns"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Other Session State Concerns
+  
+  
+</h2>
+    
+<ul>
+  <li>what happens when a user cancels requests or leaves? cleaning up state might be tricky on the server or the database side</li>
+  <li>development effort – database and client side are the heaviest lifts</li>
+  <li>if server session data stored so it can survive a crash, this might be ideal</li>
+</ul>
+<h2 id="fine-grained-interface">
+  
+  
+    <a href="#fine-grained-interface" class="anchor-heading" aria-labelledby="fine-grained-interface"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Fine-Grained Interface
+  
+  
+</h2>
+    
+<ul>
+  <li>separate setters and getters for each property</li>
+  <li>optimized for future extensibility (OO principle)</li>
+  <li>not useful for objects used remotely because of number of calls</li>
+</ul>
+<h2 id="coarse-grained-interface">
+  
+  
+    <a href="#coarse-grained-interface" class="anchor-heading" aria-labelledby="coarse-grained-interface"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Coarse-Grained Interface
+  
+  
+</h2>
+    
+<ul>
+  <li>grouped setters and getters</li>
+  <li>minimize calls - optimized for remote calls</li>
+  <li>lose flexibility and extensibility</li>
+</ul>
+<h2 id="distributed-object-design">
+  
+  
+    <a href="#distributed-object-design" class="anchor-heading" aria-labelledby="distributed-object-design"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Distributed Object Design
+  
+  
+</h2>
+    
+<ol>
+  <li>
+<em>Don’t distribute objects</em> - a procedure call within a process is fast, across 2 processes is slower, and processes running on separate machines is slower still</li>
+  <li>
+<em>Minimize distribution boundaries and use clustering as much as possible</em> - sometimes there are needs for boundaries <em>e.g.,</em> client-server, app-db</li>
+  <li>
+<em>use remote facade pattern</em> - use coarse-grained at the distribution boundaries, fine-grained internally
+    <ul>
+      <li>this advice based on Remote Procedure Call synchronous architecture, and message-based async might be preferable</li>
+    </ul>
+  </li>
+</ol>
+
+          
+
+          
+        </main>
+        
+
+  <hr>
+  <footer>
+    
+      <p><a href="#top" id="back-to-top">Back to top</a></p>
+    
+
+    <p class="text-small text-grey-dk-100 mb-0">Copyright © 2022 Michael McIntyre. </p>
+
+    
+      <div class="d-flex mt-2">
+        
+          <p class="text-small text-grey-dk-000 mb-0 mr-2">
+            Page last modified: <span class="d-inline-block">Nov 14 2021 at 07:40 PM</span>.
+          </p>
+        
+        
+      </div>
+    
+  </footer>
+
+
+      </div>
+    </div>
+    
+      
+
+<div class="search-overlay"></div>
+
+    
+  </div>
+
+  
+</body>
+</html>

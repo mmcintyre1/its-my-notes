@@ -1,0 +1,2327 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+
+  
+
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+  <link rel="stylesheet" href="/assets/css/just-the-docs-default.css">
+  <link rel="stylesheet" href="/assets/css/native.css">
+
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-M6EEXPRNWS"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-M6EEXPRNWS', { 'anonymize_ip': true });
+  </script>
+
+  
+
+  
+  <script type="text/javascript" src="/assets/js/vendor/lunr.min.js"></script>
+  
+  <script type="text/javascript" src="/assets/js/just-the-docs.js"></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>The Fundamentals of Software Architecture: An Engineering Approach | Notes</title>
+<meta name="generator" content="Jekyll v3.9.2">
+<meta property="og:title" content="The Fundamentals of Software Architecture: An Engineering Approach">
+<meta name="author" content="Mark Richards and Neal Ford">
+<meta property="og:locale" content="en_US">
+<meta name="description" content="My Notes">
+<meta property="og:description" content="My Notes">
+<link rel="canonical" href="https://itsmynotes.com/notes/tech_books/fundamentals-of-software-architecture">
+<meta property="og:url" content="https://itsmynotes.com/notes/tech_books/fundamentals-of-software-architecture">
+<meta property="og:site_name" content="Notes">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<meta property="twitter:title" content="The Fundamentals of Software Architecture: An Engineering Approach">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Mark Richards and Neal Ford"},"description":"My Notes","headline":"The Fundamentals of Software Architecture: An Engineering Approach","url":"https://itsmynotes.com/notes/tech_books/fundamentals-of-software-architecture"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+  
+
+</head>
+<body>
+  <a class="skip-to-main" href="#main-content">Skip to main content</a>
+  <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+  <symbol id="svg-link" viewbox="0 0 24 24">
+  <title>Link</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link">
+    <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+  </svg>
+</symbol>
+
+  <symbol id="svg-menu" viewbox="0 0 24 24">
+  <title>Menu</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu">
+    <line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line>
+  </svg>
+</symbol>
+
+  <symbol id="svg-arrow-right" viewbox="0 0 24 24">
+  <title>Expand</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+    <polyline points="9 18 15 12 9 6"></polyline>
+  </svg>
+</symbol>
+
+  <!-- Feather. MIT License: https://github.com/feathericons/feather/blob/master/LICENSE -->
+<symbol id="svg-external-link" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-external-link">
+  <title id="svg-external-link-title">(external link)</title>
+  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line>
+</symbol>
+
+  
+    <symbol id="svg-doc" viewbox="0 0 24 24">
+  <title>Document</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file">
+    <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline>
+  </svg>
+</symbol>
+
+    <symbol id="svg-search" viewbox="0 0 24 24">
+  <title>Search</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search">
+    <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+  </svg>
+</symbol>
+
+  
+  
+    <!-- Bootstrap Icons. MIT License: https://github.com/twbs/icons/blob/main/LICENSE.md -->
+<symbol id="svg-copy" viewbox="0 0 16 16">
+  <title>Copy</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard" viewbox="0 0 16 16">
+    <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"></path>
+    <path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"></path>
+  </svg>
+</symbol>
+<symbol id="svg-copied" viewbox="0 0 16 16">
+  <title>Copied</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard-check-fill" viewbox="0 0 16 16">
+    <path d="M6.5 0A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3Zm3 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3Z"></path>
+    <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1A2.5 2.5 0 0 1 9.5 5h-3A2.5 2.5 0 0 1 4 2.5v-1Zm6.854 7.354-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L7.5 10.793l2.646-2.647a.5.5 0 0 1 .708.708Z"></path>
+  </svg>
+</symbol>
+
+  
+</svg>
+
+  <div class="side-bar">
+  <div class="site-header" role="banner">
+    <a href="/" class="site-title lh-tight">
+  Notes
+
+</a>
+    <button id="menu-button" class="site-button btn-reset" aria-label="Toggle menu" aria-pressed="false">
+      <svg viewbox="0 0 24 24" class="icon" aria-hidden="true"><use xlink:href="#svg-menu"></use></svg>
+    </button>
+  </div>
+
+  <nav aria-label="Main" id="site-nav" class="site-nav">
+  
+  
+    <ul class="nav-list">
+<li class="nav-list-item">
+<button class="nav-list-expander btn-reset" aria-label="toggle items in Projects category" aria-pressed="false">
+      <svg viewbox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+    </button><a href="/notes/projects" class="nav-list-link">Projects</a><ul class="nav-list"></ul>
+</li>
+<li class="nav-list-item">
+<button class="nav-list-expander btn-reset" aria-label="toggle items in Vocabulary category" aria-pressed="false">
+      <svg viewbox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+    </button><a href="/notes/vocabulary" class="nav-list-link">Vocabulary</a><ul class="nav-list"></ul>
+</li>
+<li class="nav-list-item">
+<button class="nav-list-expander btn-reset" aria-label="toggle items in Business Books category" aria-pressed="false">
+      <svg viewbox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+    </button><a href="/notes/business-books" class="nav-list-link">Business Books</a><ul class="nav-list"></ul>
+</li>
+<li class="nav-list-item">
+<button class="nav-list-expander btn-reset" aria-label="toggle items in Other Books category" aria-pressed="false">
+      <svg viewbox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+    </button><a href="/notes/other-books" class="nav-list-link">Other Books</a><ul class="nav-list"></ul>
+</li>
+<li class="nav-list-item">
+<button class="nav-list-expander btn-reset" aria-label="toggle items in Educational Books category" aria-pressed="false">
+      <svg viewbox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+    </button><a href="/notes/educational-books" class="nav-list-link">Educational Books</a><ul class="nav-list"></ul>
+</li>
+<li class="nav-list-item">
+<button class="nav-list-expander btn-reset" aria-label="toggle items in Articles category" aria-pressed="false">
+      <svg viewbox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+    </button><a href="/notes/articles" class="nav-list-link">Articles</a><ul class="nav-list"></ul>
+</li>
+<li class="nav-list-item">
+<button class="nav-list-expander btn-reset" aria-label="toggle items in Quotes category" aria-pressed="false">
+      <svg viewbox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+    </button><a href="/notes/quotes" class="nav-list-link">Quotes</a><ul class="nav-list"></ul>
+</li>
+<li class="nav-list-item">
+<button class="nav-list-expander btn-reset" aria-label="toggle items in Classes category" aria-pressed="false">
+      <svg viewbox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+    </button><a href="/notes/classes" class="nav-list-link">Classes</a><ul class="nav-list"></ul>
+</li>
+<li class="nav-list-item">
+<button class="nav-list-expander btn-reset" aria-label="toggle items in Tech Books category" aria-pressed="false">
+      <svg viewbox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+    </button><a href="/notes/tech-books" class="nav-list-link">Tech Books</a><ul class="nav-list"></ul>
+</li>
+<li class="nav-list-item">
+<button class="nav-list-expander btn-reset" aria-label="toggle items in Podcasts category" aria-pressed="false">
+      <svg viewbox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+    </button><a href="/notes/podcasts" class="nav-list-link">Podcasts</a><ul class="nav-list"></ul>
+</li>
+</ul>
+
+  
+</nav>
+
+
+  
+  
+    <footer class="site-footer">
+      This site uses <a href="https://github.com/just-the-docs/just-the-docs">Just the Docs</a>, a documentation theme for Jekyll.
+    </footer>
+  
+</div>
+
+  <div class="main" id="top">
+    <div id="main-header" class="main-header">
+  
+    
+
+<div class="search" role="search">
+  <div class="search-input-wrap">
+    <input type="text" id="search-input" class="search-input" tabindex="0" placeholder="Search Notes" aria-label="Search Notes" autocomplete="off">
+    <label for="search-input" class="search-label"><svg viewbox="0 0 24 24" class="search-icon"><use xlink:href="#svg-search"></use></svg></label>
+  </div>
+  <div id="search-results" class="search-results"></div>
+</div>
+
+  
+  
+  
+    <nav aria-label="Auxiliary" class="aux-nav">
+  <ul class="aux-nav-list">
+    
+      <li class="aux-nav-list-item">
+        <a href="https://github.com/mmcintyre1/its-my-notes" class="site-button">
+          It's My Notes on GitHub
+        </a>
+      </li>
+    
+  </ul>
+</nav>
+
+  
+</div>
+
+    <div class="main-content-wrap">
+      <nav aria-label="Breadcrumb" class="breadcrumb-nav">
+  <ol class="breadcrumb-nav-list">
+  
+    <li class="breadcrumb-nav-list-item"><a href="/notes/tech-books">Tech Books</a></li>
+  <li class="breadcrumb-nav-list-item"><span>The Fundamentals of Software Architecture: An Engineering Approach</span></li>
+  </ol>
+</nav>
+      <div id="main-content" class="main-content">
+        <main>
+          
+            <h1 class="no_toc" id="the-fundamentals-of-software-architecture-an-engineering-approach">
+  
+  
+    <a href="#the-fundamentals-of-software-architecture-an-engineering-approach" class="anchor-heading" aria-labelledby="the-fundamentals-of-software-architecture-an-engineering-approach"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> The Fundamentals of Software Architecture: An Engineering Approach
+  
+  
+</h1>
+    
+
+<details open="">
+  <summary>
+    Table of contents
+  </summary>
+<ol id="markdown-toc">
+  <li><a href="#defining-software-architecture" id="markdown-toc-defining-software-architecture">Defining Software Architecture</a></li>
+  <li><a href="#expectations-of-an-architect" id="markdown-toc-expectations-of-an-architect">Expectations of an Architect</a></li>
+  <li><a href="#laws-of-software-architecture" id="markdown-toc-laws-of-software-architecture">Laws of Software Architecture</a></li>
+  <li><a href="#thinking-like-an-architect" id="markdown-toc-thinking-like-an-architect">Thinking Like an Architect</a></li>
+  <li>
+<a href="#modularity" id="markdown-toc-modularity">Modularity</a>    <ol>
+      <li><a href="#cohesion" id="markdown-toc-cohesion">Cohesion</a></li>
+      <li><a href="#coupling" id="markdown-toc-coupling">Coupling</a></li>
+      <li><a href="#connascence" id="markdown-toc-connascence">Connascence</a></li>
+    </ol>
+  </li>
+  <li>
+<a href="#architecture-characteristics" id="markdown-toc-architecture-characteristics">Architecture Characteristics</a>    <ol>
+      <li><a href="#operational-architecture-characteristics" id="markdown-toc-operational-architecture-characteristics">Operational Architecture Characteristics</a></li>
+      <li><a href="#structural-architecture-characteristics" id="markdown-toc-structural-architecture-characteristics">Structural Architecture Characteristics</a></li>
+      <li><a href="#cross-cutting-architecture-characteristics" id="markdown-toc-cross-cutting-architecture-characteristics">Cross-Cutting Architecture Characteristics</a></li>
+    </ol>
+  </li>
+  <li>
+<a href="#measuring-and-governing-architecture-characteristics" id="markdown-toc-measuring-and-governing-architecture-characteristics">Measuring and Governing Architecture Characteristics</a>    <ol>
+      <li><a href="#architectural-quanta" id="markdown-toc-architectural-quanta">Architectural Quanta</a></li>
+    </ol>
+  </li>
+  <li>
+<a href="#components" id="markdown-toc-components">Components</a>    <ol>
+      <li><a href="#partitioning" id="markdown-toc-partitioning">Partitioning</a></li>
+    </ol>
+  </li>
+  <li>
+<a href="#architecture-styles" id="markdown-toc-architecture-styles">Architecture Styles</a>    <ol>
+      <li>
+<a href="#fundamental-patterns" id="markdown-toc-fundamental-patterns">Fundamental Patterns</a>        <ol>
+          <li><a href="#big-ball-of-mud" id="markdown-toc-big-ball-of-mud">Big Ball of Mud</a></li>
+          <li><a href="#unitary-architecture" id="markdown-toc-unitary-architecture">Unitary Architecture</a></li>
+          <li><a href="#clientserver" id="markdown-toc-clientserver">Client/Server</a></li>
+        </ol>
+      </li>
+      <li><a href="#distributed-computing" id="markdown-toc-distributed-computing">Distributed Computing</a></li>
+      <li><a href="#layered-architecture-style" id="markdown-toc-layered-architecture-style">Layered Architecture Style</a></li>
+      <li><a href="#pipeline-architecture-style" id="markdown-toc-pipeline-architecture-style">Pipeline Architecture Style</a></li>
+      <li><a href="#microkernel-architecture-style" id="markdown-toc-microkernel-architecture-style">Microkernel Architecture Style</a></li>
+      <li><a href="#service-based-architecture-style" id="markdown-toc-service-based-architecture-style">Service-Based Architecture Style</a></li>
+      <li><a href="#event-driven-architecture-style" id="markdown-toc-event-driven-architecture-style">Event-Driven Architecture Style</a></li>
+      <li><a href="#space-based-architecture" id="markdown-toc-space-based-architecture">Space-Based Architecture</a></li>
+      <li><a href="#orchestration-driven-service-oriented-architecture" id="markdown-toc-orchestration-driven-service-oriented-architecture">Orchestration-Driven Service-Oriented Architecture</a></li>
+      <li><a href="#microservices-architecture" id="markdown-toc-microservices-architecture">Microservices Architecture</a></li>
+    </ol>
+  </li>
+  <li>
+<a href="#architecture-decisions" id="markdown-toc-architecture-decisions">Architecture Decisions</a>    <ol>
+      <li><a href="#decision-anti-patterns" id="markdown-toc-decision-anti-patterns">Decision Anti-Patterns</a></li>
+      <li><a href="#architecture-decision-records" id="markdown-toc-architecture-decision-records">Architecture Decision Records</a></li>
+      <li><a href="#assessing-risk" id="markdown-toc-assessing-risk">Assessing Risk</a></li>
+      <li><a href="#presenting-architecture" id="markdown-toc-presenting-architecture">Presenting Architecture</a></li>
+    </ol>
+  </li>
+  <li><a href="#assessment-questions" id="markdown-toc-assessment-questions">Assessment Questions</a></li>
+</ol>
+
+</details>
+<h1 id="defining-software-architecture">
+  
+  
+    <a href="#defining-software-architecture" class="anchor-heading" aria-labelledby="defining-software-architecture"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Defining Software Architecture
+  
+  
+</h1>
+    
+
+<ol>
+  <li>
+<strong>the structure of the system</strong>
+    <ul>
+      <li>refers to the type of architecture style (or styles) the system is implemented in (such as microservices, layered, or microkernel)</li>
+    </ul>
+  </li>
+  <li>
+<strong>architecture characteristics</strong>
+    <ul>
+      <li>The architecture characteristics define the success criteria of a system, which is generally orthogonal to the functionality of the system</li>
+    </ul>
+  </li>
+  <li>
+<strong>architecture decisions</strong>
+    <ul>
+      <li>define the rules for how a system should be constructed</li>
+    </ul>
+  </li>
+  <li>
+<strong>design principles</strong>
+    <ul>
+      <li>A design principle differs from an architecture decision in that a design principle is a guideline rather than a hard-and-fast rule</li>
+    </ul>
+  </li>
+</ol>
+<h1 id="expectations-of-an-architect">
+  
+  
+    <a href="#expectations-of-an-architect" class="anchor-heading" aria-labelledby="expectations-of-an-architect"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Expectations of an Architect
+  
+  
+</h1>
+    
+<ol>
+  <li>
+<strong>make architecture decisions</strong>
+    <ul>
+      <li>An architect is expected to dene the architecture decisions and design principles used to guide technology decisions within the team, the department, or across the enterprise.</li>
+    </ul>
+  </li>
+  <li>
+<strong>continually analyze the architecture</strong>
+    <ul>
+      <li>An architect is expected to continually analyze the architecture and current technology environment and then recommend solutions for improvement.</li>
+    </ul>
+  </li>
+  <li>
+<strong>keep current with the latest trends</strong>
+    <ul>
+      <li>An architect is expected to keep current with the latest technology and industry trends.</li>
+    </ul>
+  </li>
+  <li>
+<strong>ensure compliance with decisions</strong>
+    <ul>
+      <li>An architect is expected to ensure compliance with architecture decisions and design principles.</li>
+    </ul>
+  </li>
+  <li>
+<strong>diverse exposure and experience</strong>
+    <ul>
+      <li>An architect is expected to have exposure to multiple and diverse technologies, frameworks, platforms, and environments.</li>
+    </ul>
+  </li>
+  <li>
+<strong>have business domain knowledge</strong>
+    <ul>
+      <li>An architect is expected to have a certain level of business domain expertise.</li>
+    </ul>
+  </li>
+  <li>
+<strong>possess interpersonal skills</strong>
+    <ul>
+      <li>An architect is expected to possess exceptional interpersonal skills, including teamwork, facilitation, and leadership.</li>
+    </ul>
+  </li>
+  <li>
+<strong>understand and navigate politics</strong>
+    <ul>
+      <li>An architect is expected to understand the political climate of the enterprise and be able to navigate the politics.</li>
+    </ul>
+  </li>
+</ol>
+
+<ul>
+  <li>useful to separate software development <em>process</em> from <em>engineering practices</em>
+</li>
+  <li>
+<strong>process</strong> - how teams are formed and managed, how meetings are conducted, and workflow organization; it refers to the mechanics of how people organize and interact</li>
+  <li>
+<strong>engineering practices</strong> - process-agnostic practices that have illustrated, repeatable benefit</li>
+  <li>
+<strong>architectural fitness functions</strong>: an objective integrity assessment of some architectural characteristic(s)</li>
+</ul>
+<h1 id="laws-of-software-architecture">
+  
+  
+    <a href="#laws-of-software-architecture" class="anchor-heading" aria-labelledby="laws-of-software-architecture"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Laws of Software Architecture
+  
+  
+</h1>
+    
+<ol>
+  <li>Everything in software architecture is a trade-off
+    <ol>
+      <li>If an architect thinks they have discovered something that isn’t a trade-off, more likely they just haven’t identified the trade-off yet</li>
+    </ol>
+  </li>
+  <li>
+<em>Why</em> is more important than <em>how</em>
+</li>
+</ol>
+<h1 id="thinking-like-an-architect">
+  
+  
+    <a href="#thinking-like-an-architect" class="anchor-heading" aria-labelledby="thinking-like-an-architect"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Thinking Like an Architect
+  
+  
+</h1>
+    
+<ol>
+  <li>understand the difference between architecture and design, and understand how to collaborate with dev teams to make architecture work</li>
+  <li>have a wide breadth of technical knowledge while still maintaining a certain level of technical depth – see solutions and possibilities others do not
+    <ul>
+      <li>breadth is more important than depth</li>
+      <li>
+<strong>frozen caveman anti-pattern</strong> – someone who always reverts back to their pet irrational concern for every architecture</li>
+    </ul>
+  </li>
+  <li>understanding, analyzing, and reconciling trade-offs between various solutions and technologies</li>
+  <li>understanding the importance of business drivers and how they translate to architectural concerns</li>
+</ol>
+<h1 id="modularity">
+  
+  
+    <a href="#modularity" class="anchor-heading" aria-labelledby="modularity"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Modularity
+  
+  
+</h1>
+    
+<p><strong>modularity</strong> - a logical grouping of related code, which could be a group of classes in an object-oriented language or functions in a structured or functional language, e.g., <code class="language-plaintext highlighter-rouge">package</code> in Java, <code class="language-plaintext highlighter-rouge">namespace</code> in .NET</p>
+<h2 id="cohesion">
+  
+  
+    <a href="#cohesion" class="anchor-heading" aria-labelledby="cohesion"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Cohesion
+  
+  
+</h2>
+    
+<p><strong>Cohesion</strong> refers to what extent the parts of a module should be contained within the same module – less precise than coupling</p>
+
+<p>From best to worst cohesion</p>
+<ol>
+  <li>
+<strong>functional cohesion</strong> - every part of the module is related to the other, and the module contains everything essential to function</li>
+  <li>
+<strong>sequential cohesion</strong> - two modules interact, where one outputs data that becomes the input for the other</li>
+  <li>
+<strong>communicational cohesion</strong> - two modules form a communication chain, where each operates on info and/or contributes to some output</li>
+  <li>
+<strong>procedural cohesion</strong> - two modules must execute code in a particular order</li>
+  <li>
+<strong>temporal cohesion</strong> - modules are related based on timing dependencies</li>
+  <li>
+<strong>logical cohesion</strong> - data within modules is related logically but not functionally</li>
+  <li>
+<strong>coincidental cohesion</strong> - elements in a module are not related other than being in the same source file</li>
+</ol>
+
+<ul>
+  <li>the <strong>Chidamber and Kemerer Object- oriented metrics suite</strong> is a well-known suite of metrics to test cohesion (and coupling) like cyclomatic complexity</li>
+  <li>
+<strong>Chidamber and Kemerer Lack of Cohesion in Methods</strong> (LCOM) – The sum of sets of methods not shared via sharing fields</li>
+</ul>
+
+<div style="text-align:center">
+  <a href="/assets/img/fundamentals-of-software-architecture/lcom.jpg">
+    <img src="/assets/img/fundamentals-of-software-architecture/lcom.jpg" alt="">
+  </a>
+</div>
+<h2 id="coupling">
+  
+  
+    <a href="#coupling" class="anchor-heading" aria-labelledby="coupling"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Coupling
+  
+  
+</h2>
+    
+<p><strong>afferent coupling</strong> - measures the number of <em>incoming</em> connections to a code artifact (component, class, function, etc)</p>
+
+<p><strong>efferent coupling</strong> - measures number of <em>outgoing</em> connections to a code artifact</p>
+
+<p><strong>abstractness</strong> - ratio of abstract artifacts (abstract classes, interfaces, etc) to concrete artifacts (implementation)</p>
+
+<p><strong>instability</strong> - ratio of efferent coupling to the sum of both efferent and afferent coupling – determines volatility of code base; an unstable codebase breaks more easily when changed</p>
+
+<p><strong>distance from the main sequence</strong>
+$D = |A + I - 1|$</p>
+<ul>
+  <li>A = abstractness and I = instability</li>
+</ul>
+
+<div style="text-align:center">
+  <a href="/assets/img/fundamentals-of-software-architecture/distance-from-main-sequence.jpg">
+    <img src="/assets/img/fundamentals-of-software-architecture/distance-from-main-sequence.jpg" alt="">
+  </a>
+</div>
+<h2 id="connascence">
+  
+  
+    <a href="#connascence" class="anchor-heading" aria-labelledby="connascence"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Connascence
+  
+  
+</h2>
+    
+<p>Two components are <strong>connascent</strong> if a change in one would require the other to be modified in order to maintain the overall correctness of the system – recasting efferent and afferent coupling for object-oriented language (those measures of coupling predate OOP)</p>
+<h3 class="no_toc" id="static-connascence">
+  
+  
+    <a href="#static-connascence" class="anchor-heading" aria-labelledby="static-connascence"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Static Connascence
+  
+  
+</h3>
+    
+<ul>
+  <li>
+    <p>source-code-level coupling</p>
+  </li>
+  <li>
+<strong>Connascence of Name (CoN)</strong>Multiple components must agree on the name of an entity.</li>
+  <li>
+<strong>Connascence of Type (CoT)</strong> Multiple components must agree on the type of an entity.</li>
+  <li>
+<strong>Connascence of Meaning (CoM) or Connascence of Convention (CoC)</strong> Multiple components must agree on the meaning of particular values.</li>
+  <li>
+<strong>Connascence of Position (CoP)</strong> Multiple components must agree on the order of values.</li>
+  <li>
+<strong>Connascence of Algorithm (CoA)</strong> Multiple components must agree on a particular algorithm.</li>
+</ul>
+<h3 class="no_toc" id="dynamic-connascence">
+  
+  
+    <a href="#dynamic-connascence" class="anchor-heading" aria-labelledby="dynamic-connascence"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Dynamic Connascence
+  
+  
+</h3>
+    
+<ul>
+  <li>
+    <p>calls executed at runtime</p>
+  </li>
+  <li>
+<strong>Connascence of Execution (CoE)</strong> The order of execution of multiple components is important</li>
+  <li>
+<strong>Connascence of Timing (CoT)</strong> The timing of execution of multiple components is important</li>
+  <li>
+<strong>Connascence of Values (CoV)</strong> Occurs when several values rely on one another and must change together</li>
+  <li>
+<strong>Connascence of Identity (CoI)</strong> Multiple components must reference the same entity</li>
+</ul>
+<h3 class="no_toc" id="properties-of-connascence">
+  
+  
+    <a href="#properties-of-connascence" class="anchor-heading" aria-labelledby="properties-of-connascence"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Properties of Connascence
+  
+  
+</h3>
+    
+
+<p><strong>strength</strong></p>
+<ul>
+  <li>the ease with which a developer can refactor that type of coupling</li>
+  <li>refactor towards better types of connascence</li>
+  <li>prefer static to dynamic, as its easier for static code analysis</li>
+</ul>
+
+<div style="text-align:center">
+  <a href="/assets/img/fundamentals-of-software-architecture/connascence-refactor-guide.jpg">
+    <img src="/assets/img/fundamentals-of-software-architecture/connascence-refactor-guide.jpg" alt="">
+  </a>
+</div>
+
+<p><strong>locality</strong></p>
+<ul>
+  <li>how proximal modules are to each other in code base</li>
+  <li>must consider strength and locality together</li>
+</ul>
+
+<p><strong>degree</strong></p>
+<ul>
+  <li>the size of its impact – does it affect a few classes or many?</li>
+</ul>
+
+<p><strong>guide for using connascence to improve system modularity</strong></p>
+<ol>
+  <li>Minimize overall connascence by breaking the system into encapsulated elements</li>
+  <li>Minimize any remaining connascence that crosses encapsulation boundaries</li>
+  <li>Maximize the connascence within encapsulation boundaries</li>
+</ol>
+
+<p><em>Rule of Degree</em>: convert strong forms of connascence into weaker forms of connascence
+<em>Rule of Locality</em>: as the distance between software elements increases, use weaker forms of connascence</p>
+
+<div style="text-align:center">
+  <a href="/assets/img/fundamentals-of-software-architecture/connascence-and-coupling.jpg">
+    <img src="/assets/img/fundamentals-of-software-architecture/connascence-and-coupling.jpg" alt="">
+  </a>
+</div>
+<h1 id="architecture-characteristics">
+  
+  
+    <a href="#architecture-characteristics" class="anchor-heading" aria-labelledby="architecture-characteristics"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Architecture Characteristics
+  
+  
+</h1>
+    
+<p>meets three criteria:</p>
+<ul>
+  <li>
+<strong>Specifies a non-domain design consideration</strong> - operational and design criteria for success; how to implement requirements and why choices were made</li>
+  <li><strong>Influences some structural aspect of the design</strong></li>
+  <li>
+    <p><strong>Is critical or important to application success</strong> - choose the fewest architecture characteristics rather than the most possible</p>
+  </li>
+  <li>
+<strong>explicit</strong> architecture characteristics appear in requirements, where <strong>implicit</strong> ones need to be identified and extracted</li>
+  <li>architect able to translate domain concerns to identify the right architectural characteristics</li>
+  <li>anti-pattern of creating a <em>generic architecture</em> that tries to solve too much and solves nothing</li>
+</ul>
+<h2 id="operational-architecture-characteristics">
+  
+  
+    <a href="#operational-architecture-characteristics" class="anchor-heading" aria-labelledby="operational-architecture-characteristics"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Operational Architecture Characteristics
+  
+  
+</h2>
+    
+
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th>characteristic</th>
+      <th>description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Availability</td>
+      <td>How long the system will need to be available (if 24/7, steps need to be in place to allow the system to be up and running quickly in case of any failure).</td>
+    </tr>
+    <tr>
+      <td>Continuity</td>
+      <td>Disaster recover ability</td>
+    </tr>
+    <tr>
+      <td>Performance</td>
+      <td>Includes stress testing, peak analysis, analysis of the frequency of functions used, capacity required, and response times. Performance acceptance sometimes requires an exercise of its own, taking months to complete.</td>
+    </tr>
+    <tr>
+      <td>Recoverability</td>
+      <td>Business continuity requirements (e.g., in case of a disaster, how quickly is the system required to be online again?). This will affect the backup strategy and requirements for duplicated hardware.</td>
+    </tr>
+    <tr>
+      <td>Reliability/safety</td>
+      <td>Assess if the system needs to be fail-safe, or if it is mission critical in a way that affects lives. If it fails, will it cost the company large sums of money?</td>
+    </tr>
+    <tr>
+      <td>Robustness</td>
+      <td>Ability to handle error and boundary conditions while running if the internet connection goes down or if there’s a power outage or hardware failure.</td>
+    </tr>
+    <tr>
+      <td>Scalability</td>
+      <td>Ability for the system to perform and operate as the number of users or requests increases.</td>
+    </tr>
+  </tbody>
+</table></div>
+<h2 id="structural-architecture-characteristics">
+  
+  
+    <a href="#structural-architecture-characteristics" class="anchor-heading" aria-labelledby="structural-architecture-characteristics"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Structural Architecture Characteristics
+  
+  
+</h2>
+    
+
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th>characteristic</th>
+      <th>description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Configurability</td>
+      <td>Ability for the end users to easily change aspects of the software’s configuration (through usable interfaces).</td>
+    </tr>
+    <tr>
+      <td>Extensibility</td>
+      <td>How important it is to plug new pieces of functionality in.</td>
+    </tr>
+    <tr>
+      <td>Installability</td>
+      <td>Ease of system installation on all necessary platforms.</td>
+    </tr>
+    <tr>
+      <td>Leverageability/reuse</td>
+      <td>Ability to leverage common components across multiple products.</td>
+    </tr>
+    <tr>
+      <td>Localization</td>
+      <td>Support for multiple languages on entry/query screens in data fields; on reports, multibyte character requirements and units of measure or currencies.</td>
+    </tr>
+    <tr>
+      <td>Maintainability</td>
+      <td>How easy it is to apply changes and enhance the system?</td>
+    </tr>
+    <tr>
+      <td>Portability</td>
+      <td>Does the system need to run on more than one platform? (For example, does the frontend need to run against Oracle as well as SAP DB?</td>
+    </tr>
+    <tr>
+      <td>Supportability</td>
+      <td>What level of technical support is needed by the application? What level of logging and other facilities are required to debug errors in the system?</td>
+    </tr>
+    <tr>
+      <td>Upgradeability</td>
+      <td>Ability to easily/quickly upgrade from a previous version of this application/solution to a newer version on servers and clients.</td>
+    </tr>
+  </tbody>
+</table></div>
+<h2 id="cross-cutting-architecture-characteristics">
+  
+  
+    <a href="#cross-cutting-architecture-characteristics" class="anchor-heading" aria-labelledby="cross-cutting-architecture-characteristics"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Cross-Cutting Architecture Characteristics
+  
+  
+</h2>
+    
+
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th>characteristic</th>
+      <th>description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Accessibility</td>
+      <td>Access to all your users, including those with disabilities like colorblindness or hearing loss.</td>
+    </tr>
+    <tr>
+      <td>Archivability</td>
+      <td>Will the data need to be archived or deleted after a period of time? (For example, customer accounts are to be deleted after three months or marked as obsolete and archived to a secondary database for future access.)</td>
+    </tr>
+    <tr>
+      <td>Authentication</td>
+      <td>Security requirements to ensure users are who they say they are.</td>
+    </tr>
+    <tr>
+      <td>Authorization</td>
+      <td>Security requirements to ensure users can access only certain functions within the application (by use case, subsystem, webpage, business rule, field level, etc.).</td>
+    </tr>
+    <tr>
+      <td>Legal</td>
+      <td>What legislative constraints is the system operating in (data protection, Sarbanes Oxley, GDPR, etc.)? What reservation rights does the company require? Any regulations regarding the way the application is to be built or deployed?</td>
+    </tr>
+    <tr>
+      <td>Privacy</td>
+      <td>Ability to hide transactions from internal company employees (encrypted transactions so even DBAs and network architects cannot see them).</td>
+    </tr>
+    <tr>
+      <td>Security</td>
+      <td>Does the data need to be encrypted in the database? Encrypted for network communication between internal systems? What type of authentication needs to be in place for remote user access?</td>
+    </tr>
+    <tr>
+      <td>Supportability</td>
+      <td>What level of technical support is needed by the application? What level of logging and other facilities are required to debug errors in the system?</td>
+    </tr>
+    <tr>
+      <td>Usability/achievability</td>
+      <td>Level of training required for users to achieve their goals with the application/solution. Usability requirements need to be treated as seriously as any other architectural issue.</td>
+    </tr>
+  </tbody>
+</table></div>
+<h1 id="measuring-and-governing-architecture-characteristics">
+  
+  
+    <a href="#measuring-and-governing-architecture-characteristics" class="anchor-heading" aria-labelledby="measuring-and-governing-architecture-characteristics"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Measuring and Governing Architecture Characteristics
+  
+  
+</h1>
+    
+<p>problems with definitions of architectural characteristics:</p>
+<ol>
+  <li>they aren’t easily measured or observed</li>
+  <li>definitions vary wildly</li>
+  <li>too composite</li>
+</ol>
+
+<p>need to agree on objective definition of these architecture characteristics</p>
+
+<ul>
+  <li>operational measures, like performance, or request time</li>
+  <li>structural measures, like cyclomatic complexity (cyclocamatic complexity = edges - nodes + 2)</li>
+  <li>process measures, like testability or deployability</li>
+</ul>
+
+<p><strong>architecture fitness functions</strong> - any mechanism that provides an objective integrity assessment of some architecture characteristic or combination of architecture characteristics</p>
+<ul>
+  <li>cyclic dependencies – how many modules import other modules; code reviews help, but a fitness function as part of continuous integration is better</li>
+  <li>distance from the main sequence – again, best as fitness function test as part of continuous integration – metrics tools like JDepend or ArchUnit (Java) NetArchTest (.NET) for fitness testing</li>
+</ul>
+<h2 id="architectural-quanta">
+  
+  
+    <a href="#architectural-quanta" class="anchor-heading" aria-labelledby="architectural-quanta"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Architectural Quanta
+  
+  
+</h2>
+    
+<ul>
+  <li>An independently deployable artifact with high functional cohesion and synchronous connascence</li>
+  <li>derived from physics term quantum, which is minimum amount of any physical entity involved in an interaction</li>
+</ul>
+
+<p><strong>independently deployable</strong> - includes all necessary components to function independently from other parts of the architecture
+<strong>high functional cohesion</strong> - how well the contained code is unified – a quantum does something purposeful
+<strong>synchronous connascence</strong> - synchronous calls within an application context or between distributed services that form the quantum</p>
+
+<p><strong>bounded context</strong> - from domain-driven design – everything related to the domain is visible internally but opaque to other bounded contexts – each entity works best within a localized context</p>
+<h1 id="components">
+  
+  
+    <a href="#components" class="anchor-heading" aria-labelledby="components"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Components
+  
+  
+</h1>
+    
+<ul>
+  <li>
+<strong>component</strong> - the physical manifestation of a module (<code class="language-plaintext highlighter-rouge">jar</code> in Java, <code class="language-plaintext highlighter-rouge">dll</code> in .NET, <code class="language-plaintext highlighter-rouge">gem</code> in ruby, etc)</li>
+  <li>Components form the fundamental modular building block in architecture, making them a critical consideration for architects – top-level partitioning is important concern</li>
+  <li>component is often the lowest level of a software system an architect interacts with directly (outside of code quality metrics)</li>
+</ul>
+<h2 id="partitioning">
+  
+  
+    <a href="#partitioning" class="anchor-heading" aria-labelledby="partitioning"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Partitioning
+  
+  
+</h2>
+    
+<ul>
+  <li>domain partitioning - breaking the architecture into domains or workflows</li>
+  <li>technical partitioning - breaking the architecture into technical capabilities (presentation, business rules, services, etc)</li>
+</ul>
+
+<div style="text-align:center">
+  <a href="/assets/img/fundamentals-of-software-architecture/top-level-partitioning.jpg">
+    <img src="/assets/img/fundamentals-of-software-architecture/top-level-partitioning.jpg" alt="">
+  </a>
+</div>
+
+<p><strong>Architecture Exposition Cycle</strong></p>
+<ol>
+  <li>
+<em>identify initial components</em> - what partitioning to use, what components, etc.</li>
+  <li>
+<em>assign requirements to components</em> - align to see how well they fit</li>
+  <li>
+<em>analyze roles and responsibilities</em> - allows architect to align component and domain granularity</li>
+  <li>
+<em>analyze architecture characteristics</em> - think about how these characteristics impact component division and granularity</li>
+  <li>
+<em>restructure components</em> - based on feedback, continuously iterate with developers</li>
+</ol>
+
+<p>Identifying Components</p>
+<ul>
+  <li>
+<strong>actor/actions</strong> - architects identify actors who perform activities with the application and the actions those actors may perform</li>
+  <li>
+<strong>event storming</strong> - assuming the project uses messages and/or events to communicate components, the team tries to determine which events occur in the system based on requirements and identified roles, and build components around those events and message handlers</li>
+  <li>
+<strong>workflow approach</strong> - The workflow approach models the components around workflows, much like event storming, but without the explicit constraints of building a message-based system; a workflow approach identifies the key roles, determines the kinds of workflows these roles engage in, and builds components around the identified activities.</li>
+</ul>
+
+<p><strong>entity trap anti-pattern</strong> - take each entity and create a <code class="language-plaintext highlighter-rouge">Manager</code> for it – this isn’t an architecture, it’s an object-relational mapping (ORM) of a framework of a database; should just use an off-the-shelf solution like Naked Objects in .NET or Isis in Java to create simple front-ends on databases</p>
+<h1 id="architecture-styles">
+  
+  
+    <a href="#architecture-styles" class="anchor-heading" aria-labelledby="architecture-styles"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Architecture Styles
+  
+  
+</h1>
+    
+<h2 id="fundamental-patterns">
+  
+  
+    <a href="#fundamental-patterns" class="anchor-heading" aria-labelledby="fundamental-patterns"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Fundamental Patterns
+  
+  
+</h2>
+    
+<h3 id="big-ball-of-mud">
+  
+  
+    <a href="#big-ball-of-mud" class="anchor-heading" aria-labelledby="big-ball-of-mud"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Big Ball of Mud
+  
+  
+</h3>
+    
+<ul>
+  <li>absence of any discernible architecture structure</li>
+  <li>from a <a href="http://www.cin.ufpe.br/~sugarloafplop/mud.pdf">1997 paper</a> by Brian Foote and Joseph Yoder</li>
+</ul>
+<h3 id="unitary-architecture">
+  
+  
+    <a href="#unitary-architecture" class="anchor-heading" aria-labelledby="unitary-architecture"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Unitary Architecture
+  
+  
+</h3>
+    
+<ul>
+  <li>all architecture on the same machine</li>
+  <li>few exist outside of embedded systems and constrained environments</li>
+</ul>
+<h3 id="clientserver">
+  
+  
+    <a href="#clientserver" class="anchor-heading" aria-labelledby="clientserver"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Client/Server
+  
+  
+</h3>
+    
+<ul>
+  <li>separates technical functionality between front-end and backend</li>
+  <li>also known as two-tier</li>
+  <li>database server + desktop</li>
+  <li>browser + web server</li>
+  <li>also three-tier architecture, which separates back-end database from an application tier and a front-end tier for presentation (typically in HTML or JS</li>
+</ul>
+<h2 id="distributed-computing">
+  
+  
+    <a href="#distributed-computing" class="anchor-heading" aria-labelledby="distributed-computing"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Distributed Computing
+  
+  
+</h2>
+    
+<h3 class="no_toc" id="fallacies-of-distributed-computing">
+  
+  
+    <a href="#fallacies-of-distributed-computing" class="anchor-heading" aria-labelledby="fallacies-of-distributed-computing"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Fallacies of Distributed Computing
+  
+  
+</h3>
+    
+
+<ul>
+  <li>set of <a href="https://en.wikipedia.org/wiki/Fallacies_of_distributed_computing">assertions</a> by Peter Deutsch at Sun Microsystems in the 90s</li>
+</ul>
+
+<ol>
+  <li>the network is reliable</li>
+  <li>latency is zero</li>
+  <li>bandwith is infinite</li>
+  <li>the network is secure</li>
+  <li>the topology never changes</li>
+  <li>there is only one administrator</li>
+  <li>transport cost is zero</li>
+  <li>the network is homogenous</li>
+</ol>
+<h3 class="no_toc" id="other-distributed-computing-concerns">
+  
+  
+    <a href="#other-distributed-computing-concerns" class="anchor-heading" aria-labelledby="other-distributed-computing-concerns"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Other Distributed Computing Concerns
+  
+  
+</h3>
+    
+<ol>
+  <li>
+<strong>distributed logging</strong> - consolidating logs is important and difficult; many off-the-shelf solutions exist</li>
+  <li>
+<strong>distributed transactions</strong> - single-node solutions can rely on transactions and ACID properties, but distributed systems need other ways to propagate data and fail gracefully; things like transactional sagas, BASE considerations, compensating transactions, etc., are made to help this</li>
+  <li>
+<strong>contract maintenance and versioning</strong> - a contract is behavior and data that is agreed upon by both the client and service</li>
+</ol>
+<h2 id="layered-architecture-style">
+  
+  
+    <a href="#layered-architecture-style" class="anchor-heading" aria-labelledby="layered-architecture-style"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Layered Architecture Style
+  
+  
+</h2>
+    
+<ul>
+  <li>most common architecture styles, technically partitioned</li>
+  <li>can build effective roles and responsibility models within architecture because concerns are separated</li>
+  <li>aka <em>n-tiered</em>
+</li>
+  <li>components are organized into logical horizontal layers, each layer performing a specific role within the application</li>
+</ul>
+
+<div style="text-align:center">
+  <a href="/assets/img/fundamentals-of-software-architecture/layered-topology.jpg">
+    <img src="/assets/img/fundamentals-of-software-architecture/layered-topology.jpg" alt="">
+  </a>
+</div>
+
+<ul>
+  <li>each layer can either be <em>closed</em> or <em>open</em>
+    <ul>
+      <li>
+<em>closed</em> means that as request moves top-down through layers, it can’t skip any layer</li>
+      <li>
+<em>open</em> means it can</li>
+      <li>
+<strong>fast lane reader pattern</strong> - request might go directly to database to serve simple requests</li>
+    </ul>
+  </li>
+  <li>open or closed is important for <em>isolation of concerns</em>
+    <ul>
+      <li>change in one layer shouldn’t affect others if contracts between remain the same</li>
+      <li>also allows layers to be replaced (e.g., replacing presentation running angular with react)</li>
+    </ul>
+  </li>
+  <li>
+<strong>architecture sinkhole anti-pattern</strong> - requests move from layer to layer as simple pass-through processing with no business logic, meaning layered might not be correct architecture style</li>
+</ul>
+<h3 class="no_toc" id="pros-and-cons">
+  
+  
+    <a href="#pros-and-cons" class="anchor-heading" aria-labelledby="pros-and-cons"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Pros and Cons
+  
+  
+</h3>
+    
+<ul>
+  <li>good for small, simple applications or web-sites</li>
+  <li>good as a starting point, for situations with tight budget and time constraints</li>
+  <li>very low cost because of simplicity and familiarity</li>
+  <li>as system grows, maintainability, agility, testability, and deployability suffer</li>
+</ul>
+
+<div style="text-align:center">
+  <a href="/assets/img/fundamentals-of-software-architecture/layered-ratings.jpg">
+    <img src="/assets/img/fundamentals-of-software-architecture/layered-ratings.jpg" alt="">
+  </a>
+</div>
+
+<ul>
+  <li>Overall cost and simplicity are the primary strengths of the layered architecture style</li>
+  <li>Deployability rates low due to the ceremony of deployment (effort to deploy), high risk, and lack of frequent deployments</li>
+  <li>Elasticity and scalability rate very low primarily due to monolithic deployments and the lack of architectural modularity.</li>
+  <li>does not lend itself to high-performance systems due to the lack of parallel processing, closed layering, and the sinkhole architecture anti-pattern.</li>
+  <li>doesn’t support fault tolerance due to monolithic deployments and lack of architectural modularity</li>
+</ul>
+<h2 id="pipeline-architecture-style">
+  
+  
+    <a href="#pipeline-architecture-style" class="anchor-heading" aria-labelledby="pipeline-architecture-style"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Pipeline Architecture Style
+  
+  
+</h2>
+    
+
+<div style="text-align:center">
+  <a href="/assets/img/fundamentals-of-software-architecture/pipeline-topology.jpg">
+    <img src="/assets/img/fundamentals-of-software-architecture/pipeline-topology.jpg" alt="">
+  </a>
+</div>
+
+<ul>
+  <li>technically partitioned, usually implemented as a monolith</li>
+  <li>
+<strong>pipes</strong> form the communication channel between filters; typically unidirectional and point-to-point (rather than broadcast)</li>
+  <li>
+<strong>filters</strong> are self-contained, independent from other filters, and generally stateless and perform one task only
+    <ul>
+      <li>
+<em>producer</em>: starting point in a process, outbound only, aka <em>source</em>
+</li>
+      <li>
+<em>transformer</em>: accepts input, potentially performs transformation, and forwards onward, aka <em>map</em>
+</li>
+      <li>
+<em>tester</em>: accepts input, tests one or more criteria, aka <em>reduce</em>
+</li>
+      <li>
+<em>consumer</em>: termination point for pipeline, and might persist final result</li>
+    </ul>
+  </li>
+</ul>
+<h3 class="no_toc" id="pros-and-cons-1">
+  
+  
+    <a href="#pros-and-cons-1" class="anchor-heading" aria-labelledby="pros-and-cons-1"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Pros and Cons
+  
+  
+</h3>
+    
+
+<div style="text-align:center">
+  <a href="/assets/img/fundamentals-of-software-architecture/pipeline-ratings.jpg">
+    <img src="/assets/img/fundamentals-of-software-architecture/pipeline-ratings.jpg" alt="">
+  </a>
+</div>
+
+<ul>
+  <li>Overall cost and simplicity combined with modularity are the primary strengths</li>
+  <li>Deployability and testability, while only around average, rate slightly higher than the layered architecture due to the level of modularity achieved through filters</li>
+  <li>reliability medium due to the lack of network traffic, bandwidth, and latency found in most distributed architectures</li>
+  <li>elasticity and scalability low due to monolith</li>
+  <li>doesn’t support fault tolerance</li>
+</ul>
+<h2 id="microkernel-architecture-style">
+  
+  
+    <a href="#microkernel-architecture-style" class="anchor-heading" aria-labelledby="microkernel-architecture-style"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Microkernel Architecture Style
+  
+  
+</h2>
+    
+<ul>
+  <li>aka the plug-in architecture</li>
+  <li>consists of a <em>core system</em> and <em>plug-in components</em>
+</li>
+  <li>app logic divided between the two</li>
+  <li>can be technically partitioned or domain partitioned within core system</li>
+</ul>
+
+<div style="text-align:center">
+  <a href="/assets/img/fundamentals-of-software-architecture/microkernel-topology.jpg">
+    <img src="/assets/img/fundamentals-of-software-architecture/microkernel-topology.jpg" alt="">
+  </a>
+</div>
+
+<p><strong>core system</strong></p>
+<ul>
+  <li>minimum functionality to run the system, or happy path (general processing flow) through the application</li>
+  <li>might have a monolithic presentation layer, either embedded within the core system or as a layer on top</li>
+</ul>
+
+<p><strong>plug-in component</strong></p>
+<ul>
+  <li>standalone, independent components that contain specialized processing, additional features, and custom code meant to extend or enhance the core system</li>
+  <li>can also be used to isolate highly volatile code</li>
+  <li>components should have no dependencies between them (other than core system)</li>
+  <li>runtime plug-ins can be managed through frameworks without needing to redeploy system (Open Service Gateway Initiative, Penrose, Jigsaw (Java) or Prism (.NET))</li>
+  <li>don’t always need to use point-to-point communication – can use REST or messaging to provide more decoupling
+    <ul>
+      <li>this creates better scalability and throughput and allows more runtime changes</li>
+      <li>makes it a distributed architecture</li>
+    </ul>
+  </li>
+  <li>not common for plug-in components to connect to centrally shared database (for decoupling purposes), each component has its own data store</li>
+</ul>
+
+<p><strong>registry</strong></p>
+<ul>
+  <li>contains information about each plug-in module, including things like name, data contract, and remote access protocol details</li>
+  <li>can be internal, or external such as ZooKeeper or Consul</li>
+</ul>
+
+<p><strong>contracts</strong></p>
+<ul>
+  <li>contracts between plug-in components and core system are usually standard across domain</li>
+  <li>
+    <p>include behavior, input data, and output data returned from plug-in</p>
+  </li>
+  <li>IDEs, Jenkins, Jira, Confluence are a good example of this architecture</li>
+</ul>
+
+<p><strong>domain/architecture isomorphism</strong> - architecture tends to follow domain and team makeup (Conway’s law)</p>
+<h3 class="no_toc" id="pros-and-cons-2">
+  
+  
+    <a href="#pros-and-cons-2" class="anchor-heading" aria-labelledby="pros-and-cons-2"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Pros and Cons
+  
+  
+</h3>
+    
+
+<div style="text-align:center">
+  <a href="/assets/img/fundamentals-of-software-architecture/microkernel-ratings.jpg">
+    <img src="/assets/img/fundamentals-of-software-architecture/microkernel-ratings.jpg" alt="">
+  </a>
+</div>
+
+<ul>
+  <li>simplicity and overall cost are main strength</li>
+  <li>testability, deployability, and reliability rate average because functionality can be isolated to independent plug-ins</li>
+  <li>modularity and extensibility mean additional functionality can be added or removed</li>
+  <li>performance rates decent because these apps tend to be small and don’t grow as large as layered architecture</li>
+</ul>
+<h2 id="service-based-architecture-style">
+  
+  
+    <a href="#service-based-architecture-style" class="anchor-heading" aria-labelledby="service-based-architecture-style"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Service-Based Architecture Style
+  
+  
+</h2>
+    
+<ul>
+  <li>hybrid of microservices, typically 4-12 services</li>
+  <li>domain-partitioned architecture</li>
+  <li>distributed macro layered structure, separately deployed user interface, separately deployed remote coarse-grained services, and a monolithic database</li>
+  <li>REST typically used to access services, but messaging, remote procedure calls, or even SOAP can be used</li>
+  <li>use <a href="https://en.wikipedia.org/wiki/Service_locator_pattern">service locator pattern</a> with registry in UI to discover services</li>
+  <li>can have single UI, multiple domain based UIs, or service-based UIs</li>
+  <li>can have monolithic database, or domain-scoped databases, or service-based databases</li>
+  <li>good practice to also have API layer (as reverse proxy or gateway) when there are cross-cutting concerns, such as metrics, security, etc.</li>
+</ul>
+
+<div style="text-align:center">
+  <a href="/assets/img/fundamentals-of-software-architecture/service-based-topology.jpg">
+    <img src="/assets/img/fundamentals-of-software-architecture/service-based-topology.jpg" alt="">
+  </a>
+</div>
+<h3 class="no_toc" id="database-partitioning">
+  
+  
+    <a href="#database-partitioning" class="anchor-heading" aria-labelledby="database-partitioning"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Database Partitioning
+  
+  
+</h3>
+    
+<ul>
+  <li>single monolithic database might present issues when schema needs to change, as all services need to be updated then</li>
+  <li>can create a shared library of entity objects, but isn’t typically effective although shared library versioning helps – still need to pull in new shared libraries on change</li>
+  <li>better to logically partition database and manifest logical partitioning through federated shared libraries</li>
+</ul>
+<h3 class="no_toc" id="pros-and-cons-3">
+  
+  
+    <a href="#pros-and-cons-3" class="anchor-heading" aria-labelledby="pros-and-cons-3"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Pros and Cons
+  
+  
+</h3>
+    
+
+<div style="text-align:center">
+  <a href="/assets/img/fundamentals-of-software-architecture/service-based-ratings.jpg">
+    <img src="/assets/img/fundamentals-of-software-architecture/service-based-ratings.jpg" alt="">
+  </a>
+</div>
+
+<ul>
+  <li>faster change (agility)</li>
+  <li>better test coverage</li>
+  <li>more frequent deployments and less risk</li>
+  <li>high fault tolerance and availability</li>
+  <li>tends to be simpler and cheaper than microservices, as well as more reliable than other distributed services</li>
+  <li>a natural fit when doing domain-driven design – very pragmatic architecture</li>
+  <li>as services become more fine-grained, require orchestration/choreography</li>
+  <li>
+<strong>orchestration</strong>: the coordination of multiple services through the use of a separate mediator service that controls and manages the workflow of the transaction (like a conductor in an orchestra)</li>
+  <li>
+<strong>choreography</strong>: the coordination of multiple services by which each service talks to one another without the use of a central mediator</li>
+</ul>
+<h2 id="event-driven-architecture-style">
+  
+  
+    <a href="#event-driven-architecture-style" class="anchor-heading" aria-labelledby="event-driven-architecture-style"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Event-Driven Architecture Style
+  
+  
+</h2>
+    
+<ul>
+  <li>distributed, async architecture</li>
+  <li>domain partitioned</li>
+  <li>most apps follow <em>request-based</em> model, where requests made to system are sent to a <em>request orchestrator</em>, who directs to <em>request processors</em>
+</li>
+  <li>contrast <em>request-based</em> with <em>event-based</em>, where a particular situation occurs and action is taken based on that event</li>
+  <li>
+<strong>async communication</strong> - relies on it for both fire-and-forget and request/reply processing</li>
+  <li>
+<strong>error handling</strong> - can use the workflow event pattern of reactive architecture, where if an error occurs, it is immediately sent to a workflow processor that tries to fix the error and resend the message, or logs it to a centralized location where an operator can view it</li>
+  <li>
+<strong>broadcast</strong> - can send message out without knowledge of who is receiving and what they do with it</li>
+  <li>
+<strong>request/reply</strong> - a way of achieving synchronous communication – typically achieved via a <em>correlation id</em> so event producers can communicate backwards</li>
+</ul>
+
+<div style="text-align:center">
+  <a href="/assets/img/fundamentals-of-software-architecture/event-topology.png">
+    <img src="/assets/img/fundamentals-of-software-architecture/event-topology.png" alt="">
+  </a>
+</div>
+<h3 class="no_toc" id="broker-topology">
+  
+  
+    <a href="#broker-topology" class="anchor-heading" aria-labelledby="broker-topology"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Broker Topology
+  
+  
+</h3>
+    
+<ul>
+  <li>useful when you need a degree of responsiveness and dynamic control over processing event</li>
+  <li>since events are broadcast without a central mediator, you can add additional event processors easily, leading to extensibility</li>
+</ul>
+
+<ol>
+  <li>
+<strong>initiating event</strong> - initial event that starts the flow</li>
+  <li>
+<strong>event broker</strong> - channel where events are sent and <strong>event processors</strong> pick up processing</li>
+  <li>
+<strong>event processor</strong> - accepts events from <strong>event broker</strong> and performs specific task with event</li>
+  <li>
+<strong>processing event</strong> - after event is processed, the processor async advertises its actions</li>
+</ol>
+
+<div style="text-align:center">
+  <a href="/assets/img/fundamentals-of-software-architecture/broker-topology.jpg">
+    <img src="/assets/img/fundamentals-of-software-architecture/broker-topology.jpg" alt="">
+  </a>
+</div>
+
+<ul>
+  <li>performance, responsiveness, and scalability are strengths</li>
+  <li>with no control over overall workflow, things like error handling are more difficult, and recoverability to restart a business transaction is difficult</li>
+</ul>
+
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th>pros</th>
+      <th>cons</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Highly decoupled event processors</td>
+      <td>Workflow control</td>
+    </tr>
+    <tr>
+      <td>High scalability</td>
+      <td>Error handling</td>
+    </tr>
+    <tr>
+      <td>High responsiveness</td>
+      <td>Recoverability</td>
+    </tr>
+    <tr>
+      <td>High performance</td>
+      <td>Restart capabilities</td>
+    </tr>
+    <tr>
+      <td>High fault tolerance</td>
+      <td>Data inconsistency</td>
+    </tr>
+  </tbody>
+</table></div>
+<h3 class="no_toc" id="mediator-topology">
+  
+  
+    <a href="#mediator-topology" class="anchor-heading" aria-labelledby="mediator-topology"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Mediator Topology
+  
+  
+</h3>
+    
+<ul>
+  <li>tries to address problems of broker topology</li>
+  <li>important to know types of events that will be processed through mediator so you can use different mediators for different types of events</li>
+</ul>
+
+<ol>
+  <li><strong>initiating event</strong></li>
+  <li><strong>event queue</strong></li>
+  <li><strong>event mediator</strong></li>
+  <li><strong>event channels</strong></li>
+  <li><strong>event processors</strong></li>
+</ol>
+
+<div style="text-align:center">
+  <a href="/assets/img/fundamentals-of-software-architecture/mediator-topology.jpg">
+    <img src="/assets/img/fundamentals-of-software-architecture/mediator-topology.jpg" alt="">
+  </a>
+</div>
+
+<ul>
+  <li>very difficult to declaratively model dynamic processing in complex event flow</li>
+  <li>mediator must scale, potentially leading to bottleneck</li>
+  <li>event processors aren’t as highly decoupled</li>
+</ul>
+
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th>pros</th>
+      <th>cons</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>workflow control</td>
+      <td>more coupling of event processors</td>
+    </tr>
+    <tr>
+      <td>error handling</td>
+      <td>lower scalability</td>
+    </tr>
+    <tr>
+      <td>recoverability</td>
+      <td>lower performance</td>
+    </tr>
+    <tr>
+      <td>restart capabilities</td>
+      <td>lower fault tolerance</td>
+    </tr>
+    <tr>
+      <td>better data consistency</td>
+      <td>modeling complex workflows</td>
+    </tr>
+  </tbody>
+</table></div>
+<h3 class="no_toc" id="preventing-data-loss">
+  
+  
+    <a href="#preventing-data-loss" class="anchor-heading" aria-labelledby="preventing-data-loss"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Preventing Data Loss
+  
+  
+</h3>
+    
+<ul>
+  <li>message getting dropped or never making it to final destination</li>
+  <li>
+<strong>synchronous send</strong> - does a blocking wait on message producer until broker acknowledges message has been persisted</li>
+  <li>
+<strong>guaranteed delivery</strong> - message broker stores message in memory and in physical data store in case of server going down</li>
+  <li>
+<strong>client acknowledge mode</strong> - keeps message in queue and attaches client ID so no other consumer can read the message</li>
+  <li>
+<strong>last participant support</strong> - removes message from persisted queue by acknowledging processing has been completed and message has been persisted</li>
+</ul>
+<h3 class="no_toc" id="pros-and-cons-4">
+  
+  
+    <a href="#pros-and-cons-4" class="anchor-heading" aria-labelledby="pros-and-cons-4"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Pros and Cons
+  
+  
+</h3>
+    
+<div style="text-align:center">
+  <a href="/assets/img/fundamentals-of-software-architecture/event-ratings.jpg">
+    <img src="/assets/img/fundamentals-of-software-architecture/event-ratings.jpg" alt="">
+  </a>
+</div>
+
+<ul>
+  <li>great for performance, scalability, and fault tolerance, and highly evolutionary</li>
+  <li>simplicity and testability are more difficult</li>
+</ul>
+<h2 id="space-based-architecture">
+  
+  
+    <a href="#space-based-architecture" class="anchor-heading" aria-labelledby="space-based-architecture"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Space-Based Architecture
+  
+  
+</h2>
+    
+<ul>
+  <li>specifically designed to address high scalability, elasticity, and concurrency</li>
+  <li>gets its name from concept of tuple space, the technique of using multiple parallel processors communicating through shared memory</li>
+  <li>remove database and replace with replicated in-memory grids</li>
+  <li>data is async’d to database, usually via messaging with persistent queues</li>
+</ul>
+
+<div style="text-align:center">
+  <a href="/assets/img/fundamentals-of-software-architecture/space-based-topology.jpg">
+    <img src="/assets/img/fundamentals-of-software-architecture/space-based-topology.jpg" alt="">
+  </a>
+</div>
+
+<p><strong>processing unit</strong></p>
+<ul>
+  <li>contains application code</li>
+  <li>contains in-memory data grid and replication engine (implemented through things like Hazelcast, Apache Ignite, and Oracle Coherence)</li>
+</ul>
+
+<p><strong>virtualized middleware</strong></p>
+<ul>
+  <li>used to manage and coordinate the processing units</li>
+  <li>made up of
+    <ul>
+      <li>
+<strong>messaging grid</strong> - handles input request and session state</li>
+      <li>
+<strong>data grid</strong> - most often implemented as a replicated cache</li>
+      <li>
+<strong>processing grid</strong> - optional component that handles orchestrated request processing when there are multiple processing units involved in single business request</li>
+      <li>
+<strong>deployment manager</strong> - manages dynamic startup and shutdown of processing units based on load</li>
+    </ul>
+  </li>
+</ul>
+
+<p><strong>data pumps</strong></p>
+<ul>
+  <li>async send updated data to another processor and to the database</li>
+  <li>usually implemented via messaging</li>
+</ul>
+
+<p><strong>data writers</strong></p>
+<ul>
+  <li>perform updates from the data pumps</li>
+</ul>
+
+<p><strong>data readers</strong></p>
+<ul>
+  <li>read database data and deliver it to processing units upon startup</li>
+  <li>only invoked when
+    <ol>
+      <li>crash of all processing units of the same named cache</li>
+      <li>redeployment of all processing units with same named cache</li>
+      <li>retrieving archive data not contained in the replicated cache</li>
+    </ol>
+  </li>
+</ul>
+<h3 class="no_toc" id="data-collisions">
+  
+  
+    <a href="#data-collisions" class="anchor-heading" aria-labelledby="data-collisions"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Data Collisions
+  
+  
+</h3>
+    
+<ul>
+  <li>in a replicated cache in active/active state where updates can occur to any cache, data collisions are possible</li>
+  <li>
+<strong>data collision</strong> - when data is updated in once cache instance (cache A) and during replication to another cache (cache B), the same data is updated by that cache (cache B)</li>
+  <li>equation for collision rate:</li>
+</ul>
+
+<div style="text-align:center">
+  <a href="/assets/img/fundamentals-of-software-architecture/collision-rate.png">
+    <img src="/assets/img/fundamentals-of-software-architecture/collision-rate.png" alt="">
+  </a>
+</div>
+
+<p>Update rate (UR): 20 updates/second
+Number of instances (N): 5
+Cache size (S): 50,000 rows
+Replication latency (RL): 100 milliseconds
+Updates: 72,000 per hour
+Collision rate: 14.4 per hour
+Percentage: 0.02%</p>
+
+<ul>
+  <li>
+<strong>near cache</strong> - caching hybrid that bridges in-memory data grids with a distributed cache</li>
+  <li>distributed cache called the <strong>full backing cache</strong> carries all the data</li>
+  <li>each processing unit has a most frequently used (mfu) or most recently used (mru) <strong>front cache</strong>
+</li>
+  <li>performance is highly variable because front caches hold different data</li>
+</ul>
+
+<div style="text-align:center">
+  <a href="/assets/img/fundamentals-of-software-architecture/space-based-ratings.jpg">
+    <img src="/assets/img/fundamentals-of-software-architecture/space-based-ratings.jpg" alt="">
+  </a>
+</div>
+
+<ul>
+  <li>maximizes elasticity, scalability, and performance</li>
+  <li>testing, however, is extremely difficult – performance testing at scale isn’t realistic</li>
+  <li>also can be costly</li>
+</ul>
+<h2 id="orchestration-driven-service-oriented-architecture">
+  
+  
+    <a href="#orchestration-driven-service-oriented-architecture" class="anchor-heading" aria-labelledby="orchestration-driven-service-oriented-architecture"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Orchestration-Driven Service-Oriented Architecture
+  
+  
+</h2>
+    
+<ul>
+  <li>this is sort of an historical relic</li>
+  <li>driving philosophy is centered around enterprise-level reuse</li>
+</ul>
+
+<div style="text-align:center">
+  <a href="/assets/img/fundamentals-of-software-architecture/service-oriented-orchestration-topology.jpg">
+    <img src="/assets/img/fundamentals-of-software-architecture/service-oriented-orchestration-topology.jpg" alt="">
+  </a>
+</div>
+
+<p><strong>business services</strong> - sit at top and provide entry point
+<strong>enterprise services</strong> - contain fine-grained, shared implementations; building blocks that make up coarse-grained business services
+<strong>application services</strong> - one-off, single-implementation services
+<strong>infrastructure services</strong> - supply operational concerns, such as monitoring, logging, authentication
+<strong>orchestration engine</strong> - forms the heart of this distributed architecture, stitching together the business service implementations</p>
+
+<ul>
+  <li>all requests go through orchestration engine</li>
+  <li>ultimate danger was the extreme technical partitioning – domain concepts end up spread exceptionally thin</li>
+</ul>
+
+<div style="text-align:center">
+  <a href="/assets/img/fundamentals-of-software-architecture/service-oriented-orchestration-ratings.jpg">
+    <img src="/assets/img/fundamentals-of-software-architecture/service-oriented-orchestration-ratings.jpg" alt="">
+  </a>
+</div>
+
+<ul>
+  <li>doesn’t really do anything well</li>
+</ul>
+<h2 id="microservices-architecture">
+  
+  
+    <a href="#microservices-architecture" class="anchor-heading" aria-labelledby="microservices-architecture"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Microservices Architecture
+  
+  
+</h2>
+    
+<ul>
+  <li>built out of domain-driven design</li>
+  <li>primary goal is high decoupling, physically modeling the logical notion of bounded context</li>
+  <li>distributed architecture – each service runs its own process either on a physical computer or virtual machine or container</li>
+  <li>performance is a negative side effect, as network calls take longer than method calls, security verification at endpoints adds processing time</li>
+  <li>determining granularity key to success</li>
+</ul>
+
+<div style="text-align:center">
+  <a href="/assets/img/fundamentals-of-software-architecture/microservice-topology.jpg">
+    <img src="/assets/img/fundamentals-of-software-architecture/microservice-topology.jpg" alt="">
+  </a>
+</div>
+
+<p><strong>bounded context</strong></p>
+<ul>
+  <li>driving philosophy</li>
+  <li>each service models a domain or workflow, and each service includes everything necessary to operate within the application</li>
+  <li>granularity can be determined by
+    <ul>
+      <li>purpose - functional cohesion</li>
+      <li>transactions - what needs to cooperate in a transaction</li>
+      <li>choreography - if services require extensive communication to function, you can bundle to limit communication overhead</li>
+    </ul>
+  </li>
+</ul>
+
+<p><strong>data isolation</strong></p>
+<ul>
+  <li>avoid coupling of schemas and databases as integration points</li>
+  <li>need to abandon the idea of a single source of truth</li>
+</ul>
+
+<p><strong>API layer</strong></p>
+<ul>
+  <li>should not be used as a mediator or orchestration tool</li>
+</ul>
+
+<p><strong>operational reuse</strong></p>
+<ul>
+  <li>can use the sidecar pattern to handle all operational concerns that teams benefit from coupling together</li>
+  <li>if you need to update all monitoring, for example, you can upgrade sidecar and then anyone using it can benefit from upgrade</li>
+  <li>if each service requires a common sidecar, can build a <strong>service mesh</strong> to allow unified control across arch for things like logging and monitoring</li>
+</ul>
+
+<p><strong>frontends</strong></p>
+<ul>
+  <li>original idea had user interfaces as part of microservice, but this isn’t practical (there might be concerns like common styling, deployment patterns, extra complexity)</li>
+  <li>
+<strong>monolithic user interface</strong> - single user interface that calls through the API layer to satisfy requests</li>
+  <li>
+<strong>microfrontends</strong> - components at the user interface level to create a synchronous level of granularity and isolation (frameworks like React)</li>
+</ul>
+
+<p><strong>communication</strong></p>
+<ul>
+  <li>must decide on sync or async communication</li>
+  <li>typically use protocol-aware heterogenous interoperability
+    <ul>
+      <li>
+<em>protocol-aware</em> - need to know which protocol to use (REST, SOAP, message queues, etc)</li>
+      <li>
+<em>heterogenous</em> - fully supports polyglot environments</li>
+      <li>
+<em>interoperability</em> - services can call each other to send and receive data</li>
+    </ul>
+  </li>
+  <li>for async communication, need events and messages</li>
+</ul>
+
+<p><strong>choreography and orchestration</strong></p>
+<ul>
+  <li>should look at <em>Domain/architecture isomorphism</em> (how well the architecture fits the domain) when assessing how appropriate an architecture style is for a particular problem</li>
+  <li>can use the <em>front controller</em> pattern, where a nominally choreographed service becomes a more complex mediator</li>
+</ul>
+
+<p><strong>transactions and sagas</strong></p>
+<ul>
+  <li>building transactions across service boundaries violates the core decoupling principle</li>
+  <li>
+<strong>compensating transaction framework</strong> - if a transaction across multiple services fails, some mediator needs to reverse the transaction on other services
+    <ul>
+      <li>requires significant complexity, creates lots of coordination traffic</li>
+    </ul>
+  </li>
+</ul>
+
+<div style="text-align:center">
+  <a href="/assets/img/fundamentals-of-software-architecture/microservice-ratings.jpg">
+    <img src="/assets/img/fundamentals-of-software-architecture/microservice-ratings.jpg" alt="">
+  </a>
+</div>
+<h1 id="architecture-decisions">
+  
+  
+    <a href="#architecture-decisions" class="anchor-heading" aria-labelledby="architecture-decisions"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Architecture Decisions
+  
+  
+</h1>
+    
+<ul>
+  <li>
+<strong>the domain</strong> - need to have a good understanding of domain</li>
+  <li><strong>architecture characteristics that impact structure</strong></li>
+  <li>
+<strong>data architecture</strong> - architects and DBAs must collaborate on database, schema, and other data concerns</li>
+  <li>
+<strong>organizational factors</strong> - external factors such as cloud vendor cost</li>
+  <li>
+<strong>domain/architecture isomorphism</strong> - does the problem domain match the topology of the architecture</li>
+  <li><strong>monolith vs. distributed</strong></li>
+  <li><strong>where does the data live</strong></li>
+  <li>
+    <p><strong>async or synchronous</strong></p>
+  </li>
+  <li>
+<strong>backends for frontends pattern</strong> - make the API layer a thin microkernel adaptor, supplying general info from backend, and translates to suitable format for frontend</li>
+</ul>
+
+<p><strong>architecturally significant</strong>: those decisions that affect</p>
+<ul>
+  <li>structure: decisions that impact patterns or styles</li>
+  <li>nonfunctional characteristics: architecture characteristics (-ilities)</li>
+  <li>dependencies: coupling points between components and/or services</li>
+  <li>interfaces: how services are accessed or orchestrated</li>
+  <li>construction techniques: platforms, frameworks, tools, or processes</li>
+</ul>
+<h2 id="decision-anti-patterns">
+  
+  
+    <a href="#decision-anti-patterns" class="anchor-heading" aria-labelledby="decision-anti-patterns"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Decision Anti-Patterns
+  
+  
+</h2>
+    
+<p><strong>covering your assets</strong></p>
+<ul>
+  <li>architect avoids making an architecture decision out of fear of making the wrong choice</li>
+  <li>two ways to overcome:
+    <ol>
+      <li>wait until the last responsible moment to make a decision</li>
+      <li>collaborate with dev team to ensure that the decision you make can be implemented as expected</li>
+    </ol>
+  </li>
+</ul>
+
+<p><strong>groundhog day</strong></p>
+<ul>
+  <li>people don’t know what decision is made, so it keeps getting discussed over and over again</li>
+  <li>when justifying architecture decisions, need to provide technical and business justifications</li>
+  <li>most basic business justifications: cost, time to market, user satisfaction, and strategic positioning</li>
+</ul>
+
+<p><strong>email-driven architecture</strong></p>
+<ul>
+  <li>when people lose, forget, or don’t even know an architecture decision has been made and can’t implement</li>
+  <li>first rule of communicating architecture decisions: don’t include in the body of an email</li>
+  <li>second rule: only notify those who care about the decision</li>
+</ul>
+<h2 id="architecture-decision-records">
+  
+  
+    <a href="#architecture-decision-records" class="anchor-heading" aria-labelledby="architecture-decision-records"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Architecture Decision Records
+  
+  
+</h2>
+    
+<p><strong>Title</strong>: Name
+<strong>Status</strong>: Proposed, Accepted, Superseded
+<strong>Context</strong>: what situation is forcing me to make this decision?
+<strong>Decision</strong>: using affirmative language like “we will”, what has been decided; more emphasis on the why than the how
+<strong>Consequences</strong>: very important, details tradeoffs
+<strong>Compliance</strong>: how the decision will be measured and governed
+<strong>Notes</strong>: includes various metadata about ADR</p>
+<h2 id="assessing-risk">
+  
+  
+    <a href="#assessing-risk" class="anchor-heading" aria-labelledby="assessing-risk"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Assessing Risk
+  
+  
+</h2>
+    
+<ul>
+  <li>risk matrix: classify risk as high, medium, or low</li>
+</ul>
+
+<div style="text-align:center">
+  <a href="/assets/img/fundamentals-of-software-architecture/risk-matrix.jpg">
+    <img src="/assets/img/fundamentals-of-software-architecture/risk-matrix.jpg" alt="">
+  </a>
+</div>
+
+<p><strong>Risk Storming</strong></p>
+<ul>
+  <li>collaborative exercise used to determine architectural risk within a specific dimension</li>
+  <li>Identification: each particpant individually identifying areas of risk within arch</li>
+  <li>Consensus: highly collaborative with the goal of gaining consensus among all participants</li>
+  <li>Mitigation: identifying changes or enhancements to certain areas</li>
+</ul>
+<h2 id="presenting-architecture">
+  
+  
+    <a href="#presenting-architecture" class="anchor-heading" aria-labelledby="presenting-architecture"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Presenting Architecture
+  
+  
+</h2>
+    
+<p><strong>Representational consistency</strong> is the practice of always showing the relationship between parts of an architecture, either in diagrams or presentations, before changing views
+<strong>irrational artifact attachment</strong> - relationship between a person’s irrational attachment to some artifact and how long it took to produce</p>
+
+<p>any diagramming tool needs:</p>
+<ul>
+  <li>layers</li>
+  <li>stencils/templates</li>
+  <li>magnets</li>
+</ul>
+
+<p>diagramming standards</p>
+<ul>
+  <li>
+<strong>UML</strong> - unified model language – mostly used for class and sequence diagrams to show structure and workflow</li>
+  <li>
+<strong>C4</strong>
+    <ul>
+      <li>Context: entire context of system, include roles of users and external dependencies</li>
+      <li>Container: the physical (and logical) deployment boundaries and containers</li>
+      <li>Component: component view, mostly neatly aligns with architect’s view</li>
+      <li>Class: UML class diagrams</li>
+    </ul>
+  </li>
+  <li>
+<strong>Archimate</strong>
+    <ul>
+      <li>Arch(itecture)(ani)mate</li>
+      <li>lightweight technical standard from the Open Group</li>
+    </ul>
+  </li>
+</ul>
+
+<p>presentations</p>
+<ul>
+  <li>important to be able to use powerpoint and keynote as presentation tools</li>
+  <li>key power of a presentation is ability to manipulate time, to allow ideas to play out over several slides</li>
+  <li>avoid <strong>bullet-riddled corpse</strong> anti-pattern, where a slide is just the speaker’s notes</li>
+  <li>while speaking, presenter has two info channels: visual and verbal – overwhelming one stops all fixation on the other</li>
+  <li>
+<strong>infodecks</strong> - slide decks not meant to be projected but to summarize info graphically</li>
+</ul>
+<h1 id="assessment-questions">
+  
+  
+    <a href="#assessment-questions" class="anchor-heading" aria-labelledby="assessment-questions"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Assessment Questions
+  
+  
+</h1>
+    
+<h2 class="no_toc" id="chapter-1-introduction">
+  
+  
+    <a href="#chapter-1-introduction" class="anchor-heading" aria-labelledby="chapter-1-introduction"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Chapter 1: Introduction
+  
+  
+</h2>
+    
+<ol>
+  <li>What are the four dimensions that define software architecture?</li>
+  <li>What is the difference between an architecture decision and a design principle?</li>
+  <li>List the eight core expectations of a software architect.</li>
+  <li>What is the First Law of Software Architecture?</li>
+</ol>
+<h2 class="no_toc" id="chapter-2-architectural-thinking">
+  
+  
+    <a href="#chapter-2-architectural-thinking" class="anchor-heading" aria-labelledby="chapter-2-architectural-thinking"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Chapter 2: Architectural Thinking
+  
+  
+</h2>
+    
+<ol>
+  <li>Describe the traditional approach of architecture versus development and explain why that approach no longer works.</li>
+  <li>List the three levels of knowledge in the knowledge triangle and provide an example of each.</li>
+  <li>Why is it more important for an architect to focus on technical breadth rather than technical depth?</li>
+  <li>What are some of the ways of maintaining your technical depth and remaining hands-on as an architect?</li>
+</ol>
+<h2 class="no_toc" id="chapter-3-modularity">
+  
+  
+    <a href="#chapter-3-modularity" class="anchor-heading" aria-labelledby="chapter-3-modularity"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Chapter 3: Modularity
+  
+  
+</h2>
+    
+<ol>
+  <li>What is meant by the term connascence?</li>
+  <li>What is the difference between static and dynamic connascence?</li>
+  <li>What does connascence of type mean? Is it static or dynamic connascence?</li>
+  <li>What is the strongest form of connascence?</li>
+  <li>What is the weakest form of connascence?</li>
+  <li>Which is preferred within a code base—static or dynamic connascence?</li>
+</ol>
+<h2 class="no_toc" id="chapter-4-architecture-characteristics-defined">
+  
+  
+    <a href="#chapter-4-architecture-characteristics-defined" class="anchor-heading" aria-labelledby="chapter-4-architecture-characteristics-defined"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Chapter 4: Architecture Characteristics Defined
+  
+  
+</h2>
+    
+<ol>
+  <li>What three criteria must an attribute meet to be considered an architecture characteristic?</li>
+  <li>What is the difference between an implicit characteristic and an explicit one? Provide an example of each.</li>
+  <li>Provide an example of an operational characteristic.</li>
+  <li>Provide an example of a structural characteristic.</li>
+  <li>Provide an example of a cross-cutting characteristic.</li>
+  <li>Which architecture characteristic is more important to strive for—availability or performance?</li>
+</ol>
+<h2 class="no_toc" id="chapter-5-identifying-architecture-characteristics">
+  
+  
+    <a href="#chapter-5-identifying-architecture-characteristics" class="anchor-heading" aria-labelledby="chapter-5-identifying-architecture-characteristics"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Chapter 5: Identifying Architecture Characteristics
+  
+  
+</h2>
+    
+<ol>
+  <li>Give a reason why it is a good practice to limit the number of characteristics (“-ilities”) an architecture should support.</li>
+  <li>True or false: most architecture characteristics come from business requirements and user stories.</li>
+  <li>If a business stakeholder states that time-to-market (i.e., getting new features and bug fixes pushed out to users as fast as possible) is the most important business concern, which architecture characteristics would the architecture need to support?</li>
+  <li>What is the difference between scalability and elasticity?</li>
+  <li>You find out that your company is about to undergo several major acquisitions to significantly increase its customer base. Which architectural characteristics should you be worried about?</li>
+</ol>
+<h2 class="no_toc" id="chapter-6-measuring-and-governing-architecture-characteristics">
+  
+  
+    <a href="#chapter-6-measuring-and-governing-architecture-characteristics" class="anchor-heading" aria-labelledby="chapter-6-measuring-and-governing-architecture-characteristics"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Chapter 6: Measuring and Governing Architecture Characteristics
+  
+  
+</h2>
+    
+<ol>
+  <li>Why is cyclomatic complexity such an important metric to analyze for architecture?</li>
+  <li>What is an architecture fitness function? How can they be used to analyze an architecture?</li>
+  <li>Provide an example of an architecture fitness function to measure the scalability of an architecture.</li>
+  <li>What is the most important criteria for an architecture characteristic to allow architects and developers to create fitness functions?</li>
+</ol>
+<h2 class="no_toc" id="chapter-7-scope-of-architecture-characteristics">
+  
+  
+    <a href="#chapter-7-scope-of-architecture-characteristics" class="anchor-heading" aria-labelledby="chapter-7-scope-of-architecture-characteristics"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Chapter 7: Scope of Architecture Characteristics
+  
+  
+</h2>
+    
+<ol>
+  <li>What is an architectural quantum, and why is it important to architecture?</li>
+  <li>Assume a system consisting of a single user interface with four independently deployed services, each containing its own separate database. Would this system have a single quantum or four quanta? Why?</li>
+  <li>Assume a system with an administration portion managing static reference data (such as the product catalog, and warehouse information) and a customer-facing portion managing the placement of orders. How many quanta should this system be and why? If you envision multiple quanta, could the admin quantum and customer-facing quantum share a database? If so, in which quantum would the database need to reside?</li>
+</ol>
+<h2 class="no_toc" id="chapter-8-component-based-thinking">
+  
+  
+    <a href="#chapter-8-component-based-thinking" class="anchor-heading" aria-labelledby="chapter-8-component-based-thinking"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Chapter 8: Component-Based Thinking
+  
+  
+</h2>
+    
+<ol>
+  <li>We define the term component as a building block of an application—something the application does. A component usually consist of a group of classes or source files. How are components typically manifested within an application or service?</li>
+  <li>What is the difference between technical partitioning and domain partitioning? Provide an example of each.</li>
+  <li>What is the advantage of domain partitioning?</li>
+  <li>Under what circumstances would technical partitioning be a better choice over domain partitioning?</li>
+  <li>What is the entity trap? Why is it not a good approach for component identification?</li>
+  <li>When might you choose the workflow approach over the Actor/Actions approach when identifying core components?</li>
+</ol>
+<h2 class="no_toc" id="chapter-9-architecture-styles">
+  
+  
+    <a href="#chapter-9-architecture-styles" class="anchor-heading" aria-labelledby="chapter-9-architecture-styles"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Chapter 9: Architecture Styles
+  
+  
+</h2>
+    
+<ol>
+  <li>List the eight fallacies of distributed computing.</li>
+  <li>Name three challenges that distributed architectures have that monolithic architectures don’t.</li>
+  <li>What is stamp coupling?</li>
+  <li>What are some ways of addressing stamp coupling?</li>
+</ol>
+<h2 class="no_toc" id="chapter-10-layered-architecture-style">
+  
+  
+    <a href="#chapter-10-layered-architecture-style" class="anchor-heading" aria-labelledby="chapter-10-layered-architecture-style"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Chapter 10: Layered Architecture Style
+  
+  
+</h2>
+    
+<ol>
+  <li>What is the difference between an open layer and a closed layer?</li>
+  <li>Describe the layers of isolation concept and what the benefits are of this concept.</li>
+  <li>What is the architecture sinkhole anti-pattern?</li>
+  <li>What are some of the main architecture characteristics that would drive you to use a layered architecture?</li>
+  <li>Why isn’t testability well supported in the layered architecture style?</li>
+  <li>Why isn’t agility well supported in the layered architecture style?</li>
+</ol>
+<h2 class="no_toc" id="chapter-11-pipeline-architecture">
+  
+  
+    <a href="#chapter-11-pipeline-architecture" class="anchor-heading" aria-labelledby="chapter-11-pipeline-architecture"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Chapter 11: Pipeline Architecture
+  
+  
+</h2>
+    
+<ol>
+  <li>Can pipes be bidirectional in a pipeline architecture?</li>
+  <li>Name the four types of filters and their purpose.</li>
+  <li>Can a filter send data out through multiple pipes?</li>
+  <li>Is the pipeline architecture style technically partitioned or domain partitioned?</li>
+  <li>In what way does the pipeline architecture support modularity?</li>
+  <li>Provide two examples of the pipeline architecture style.</li>
+</ol>
+<h2 class="no_toc" id="chapter-12-microkernel-architecture">
+  
+  
+    <a href="#chapter-12-microkernel-architecture" class="anchor-heading" aria-labelledby="chapter-12-microkernel-architecture"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Chapter 12: Microkernel Architecture
+  
+  
+</h2>
+    
+<ol>
+  <li>What is another name for the microkernel architecture style?</li>
+  <li>Under what situations is it OK for plug-in components to be dependent on other plug-in components?</li>
+  <li>What are some of the tools and frameworks that can be used to manage plug-ins?</li>
+  <li>What would you do if you had a third-party plug-in that didn’t conform to the standard plug-in contract in the core system?</li>
+  <li>Provide two examples of the microkernel architecture style.</li>
+  <li>Is the microkernel architecture style technically partitioned or domain partitioned?</li>
+  <li>Why is the microkernel architecture always a single architecture quantum?</li>
+  <li>What is domain/architecture isomorphism?</li>
+</ol>
+<h2 class="no_toc" id="chapter-13-service-based-architecture">
+  
+  
+    <a href="#chapter-13-service-based-architecture" class="anchor-heading" aria-labelledby="chapter-13-service-based-architecture"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Chapter 13: Service-Based Architecture
+  
+  
+</h2>
+    
+<ol>
+  <li>How many services are there in a typical service-based architecture?</li>
+  <li>Do you have to break apart a database in service-based architecture?</li>
+  <li>Under what circumstances might you want to break apart a database?</li>
+  <li>What technique can you use to manage database changes within a service-based architecture?</li>
+  <li>Do domain services require a container (such as Docker) to run?</li>
+  <li>Which architecture characteristics are well supported by the service-based architecture style?</li>
+  <li>Why isn’t elasticity well supported in a service-based architecture?</li>
+  <li>How can you increase the number of architecture quanta in a service-based architecture?</li>
+</ol>
+<h2 class="no_toc" id="chapter-14-event-driven-architecture-style">
+  
+  
+    <a href="#chapter-14-event-driven-architecture-style" class="anchor-heading" aria-labelledby="chapter-14-event-driven-architecture-style"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Chapter 14: Event-Driven Architecture Style
+  
+  
+</h2>
+    
+<ol>
+  <li>What are the primary differences between the broker and mediator topologies?</li>
+  <li>For better workflow control, would you use the mediator or broker topology?</li>
+  <li>Does the broker topology usually leverage a publish-and-subscribe model with topics or a point-to-point model with queues?</li>
+  <li>Name two primary advantage of asynchronous communications.</li>
+  <li>Give an example of a typical request within the request-based model.</li>
+  <li>Give an example of a typical request in an event-based model.</li>
+  <li>What is the difference between an initiating event and a processing event in event-driven architecture?</li>
+  <li>What are some of the techniques for preventing data loss when sending and receiving messages from a queue?</li>
+  <li>What are three main driving architecture characteristics for using event-driven architecture?</li>
+  <li>What are some of the architecture characteristics that are not well supported in event-driven architecture?</li>
+</ol>
+<h2 class="no_toc" id="chapter-15-space-based-architecture">
+  
+  
+    <a href="#chapter-15-space-based-architecture" class="anchor-heading" aria-labelledby="chapter-15-space-based-architecture"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Chapter 15: Space-Based Architecture
+  
+  
+</h2>
+    
+<ol>
+  <li>Where does space-based architecture get its name from?</li>
+  <li>What is a primary aspect of space-based architecture that differentiates it from other architecture styles?</li>
+  <li>Name the four components that make up the virtualized middleware within a space-based architecture.</li>
+  <li>What is the role of the messaging grid?</li>
+  <li>What is the role of a data writer in space-based architecture?</li>
+  <li>Under what conditions would a service need to access data through the data reader?</li>
+  <li>Does a small cache size increase or decrease the chances for a data collision?</li>
+  <li>What is the difference between a replicated cache and a distributed cache? Which one is typically used in space-based architecture?</li>
+  <li>List three of the most strongly supported architecture characteristics in space-based architecture.</li>
+  <li>Why does testability rate so low for space-based architecture?</li>
+</ol>
+<h2 class="no_toc" id="chapter-16-orchestration-driven-service-oriented-architecture">
+  
+  
+    <a href="#chapter-16-orchestration-driven-service-oriented-architecture" class="anchor-heading" aria-labelledby="chapter-16-orchestration-driven-service-oriented-architecture"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Chapter 16: Orchestration-Driven Service-Oriented Architecture
+  
+  
+</h2>
+    
+<ol>
+  <li>What was the main driving force behind service-oriented architecture?</li>
+  <li>What are the four primary service types within a service-oriented architecture?</li>
+  <li>List some of the factors that led to the downfall of service-oriented architecture.</li>
+  <li>Is service-oriented architecture technically partitioned or domain partitioned?</li>
+  <li>How is domain reuse addressed in SOA? How is operational reuse addressed?</li>
+</ol>
+<h2 class="no_toc" id="chapter-17-microservices-architecture">
+  
+  
+    <a href="#chapter-17-microservices-architecture" class="anchor-heading" aria-labelledby="chapter-17-microservices-architecture"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Chapter 17: Microservices Architecture
+  
+  
+</h2>
+    
+<ol>
+  <li>Why is the bounded context concept so critical for microservices architecture?</li>
+  <li>What are three ways of determining if you have the right level of granularity in a microservice?</li>
+  <li>What functionality might be contained within a sidecar?</li>
+  <li>What is the difference between orchestration and choreography? Which does microservices support? Is one communication style easier in microservices?</li>
+  <li>What is a saga in microservices?</li>
+  <li>Why are agility, testability, and deployability so well supported in microservices?</li>
+  <li>What are two reasons performance is usually an issue in microservices?</li>
+  <li>Is microservices a domain-partitioned architecture or a technically partitioned one?</li>
+  <li>Describe a topology where a microservices ecosystem might be only a single quantum.</li>
+  <li>How was domain reuse addressed in microservices? How was operational reuse addressed?</li>
+</ol>
+<h2 class="no_toc" id="chapter-18-choosing-the-appropriate-architecture-style">
+  
+  
+    <a href="#chapter-18-choosing-the-appropriate-architecture-style" class="anchor-heading" aria-labelledby="chapter-18-choosing-the-appropriate-architecture-style"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Chapter 18: Choosing the Appropriate Architecture Style
+  
+  
+</h2>
+    
+<ol>
+  <li>In what way does the data architecture (structure of the logical and physical data models) influence the choice of architecture style?</li>
+  <li>How does it influence your choice of architecture style to use?</li>
+  <li>Delineate the steps an architect uses to determine style of architecture, data partitioning, and communication styles.</li>
+  <li>What factor leads an architect toward a distributed architecture?</li>
+</ol>
+<h2 class="no_toc" id="chapter-19-architecture-decisions">
+  
+  
+    <a href="#chapter-19-architecture-decisions" class="anchor-heading" aria-labelledby="chapter-19-architecture-decisions"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Chapter 19: Architecture Decisions
+  
+  
+</h2>
+    
+<ol>
+  <li>What is the covering your assets anti-pattern?</li>
+  <li>What are some techniques for avoiding the email-driven architecture anti-pattern?</li>
+  <li>What are the five factors Michael Nygard defines for identifying something as architecturally significant?</li>
+  <li>What are the five basic sections of an architecture decision record?</li>
+  <li>In which section of an ADR do you typically add the justification for an architecture decision?</li>
+  <li>Assuming you don’t need a separate Alternatives section, in which section of an ADR would you list the alternatives to your proposed solution?</li>
+  <li>What are three basic criteria in which you would mark the status of an ADR as Proposed?</li>
+</ol>
+<h2 class="no_toc" id="chapter-20-analyzing-architecture-risk">
+  
+  
+    <a href="#chapter-20-analyzing-architecture-risk" class="anchor-heading" aria-labelledby="chapter-20-analyzing-architecture-risk"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Chapter 20: Analyzing Architecture Risk
+  
+  
+</h2>
+    
+<ol>
+  <li>What are the two dimensions of the risk assessment matrix?</li>
+  <li>What are some ways to show direction of particular risk within a risk assessment? Can you think of other ways to indicate whether risk is getting better or worse?</li>
+  <li>Why is it necessary for risk storming to be a collaborative exercise?</li>
+  <li>Why is it necessary for the identification activity within risk storming to be an individual activity and not a collaborative one?</li>
+  <li>What would you do if three participants identified risk as high (6) for a particular area of the architecture, but another participant identified it as only medium (3)?</li>
+  <li>What risk rating (1-9) would you assign to unproven or unknown technologies?</li>
+</ol>
+<h2 class="no_toc" id="chapter-21-diagramming-and-presenting-architecture">
+  
+  
+    <a href="#chapter-21-diagramming-and-presenting-architecture" class="anchor-heading" aria-labelledby="chapter-21-diagramming-and-presenting-architecture"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Chapter 21: Diagramming and Presenting Architecture
+  
+  
+</h2>
+    
+<ol>
+  <li>What is irrational artifact attachment, and why is it significant with respect to documenting and diagramming architecture?</li>
+  <li>What do the 4 C’s refer to in the C4 modeling technique?</li>
+  <li>When diagramming architecture, what do dotted lines between components mean?</li>
+  <li>What is the bullet-riddled corpse anti-pattern? How can you avoid this anti-pattern when creating presentations?</li>
+  <li>What are the two primary information channels a presenter has when giving apresentation?</li>
+</ol>
+<h2 class="no_toc" id="chapter-22-making-teams-effective">
+  
+  
+    <a href="#chapter-22-making-teams-effective" class="anchor-heading" aria-labelledby="chapter-22-making-teams-effective"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Chapter 22: Making Teams Effective
+  
+  
+</h2>
+    
+<ol>
+  <li>What are three types of architecture personalities? What type of boundary does each personality create?</li>
+  <li>What are the five factors that go into determining the level of control you should exhibit on the team?</li>
+  <li>What are three warning signs you can look at to determine if your team is getting
+too big?</li>
+  <li>List three basic checklists that would be good for a development team.</li>
+</ol>
+<h2 class="no_toc" id="chapter-23-negotiation-and-leadership-skills">
+  
+  
+    <a href="#chapter-23-negotiation-and-leadership-skills" class="anchor-heading" aria-labelledby="chapter-23-negotiation-and-leadership-skills"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Chapter 23: Negotiation and Leadership Skills
+  
+  
+</h2>
+    
+<ol>
+  <li>Why is negotiation so important as an architect?</li>
+  <li>Name some negotiation techniques when a business stakeholder insists on five nines of availability, but only three nines are really needed.</li>
+  <li>What can you derive from a business stakeholder telling you “I needed it yesterday”?</li>
+  <li>Why is it important to save a discussion about time and cost for last in a negotiation?</li>
+  <li>What is the divide-and-conquer rule? How can it be applied when negotiating architecture characteristics with a business stakeholder? Provide an example.</li>
+  <li>List the 4 C’s of architecture.</li>
+  <li>Explain why it is important for an architect to be both pragmatic and visionary.</li>
+  <li>What are some techniques for managing and reducing the number of meetings you are invited to?</li>
+</ol>
+<h2 class="no_toc" id="chapter-24-developing-a-career-path">
+  
+  
+    <a href="#chapter-24-developing-a-career-path" class="anchor-heading" aria-labelledby="chapter-24-developing-a-career-path"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Chapter 24: Developing a Career Path
+  
+  
+</h2>
+    
+<ol>
+  <li>What is the 20-minute rule, and when is it best to apply it?</li>
+  <li>What are the four rings in the ThoughtWorks technology radar, and what do they mean? How can they be applied to your radar?</li>
+  <li>Describe the difference between depth and breadth of knowledge as it applies to software architects. Which should architects aspire to maximize?</li>
+</ol>
+
+          
+
+          
+        </main>
+        
+
+  <hr>
+  <footer>
+    
+      <p><a href="#top" id="back-to-top">Back to top</a></p>
+    
+
+    <p class="text-small text-grey-dk-100 mb-0">Copyright © 2022 Michael McIntyre. </p>
+
+    
+      <div class="d-flex mt-2">
+        
+          <p class="text-small text-grey-dk-000 mb-0 mr-2">
+            Page last modified: <span class="d-inline-block">Aug 13 2022 at 07:40 PM</span>.
+          </p>
+        
+        
+      </div>
+    
+  </footer>
+
+
+      </div>
+    </div>
+    
+      
+
+<div class="search-overlay"></div>
+
+    
+  </div>
+
+  
+</body>
+</html>

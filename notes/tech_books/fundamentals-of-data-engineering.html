@@ -1,0 +1,2073 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+
+  
+
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+  <link rel="stylesheet" href="/assets/css/just-the-docs-default.css">
+  <link rel="stylesheet" href="/assets/css/native.css">
+
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-M6EEXPRNWS"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-M6EEXPRNWS', { 'anonymize_ip': true });
+  </script>
+
+  
+
+  
+  <script type="text/javascript" src="/assets/js/vendor/lunr.min.js"></script>
+  
+  <script type="text/javascript" src="/assets/js/just-the-docs.js"></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Fundamentals of Data Engineering | Notes</title>
+<meta name="generator" content="Jekyll v3.9.2">
+<meta property="og:title" content="Fundamentals of Data Engineering">
+<meta name="author" content="Joe Reis and Matt Housley">
+<meta property="og:locale" content="en_US">
+<meta name="description" content="My Notes">
+<meta property="og:description" content="My Notes">
+<link rel="canonical" href="https://itsmynotes.com/notes/tech_books/fundamentals-of-data-engineering">
+<meta property="og:url" content="https://itsmynotes.com/notes/tech_books/fundamentals-of-data-engineering">
+<meta property="og:site_name" content="Notes">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<meta property="twitter:title" content="Fundamentals of Data Engineering">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Joe Reis and Matt Housley"},"description":"My Notes","headline":"Fundamentals of Data Engineering","url":"https://itsmynotes.com/notes/tech_books/fundamentals-of-data-engineering"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+  
+
+</head>
+<body>
+  <a class="skip-to-main" href="#main-content">Skip to main content</a>
+  <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+  <symbol id="svg-link" viewbox="0 0 24 24">
+  <title>Link</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link">
+    <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+  </svg>
+</symbol>
+
+  <symbol id="svg-menu" viewbox="0 0 24 24">
+  <title>Menu</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu">
+    <line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line>
+  </svg>
+</symbol>
+
+  <symbol id="svg-arrow-right" viewbox="0 0 24 24">
+  <title>Expand</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+    <polyline points="9 18 15 12 9 6"></polyline>
+  </svg>
+</symbol>
+
+  <!-- Feather. MIT License: https://github.com/feathericons/feather/blob/master/LICENSE -->
+<symbol id="svg-external-link" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-external-link">
+  <title id="svg-external-link-title">(external link)</title>
+  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line>
+</symbol>
+
+  
+    <symbol id="svg-doc" viewbox="0 0 24 24">
+  <title>Document</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file">
+    <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline>
+  </svg>
+</symbol>
+
+    <symbol id="svg-search" viewbox="0 0 24 24">
+  <title>Search</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search">
+    <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+  </svg>
+</symbol>
+
+  
+  
+    <!-- Bootstrap Icons. MIT License: https://github.com/twbs/icons/blob/main/LICENSE.md -->
+<symbol id="svg-copy" viewbox="0 0 16 16">
+  <title>Copy</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard" viewbox="0 0 16 16">
+    <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"></path>
+    <path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"></path>
+  </svg>
+</symbol>
+<symbol id="svg-copied" viewbox="0 0 16 16">
+  <title>Copied</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard-check-fill" viewbox="0 0 16 16">
+    <path d="M6.5 0A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3Zm3 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3Z"></path>
+    <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1A2.5 2.5 0 0 1 9.5 5h-3A2.5 2.5 0 0 1 4 2.5v-1Zm6.854 7.354-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L7.5 10.793l2.646-2.647a.5.5 0 0 1 .708.708Z"></path>
+  </svg>
+</symbol>
+
+  
+</svg>
+
+  <div class="side-bar">
+  <div class="site-header" role="banner">
+    <a href="/" class="site-title lh-tight">
+  Notes
+
+</a>
+    <button id="menu-button" class="site-button btn-reset" aria-label="Toggle menu" aria-pressed="false">
+      <svg viewbox="0 0 24 24" class="icon" aria-hidden="true"><use xlink:href="#svg-menu"></use></svg>
+    </button>
+  </div>
+
+  <nav aria-label="Main" id="site-nav" class="site-nav">
+  
+  
+    <ul class="nav-list">
+<li class="nav-list-item">
+<button class="nav-list-expander btn-reset" aria-label="toggle items in Projects category" aria-pressed="false">
+      <svg viewbox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+    </button><a href="/notes/projects" class="nav-list-link">Projects</a><ul class="nav-list"></ul>
+</li>
+<li class="nav-list-item">
+<button class="nav-list-expander btn-reset" aria-label="toggle items in Vocabulary category" aria-pressed="false">
+      <svg viewbox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+    </button><a href="/notes/vocabulary" class="nav-list-link">Vocabulary</a><ul class="nav-list"></ul>
+</li>
+<li class="nav-list-item">
+<button class="nav-list-expander btn-reset" aria-label="toggle items in Business Books category" aria-pressed="false">
+      <svg viewbox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+    </button><a href="/notes/business-books" class="nav-list-link">Business Books</a><ul class="nav-list"></ul>
+</li>
+<li class="nav-list-item">
+<button class="nav-list-expander btn-reset" aria-label="toggle items in Other Books category" aria-pressed="false">
+      <svg viewbox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+    </button><a href="/notes/other-books" class="nav-list-link">Other Books</a><ul class="nav-list"></ul>
+</li>
+<li class="nav-list-item">
+<button class="nav-list-expander btn-reset" aria-label="toggle items in Educational Books category" aria-pressed="false">
+      <svg viewbox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+    </button><a href="/notes/educational-books" class="nav-list-link">Educational Books</a><ul class="nav-list"></ul>
+</li>
+<li class="nav-list-item">
+<button class="nav-list-expander btn-reset" aria-label="toggle items in Articles category" aria-pressed="false">
+      <svg viewbox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+    </button><a href="/notes/articles" class="nav-list-link">Articles</a><ul class="nav-list"></ul>
+</li>
+<li class="nav-list-item">
+<button class="nav-list-expander btn-reset" aria-label="toggle items in Quotes category" aria-pressed="false">
+      <svg viewbox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+    </button><a href="/notes/quotes" class="nav-list-link">Quotes</a><ul class="nav-list"></ul>
+</li>
+<li class="nav-list-item">
+<button class="nav-list-expander btn-reset" aria-label="toggle items in Classes category" aria-pressed="false">
+      <svg viewbox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+    </button><a href="/notes/classes" class="nav-list-link">Classes</a><ul class="nav-list"></ul>
+</li>
+<li class="nav-list-item">
+<button class="nav-list-expander btn-reset" aria-label="toggle items in Tech Books category" aria-pressed="false">
+      <svg viewbox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+    </button><a href="/notes/tech-books" class="nav-list-link">Tech Books</a><ul class="nav-list"></ul>
+</li>
+<li class="nav-list-item">
+<button class="nav-list-expander btn-reset" aria-label="toggle items in Podcasts category" aria-pressed="false">
+      <svg viewbox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+    </button><a href="/notes/podcasts" class="nav-list-link">Podcasts</a><ul class="nav-list"></ul>
+</li>
+</ul>
+
+  
+</nav>
+
+
+  
+  
+    <footer class="site-footer">
+      This site uses <a href="https://github.com/just-the-docs/just-the-docs">Just the Docs</a>, a documentation theme for Jekyll.
+    </footer>
+  
+</div>
+
+  <div class="main" id="top">
+    <div id="main-header" class="main-header">
+  
+    
+
+<div class="search" role="search">
+  <div class="search-input-wrap">
+    <input type="text" id="search-input" class="search-input" tabindex="0" placeholder="Search Notes" aria-label="Search Notes" autocomplete="off">
+    <label for="search-input" class="search-label"><svg viewbox="0 0 24 24" class="search-icon"><use xlink:href="#svg-search"></use></svg></label>
+  </div>
+  <div id="search-results" class="search-results"></div>
+</div>
+
+  
+  
+  
+    <nav aria-label="Auxiliary" class="aux-nav">
+  <ul class="aux-nav-list">
+    
+      <li class="aux-nav-list-item">
+        <a href="https://github.com/mmcintyre1/its-my-notes" class="site-button">
+          It's My Notes on GitHub
+        </a>
+      </li>
+    
+  </ul>
+</nav>
+
+  
+</div>
+
+    <div class="main-content-wrap">
+      <nav aria-label="Breadcrumb" class="breadcrumb-nav">
+  <ol class="breadcrumb-nav-list">
+  
+    <li class="breadcrumb-nav-list-item"><a href="/notes/tech-books">Tech Books</a></li>
+  <li class="breadcrumb-nav-list-item"><span>Fundamentals of Data Engineering</span></li>
+  </ol>
+</nav>
+      <div id="main-content" class="main-content">
+        <main>
+          
+            <h1 class="no_toc" id="fundamentals-of-data-engineering">
+  
+  
+    <a href="#fundamentals-of-data-engineering" class="anchor-heading" aria-labelledby="fundamentals-of-data-engineering"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Fundamentals of Data Engineering
+  
+  
+</h1>
+    
+
+<details open="">
+  <summary>
+    Table of contents
+  </summary>
+<ol id="markdown-toc">
+  <li>
+<a href="#1-data-engineering-described" id="markdown-toc-1-data-engineering-described">1: Data Engineering Described</a>    <ol>
+      <li><a href="#evolution-of-data-engineer" id="markdown-toc-evolution-of-data-engineer">Evolution of Data Engineer</a></li>
+      <li><a href="#data-engineering-skills" id="markdown-toc-data-engineering-skills">Data Engineering Skills</a></li>
+      <li><a href="#data-maturity" id="markdown-toc-data-maturity">Data Maturity</a></li>
+      <li><a href="#business-responsibilities" id="markdown-toc-business-responsibilities">Business Responsibilities</a></li>
+      <li><a href="#stakeholders" id="markdown-toc-stakeholders">Stakeholders</a></li>
+    </ol>
+  </li>
+  <li>
+<a href="#2-the-data-engineering-lifecycle" id="markdown-toc-2-the-data-engineering-lifecycle">2: The Data Engineering Lifecycle</a>    <ol>
+      <li><a href="#generation" id="markdown-toc-generation">Generation</a></li>
+      <li><a href="#storage" id="markdown-toc-storage">Storage</a></li>
+      <li><a href="#ingestion" id="markdown-toc-ingestion">Ingestion</a></li>
+      <li><a href="#transformation" id="markdown-toc-transformation">Transformation</a></li>
+      <li>
+<a href="#serving" id="markdown-toc-serving">Serving</a>        <ol>
+          <li>
+<a href="#analytics" id="markdown-toc-analytics">Analytics</a>            <ol>
+              <li><a href="#business-intelligence" id="markdown-toc-business-intelligence">Business Intelligence</a></li>
+              <li><a href="#operational-analytics" id="markdown-toc-operational-analytics">Operational Analytics</a></li>
+              <li><a href="#embedded-analytics" id="markdown-toc-embedded-analytics">Embedded Analytics</a></li>
+              <li><a href="#machine-learning" id="markdown-toc-machine-learning">Machine Learning</a></li>
+              <li><a href="#reverse-etl" id="markdown-toc-reverse-etl">Reverse ETL</a></li>
+            </ol>
+          </li>
+        </ol>
+      </li>
+      <li>
+<a href="#data-engineering-undercurrents" id="markdown-toc-data-engineering-undercurrents">Data Engineering Undercurrents</a>        <ol>
+          <li><a href="#security" id="markdown-toc-security">Security</a></li>
+          <li>
+<a href="#data-management" id="markdown-toc-data-management">Data Management</a>            <ol>
+              <li><a href="#data-governance" id="markdown-toc-data-governance">Data Governance</a></li>
+              <li><a href="#discoverability" id="markdown-toc-discoverability">Discoverability</a></li>
+              <li><a href="#metadata" id="markdown-toc-metadata">Metadata</a></li>
+              <li><a href="#data-accountability" id="markdown-toc-data-accountability">Data Accountability</a></li>
+              <li><a href="#data-quality" id="markdown-toc-data-quality">Data Quality</a></li>
+              <li><a href="#data-modelling-and-design" id="markdown-toc-data-modelling-and-design">Data Modelling and Design</a></li>
+              <li><a href="#data-lineage" id="markdown-toc-data-lineage">Data Lineage</a></li>
+              <li><a href="#data-integration-and-interoperability" id="markdown-toc-data-integration-and-interoperability">Data Integration and Interoperability</a></li>
+              <li><a href="#data-lifecycle-management" id="markdown-toc-data-lifecycle-management">Data Lifecycle Management</a></li>
+              <li><a href="#ethics-and-privacy" id="markdown-toc-ethics-and-privacy">Ethics and Privacy</a></li>
+            </ol>
+          </li>
+          <li>
+<a href="#dataops" id="markdown-toc-dataops">DataOps</a>            <ol>
+              <li><a href="#automation" id="markdown-toc-automation">Automation</a></li>
+              <li><a href="#observability-and-monitoring" id="markdown-toc-observability-and-monitoring">Observability and Monitoring</a></li>
+              <li><a href="#incident-response" id="markdown-toc-incident-response">Incident Response</a></li>
+            </ol>
+          </li>
+          <li><a href="#data-architecture" id="markdown-toc-data-architecture">Data Architecture</a></li>
+          <li><a href="#orchestration" id="markdown-toc-orchestration">Orchestration</a></li>
+          <li><a href="#software-engineering" id="markdown-toc-software-engineering">Software Engineering</a></li>
+        </ol>
+      </li>
+    </ol>
+  </li>
+  <li>
+<a href="#3-designing-good-data-architecture" id="markdown-toc-3-designing-good-data-architecture">3: Designing Good Data Architecture</a>    <ol>
+      <li><a href="#enterprise-architecture" id="markdown-toc-enterprise-architecture">Enterprise Architecture</a></li>
+      <li><a href="#data-architecture-1" id="markdown-toc-data-architecture-1">Data Architecture</a></li>
+      <li>
+<a href="#principles-of-good-data-architecture" id="markdown-toc-principles-of-good-data-architecture">Principles of Good Data Architecture</a>        <ol>
+          <li><a href="#aws-well-architected-framework" id="markdown-toc-aws-well-architected-framework">AWS Well-Architected Framework</a></li>
+          <li><a href="#google-clouds-five-principles-for-cloud-native-architecture" id="markdown-toc-google-clouds-five-principles-for-cloud-native-architecture">Google Cloud’s Five Principles for Cloud-Native Architecture</a></li>
+          <li><a href="#fundamentals-of-data-engineering-principles" id="markdown-toc-fundamentals-of-data-engineering-principles">Fundamentals of Data Engineering Principles</a></li>
+        </ol>
+      </li>
+      <li><a href="#major-architecture-concepts" id="markdown-toc-major-architecture-concepts">Major Architecture Concepts</a></li>
+      <li>
+<a href="#types-of-data-architecture" id="markdown-toc-types-of-data-architecture">Types of Data Architecture</a>        <ol>
+          <li><a href="#data-warehouse" id="markdown-toc-data-warehouse">Data Warehouse</a></li>
+          <li><a href="#data-lake" id="markdown-toc-data-lake">Data Lake</a></li>
+          <li><a href="#data-lakehouse" id="markdown-toc-data-lakehouse">Data Lakehouse</a></li>
+          <li><a href="#the-modern-data-stack" id="markdown-toc-the-modern-data-stack">The Modern Data Stack</a></li>
+          <li><a href="#lambda-architecture" id="markdown-toc-lambda-architecture">Lambda Architecture</a></li>
+          <li><a href="#kappa-architecture" id="markdown-toc-kappa-architecture">Kappa Architecture</a></li>
+          <li><a href="#dataflow-model" id="markdown-toc-dataflow-model">Dataflow Model</a></li>
+          <li><a href="#iot-architecture" id="markdown-toc-iot-architecture">IoT architecture</a></li>
+          <li><a href="#data-mesh" id="markdown-toc-data-mesh">Data Mesh</a></li>
+        </ol>
+      </li>
+    </ol>
+  </li>
+  <li>
+<a href="#4-choosing-technologies-across-the-data-engineering-lifecycle" id="markdown-toc-4-choosing-technologies-across-the-data-engineering-lifecycle">4: Choosing Technologies Across the Data Engineering Lifecycle</a>    <ol>
+      <li><a href="#team-size-and-capabilities" id="markdown-toc-team-size-and-capabilities">Team Size and Capabilities</a></li>
+      <li><a href="#speed-to-market" id="markdown-toc-speed-to-market">Speed to Market</a></li>
+      <li><a href="#interoperability" id="markdown-toc-interoperability">Interoperability</a></li>
+      <li>
+<a href="#cost-optimization-and-business-value" id="markdown-toc-cost-optimization-and-business-value">Cost Optimization and Business Value</a>        <ol>
+          <li><a href="#total-cost-of-ownership" id="markdown-toc-total-cost-of-ownership">Total Cost of Ownership</a></li>
+          <li><a href="#total-opportunity-cost-of-ownership" id="markdown-toc-total-opportunity-cost-of-ownership">Total Opportunity Cost of Ownership</a></li>
+          <li><a href="#finops" id="markdown-toc-finops">FinOps</a></li>
+        </ol>
+      </li>
+      <li><a href="#today-versus-the-future-immutable-versus-transitory-technologies" id="markdown-toc-today-versus-the-future-immutable-versus-transitory-technologies">Today versus the future: immutable versus transitory technologies</a></li>
+      <li>
+<a href="#location" id="markdown-toc-location">Location</a>        <ol>
+          <li><a href="#cloud" id="markdown-toc-cloud">cloud</a></li>
+          <li><a href="#on-prem" id="markdown-toc-on-prem">on-prem</a></li>
+          <li><a href="#hybrid-cloud" id="markdown-toc-hybrid-cloud">hybrid cloud</a></li>
+          <li><a href="#multicloud" id="markdown-toc-multicloud">multicloud</a></li>
+        </ol>
+      </li>
+      <li>
+<a href="#build-versus-buy" id="markdown-toc-build-versus-buy">Build versus buy</a>        <ol>
+          <li><a href="#open-source-software-oss" id="markdown-toc-open-source-software-oss">Open Source Software (OSS)</a></li>
+        </ol>
+      </li>
+      <li><a href="#monolith-versus-modular" id="markdown-toc-monolith-versus-modular">Monolith versus modular</a></li>
+      <li><a href="#serverless-versus-servers" id="markdown-toc-serverless-versus-servers">Serverless versus servers</a></li>
+      <li><a href="#optimization-performance-and-the-benchmark-wars" id="markdown-toc-optimization-performance-and-the-benchmark-wars">Optimization, performance, and the benchmark wars</a></li>
+    </ol>
+  </li>
+  <li>
+<a href="#5-data-generation-in-source-systems" id="markdown-toc-5-data-generation-in-source-systems">5: Data Generation in Source Systems</a>    <ol>
+      <li>
+<a href="#source-systems---main-ideas" id="markdown-toc-source-systems---main-ideas">Source Systems - Main Ideas</a>        <ol>
+          <li><a href="#files-and-unstructured-data" id="markdown-toc-files-and-unstructured-data">Files and Unstructured Data</a></li>
+          <li><a href="#apis" id="markdown-toc-apis">APIs</a></li>
+          <li><a href="#application-databases-oltp-systems" id="markdown-toc-application-databases-oltp-systems">Application Databases (OLTP Systems)</a></li>
+          <li><a href="#online-analytical-processing-system-olap" id="markdown-toc-online-analytical-processing-system-olap">Online Analytical Processing System (OLAP)</a></li>
+          <li><a href="#change-data-capture-cdc" id="markdown-toc-change-data-capture-cdc">Change Data Capture (CDC)</a></li>
+          <li><a href="#logs" id="markdown-toc-logs">Logs</a></li>
+          <li><a href="#messages-and-streams" id="markdown-toc-messages-and-streams">Messages and Streams</a></li>
+        </ol>
+      </li>
+      <li><a href="#types-of-time" id="markdown-toc-types-of-time">Types of Time</a></li>
+      <li>
+<a href="#types-of-databases" id="markdown-toc-types-of-databases">Types of Databases</a>        <ol>
+          <li><a href="#relational-database-management-system" id="markdown-toc-relational-database-management-system">relational database management system</a></li>
+          <li><a href="#non-relational-nosql" id="markdown-toc-non-relational-nosql">non-relational (nosql)</a></li>
+          <li><a href="#key-value-stores" id="markdown-toc-key-value-stores">key-value stores</a></li>
+          <li><a href="#document-stores" id="markdown-toc-document-stores">document stores</a></li>
+          <li><a href="#wide-column" id="markdown-toc-wide-column">wide column</a></li>
+          <li><a href="#graph-database" id="markdown-toc-graph-database">graph database</a></li>
+          <li><a href="#search" id="markdown-toc-search">search</a></li>
+          <li><a href="#time-series" id="markdown-toc-time-series">time series</a></li>
+        </ol>
+      </li>
+      <li>
+<a href="#apis-1" id="markdown-toc-apis-1">APIs</a>        <ol>
+          <li><a href="#rest" id="markdown-toc-rest">REST</a></li>
+          <li><a href="#graphql" id="markdown-toc-graphql">GraphQL</a></li>
+          <li><a href="#webhooks" id="markdown-toc-webhooks">webhooks</a></li>
+          <li><a href="#rpc-and-grpc" id="markdown-toc-rpc-and-grpc">rpc and grpc</a></li>
+        </ol>
+      </li>
+    </ol>
+  </li>
+  <li><a href="#6-storage" id="markdown-toc-6-storage">6: Storage</a></li>
+</ol>
+
+</details>
+<h1 id="1-data-engineering-described">
+  
+  
+    <a href="#1-data-engineering-described" class="anchor-heading" aria-labelledby="1-data-engineering-described"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 1: Data Engineering Described
+  
+  
+</h1>
+    
+
+<p><strong>what is data engineering?</strong></p>
+<blockquote>
+  <p>Data engineering is the development, implementation, and maintenance of systems and processes that take in raw data and produce high-quality, consistent information,that supports downstream use cases, such as analysis and machine learning. Data engineering is the intersection of security, data management, DataOps, data architecture, orchestration, and software engineering. A data engineer manages the data engineering lifecycle, beginning with getting data from source systems and ending with serving data for use cases, such as analysis or machine learning.</p>
+</blockquote>
+
+<div style="text-align:center">
+  <a href="/assets/img/fundamentals-of-data-engineering/data-engineering-lifecycle.png">
+    <img src="/assets/img/fundamentals-of-data-engineering/data-engineering-lifecycle.png" alt="aggregate">
+  </a>
+</div>
+<h2 id="evolution-of-data-engineer">
+  
+  
+    <a href="#evolution-of-data-engineer" class="anchor-heading" aria-labelledby="evolution-of-data-engineer"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Evolution of Data Engineer
+  
+  
+</h2>
+    
+<ul>
+  <li>has it’s roots in the business data warehouse (coined by Bill Inmon in 1989 but predates this to the 70s)</li>
+  <li>IBM creates SQL in the 90s</li>
+  <li>massively parallel processing (MPP) databases expanded the utility of data crunching</li>
+  <li>in early 2000s, powerhouse tech companies emerge (Google, Yahoo, Amazon, etc)</li>
+  <li>these companies begin working on big data and creating open source utilities (like Yahoo and Hadoop or Google and MapReduce) to handle</li>
+  <li>big data engineers evolved to use these big data tools</li>
+  <li>eventually, big data began to lose steam because of simplification (big data tools are tricky to work with and require specialization)</li>
+  <li>with advent of cloud, that brought about decentralized, modularized, managed, and highly abstracted tools and generalized big data engineer to just data engineer</li>
+</ul>
+
+<div style="text-align:center">
+  <a href="/assets/img/fundamentals-of-data-engineering/hierarchy-of-needs.png">
+    <img src="/assets/img/fundamentals-of-data-engineering/hierarchy-of-needs.png" alt="aggregate">
+  </a>
+</div>
+
+<ul>
+  <li>data engineering straddles the divide between getting data and getting value from data</li>
+</ul>
+<h2 id="data-engineering-skills">
+  
+  
+    <a href="#data-engineering-skills" class="anchor-heading" aria-labelledby="data-engineering-skills"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Data Engineering Skills
+  
+  
+</h2>
+    
+<ul>
+  <li>skill set of a data engineer encompasses the “undercurrents” of data engineering: security, data management, DataOps, data architecture, and software engineering</li>
+  <li>the data engineer juggles a lot of complex moving parts and must constantly optimize along the axes of cost, agility, scalability, simplicity, reuse, and interoperability</li>
+  <li>data engineer typically doesn’t build ML models, create reports or dashboards, perform data analysis, build key performance indicators (KPIs), or develop software applications</li>
+  <li>data engineer must understand both data and technology, know best practice around data management, be aware of various options for tools, their interplay and tradeoff</li>
+  <li>requires good understanding of software engineering, DataOps, and data architecture</li>
+  <li>must understand requirements of data consumers</li>
+  <li>languages: SQL, python, JVM (Java, Scala, Groovy), bash/powershell</li>
+</ul>
+<h2 id="data-maturity">
+  
+  
+    <a href="#data-maturity" class="anchor-heading" aria-labelledby="data-maturity"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Data Maturity
+  
+  
+</h2>
+    
+<ul>
+  <li>Data maturity is the progression toward higher data utilization, capabilities, and integration across the organization
+    <ol>
+      <li>starting with data</li>
+    </ol>
+    <ul>
+      <li>fuzzy, loosely defined (or no) goals with data</li>
+      <li>adoption and utilization low</li>
+      <li>data team is small</li>
+      <li>data engineer’s goal is to move fast, get traction, and add value
+        <ol>
+          <li>scaling with data</li>
+        </ol>
+      </li>
+      <li>moved away from ad-hoc data requests to formal data practices</li>
+      <li>challenge is creating scalable data architecture and planning for a future where company is data-driven</li>
+      <li>data engineer moves from generalist to specialist
+        <ol>
+          <li>leading with data</li>
+        </ol>
+      </li>
+      <li>company is data-driven</li>
+      <li>automated pipelines allow people in company to self-serve analytics and ML</li>
+      <li>introducing new data sources is seamless</li>
+    </ul>
+  </li>
+</ul>
+<h2 id="business-responsibilities">
+  
+  
+    <a href="#business-responsibilities" class="anchor-heading" aria-labelledby="business-responsibilities"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Business Responsibilities
+  
+  
+</h2>
+    
+<ul>
+  <li>Know how to communicate with nontechnical and technical people</li>
+  <li>Understand how to scope and gather business and product requirements</li>
+  <li>Understand the cultural foundations of Agile, DevOps, and DataOps</li>
+  <li>Control costs</li>
+  <li>Learn continuously</li>
+</ul>
+
+<p><strong>type A data engineers</strong></p>
+<ul>
+  <li>A for abstraction</li>
+  <li>avoids heavy lifting</li>
+  <li>keeps data architecture abstract and straightforward</li>
+  <li>use off-the-shelf products</li>
+</ul>
+
+<p><strong>type B data engineers</strong></p>
+<ul>
+  <li>B for build</li>
+  <li>build data tools and systems that scale and leverage company’s core competency and competitive advantage</li>
+  <li>more often found at more data mature orgs</li>
+</ul>
+<h2 id="stakeholders">
+  
+  
+    <a href="#stakeholders" class="anchor-heading" aria-labelledby="stakeholders"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Stakeholders
+  
+  
+</h2>
+    
+<p><strong>upstream stakeholders</strong></p>
+<ul>
+  <li>data architects</li>
+  <li>software engineers</li>
+  <li>DevOps engineers and site-reliability engineers</li>
+</ul>
+
+<p><strong>downstream stakeholders</strong></p>
+<ul>
+  <li>data scientists</li>
+  <li>data analysts</li>
+  <li>machine learning engineers and AI researchers</li>
+</ul>
+<h1 id="2-the-data-engineering-lifecycle">
+  
+  
+    <a href="#2-the-data-engineering-lifecycle" class="anchor-heading" aria-labelledby="2-the-data-engineering-lifecycle"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 2: The Data Engineering Lifecycle
+  
+  
+</h1>
+    
+<ul>
+  <li>comprises stages that turn raw data ingredients into a useful end product, ready for consumption by analysts, data scientists, ML engineers, and other</li>
+  <li>-the full data lifecycle encompasses data across its entire lifespan, the data engineering lifecycle focuses on the stages a data engineer controls</li>
+</ul>
+<h2 id="generation">
+  
+  
+    <a href="#generation" class="anchor-heading" aria-labelledby="generation"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Generation
+  
+  
+</h2>
+    
+<ul>
+  <li>generated from a <em>source system</em> - origin of data</li>
+  <li>data engineer needs working understanding of way source systems work, generate data, frequency, velocity, and variety of data</li>
+  <li>also need open line of communication with source system owners</li>
+  <li>understand limitations of source system</li>
+  <li>challenging nuance - schema (defines hierarchical organization of data)
+    <ul>
+      <li>schemaless (on read) - enforced in applicaiton</li>
+      <li>fixed schema (on write) - enforced in database</li>
+    </ul>
+  </li>
+</ul>
+<h2 id="storage">
+  
+  
+    <a href="#storage" class="anchor-heading" aria-labelledby="storage"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Storage
+  
+  
+</h2>
+    
+<ul>
+  <li>data architecture leverages several storage solutions, and most don’t function purely as storage (mixing in transformation or query semantics/serving)</li>
+  <li>
+<em>temperature</em> of data - how frequently it is accessed
+    <ul>
+      <li>hot - most frequent, many times a day</li>
+      <li>lukewarm - every so often</li>
+      <li>cold - seldom, appropriate to store in archival system</li>
+    </ul>
+  </li>
+</ul>
+<h2 id="ingestion">
+  
+  
+    <a href="#ingestion" class="anchor-heading" aria-labelledby="ingestion"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Ingestion
+  
+  
+</h2>
+    
+<ul>
+  <li>source systems and ingestion represent most significant bottleneck of data engineering lifecycle</li>
+  <li>understand use cases for data that is being ingested</li>
+  <li>destination of data?</li>
+  <li>what frequency, volume, format?</li>
+  <li>batch vs streaming – batch is bounded input, streaming is continuous, microbatch is a hybrid with really small batches</li>
+  <li>streaming is much more complicated and should be adopted only after identifying business use case that justifies the trade-offs from batch</li>
+  <li>push data ingestion - a source system writes data out to a target, whether a database, object store, or filesystem</li>
+  <li>pull data ingestion - data is retrieved from the source system</li>
+</ul>
+<h2 id="transformation">
+  
+  
+    <a href="#transformation" class="anchor-heading" aria-labelledby="transformation"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Transformation
+  
+  
+</h2>
+    
+<ul>
+  <li>data needs to be changed from original form into something useful for downstream use cases</li>
+  <li>basic transformations map data into correct types (changing ingested string data into numeric and date types, for example), putting records into standard formats, and removing bad ones. Later stages of transformation may transform the data schema and apply normalization. Downstream, apply large-scale aggregation for reporting or featurize data for ML processes</li>
+  <li>without proper transform, data will sit inert</li>
+  <li>data featurization for ML intends to extract and enhance data features useful for training ML models</li>
+</ul>
+<h2 id="serving">
+  
+  
+    <a href="#serving" class="anchor-heading" aria-labelledby="serving"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Serving
+  
+  
+</h2>
+    
+<ul>
+  <li>get value from data</li>
+  <li>Data has value when it’s used for practical purposes. Data that is not consumed or queried is simply inert</li>
+</ul>
+<h3 id="analytics">
+  
+  
+    <a href="#analytics" class="anchor-heading" aria-labelledby="analytics"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Analytics
+  
+  
+</h3>
+    
+<h4 id="business-intelligence">
+  
+  
+    <a href="#business-intelligence" class="anchor-heading" aria-labelledby="business-intelligence"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Business Intelligence
+  
+  
+</h4>
+    
+<ul>
+  <li>BI marshals collected data to describe a business’s past and current state</li>
+  <li>logic-on-read approach - data is stored in a clean but fairly raw form, with minimal postprocessing business logic</li>
+  <li>as company grows in data maturity, move from ad-hoc to self-service analytics</li>
+</ul>
+<h4 id="operational-analytics">
+  
+  
+    <a href="#operational-analytics" class="anchor-heading" aria-labelledby="operational-analytics"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Operational Analytics
+  
+  
+</h4>
+    
+<ul>
+  <li>focuses on fine-grained details of operations</li>
+</ul>
+<h4 id="embedded-analytics">
+  
+  
+    <a href="#embedded-analytics" class="anchor-heading" aria-labelledby="embedded-analytics"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Embedded Analytics
+  
+  
+</h4>
+    
+<ul>
+  <li>different from operational as they are customer-facing</li>
+  <li>likely increased request rate for reports, access control is significantly more complicated and important</li>
+</ul>
+<h4 id="machine-learning">
+  
+  
+    <a href="#machine-learning" class="anchor-heading" aria-labelledby="machine-learning"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Machine Learning
+  
+  
+</h4>
+    
+<ul>
+  <li>responsibilities of data engineers overlap significantly in analytics and ML, and the boundaries between data engineering, ML engineering, and analytics engineering can be fuzzy</li>
+  <li>be careful not to prematurely dive into ML without appropriate data engineering foundations</li>
+</ul>
+<h4 id="reverse-etl">
+  
+  
+    <a href="#reverse-etl" class="anchor-heading" aria-labelledby="reverse-etl"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Reverse ETL
+  
+  
+</h4>
+    
+<ul>
+  <li>takes processed data from the output side of the data engineering lifecycle and feeds it back into source systems</li>
+  <li>increasingly important as business rely on SaaS and external platforms, might want to push specific metrics to a CRM system, (e.g., Google Ads)</li>
+</ul>
+<h2 id="data-engineering-undercurrents">
+  
+  
+    <a href="#data-engineering-undercurrents" class="anchor-heading" aria-labelledby="data-engineering-undercurrents"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Data Engineering Undercurrents
+  
+  
+</h2>
+    
+
+<div style="text-align:center">
+  <a href="/assets/img/fundamentals-of-data-engineering/data-eng-undercurrents.png">
+    <img src="/assets/img/fundamentals-of-data-engineering/data-eng-undercurrents.png" alt="">
+  </a>
+</div>
+<h3 id="security">
+  
+  
+    <a href="#security" class="anchor-heading" aria-labelledby="security"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Security
+  
+  
+</h3>
+    
+<ul>
+  <li>
+<strong>principle of least privilege</strong> - giving a user or system access to only the essential data and resources to perform an intended function</li>
+  <li>people and org structure are always biggest security vulnerabilities</li>
+  <li>create a culture of security that permeates the org</li>
+  <li>also about timing – give access only for duration necessary to perform work</li>
+  <li>data engineers must be competent security administrators, as security falls in their domain - understand security best practices for the cloud and on prem
+    <ul>
+      <li>user and identity access management (IAM) roles, policies, groups, network security, password policies, and encryption, etc.</li>
+    </ul>
+  </li>
+</ul>
+<h3 id="data-management">
+  
+  
+    <a href="#data-management" class="anchor-heading" aria-labelledby="data-management"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Data Management
+  
+  
+</h3>
+    
+<blockquote>
+  <p>Data management is the development, execution, and supervision of plans, policies, programs, and practices that deliver, control, protect, and enhance the value of data and information assets throughout their lifecycle.</p>
+  <ul>
+    <li><em>Data Management Body of Knoweldge (DMBOK)</em></li>
+  </ul>
+</blockquote>
+<h4 id="data-governance">
+  
+  
+    <a href="#data-governance" class="anchor-heading" aria-labelledby="data-governance"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Data Governance
+  
+  
+</h4>
+    
+<ul>
+  <li>engages people, processes, and technologies to maximize data value across an organization while protecting data with appropriate security controls</li>
+</ul>
+<h4 id="discoverability">
+  
+  
+    <a href="#discoverability" class="anchor-heading" aria-labelledby="discoverability"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Discoverability
+  
+  
+</h4>
+    
+<ul>
+  <li>end users have quick and reliable access to data they need to do their jobs</li>
+  <li>end users should know where the data comes from, how it relates to other data, and what data means</li>
+</ul>
+<h4 id="metadata">
+  
+  
+    <a href="#metadata" class="anchor-heading" aria-labelledby="metadata"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Metadata
+  
+  
+</h4>
+    
+<ul>
+  <li>data about data</li>
+  <li>either <strong>autogenerated</strong> or <strong>human generated</strong> – metadata collection is often manual and error prone</li>
+  <li>technology can assist with collection and remove some errors (data catalogs, data-lineage tracking systems, metadata management tools)</li>
+</ul>
+
+<p>types of metadata</p>
+
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th>type</th>
+      <th>description</th>
+      <th>examples</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>business metadata</td>
+      <td>way data is used in business</td>
+      <td>business and data definitions, data rules and logic, how and where data is used, and data owners</td>
+    </tr>
+    <tr>
+      <td>technical metadata</td>
+      <td>describes the data created and used by systems across the engineering lifecycle</td>
+      <td>data model, schema, data lineage, field mappings, pipeline workflows</td>
+    </tr>
+    <tr>
+      <td>pipeline metadata</td>
+      <td>provides details of workflow schedule</td>
+      <td>schedule, system and data dependencies, configs, connection details</td>
+    </tr>
+    <tr>
+      <td>data-lineage metadata</td>
+      <td>tracks origin and changes to data, and dependencies over time</td>
+      <td>audit of data trails</td>
+    </tr>
+    <tr>
+      <td>schema metadata</td>
+      <td>describes the structure of data stored in a system such as a database, a data warehouse, a data lake, or a filesystem</td>
+      <td>schemas</td>
+    </tr>
+    <tr>
+      <td>operational metadata</td>
+      <td>describes the operational results of various systems</td>
+      <td>statistics about processes, job IDs, application runtime logs, data used in a process, and error logs</td>
+    </tr>
+    <tr>
+      <td>reference metadata</td>
+      <td>data used to classify other data</td>
+      <td>lookup data</td>
+    </tr>
+  </tbody>
+</table></div>
+<h4 id="data-accountability">
+  
+  
+    <a href="#data-accountability" class="anchor-heading" aria-labelledby="data-accountability"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Data Accountability
+  
+  
+</h4>
+    
+<ul>
+  <li>assigning an individual to govern a portion of data – managing data is tough if no one is accountable for the data in question</li>
+</ul>
+<h4 id="data-quality">
+  
+  
+    <a href="#data-quality" class="anchor-heading" aria-labelledby="data-quality"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Data Quality
+  
+  
+</h4>
+    
+<ul>
+  <li>optimization of data toward the desired state – what you get compared to what you expect</li>
+  <li>should conform to expectations in business metadata</li>
+  <li>
+<strong>accuracy</strong> - Is the collected data factually correct? Are there duplicate values? Are the numeric values accurate?</li>
+  <li>
+<strong>completeness</strong> - Are the records complete? Do all required fields contain valid values?</li>
+  <li>
+<strong>timeliness</strong> - Are records available in a timely fashion?</li>
+</ul>
+<h4 id="data-modelling-and-design">
+  
+  
+    <a href="#data-modelling-and-design" class="anchor-heading" aria-labelledby="data-modelling-and-design"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Data Modelling and Design
+  
+  
+</h4>
+    
+<ul>
+  <li>process of converting data into a usable form</li>
+  <li>want to avoid the write once, read never (WORN) access pattern or data swamp</li>
+</ul>
+<h4 id="data-lineage">
+  
+  
+    <a href="#data-lineage" class="anchor-heading" aria-labelledby="data-lineage"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Data Lineage
+  
+  
+</h4>
+    
+<ul>
+  <li>recording the audit trail of data through its lifecycle, tracking both systems that process data and upstream data that it depends on</li>
+  <li><strong>data observability driven developement (dodd)</strong></li>
+</ul>
+<h4 id="data-integration-and-interoperability">
+  
+  
+    <a href="#data-integration-and-interoperability" class="anchor-heading" aria-labelledby="data-integration-and-interoperability"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Data Integration and Interoperability
+  
+  
+</h4>
+    
+<ul>
+  <li>process of integrating data across tools and processes</li>
+</ul>
+<h4 id="data-lifecycle-management">
+  
+  
+    <a href="#data-lifecycle-management" class="anchor-heading" aria-labelledby="data-lifecycle-management"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Data Lifecycle Management
+  
+  
+</h4>
+    
+<ul>
+  <li>how long you retain data</li>
+  <li>considerations:
+    <ul>
+      <li>cost of retaining indefinitely</li>
+      <li>privacy with things like GDPR and CCPA</li>
+    </ul>
+  </li>
+</ul>
+<h4 id="ethics-and-privacy">
+  
+  
+    <a href="#ethics-and-privacy" class="anchor-heading" aria-labelledby="ethics-and-privacy"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Ethics and Privacy
+  
+  
+</h4>
+    
+<ul>
+  <li>data engineers need to mask personally identifiable information (PII) and other sensitive info</li>
+  <li>bias can be identified and tracked</li>
+</ul>
+<h3 id="dataops">
+  
+  
+    <a href="#dataops" class="anchor-heading" aria-labelledby="dataops"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> DataOps
+  
+  
+</h3>
+    
+<ul>
+  <li>maps the best practices of Agile methodology, DevOps, and statistical process control (SPC) to data</li>
+  <li>increases release and quality of data products</li>
+  <li>set of cultural habits</li>
+</ul>
+
+<p>DataOps is a collection of technical practices, workflows, cultural norms, and architectural patterns that enable:</p>
+<ul>
+  <li>Rapid innovation and experimentation delivering new insights to customers with increasing velocity</li>
+  <li>Extremely high data quality and very low error rates</li>
+  <li>Collaboration across complex arrays of people, technology, and environments</li>
+  <li>Clear measurement, monitoring, and transparency of results</li>
+</ul>
+<h4 id="automation">
+  
+  
+    <a href="#automation" class="anchor-heading" aria-labelledby="automation"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Automation
+  
+  
+</h4>
+    
+<ul>
+  <li>enables reliability and consistency and allows faster deployments</li>
+  <li>change management (environment, code, and data version control), continuous integration/continuous deployment (CI/CD), and configuration as code</li>
+  <li><a href="https://dataopsmanifesto.org/en/">DataOps Manifesto</a></li>
+</ul>
+<h4 id="observability-and-monitoring">
+  
+  
+    <a href="#observability-and-monitoring" class="anchor-heading" aria-labelledby="observability-and-monitoring"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Observability and Monitoring
+  
+  
+</h4>
+    
+<ul>
+  <li>critical to get ahead of any problems you might experience</li>
+</ul>
+<h4 id="incident-response">
+  
+  
+    <a href="#incident-response" class="anchor-heading" aria-labelledby="incident-response"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Incident Response
+  
+  
+</h4>
+    
+<ul>
+  <li>using the automation and observability capabilities mentioned previously to rapidly identify root causes of an incident and resolve it as reliably and quickly as possible</li>
+  <li>data engineers should proactively find issues before business reports them</li>
+</ul>
+<h3 id="data-architecture">
+  
+  
+    <a href="#data-architecture" class="anchor-heading" aria-labelledby="data-architecture"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Data Architecture
+  
+  
+</h3>
+    
+<ul>
+  <li>A data architecture reflects the current and future state of data systems that support an organization’s long-term data needs and strategy</li>
+</ul>
+<h3 id="orchestration">
+  
+  
+    <a href="#orchestration" class="anchor-heading" aria-labelledby="orchestration"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Orchestration
+  
+  
+</h3>
+    
+<ul>
+  <li>the process of coordinating many jobs to run as quickly and efficiently as possible on a scheduled cadence</li>
+  <li>new tools like Airflow, Dagster, Prefect allow for infra as code</li>
+</ul>
+<h3 id="software-engineering">
+  
+  
+    <a href="#software-engineering" class="anchor-heading" aria-labelledby="software-engineering"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Software Engineering
+  
+  
+</h3>
+    
+<ul>
+  <li>central skill for data engineers</li>
+  <li>core data processing code</li>
+  <li>development of open source frameworks</li>
+  <li>streaming complications</li>
+  <li>infra as code (IaC)</li>
+  <li>pipelines as code</li>
+  <li>general-purpose problem solving</li>
+</ul>
+<h1 id="3-designing-good-data-architecture">
+  
+  
+    <a href="#3-designing-good-data-architecture" class="anchor-heading" aria-labelledby="3-designing-good-data-architecture"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 3: Designing Good Data Architecture
+  
+  
+</h1>
+    
+<h2 id="enterprise-architecture">
+  
+  
+    <a href="#enterprise-architecture" class="anchor-heading" aria-labelledby="enterprise-architecture"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Enterprise Architecture
+  
+  
+</h2>
+    
+<ul>
+  <li>data architecture is part of enterprise architecture</li>
+  <li>technical solutions exist to support business goals</li>
+  <li>architects
+    <ul>
+      <li>identify problems in current state (poor data quality, scalability limits, money-losing lines of business),</li>
+      <li>define desired future states (agile data-quality improvement, scalable cloud data solutions, improved business processes), and</li>
+      <li>realize initiatives through execution of small, concrete steps</li>
+    </ul>
+  </li>
+</ul>
+
+<p><strong>The Open Group Architecture Framework (TOGAF) definition</strong></p>
+<blockquote>
+  <p>The term “enterprise” in the context of “enterprise architecture” can denote an entire enterprise—encompassing all of its information and technology services, processes, and infrastructure—or a specific domain within the enterprise. In both cases, the architecture crosses multiple systems, and multiple functional groups within the enterprise.</p>
+</blockquote>
+
+<p><strong>Gartner’s definition</strong></p>
+<blockquote>
+  <p>Enterprise architecture (EA) is a discipline for proactively and holistically leading enterprise responses to disruptive forces by identifying and analyzing the execution of change toward desired business vision and outcomes. EA delivers value by presenting business and IT leaders with signature-ready recommendations for adjusting policies and projects to achieve targeted business outcomes that capitalize on relevant business disruptions.</p>
+</blockquote>
+
+<p><strong>Enterprise Architecture Book of Knowledge (EABOK) definition</strong></p>
+<blockquote>
+  <p>Enterprise Architecture (EA) is an organizational model; an abstract representation of an Enterprise that aligns strategy, operations, and technology to create a roadmap for success.</p>
+</blockquote>
+
+<p><strong>Fundamentals of Data Engineering definition</strong></p>
+<blockquote>
+  <p>Enterprise architecture is the design of systems to support change in the enterprise, achieved by flexible and reversible decisions reached through careful evaluation of trade-offs.</p>
+</blockquote>
+<h2 id="data-architecture-1">
+  
+  
+    <a href="#data-architecture-1" class="anchor-heading" aria-labelledby="data-architecture-1"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Data Architecture
+  
+  
+</h2>
+    
+<p><strong>TOGAF definition</strong></p>
+<blockquote>
+  <p>A description of the structure and interaction of the enterprise’s major types and sources of data, logical data assets, physical data assets, and data management resources.</p>
+</blockquote>
+
+<p><strong>DAMA definition</strong></p>
+<blockquote>
+  <p>Identifying the data needs of the enterprise (regardless of structure) and designing and maintaining the master blueprints to meet those needs. Using master blueprints to guide data integration, control data assets, and align data investments with business strategy.</p>
+</blockquote>
+
+<p><strong>Fundamentals of Data Engineering definition</strong></p>
+<blockquote>
+  <p>Data architecture is the design of systems to support the evolving data needs of an enterprise, achieved by flexible and reversible decisions reached through a careful evaluation of trade-offs.</p>
+</blockquote>
+
+<blockquote>
+  <p>“Architecture represents the significant design decisions that shape a system, where significant is measured by cost of change.”</p>
+  <ul>
+    <li>Grady Brooch</li>
+  </ul>
+</blockquote>
+
+<ul>
+  <li>good data architecture is flexible and easily maintainable, and it’s a living, breathing thing</li>
+</ul>
+<h2 id="principles-of-good-data-architecture">
+  
+  
+    <a href="#principles-of-good-data-architecture" class="anchor-heading" aria-labelledby="principles-of-good-data-architecture"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Principles of Good Data Architecture
+  
+  
+</h2>
+    
+<h3 id="aws-well-architected-framework">
+  
+  
+    <a href="#aws-well-architected-framework" class="anchor-heading" aria-labelledby="aws-well-architected-framework"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> AWS Well-Architected Framework
+  
+  
+</h3>
+    
+<ol>
+  <li>operational excellence</li>
+  <li>security</li>
+  <li>reliability</li>
+  <li>performance efficiency</li>
+  <li>cost optimization</li>
+  <li>sustainability</li>
+</ol>
+<h3 id="google-clouds-five-principles-for-cloud-native-architecture">
+  
+  
+    <a href="#google-clouds-five-principles-for-cloud-native-architecture" class="anchor-heading" aria-labelledby="google-clouds-five-principles-for-cloud-native-architecture"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Google Cloud’s Five Principles for Cloud-Native Architecture
+  
+  
+</h3>
+    
+<ol>
+  <li>design for automation</li>
+  <li>be smart with state</li>
+  <li>favor managed services</li>
+  <li>practice defense in depth</li>
+  <li>always be architecting</li>
+</ol>
+<h3 id="fundamentals-of-data-engineering-principles">
+  
+  
+    <a href="#fundamentals-of-data-engineering-principles" class="anchor-heading" aria-labelledby="fundamentals-of-data-engineering-principles"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Fundamentals of Data Engineering Principles
+  
+  
+</h3>
+    
+<ol>
+  <li>Choose components wisely
+    <ul>
+      <li>rely on common components already in use rather than reinventing the wheel</li>
+      <li>common components must support robust permission and security to enable sharing of assets among teams</li>
+    </ul>
+  </li>
+  <li>Plan for Failure
+    <ul>
+      <li>Everything fails, all the time</li>
+      <li>
+<strong>availability</strong> - The percentage of time an IT service or component is in an operable state</li>
+      <li>
+<strong>reliability</strong> - The system’s probability of meeting defined standards in performing its intended function during a specified interval</li>
+      <li>
+<strong>recovery time objective</strong> - The maximum acceptable time for a service or system outage</li>
+      <li>
+<strong>recovery point objective</strong> - the acceptable state after recovery</li>
+    </ul>
+  </li>
+  <li>Architect for Scalability
+    <ul>
+      <li>scalable systems need to <em>scale up</em> to handle significant amounts of data</li>
+      <li>also need to <em>scale down</em> to reduce costs</li>
+      <li>can <em>scale to zero</em> to turn off when not in use</li>
+    </ul>
+  </li>
+  <li>Architecture is Leadership
+    <ul>
+      <li>Strong leadership skills combined with high technical competence are rare and extremely valuable
+        <blockquote>
+          <p>In many ways, the most important activity of Architectus Oryzus is to mentor the development team, to raise their level so they can take on more complex issues.mImproving the development team’s ability gives an architect much greater leverage than being the sole decision-maker and thus running the risk of being an architectural bottleneck.</p>
+        </blockquote>
+      </li>
+    </ul>
+  </li>
+  <li>Always Be Architecting
+    <ul>
+      <li>deep knowledge of the baseline architecture (current state), develop a target architecture, and map out a sequencing plan to determine priorities and the order of architecture changes</li>
+    </ul>
+  </li>
+  <li>Build Loosely Coupled Systems
+    <ul>
+      <li>system broken into many small components</li>
+      <li>These systems interface with other services through abstraction layers, such as a messaging bus or an API. These abstraction layers hide and protect internal details of the service, such as a database backend or internal classes and method calls.</li>
+      <li>As a consequence of property 2, internal changes to a system component don’t require changes in other parts. Details of code updates are hidden behind stable APIs. Each piece can evolve and improve separately.</li>
+      <li>As a consequence of property 3, there is no waterfall, global release cycle for the whole system. Instead, each component is updated separately as changes and improvements are made.</li>
+      <li>loosely coupled teams and technical systems allow for more efficient work</li>
+    </ul>
+  </li>
+  <li>Make Reversible Decisions
+    <ul>
+      <li>one way doors – a door you can’t walk back out of</li>
+      <li>two way doors – a door you can leave the same way you came in</li>
+    </ul>
+  </li>
+  <li>Prioritize Security
+    <ul>
+      <li>hardened-perimeter: a strong firewall prevents intrusion, but security controls are lax within the perimeter</li>
+      <li>zero trust: no trust within or without the firewall</li>
+    </ul>
+  </li>
+  <li>Embrace FinOps
+    <blockquote>
+      <p>FinOps is an evolving cloud financial management discipline and cultural practice that enables organizations to get maximum business value by helping engineering, finance,technology, and business teams to collaborate on data-driven spending decisions.</p>
+    </blockquote>
+  </li>
+</ol>
+<h2 id="major-architecture-concepts">
+  
+  
+    <a href="#major-architecture-concepts" class="anchor-heading" aria-labelledby="major-architecture-concepts"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Major Architecture Concepts
+  
+  
+</h2>
+    
+<ul>
+  <li>
+<strong>domain</strong> - the real-world subject area for which you’re architecting</li>
+  <li>
+<strong>service</strong> - a set of functionality whose goal is to accomplish a task</li>
+  <li>
+<strong>scalability</strong> - allows us to increase capacity of system to improve performance and handle demand</li>
+  <li>
+<strong>elasticity</strong> - ability of scalable system to scale dynamically</li>
+  <li>
+<strong>availability</strong> - percentage of time an IT service or component is in operable state</li>
+  <li>
+<strong>reliability</strong> - system’s probability of meeting defined standards in performing its intended function during a specified interval</li>
+  <li>
+<strong>horizontal scaling</strong> - add more machines to satisfy load and resource requirements</li>
+  <li>
+<strong>vertical scaling</strong> - increase resources (CPU, disk, memory, I/O) to satisfy load requirements</li>
+  <li>
+<strong>tightly coupled services</strong> - extremely centralized dependencies and workflows – every part of a domain and service is vitally dependent upon every other domain and service</li>
+  <li>
+<strong>loosely coupled services</strong> - decentralized domains and services that do not have strict dependence on each other</li>
+  <li>
+<strong>single tier</strong> - your database and application are tightly coupled, residing on a single server</li>
+  <li>
+<strong>multitier</strong> - (also known as n-tier) architecture is composed of separate layers: data, application, business logic, presentation, etc. a three tier architecture consists of data, application logic, and presentation tiers</li>
+  <li>
+<strong>shared nothing architecture</strong> - a single node handles each request, meaning other nodes do not share resources such as memory, disk, or CPU with this node or with each other</li>
+  <li>
+<strong>shared disk architecture</strong> - share the same disk and memory accessible by all nodes</li>
+  <li>
+<strong>technical coupling</strong> - architectural tiers</li>
+  <li>
+<strong>domain coupling</strong> - the way domains are coupled together</li>
+  <li>
+<strong>monolith</strong> - a single codebase running on a single machine that provides both the application logic and user interface</li>
+  <li>
+<strong>microservices</strong> - comprises separate, decentralized, and loosely coupled services</li>
+  <li>
+<strong>brownfield projects</strong> often involve refactoring and reorganizing an existing architecture and are constrained by the choices of the present and past</li>
+  <li>
+<strong>greenfield projects</strong> - allows you to pioneer a fresh start, unconstrained by the history or legacy of a prior architecture</li>
+  <li>
+<strong>strangler pattern</strong> - new systems slowly and incrementally replace a legacy architecture’s components – allows for surgical approach of deprecating one piece of system at a time, and for flexible and reversible decisions</li>
+  <li>
+<strong>event-driven architecture</strong> events that are broadly defined as something that happened, typically a change in the state of something, consisting of event production, routing, and consumption</li>
+</ul>
+<h2 id="types-of-data-architecture">
+  
+  
+    <a href="#types-of-data-architecture" class="anchor-heading" aria-labelledby="types-of-data-architecture"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Types of Data Architecture
+  
+  
+</h2>
+    
+<h3 id="data-warehouse">
+  
+  
+    <a href="#data-warehouse" class="anchor-heading" aria-labelledby="data-warehouse"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Data Warehouse
+  
+  
+</h3>
+    
+<ul>
+  <li>A data warehouse is a central data hub used for reporting and analysis. Data in a data warehouse is typically highly formatted and structured for analytics use cases. It’s among the oldest and most well-established data architectures.</li>
+  <li>The <em>organizational data warehouse architecture</em> organizes data associated with certain business team structures and processes. The <em>technical data warehouse architecture</em> reflects the technical nature of the data warehouse, such as MPP</li>
+</ul>
+
+<p><strong>two main characteristics</strong></p>
+<ol>
+  <li>Separates online analytical processing (OLAP) from production databases (online trans‐ action processing)</li>
+  <li>centralizes and organizes data</li>
+</ol>
+
+<ul>
+  <li>Extract, Load, Transform (ELT) - data gets moved more or less directly from production systems into a staging area in the data warehouse</li>
+  <li>cloud data warehouse – things like Redshift, Google BigQuery and Snowflake (the latter two separate compute and storage pricing)</li>
+  <li>
+<strong>data mart</strong> - a more refined subset of a warehouse designed to serve analytics and reporting, focused on a single suborganization, department, or line of business
+    <ul>
+      <li>makes data more easily accessible to analysts and report developers</li>
+      <li>provide an additional stage of transformation beyond that provided by initial ETL or ELT</li>
+    </ul>
+  </li>
+</ul>
+<h3 id="data-lake">
+  
+  
+    <a href="#data-lake" class="anchor-heading" aria-labelledby="data-lake"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Data Lake
+  
+  
+</h3>
+    
+<ul>
+  <li>all data dumped in a central location</li>
+  <li>led to dumping ground of data – data swamp, dark data, write once, read never (WORN)</li>
+  <li>first generation of data lakes have largely gone out of style</li>
+</ul>
+<h3 id="data-lakehouse">
+  
+  
+    <a href="#data-lakehouse" class="anchor-heading" aria-labelledby="data-lakehouse"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Data Lakehouse
+  
+  
+</h3>
+    
+<ul>
+  <li>The lakehouse incorporates the controls, data management, and data structures found in a data warehouse while still housing data in object storage and supporting a variety of query and transformation engines. In particular, the data lakehouse supports atomicity, consistency, isolation, and durability (ACID) transactions</li>
+</ul>
+<h3 id="the-modern-data-stack">
+  
+  
+    <a href="#the-modern-data-stack" class="anchor-heading" aria-labelledby="the-modern-data-stack"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> The Modern Data Stack
+  
+  
+</h3>
+    
+<blockquote>
+  <p>main objective of the modern data stack is to use cloud-based, plug-and-play, easy-to-use, off-the-shelf components to create a modular and cost-effective data architecture. These components include data pipelines, storage, transformation, data management/governance, monitoring, visualization, and exploration.</p>
+</blockquote>
+
+<blockquote>
+  <p>Key outcomes of the modern data stack are self-service (analytics and pipelines), agile data management, and using open source tools or simple proprietary tools with clear pricing structures.</p>
+</blockquote>
+<h3 id="lambda-architecture">
+  
+  
+    <a href="#lambda-architecture" class="anchor-heading" aria-labelledby="lambda-architecture"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Lambda Architecture
+  
+  
+</h3>
+    
+<p>In a Lambda architecture you have systems operating independently of each other—batch, streaming, and serving. The source system is ideally immutable and append-only, sending data to two destinations for processing: stream and batch.</p>
+
+<div style="text-align:center">
+  <a href="/assets/img/fundamentals-of-data-engineering/lambda_arch.png">
+    <img src="/assets/img/fundamentals-of-data-engineering/lambda_arch.png" alt="">
+  </a>
+</div>
+<h3 id="kappa-architecture">
+  
+  
+    <a href="#kappa-architecture" class="anchor-heading" aria-labelledby="kappa-architecture"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Kappa Architecture
+  
+  
+</h3>
+    
+<ul>
+  <li>response to shortcomings of Lambda architecture</li>
+  <li>Jay Kreps proposed a system where stream-processing platform is the backbone of all data handling</li>
+  <li>hasn’t been widely adopted despite introduced in 2014 – difficult to execute on and complicated to maintain</li>
+</ul>
+<h3 id="dataflow-model">
+  
+  
+    <a href="#dataflow-model" class="anchor-heading" aria-labelledby="dataflow-model"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Dataflow Model
+  
+  
+</h3>
+    
+<blockquote>
+  <p>The core idea in the Dataflow model is to view all data as events, as the aggregation is performed over various types of windows. Ongoing real-time event streams are unbounded data. Data batches are simply bounded event streams, and the boundaries provide a natural window.</p>
+</blockquote>
+
+<p>“batch is a special case of streaming”</p>
+<h3 id="iot-architecture">
+  
+  
+    <a href="#iot-architecture" class="anchor-heading" aria-labelledby="iot-architecture"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> IoT architecture
+  
+  
+</h3>
+    
+<ul>
+  <li>data generated from devices (things) and sent to a destination</li>
+  <li>
+<strong>devices</strong> - physical hardware connected to the internet and collect data and transmit to downstream destination</li>
+  <li>
+<strong>iot gateway</strong> - hub for connecting devices and securely routing devices to appropriate destinations on the internet</li>
+</ul>
+<h3 id="data-mesh">
+  
+  
+    <a href="#data-mesh" class="anchor-heading" aria-labelledby="data-mesh"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Data Mesh
+  
+  
+</h3>
+    
+<ul>
+  <li>see <a href="https://itsmynotes.com/notes/tech_books/data-mesh">notes on Data Mesh</a>
+</li>
+  <li>response to sprawling, monolithic data platforms</li>
+  <li>four key components
+    <ol>
+      <li>Domain-oriented decentralized data ownership and architecture</li>
+      <li>Data as a product</li>
+      <li>Self-serve data infrastructure as a platform</li>
+      <li>Federated computational governance</li>
+    </ol>
+  </li>
+</ul>
+<h1 id="4-choosing-technologies-across-the-data-engineering-lifecycle">
+  
+  
+    <a href="#4-choosing-technologies-across-the-data-engineering-lifecycle" class="anchor-heading" aria-labelledby="4-choosing-technologies-across-the-data-engineering-lifecycle"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 4: Choosing Technologies Across the Data Engineering Lifecycle
+  
+  
+</h1>
+    
+<blockquote>
+  <p>Architecture is strategic; tools are tactical […] Architecture is the high-level design, roadmap, and blueprint of data systems that satisfy the strategic aims for the business. Architecture is the what, why, and when. Tools are used to make the architecture a reality; tools are the how.</p>
+</blockquote>
+<h2 id="team-size-and-capabilities">
+  
+  
+    <a href="#team-size-and-capabilities" class="anchor-heading" aria-labelledby="team-size-and-capabilities"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Team Size and Capabilities
+  
+  
+</h2>
+    
+<ul>
+  <li>There is a continuum of simple to complex technologies, and a team’s size roughly determines the amount of bandwidth your team can dedicate to complex solutions.</li>
+  <li>take inventory of team’s skills, and use that to drive tool selection</li>
+</ul>
+<h2 id="speed-to-market">
+  
+  
+    <a href="#speed-to-market" class="anchor-heading" aria-labelledby="speed-to-market"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Speed to Market
+  
+  
+</h2>
+    
+<ul>
+  <li>choosing the right technologies that help you deliver features and data faster while maintaining high-quality standards and security</li>
+</ul>
+<h2 id="interoperability">
+  
+  
+    <a href="#interoperability" class="anchor-heading" aria-labelledby="interoperability"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Interoperability
+  
+  
+</h2>
+    
+<ul>
+  <li>describes how various tech or systems interact, connect, exchange data, etc.</li>
+  <li>need to be aware of how simple it is to connect systems</li>
+</ul>
+<h2 id="cost-optimization-and-business-value">
+  
+  
+    <a href="#cost-optimization-and-business-value" class="anchor-heading" aria-labelledby="cost-optimization-and-business-value"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Cost Optimization and Business Value
+  
+  
+</h2>
+    
+<ul>
+  <li>budget and time and finite, and cost is major constraint in choosing the right arch</li>
+</ul>
+<h3 id="total-cost-of-ownership">
+  
+  
+    <a href="#total-cost-of-ownership" class="anchor-heading" aria-labelledby="total-cost-of-ownership"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Total Cost of Ownership
+  
+  
+</h3>
+    
+<ul>
+  <li>
+<em>Total cost of ownership</em> (TCO) is the total estimated cost of an initiative, including the direct and indirect costs of products and services utilized.</li>
+  <li>
+<strong>direct costs</strong> - directly attributed to an initiative (salaries, AWS bill, etc.)</li>
+  <li>
+<strong>indirect costs (overhead)</strong> - independent of the initiative, must be paid regardless</li>
+  <li>
+<strong>capital expenses (capex)</strong> - require up-front investment, need to be paid today</li>
+  <li>
+<strong>operational expenses (opex)</strong> - opposite of capex and gradual, over time</li>
+</ul>
+<h3 id="total-opportunity-cost-of-ownership">
+  
+  
+    <a href="#total-opportunity-cost-of-ownership" class="anchor-heading" aria-labelledby="total-opportunity-cost-of-ownership"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Total Opportunity Cost of Ownership
+  
+  
+</h3>
+    
+<ul>
+  <li>
+<em>total opportunity cost of ownership (toco)</em> - cost of lost opportunities incur in choosing a tech, arch, or process</li>
+</ul>
+<h3 id="finops">
+  
+  
+    <a href="#finops" class="anchor-heading" aria-labelledby="finops"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> FinOps
+  
+  
+</h3>
+    
+<blockquote>
+  <p>If it seems that FinOps is about saving money, then think again. FinOps is about making money. Cloud spend can drive more revenue, signal customer base growth, enable more product and feature release velocity, or even help shut down a data center.</p>
+</blockquote>
+<h2 id="today-versus-the-future-immutable-versus-transitory-technologies">
+  
+  
+    <a href="#today-versus-the-future-immutable-versus-transitory-technologies" class="anchor-heading" aria-labelledby="today-versus-the-future-immutable-versus-transitory-technologies"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Today versus the future: immutable versus transitory technologies
+  
+  
+</h2>
+    
+<ul>
+  <li>
+<strong>immutable tech</strong> - components that underpin cloud or languages or paradigms that have stood the test of time, eg. block storage, networking, servers, SQL, bash</li>
+  <li>
+<strong>transitory tech</strong> - things that come and go, eg. Javascript front-end language</li>
+  <li>should evaluate tools every two years, find the immutable tech and use that as base</li>
+</ul>
+<h2 id="location">
+  
+  
+    <a href="#location" class="anchor-heading" aria-labelledby="location"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Location
+  
+  
+</h2>
+    
+<h3 id="cloud">
+  
+  
+    <a href="#cloud" class="anchor-heading" aria-labelledby="cloud"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> cloud
+  
+  
+</h3>
+    
+<ul>
+  <li>much more flexible than on-prem, but you need to ensure compute optimization because pricing model is different than heavy upfront on-prem model</li>
+  <li>The key to finding value in the cloud is understanding and optimizing the cloud pricing model</li>
+  <li>
+<strong>Data gravity</strong> is real: once data lands in a cloud, the cost to extract it and migrate processes can be very high.</li>
+</ul>
+<h3 id="on-prem">
+  
+  
+    <a href="#on-prem" class="anchor-heading" aria-labelledby="on-prem"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> on-prem
+  
+  
+</h3>
+    
+<ul>
+  <li>often default for companies, but less elastic and flexible than cloud</li>
+</ul>
+<h3 id="hybrid-cloud">
+  
+  
+    <a href="#hybrid-cloud" class="anchor-heading" aria-labelledby="hybrid-cloud"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> hybrid cloud
+  
+  
+</h3>
+    
+<ul>
+  <li>both on-premise and in the cloud, depending on workload</li>
+</ul>
+<h3 id="multicloud">
+  
+  
+    <a href="#multicloud" class="anchor-heading" aria-labelledby="multicloud"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> multicloud
+  
+  
+</h3>
+    
+<ul>
+  <li>deploying to multiple public clouds to take advantage of the best services across several clouds</li>
+</ul>
+<h2 id="build-versus-buy">
+  
+  
+    <a href="#build-versus-buy" class="anchor-heading" aria-labelledby="build-versus-buy"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Build versus buy
+  
+  
+</h2>
+    
+<ul>
+  <li>argument for building is end to end control over solution and aren’t at the mercy of a vendor or open source community</li>
+  <li>argument for buying is resource constraints and expertise</li>
+  <li>should invest in building and customizing when doing so provides a competitive advantage for your business</li>
+</ul>
+<h3 id="open-source-software-oss">
+  
+  
+    <a href="#open-source-software-oss" class="anchor-heading" aria-labelledby="open-source-software-oss"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Open Source Software (OSS)
+  
+  
+</h3>
+    
+<ul>
+  <li>software distribution model where software and underlying code base made available for general use under specific licensing terms</li>
+  <li>
+<strong>Community-managed OSS</strong> - vibrant use base and strong community. Need to assess mindshare, maturity, troubleshooting, project management, team, developer relations and community management, contributing, roadmap, self-hosting and maintenance, and giving back to the community to assess</li>
+  <li>
+<strong>Commercial OSS</strong> - vendor will offer core of services for free and enhancements or managed services for a fee. Need to assess value, delivery model, support, releases and bug fixes, sales cycle and pricing, company finances, logos vs. revenue, and community support in choosing</li>
+  <li>
+<strong>Proprietary Walled Gardens</strong> - two examples: independent companies and cloud-platform offerings – need to assess interoperability, mindshare and market share, documentation and support, pricing, and longevity</li>
+</ul>
+
+<blockquote>
+  <p>There’s excellent value in upskilling your existing data team to build sophisticated systems on managed platforms rather than babysitting on-premises servers.</p>
+</blockquote>
+<h2 id="monolith-versus-modular">
+  
+  
+    <a href="#monolith-versus-modular" class="anchor-heading" aria-labelledby="monolith-versus-modular"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Monolith versus modular
+  
+  
+</h2>
+    
+<ul>
+  <li>monolith
+    <ul>
+      <li>pros: easier to reason about, costs lower cognitive burden and context switching.</li>
+      <li>cons:  brittle, user-induced problems occur, multi-tenancy is a problem, and switching to a new system is painful</li>
+    </ul>
+  </li>
+  <li>modular
+    <ul>
+      <li>pros: is easier to swap components to take advantage of fast moving landscape, limits team’s complexity and size</li>
+      <li>cons: more to reason about, interoperability can be harder</li>
+    </ul>
+  </li>
+</ul>
+
+<blockquote>
+  <p>While monoliths are attractive because of ease of understanding and reduced complexity, this comes at a high cost. The cost is the potential loss of flexibility, opportunity cost, and high-friction development cycles.</p>
+</blockquote>
+<h2 id="serverless-versus-servers">
+  
+  
+    <a href="#serverless-versus-servers" class="anchor-heading" aria-labelledby="serverless-versus-servers"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Serverless versus servers
+  
+  
+</h2>
+    
+
+<ol>
+  <li>
+    <p><strong>Expect servers to fail</strong>
+ Server failure will happen. Avoid using a “special snowflake” server that is overly customized and brittle, as this introduces a glaring vulnerability in your architec‐ ture. Instead, treat servers as ephemeral resources that you can create as needed and then delete. If your application requires specific code to be installed on the server, use a boot script or build an image. Deploy code to the server through a CI/CD pipeline.</p>
+  </li>
+  <li>
+    <p><strong>Use clusters and autoscaling</strong>
+ Take advantage of the cloud’s ability to grow and shrink compute resources on demand. As your application increases its usage, cluster your application servers, and use autoscaling capabilities to automatically horizontally scale your application as demand grows.</p>
+  </li>
+  <li>
+    <p><strong>Treat your infrastructure as code</strong>
+ Automation doesn’t apply to just servers and should extend to your infrastructure whenever possible. Deploy your infrastructure (servers or otherwise) using deployment managers such as Terraform, AWS CloudFormation, and Google Cloud Deployment Manager.</p>
+  </li>
+  <li>
+    <p><strong>Use containers</strong>
+ For more sophisticated or heavy-duty workloads with complex installed depen‐ dencies, consider using containers on either a single server or Kubernetes.</p>
+  </li>
+</ol>
+<h2 id="optimization-performance-and-the-benchmark-wars">
+  
+  
+    <a href="#optimization-performance-and-the-benchmark-wars" class="anchor-heading" aria-labelledby="optimization-performance-and-the-benchmark-wars"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Optimization, performance, and the benchmark wars
+  
+  
+</h2>
+    
+<ul>
+  <li>do your homework before relying on vendor benchmarks to choose</li>
+  <li>
+<strong>Dewitt clause</strong> - forbids the publication of database benchmarks that the database vendor has not sanctioned</li>
+</ul>
+
+<blockquote>
+  <p>Always approach technology the same way as architecture: assess trade-offs and aim for reversible decisions.</p>
+</blockquote>
+<h1 id="5-data-generation-in-source-systems">
+  
+  
+    <a href="#5-data-generation-in-source-systems" class="anchor-heading" aria-labelledby="5-data-generation-in-source-systems"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 5: Data Generation in Source Systems
+  
+  
+</h1>
+    
+<ul>
+  <li>
+<strong>Analog data</strong> – occurs in real world, eg vocal speech, sign language, writing on paper, or playing an instrument creation</li>
+  <li>
+<strong>Digital data</strong> – created by converting analog data to digital or native to a system</li>
+</ul>
+<h3 id="source-systems---main-ideas">
+  
+  
+    <a href="#source-systems---main-ideas" class="anchor-heading" aria-labelledby="source-systems---main-ideas"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Source Systems - Main Ideas
+  
+  
+</h3>
+    
+<h4 id="files-and-unstructured-data">
+  
+  
+    <a href="#files-and-unstructured-data" class="anchor-heading" aria-labelledby="files-and-unstructured-data"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Files and Unstructured Data
+  
+  
+</h4>
+    
+<ul>
+  <li>files are universal medium of exchange</li>
+  <li>structured (Excel, CSV), semistructured (JSON, XML, CSV), or unstructured (TXT, CSV)</li>
+</ul>
+<h4 id="apis">
+  
+  
+    <a href="#apis" class="anchor-heading" aria-labelledby="apis"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> APIs
+  
+  
+</h4>
+    
+<ul>
+  <li>application programming interface - standard way of exchanging data between systems</li>
+</ul>
+<h4 id="application-databases-oltp-systems">
+  
+  
+    <a href="#application-databases-oltp-systems" class="anchor-heading" aria-labelledby="application-databases-oltp-systems"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Application Databases (OLTP Systems)
+  
+  
+</h4>
+    
+<ul>
+  <li>online transaction processing (OLTP) system— a database that reads and writes individual data records at a high rate</li>
+  <li>supports low latency and high concurrency</li>
+  <li>ACID - atomicity,consistency, isolation, durability. Consistency means that any database read will return the last written version of the retrieved item. Isolation entails that if two updates are in flight concurrently for the same thing, the end database state will be consistent with the sequential execution of these updates in the order they were submitted. Durability indicates that committed data will never be lost, even in the event of power loss.</li>
+  <li>running analytics on these machines works but is not scalable</li>
+</ul>
+<h4 id="online-analytical-processing-system-olap">
+  
+  
+    <a href="#online-analytical-processing-system-olap" class="anchor-heading" aria-labelledby="online-analytical-processing-system-olap"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Online Analytical Processing System (OLAP)
+  
+  
+</h4>
+    
+<ul>
+  <li>OLAP to refer to any database system that supports high-scale interactive analytics queries</li>
+</ul>
+<h4 id="change-data-capture-cdc">
+  
+  
+    <a href="#change-data-capture-cdc" class="anchor-heading" aria-labelledby="change-data-capture-cdc"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Change Data Capture (CDC)
+  
+  
+</h4>
+    
+<ul>
+  <li>Change data capture (CDC) is a method for extracting each change event (insert, update, delete) that occurs in a database</li>
+  <li>used to replicate between databases in real time</li>
+</ul>
+<h4 id="logs">
+  
+  
+    <a href="#logs" class="anchor-heading" aria-labelledby="logs"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Logs
+  
+  
+</h4>
+    
+<ul>
+  <li>captures information about events that occur in systems</li>
+  <li>should capture who (human, system, service associated with event), what (the event and related metadata) and when (timestamp)</li>
+  <li>logs can be binary, semi-structured (eg JSON) or plain text / unstructured</li>
+</ul>
+<h4 id="messages-and-streams">
+  
+  
+    <a href="#messages-and-streams" class="anchor-heading" aria-labelledby="messages-and-streams"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Messages and Streams
+  
+  
+</h4>
+    
+<ul>
+  <li>
+<strong>message</strong> - raw data communicated across two or more systems</li>
+  <li>
+<strong>stream</strong> - append-only log of event records</li>
+</ul>
+<h3 id="types-of-time">
+  
+  
+    <a href="#types-of-time" class="anchor-heading" aria-labelledby="types-of-time"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Types of Time
+  
+  
+</h3>
+    
+<ul>
+  <li>always include timestamps for each phase through which an event travels</li>
+  <li>
+<strong>ingestion time</strong> - when an event is ingested from source system into a message queue, cache, memory, etc.</li>
+  <li>
+<strong>processing time</strong> - how long the data took to process, measured in seconds, minutes, hours</li>
+</ul>
+<h3 id="types-of-databases">
+  
+  
+    <a href="#types-of-databases" class="anchor-heading" aria-labelledby="types-of-databases"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Types of Databases
+  
+  
+</h3>
+    
+<h4 id="relational-database-management-system">
+  
+  
+    <a href="#relational-database-management-system" class="anchor-heading" aria-labelledby="relational-database-management-system"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> relational database management system
+  
+  
+</h4>
+    
+<ul>
+  <li>RDBMS - data is stored in a table of relations (rows) and each row contains multiple fields (columns)</li>
+  <li>rows are typically stored as contiguous sequence of bytes on disk</li>
+  <li>tables indexed by primary key - unique field for each row – indexing strategy is closely related to layout of table on disk</li>
+  <li>tables can have foreign key - fields iwth values connected with the values of PKs of other tables, facilitating joins and allowing for complex schemas</li>
+  <li>normalization - strategy for ensuring that data in records in not duplicated in multiple places</li>
+  <li>typically ACID compliant</li>
+</ul>
+<h4 id="non-relational-nosql">
+  
+  
+    <a href="#non-relational-nosql" class="anchor-heading" aria-labelledby="non-relational-nosql"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> non-relational (nosql)
+  
+  
+</h4>
+    
+<ul>
+  <li>not only sql - abandons relational paradigm</li>
+  <li>far too many different types of nosql to cover in one section</li>
+</ul>
+<h4 id="key-value-stores">
+  
+  
+    <a href="#key-value-stores" class="anchor-heading" aria-labelledby="key-value-stores"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> key-value stores
+  
+  
+</h4>
+    
+<ul>
+  <li>non-relational database that retrieves records using a key that uniquely identifies each record</li>
+  <li>similar to hash map / dictionary</li>
+  <li>good for caching data</li>
+  <li>also help applications that require high-durability persistence</li>
+</ul>
+<h4 id="document-stores">
+  
+  
+    <a href="#document-stores" class="anchor-heading" aria-labelledby="document-stores"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> document stores
+  
+  
+</h4>
+    
+<ul>
+  <li>specialized key-value store</li>
+  <li>document is a nested object (like JSON)</li>
+  <li>doesn’t support joins</li>
+  <li>generally not ACID compliant</li>
+</ul>
+<h4 id="wide-column">
+  
+  
+    <a href="#wide-column" class="anchor-heading" aria-labelledby="wide-column"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> wide column
+  
+  
+</h4>
+    
+<ul>
+  <li>optimized for storing massive amounts of data with high transaction rates and extremely low latency</li>
+  <li>don’t support complex queries</li>
+  <li>helpful for ad tech, IoT, real-time personalization apps</li>
+</ul>
+<h4 id="graph-database">
+  
+  
+    <a href="#graph-database" class="anchor-heading" aria-labelledby="graph-database"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> graph database
+  
+  
+</h4>
+    
+<ul>
+  <li>explicitly store in mathematical graph structure (as a series of nodes and edges)</li>
+  <li>Neo4j</li>
+  <li>good fit when you want to analyze connectivity between elements</li>
+</ul>
+<h4 id="search">
+  
+  
+    <a href="#search" class="anchor-heading" aria-labelledby="search"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> search
+  
+  
+</h4>
+    
+<ul>
+  <li>nonrelational database used to search data’s complex and straightforward semantic and structural characteristics</li>
+  <li>ideal for text search and log analysis</li>
+</ul>
+<h4 id="time-series">
+  
+  
+    <a href="#time-series" class="anchor-heading" aria-labelledby="time-series"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> time series
+  
+  
+</h4>
+    
+<ul>
+  <li>values organized by time</li>
+  <li>eg. stock prices, logs, etc.</li>
+</ul>
+<h3 id="apis-1">
+  
+  
+    <a href="#apis-1" class="anchor-heading" aria-labelledby="apis-1"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> APIs
+  
+  
+</h3>
+    
+<h4 id="rest">
+  
+  
+    <a href="#rest" class="anchor-heading" aria-labelledby="rest"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> REST
+  
+  
+</h4>
+    
+<ul>
+  <li>REST stands for representational state transfer. This set of practices and philosophies for building HTTP web APIs was laid out by Roy Fielding in 2000 in a PhD dissertation</li>
+  <li>key principles are that interactions are stateless – there is no notion of a session or context</li>
+  <li>if a REST call changes a systems state, these changes are global</li>
+</ul>
+
+<blockquote>
+  <p>However, low-level plumbing tasks still consume many resources. At virtually any large company, data engineers will need to deal with the problem of writing and maintaining custom code to pull data from APIs, which requires understanding the structure of the data as provided, developing appropriate data-extraction code, and determining a suitable data synchronization strategy.</p>
+</blockquote>
+<h4 id="graphql">
+  
+  
+    <a href="#graphql" class="anchor-heading" aria-labelledby="graphql"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> GraphQL
+  
+  
+</h4>
+    
+<ul>
+  <li>facebook query language for applicaiton data and an alternative to generic REST APIs</li>
+  <li>built around JSON and allows for more expressive queries than REST</li>
+</ul>
+<h4 id="webhooks">
+  
+  
+    <a href="#webhooks" class="anchor-heading" aria-labelledby="webhooks"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> webhooks
+  
+  
+</h4>
+    
+<ul>
+  <li>simple event-based data-transmission pattern</li>
+  <li>when an event happens, it triggers a call to an HTTP endpoint hosted by data consumer</li>
+</ul>
+<h4 id="rpc-and-grpc">
+  
+  
+    <a href="#rpc-and-grpc" class="anchor-heading" aria-labelledby="rpc-and-grpc"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> rpc and grpc
+  
+  
+</h4>
+    
+<ul>
+  <li>remote procedure call (rpc) used in distributed computing – allows you to run a procedure on a remote system</li>
+  <li>gRPC developed by google to utilize HTTP/2</li>
+</ul>
+<h1 id="6-storage">
+  
+  
+    <a href="#6-storage" class="anchor-heading" aria-labelledby="6-storage"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 6: Storage
+  
+  
+</h1>
+
+          
+
+          
+        </main>
+        
+
+  <hr>
+  <footer>
+    
+      <p><a href="#top" id="back-to-top">Back to top</a></p>
+    
+
+    <p class="text-small text-grey-dk-100 mb-0">Copyright © 2022 Michael McIntyre. </p>
+
+    
+      <div class="d-flex mt-2">
+        
+          <p class="text-small text-grey-dk-000 mb-0 mr-2">
+            Page last modified: <span class="d-inline-block">Sep 29 2022 at 07:40 PM</span>.
+          </p>
+        
+        
+      </div>
+    
+  </footer>
+
+
+      </div>
+    </div>
+    
+      
+
+<div class="search-overlay"></div>
+
+    
+  </div>
+
+  
+</body>
+</html>

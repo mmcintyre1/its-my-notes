@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+
+  
+
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+  <link rel="stylesheet" href="/assets/css/just-the-docs-default.css">
+  <link rel="stylesheet" href="/assets/css/native.css">
+
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-M6EEXPRNWS"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-M6EEXPRNWS', { 'anonymize_ip': true });
+  </script>
+
+  
+
+  
+  <script type="text/javascript" src="/assets/js/vendor/lunr.min.js"></script>
+  
+  <script type="text/javascript" src="/assets/js/just-the-docs.js"></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Making a Blog using Flask | Notes</title>
+<meta name="generator" content="Jekyll v3.9.2">
+<meta property="og:title" content="Making a Blog using Flask">
+<meta property="og:locale" content="en_US">
+<meta name="description" content="My Notes">
+<meta property="og:description" content="My Notes">
+<link rel="canonical" href="https://itsmynotes.com/notes/projects/make-a-blog-with-flask">
+<meta property="og:url" content="https://itsmynotes.com/notes/projects/make-a-blog-with-flask">
+<meta property="og:site_name" content="Notes">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<meta property="twitter:title" content="Making a Blog using Flask">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"My Notes","headline":"Making a Blog using Flask","url":"https://itsmynotes.com/notes/projects/make-a-blog-with-flask"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+  
+
+</head>
+<body>
+  <a class="skip-to-main" href="#main-content">Skip to main content</a>
+  <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+  <symbol id="svg-link" viewbox="0 0 24 24">
+  <title>Link</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link">
+    <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+  </svg>
+</symbol>
+
+  <symbol id="svg-menu" viewbox="0 0 24 24">
+  <title>Menu</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu">
+    <line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line>
+  </svg>
+</symbol>
+
+  <symbol id="svg-arrow-right" viewbox="0 0 24 24">
+  <title>Expand</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+    <polyline points="9 18 15 12 9 6"></polyline>
+  </svg>
+</symbol>
+
+  <!-- Feather. MIT License: https://github.com/feathericons/feather/blob/master/LICENSE -->
+<symbol id="svg-external-link" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-external-link">
+  <title id="svg-external-link-title">(external link)</title>
+  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line>
+</symbol>
+
+  
+    <symbol id="svg-doc" viewbox="0 0 24 24">
+  <title>Document</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file">
+    <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline>
+  </svg>
+</symbol>
+
+    <symbol id="svg-search" viewbox="0 0 24 24">
+  <title>Search</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search">
+    <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+  </svg>
+</symbol>
+
+  
+  
+    <!-- Bootstrap Icons. MIT License: https://github.com/twbs/icons/blob/main/LICENSE.md -->
+<symbol id="svg-copy" viewbox="0 0 16 16">
+  <title>Copy</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard" viewbox="0 0 16 16">
+    <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"></path>
+    <path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"></path>
+  </svg>
+</symbol>
+<symbol id="svg-copied" viewbox="0 0 16 16">
+  <title>Copied</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard-check-fill" viewbox="0 0 16 16">
+    <path d="M6.5 0A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3Zm3 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3Z"></path>
+    <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1A2.5 2.5 0 0 1 9.5 5h-3A2.5 2.5 0 0 1 4 2.5v-1Zm6.854 7.354-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L7.5 10.793l2.646-2.647a.5.5 0 0 1 .708.708Z"></path>
+  </svg>
+</symbol>
+
+  
+</svg>
+
+  <div class="side-bar">
+  <div class="site-header" role="banner">
+    <a href="/" class="site-title lh-tight">
+  Notes
+
+</a>
+    <button id="menu-button" class="site-button btn-reset" aria-label="Toggle menu" aria-pressed="false">
+      <svg viewbox="0 0 24 24" class="icon" aria-hidden="true"><use xlink:href="#svg-menu"></use></svg>
+    </button>
+  </div>
+
+  <nav aria-label="Main" id="site-nav" class="site-nav">
+  
+  
+    <ul class="nav-list">
+<li class="nav-list-item">
+<button class="nav-list-expander btn-reset" aria-label="toggle items in Projects category" aria-pressed="false">
+      <svg viewbox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+    </button><a href="/notes/projects" class="nav-list-link">Projects</a><ul class="nav-list"></ul>
+</li>
+<li class="nav-list-item">
+<button class="nav-list-expander btn-reset" aria-label="toggle items in Vocabulary category" aria-pressed="false">
+      <svg viewbox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+    </button><a href="/notes/vocabulary" class="nav-list-link">Vocabulary</a><ul class="nav-list"></ul>
+</li>
+<li class="nav-list-item">
+<button class="nav-list-expander btn-reset" aria-label="toggle items in Business Books category" aria-pressed="false">
+      <svg viewbox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+    </button><a href="/notes/business-books" class="nav-list-link">Business Books</a><ul class="nav-list"></ul>
+</li>
+<li class="nav-list-item">
+<button class="nav-list-expander btn-reset" aria-label="toggle items in Other Books category" aria-pressed="false">
+      <svg viewbox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+    </button><a href="/notes/other-books" class="nav-list-link">Other Books</a><ul class="nav-list"></ul>
+</li>
+<li class="nav-list-item">
+<button class="nav-list-expander btn-reset" aria-label="toggle items in Educational Books category" aria-pressed="false">
+      <svg viewbox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+    </button><a href="/notes/educational-books" class="nav-list-link">Educational Books</a><ul class="nav-list"></ul>
+</li>
+<li class="nav-list-item">
+<button class="nav-list-expander btn-reset" aria-label="toggle items in Articles category" aria-pressed="false">
+      <svg viewbox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+    </button><a href="/notes/articles" class="nav-list-link">Articles</a><ul class="nav-list"></ul>
+</li>
+<li class="nav-list-item">
+<button class="nav-list-expander btn-reset" aria-label="toggle items in Quotes category" aria-pressed="false">
+      <svg viewbox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+    </button><a href="/notes/quotes" class="nav-list-link">Quotes</a><ul class="nav-list"></ul>
+</li>
+<li class="nav-list-item">
+<button class="nav-list-expander btn-reset" aria-label="toggle items in Classes category" aria-pressed="false">
+      <svg viewbox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+    </button><a href="/notes/classes" class="nav-list-link">Classes</a><ul class="nav-list"></ul>
+</li>
+<li class="nav-list-item">
+<button class="nav-list-expander btn-reset" aria-label="toggle items in Tech Books category" aria-pressed="false">
+      <svg viewbox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+    </button><a href="/notes/tech-books" class="nav-list-link">Tech Books</a><ul class="nav-list"></ul>
+</li>
+<li class="nav-list-item">
+<button class="nav-list-expander btn-reset" aria-label="toggle items in Podcasts category" aria-pressed="false">
+      <svg viewbox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+    </button><a href="/notes/podcasts" class="nav-list-link">Podcasts</a><ul class="nav-list"></ul>
+</li>
+</ul>
+
+  
+</nav>
+
+
+  
+  
+    <footer class="site-footer">
+      This site uses <a href="https://github.com/just-the-docs/just-the-docs">Just the Docs</a>, a documentation theme for Jekyll.
+    </footer>
+  
+</div>
+
+  <div class="main" id="top">
+    <div id="main-header" class="main-header">
+  
+    
+
+<div class="search" role="search">
+  <div class="search-input-wrap">
+    <input type="text" id="search-input" class="search-input" tabindex="0" placeholder="Search Notes" aria-label="Search Notes" autocomplete="off">
+    <label for="search-input" class="search-label"><svg viewbox="0 0 24 24" class="search-icon"><use xlink:href="#svg-search"></use></svg></label>
+  </div>
+  <div id="search-results" class="search-results"></div>
+</div>
+
+  
+  
+  
+    <nav aria-label="Auxiliary" class="aux-nav">
+  <ul class="aux-nav-list">
+    
+      <li class="aux-nav-list-item">
+        <a href="https://github.com/mmcintyre1/its-my-notes" class="site-button">
+          It's My Notes on GitHub
+        </a>
+      </li>
+    
+  </ul>
+</nav>
+
+  
+</div>
+
+    <div class="main-content-wrap">
+      <nav aria-label="Breadcrumb" class="breadcrumb-nav">
+  <ol class="breadcrumb-nav-list">
+  
+    <li class="breadcrumb-nav-list-item"><a href="/notes/projects">Projects</a></li>
+  <li class="breadcrumb-nav-list-item"><span>Making a Blog using Flask</span></li>
+  </ol>
+</nav>
+      <div id="main-content" class="main-content">
+        <main>
+          
+            <h1 id="making-a-blog-using-flask">
+  
+  
+    <a href="#making-a-blog-using-flask" class="anchor-heading" aria-labelledby="making-a-blog-using-flask"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Making a Blog using Flask
+  
+  
+</h1>
+    
+<p>It’s been awhile since I’ve tried making a blog again, but instead of using Jekyll and md files (which might get me up and running in under an hour), I’m going to use Flask. Should be fun.</p>
+
+<p>I think one of the things I also want to work on learning better is Docker, as well as Makefile.</p>
+<h2 id="tech">
+  
+  
+    <a href="#tech" class="anchor-heading" aria-labelledby="tech"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Tech
+  
+  
+</h2>
+    
+<ul>
+  <li>Flask (server code and presentation)</li>
+  <li>postgres (backend db)</li>
+  <li>gunicorn (WSGI HTTP server)</li>
+  <li>Docker (container)</li>
+  <li>Makefile (build scripting)</li>
+  <li>WSL2 (local development)</li>
+  <li>TBD - either Heroku, Netlify, LightSail, or other (hosting)</li>
+  <li>TBD (data layer hosting)</li>
+</ul>
+<h2 id="repository">
+  
+  
+    <a href="#repository" class="anchor-heading" aria-labelledby="repository"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Repository
+  
+  
+</h2>
+    
+<p>https://github.com/mmcintyre1/silently-failing</p>
+<h2 id="starting-out---getting-the-dev-environment-up-and-running">
+  
+  
+    <a href="#starting-out---getting-the-dev-environment-up-and-running" class="anchor-heading" aria-labelledby="starting-out---getting-the-dev-environment-up-and-running"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Starting out - Getting the Dev Environment Up and Running
+  
+  
+</h2>
+    
+<p>I think my first step is going to be getting a simple Flask app functioning in a docker container, then deploying that to Netlify. If I can start with the CI/CD so I can easily push changes live, it’ll allow me to concentrate on the stuff I know less well – presentation. The last app I hosted on Netlify was a jekyll app, so there was no data layer. Doesn’t seem like netlify offers any database services, but I can probably find something easy enough.</p>
+<h2 id="making-the-repository-and-a-simple-flask-app">
+  
+  
+    <a href="#making-the-repository-and-a-simple-flask-app" class="anchor-heading" aria-labelledby="making-the-repository-and-a-simple-flask-app"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Making the Repository and a Simple Flask App
+  
+  
+</h2>
+    
+<p>All right, step 1 is making a repository structure for the Flask app. Flask recommends <a href="https://flask.palletsprojects.com/en/2.0.x/tutorial/layout/">this structure</a>, so that’s what I’ve gone with. I’ve got the project structure in <a href="https://github.com/mmcintyre1/silently-failing/tree/b702777d1307d8c8362d45dd39e5754c7ff69b6d">this commit</a>. I made <code class="language-plaintext highlighter-rouge">templates</code> and <code class="language-plaintext highlighter-rouge">static</code> folder as well, but they are empty so won’t be committed yet.</p>
+
+<p>I’ve created a virtual environment by using the command <code class="language-plaintext highlighter-rouge">python -m venv venv</code> and then running <code class="language-plaintext highlighter-rouge">pip install flask</code>.</p>
+
+<p>I can run this locally easily enough. First I run <code class="language-plaintext highlighter-rouge">export FLASK_APP=silently-failing</code>, then I run <code class="language-plaintext highlighter-rouge">flask run</code>. This will get me up and running locally. Looks like shit, but you have to start somewhere.</p>
+<h2 id="getting-docker-and-docker-desktop-with-wsl2">
+  
+  
+    <a href="#getting-docker-and-docker-desktop-with-wsl2" class="anchor-heading" aria-labelledby="getting-docker-and-docker-desktop-with-wsl2"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Getting Docker and Docker Desktop with WSL2
+  
+  
+</h2>
+    
+<p>Since I’m running in WSL2, I’m using Docker Desktop to make my life easier. I could probably run docker directly in WSL2, but Docker and Windows make that really silly. There’s a pretty good rundown of <a href="https://www.docker.com/blog/new-docker-desktop-wsl2-backend/">Docker’s integration with WSL2</a>.</p>
+
+<p>I used the Windows docs for <a href="https://docs.microsoft.com/en-us/windows/wsl/tutorials/wsl-containers">getting started with Docker and WSL2</a>. As a side note, Microsoft’s documentation is normally exceptional. They have really upped their game.</p>
+<h2 id="doing-the-docker-thing">
+  
+  
+    <a href="#doing-the-docker-thing" class="anchor-heading" aria-labelledby="doing-the-docker-thing"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Doing the Docker thing
+  
+  
+</h2>
+    
+<p>So now I need to build the docker container image, then run that container image. We can write out the instructions for building that container image in a <code class="language-plaintext highlighter-rouge">Dockerfile</code>, then we can build the container image via <code class="language-plaintext highlighter-rouge">docker build</code> then we can run that container via <code class="language-plaintext highlighter-rouge">docker run</code>. I’m following <a href="https://docs.docker.com/language/python/build-images/">Docker’s guide</a>. <a href="https://github.com/mmcintyre1/silently-failing/blob/afe7e4d3bfc4d1e3c550a4a8319b292dd441dd9f/Dockerfile">This</a> is what my <code class="language-plaintext highlighter-rouge">Dockerfile</code> looks like right now.</p>
+
+<p>Now I can build the image using the command <code class="language-plaintext highlighter-rouge">docker build --tag silently-failing .</code> while in my applications root directory. Giving the image a name will make it easier to run commands later. The tag is in the format of <code class="language-plaintext highlighter-rouge">name:tag</code>, and leaving off the tag omits it from the image.</p>
+
+<p>Then, I can run the image container via <code class="language-plaintext highlighter-rouge">docker run -d -p 5000:5000 silently-failing</code>.</p>
+<ul>
+  <li>
+<code class="language-plaintext highlighter-rouge">-d</code> means in detached mode, so it runs in the background</li>
+  <li>
+<code class="language-plaintext highlighter-rouge">-p</code> publishes the ports within the container to outside the container</li>
+  <li>
+<code class="language-plaintext highlighter-rouge">silently-failing</code> tells it what image to run.</li>
+</ul>
+<h3 id="docker-and-caching-and-some-best-practices">
+  
+  
+    <a href="#docker-and-caching-and-some-best-practices" class="anchor-heading" aria-labelledby="docker-and-caching-and-some-best-practices"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Docker and caching, and some best practices
+  
+  
+</h3>
+    
+<p>One interesting thing about docker is that each command is a layer, and there is a cache that is maintained that means every time you run <code class="language-plaintext highlighter-rouge">docker build</code> docker will look for an existing layer in its cache, and if one exists it uses that instead of building a new one. This build cache is super important, and it’s why you see things like these commands separated:</p>
+
+<div class="language-docker highlighter-rouge"><div class="highlight"><pre class="highlight"><code><div class="table-wrapper"><table class="rouge-table"><tbody><tr>
+<td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td>
+<td class="rouge-code"><pre><span class="k">COPY</span><span class="s"> requirements.txt /</span>
+<span class="k">RUN </span>pip3 <span class="nb">install</span> <span class="nt">-r</span> /requirements.txt
+
+<span class="k">COPY</span><span class="s"> . /app</span>
+<span class="k">WORKDIR</span><span class="s"> /app</span>
+</pre></td>
+</tr></tbody></table></div></code></pre></div></div>
+
+<p>This is a really helpful page to read through:
+<a href="https://docs.docker.com/develop/develop-images/dockerfile_best-practices/">Best practices for writing a Dockerfile</a></p>
+
+<p>There is also a bit of chatter on running Docker images as root user and how you generally shouldn’t be doing it. Since a docker container is running on the same kernel as the host, there isn’t the typical separation of layers that you might see with a virtual machine. For some use cases it doesn’t really matter since the application you might run doesn’t actually run as root, for example, nginx.</p>
+<h3 id="difference-between-cmd-and-entrypoint">
+  
+  
+    <a href="#difference-between-cmd-and-entrypoint" class="anchor-heading" aria-labelledby="difference-between-cmd-and-entrypoint"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Difference Between <code class="language-plaintext highlighter-rouge">CMD</code> and <code class="language-plaintext highlighter-rouge">ENTRYPOINT</code>
+  
+  
+</h3>
+    
+<p>I’ve written my <code class="language-plaintext highlighter-rouge">Dockerfile</code> with <code class="language-plaintext highlighter-rouge">CMD</code>, but I’ve seen <code class="language-plaintext highlighter-rouge">ENTRYPOINT</code> used as well. <a href="https://www.bmc.com/blogs/docker-cmd-vs-entrypoint/#">Here’s</a> a pretty decent resource on the topic, but it seems to boil down to whether or not you want your commands to be able to overridden at the command line when starting the image. Your <code class="language-plaintext highlighter-rouge">Dockerfile</code> needs either a <code class="language-plaintext highlighter-rouge">CMD</code> or an <code class="language-plaintext highlighter-rouge">ENTRYPOINT</code>. I’m using the command <code class="language-plaintext highlighter-rouge">python3 -m flask run --host=0.0.0.0</code>, but if I wanted to use <code class="language-plaintext highlighter-rouge">python3 -m flask shell</code>, I can do that easily by running the command <code class="language-plaintext highlighter-rouge">docker run silently-failing flask shell</code>.</p>
+<h2 id="adding-in-gunicorn">
+  
+  
+    <a href="#adding-in-gunicorn" class="anchor-heading" aria-labelledby="adding-in-gunicorn"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Adding in Gunicorn
+  
+  
+</h2>
+    
+<p>So now I want to add in a web server to replace the simple one Flask gives. The web server just needs to implement WSGI and will integrate with Flask as Flask is expecting WSGI. The <a href="https://en.wikipedia.org/wiki/Web_Server_Gateway_Interface">wikipedia for WSGI</a> is a pretty good resource for more information. Need to update the Dockerfile. I’m loosely using <a href="https://itnext.io/setup-flask-project-using-docker-and-gunicorn-4dcaaa829620">this</a> as a resource, but instead of using a shell script I’ll just pass in the start up commands via <code class="language-plaintext highlighter-rouge">CMD</code>. <a href="https://github.com/mmcintyre1/silently-failing/blob/365d3c739f4c0fae2d3686728718bc709481a760/Dockerfile">This</a> is what my <code class="language-plaintext highlighter-rouge">Dockerfile</code> looks like now.</p>
+
+<p>Another thing I’ve noticed is that in working with docker, I am running <code class="language-plaintext highlighter-rouge">docker build</code> a bunch, and I have a ton of images I need to go through and delete. This is easy enough via Docker Desktop, but surely there is a better way to manage the lifecycle of these containers and clean up detritus.</p>
+<h2 id="simplifying-docker-stuff-with-docker-compose">
+  
+  
+    <a href="#simplifying-docker-stuff-with-docker-compose" class="anchor-heading" aria-labelledby="simplifying-docker-stuff-with-docker-compose"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Simplifying Docker Stuff with Docker Compose
+  
+  
+</h2>
+    
+<p>Typically Docker Compose is used to run multi-container apps, like if we were going to run a flask/gunicorn container, an nginx container, and postgres container all with the same <code class="language-plaintext highlighter-rouge">docker-compose</code> command. It also makes it much lighter than typing out the same long-winded <code class="language-plaintext highlighter-rouge">docker run -d -p 8050:8050 silently-failing</code>, and it allows me to mount volumes outside of the container to within the container so I don’t need to constantly be rebuilding the container itself after every file update.</p>
+
+<p><a href="https://github.com/mmcintyre1/silently-failing/blob/ef1c5523c38f0f00d1c18c746801314eb5aca15d/docker-compose.yml">Putting together a docker-compose.yml file</a> was easy as pie using <a href="https://docs.docker.com/compose/gettingstarted/">this</a> documentation, but I spent a bit longer than I’m comfortable admitting working on how to get hot reloading working. At first I was futzing around with the mounted drives, then I was trying to pass in environment variables via a <code class="language-plaintext highlighter-rouge">.env</code> file and the <code class="language-plaintext highlighter-rouge">env_file</code> command in the <code class="language-plaintext highlighter-rouge">docker-compose.yml</code> file (I might go back to this, as the way I currently have it is using <code class="language-plaintext highlighter-rouge">debug=True</code> in the <code class="language-plaintext highlighter-rouge">main</code> block in my flask app file). Finally, I realized that I was missing a <code class="language-plaintext highlighter-rouge">--reload</code> directive to my gunicorn command. Adding that in, and things worked perfectly. Just needed to go back and clean up all the things that didn’t work, since I was kind of throwing things at the wall for a bit there and I’m not sure what the side effects are of things I was doing.</p>
+
+<p>Anyway, on to a simple makefile.</p>
+<h2 id="making-make-files">
+  
+  
+    <a href="#making-make-files" class="anchor-heading" aria-labelledby="making-make-files"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Making make files
+  
+  
+</h2>
+    
+<p>So a makefile should give us a nice entry into build and run commands. I don’t think I need to run gunicorn in dev since the Flask HTTP server is suitable. There might be some argument to running gunicorn in dev just so dev and live are as synonymous as possible (<a href="https://12factor.net/dev-prod-parity">12 Factor App: Dev/prod parity</a>). I don’t really have an opinion right now.</p>
+
+<p>The commands I think I want are</p>
+<ul>
+  <li>build</li>
+  <li>run-dev</li>
+  <li>run-live</li>
+  <li>kill</li>
+</ul>
+
+<p>The way I implemented this for now is to have separate commands for dev and live, but I think I’d much rather be able to set an environment variable for development or production and have that determine what needs to run. Less overhead and duplication maybe? <a href="https://github.com/mmcintyre1/silently-failing/tree/622f95f089d095c16b07e006dd9a12d3d2ceeaa6">Relevant commit</a></p>
+<h2 id="building-and-hosting-the-application">
+  
+  
+    <a href="#building-and-hosting-the-application" class="anchor-heading" aria-labelledby="building-and-hosting-the-application"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Building and Hosting the application
+  
+  
+</h2>
+    
+<h3 id="netlify-or-something-else">
+  
+  
+    <a href="#netlify-or-something-else" class="anchor-heading" aria-labelledby="netlify-or-something-else"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Netlify or something else?
+  
+  
+</h3>
+    
+<p>So when choosing a platform to run my blog, I had originally thought Netlify, but Netlify only hosts static content. Makes sense for a jekyll blog since it’s a glorified router to md files, but for flask which needs to run a backend server so Netlify isn’t as suitable. I heard something about Netlify functions, but that means the architecture of the app would need to change. I’m not sure if the idea is you’d have server functions like getting a blog post or deleting a blog post implemented each in a function and your web server is just routing to those functions and controlling presentation? Anyway, seems a bit too complicated. I just want to point a hosting site at a github repo, tell it to redeploy on updates to master, give it a command to run to start my web server, and potentially give me access to a data layer.</p>
+<h3 id="heroku">
+  
+  
+    <a href="#heroku" class="anchor-heading" aria-labelledby="heroku"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Heroku
+  
+  
+</h3>
+    
+<p>Some options for Flask that I’ve heard are pythonanywhere and Heroku. Heroku is the first one I tried and seems to fit all the use cases, but it’s what I’m going with for now. If I want to change it in the future it shouldn’t be too hard. I have my DNS taken care of by Route 53 in AWS, so changing backend is just swapping where my CNAME points.</p>
+
+<p>Another option was some of the options one step up from free, so things like EC2, Lightsail, Azure, etc. The downside is those cost money, I’d have to spin my own CI and CD (using GitHub actions makes that relatively trivial), and the other options are free. Free tier is the only thing that makes sense for small sites. The idea is that your low traffic site is being subsidized by the big players, so paying early on in a site’s existence doesn’t make a ton of sense, especially when elastically growing into a paid tier is so easy.</p>
+
+<p>First thing is create a Heroku account. I did that through the web UI. Don’t forget MFA!</p>
+
+<p>After that, I worked primarily with the CLI in my WSL. I ran into a problem where I created the site in the web UI first, then I couldn’t figure out the command to switch apps in the CLI, so I ended up deleting the site and just running <code class="language-plaintext highlighter-rouge">heroku create silentlyfailing</code> through the CLI.</p>
+
+<p>I was interested in how heroku was using git and <a href="https://stackoverflow.com/questions/5338551/how-does-git-push-heroku-master-know-where-to-push-to-and-how-to-push-to-a-dif">here</a> is a good Stack Overflow answer on it. It works like how you would expect git to work, but I haven’t used git for anything other than GitHub, so it’s cool to see the tech.</p>
+
+<p>The tutorial I was generally following was <a href="https://devcenter.heroku.com/articles/getting-started-with-python#set-up">Heroku’s own</a></p>
+<h4 id="heroku-dynos">
+  
+  
+    <a href="#heroku-dynos" class="anchor-heading" aria-labelledby="heroku-dynos"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Heroku Dynos
+  
+  
+</h4>
+    
+<p>I’m not sure where the term “dynos” comes from, but these represent container types available. In practice, they are a way to gate certain functionality. For me, I was concerned with two things: 1) uptime 2) HTTPS. With the free dyno, you have to manage your own HTTPS certificates, and your site is taken offline after 30 minutes of inactivity before being started again. For the $7 a month hobby dyno, you get managed certs and no downtime, which seems like a small investment. Additionally, the price is prorated to uptime, so if you take your site down you aren’t paying for capacity. More information on dynos <a href="https://dev.to/milandhar/what-are-heroku-dynos-3b1p">here</a>.</p>
+<h4 id="heroku-procfiles">
+  
+  
+    <a href="#heroku-procfiles" class="anchor-heading" aria-labelledby="heroku-procfiles"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Heroku Procfiles
+  
+  
+</h4>
+    
+<p>Once Heroku starts up a server, I need to give it a command so it knows what it should do. This takes the form of a <code class="language-plaintext highlighter-rouge">Procfile</code>. For now mine is very simple: <code class="language-plaintext highlighter-rouge">web: gunicorn silentlyfailing:app</code>. This <code class="language-plaintext highlighter-rouge">Procfile</code> represents a divergence from how the app runs locally, which is through docker. You can run the <code class="language-plaintext highlighter-rouge">Procfile</code> locally through <code class="language-plaintext highlighter-rouge">heroku local web</code>, but I found you need to install requirements and the database won’t work, so I will prefer to use docker for now. The risk is that I need to manually keep my dev environment and the Heroku environment similar, but that isn’t such a large problem for such a small app.</p>
+<h3 id="dns-stuff">
+  
+  
+    <a href="#dns-stuff" class="anchor-heading" aria-labelledby="dns-stuff"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> DNS Stuff
+  
+  
+</h3>
+    
+<p>Heroku, like all hosting sites, uses some sort of variation on {your-app-name}.{sites-base-name}.com. I used <a href="https://devcenter.heroku.com/articles/route-53">Heroku’s guide on configuring your site with Route 53</a>. I have my apex domain, <code class="language-plaintext highlighter-rouge">silentlyfailing.com</code> redirecting to an S3 bucket, which is then redirecting to <code class="language-plaintext highlighter-rouge">www.silentlyfailing.com</code>, which is ultimately pointed to Heroku’s DNS servers. You also need to add your domains to Heroku, either via the CLI or within the UI. Not sure why, but Heroku says it’s to “to properly route traffic for specific domains to the right application on Heroku”. I’m not smart enough to parse that one out. Maybe some header information?</p>
+
+<p>On the alias record to direct to an S3 bucket back to the www subdomain, Heroku doesn’t provide an explanation other than to say “Your domain example.com now redirects to www.example.com in a scalable way”. Is there something scalable, or is this a way to easily add subdomains? Not sure on this one either, I’m barely above drowning when it comes to network stuff. One day I need to sit down and read all about this stuff.</p>
+<h3 id="deploying">
+  
+  
+    <a href="#deploying" class="anchor-heading" aria-labelledby="deploying"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Deploying
+  
+  
+</h3>
+    
+<p>Since Heroku manages files via git, you could push your code directly to your app via git commands and setting the remote to your heroku app, but since I’m already using GitHub, I think it’s easier to just enable the GitHub integration that already exists. You integrate your GitHub and Heroku accounts, point Heroku to the relevant repository, and off it goes. I think it works by setting up webhooks that trigger commits to master in your GitHub repository to push those changes out to your heroku app and trigger a rebuild your heroku app. But things just work. Now on to actually working on the app.</p>
+<h2 id="time-to-actually-make-the-damn-blog">
+  
+  
+    <a href="#time-to-actually-make-the-damn-blog" class="anchor-heading" aria-labelledby="time-to-actually-make-the-damn-blog"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Time to Actually Make the Damn Blog
+  
+  
+</h2>
+    
+<p>But before that, I had to do some quick work with my make commands to change how they pulled environment variables. I was declaring my <code class="language-plaintext highlighter-rouge">FLASK_APP</code> all over the place, so instead, I could just include a reference to my .env.dev in my <code class="language-plaintext highlighter-rouge">Makefile</code> and the <code class="language-plaintext highlighter-rouge">docker-compose-dev.yml</code> file, and then I could call the environment variable via <code class="language-plaintext highlighter-rouge">${FLASK_APP}</code>. This way, I only need to change it in one spot, that .env file.</p>
+<h3 id="secret-keys-and-factories">
+  
+  
+    <a href="#secret-keys-and-factories" class="anchor-heading" aria-labelledby="secret-keys-and-factories"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Secret Keys and Factories
+  
+  
+</h3>
+    
+<p>I was reading through <a href="https://flask.palletsprojects.com/en/2.0.x/tutorial/">Flask’s Tutorial</a> and they have you create an application factory, so I borrowed the logic there to create things. They recommend a <code class="language-plaintext highlighter-rouge">SECRET_KEY</code> so I have one I’ve plopped into my <code class="language-plaintext highlighter-rouge">.env.sample</code> file as well as one I have on Heroku, so I can do something simple like this: <code class="language-plaintext highlighter-rouge">SECRET_KEY=os.getenv('SECRET_KEY', 'dev')</code> to and pass that into <code class="language-plaintext highlighter-rouge">app.config.from_mapping()</code> to set a secret key for dev and live. The only other thing I had to update when I changed from an app to an app factory was the reference in my <code class="language-plaintext highlighter-rouge">manage.py</code>. Originally, I was importing app from silentlyfailing, but now I import my <code class="language-plaintext highlighter-rouge">create_app</code> function and pass that into the <code class="language-plaintext highlighter-rouge">FlaskGroup</code> init. <a href="https://github.com/mmcintyre1/silently-failing/tree/411a7222be500d46a0ef269875cc3b0d6a5a2d65">Code here</a>.</p>
+
+<p>Quick update – this failed to deploy, so I needed to update my <code class="language-plaintext highlighter-rouge">Procfile</code> to <code class="language-plaintext highlighter-rouge">web: gunicorn "silentlyfailing:create_app()"</code> to actually call the function, which took care of the deploy.</p>
+<h3 id="doing-the-database-thing">
+  
+  
+    <a href="#doing-the-database-thing" class="anchor-heading" aria-labelledby="doing-the-database-thing"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Doing the Database Thing
+  
+  
+</h3>
+    
+<p>So now I need to make a database to store all my wonderful blog posts and musings. I think the idea here is to use sqlalchemy to encapsulate database creation, and alembic to handle migrations. The first step here is getting a postgres instance up and running locally, so I’ll first need to modify my docker-compose file to add in the postgres service, then I’ll need to probably update my app factory to connect to the database and pull whatever connection variables it needs from the environment, then build out some database models, etc., etc. Finally, I’ll need to update my Heroku app to start the server and run the database migrations via alembic. After I get all this done, I should finally be able to start building out the application.</p>
+<h4 id="a-note-about-backups">
+  
+  
+    <a href="#a-note-about-backups" class="anchor-heading" aria-labelledby="a-note-about-backups"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> A note about backups
+  
+  
+</h4>
+    
+<p>One of my considerations here is actually whether the data in my heroku postgres is reliably stored, and whether it persists in some fashion or another. The blog posts themselves will reside within the database, and they are the value prop here, so I’d hate to lose them. One avenue I could explore would be to use Flask to render static content via markdown files and not require a database at all. I’m not sure flask is suited for static sites or if there is an alternative technology that might be better. Need to do some investigation. I think I’d feel more comfortable hosting on RDS, but from experience that runs $15-30 a month for micro or small t instances.</p>
+<h4 id="setting-up-my-dev-postgres">
+  
+  
+    <a href="#setting-up-my-dev-postgres" class="anchor-heading" aria-labelledby="setting-up-my-dev-postgres"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Setting up my dev postgres
+  
+  
+</h4>
+    
+<p>So the first thing I did was set up the postgres service in my local dev environment. I needed to add in some environment variables, and according to the <a href="https://hub.docker.com/_/postgres">postgres Docker documentation</a> the only required environment variable is <code class="language-plaintext highlighter-rouge">POSTGRES_PASSWORD</code>, but I included each element of the URI string in environment variables. I updated the <a href="https://github.com/mmcintyre1/silently-failing/commit/96e8be654ccb57b588c102cdd413d10ce2feaf7e">docker compose file</a>, and then I modified the way configuration variables were passed in to the application by using a <code class="language-plaintext highlighter-rouge">config.py</code> <a href="https://github.com/mmcintyre1/silently-failing/commit/e15acf8490a7e750cceb797aac726485f895c0ad">file with some minor inheritance</a>. One of the workarounds I had to do was in the <code class="language-plaintext highlighter-rouge">ProductionConfig</code> class, the environment variable is different on Heroku – they give you a full <code class="language-plaintext highlighter-rouge">DATABASE_URL</code> as opposed to each element, so there is some inconsistency with dev and live. In the future I’d like to modify this to be more consistent. Since all three of those config classes are evaluated at runtime, I had to replace <code class="language-plaintext highlighter-rouge">os.environ[KEY]</code> with <code class="language-plaintext highlighter-rouge">os.getenv(KEY, default_value)</code> since those environment variables aren’t set in live. I might be able to break up that <code class="language-plaintext highlighter-rouge">DATABASE_URL</code> heroku gives into individual parts.</p>
+
+<p>I also <a href="https://github.com/mmcintyre1/silently-failing/commit/95973ea8c3f9a91209161573f187987cdeba6747">updated the <code class="language-plaintext highlighter-rouge">Makefile</code></a> to include killing off the db container in addition to the web container.</p>
+
+<p>Finally, I needed to do a quick modification of the <code class="language-plaintext highlighter-rouge">DATABASE_URL</code> that Heroku gives me, since SQLAlchemy is expecting postgresql, not postgres, at the beginning of the URI.</p>
+<h4 id="setting-up-sqlalchemy">
+  
+  
+    <a href="#setting-up-sqlalchemy" class="anchor-heading" aria-labelledby="setting-up-sqlalchemy"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Setting up SQLAlchemy
+  
+  
+</h4>
+    
+<p>I want to use an ORM here so I don’t need to worry about database-specific semantics. The general recommendation here is SQLAlchemy, but I’ve also heard peewee recommended. I’ve worked with SQLAlchemy in the past, so that’s what I’ve used here. I created a <code class="language-plaintext highlighter-rouge">models.py</code> <a href="https://github.com/mmcintyre1/silently-failing/commit/df8bc6cf987296bb30fe5002ddd67bdd4401b42d">file</a>, initialized a SQLAlchemy database instance, and defined a really simple <code class="language-plaintext highlighter-rouge">Cats</code> model for testing purposes. I simplified the app factory, removing superfluous things for now (I’ll probably add back in the <code class="language-plaintext highlighter-rouge">test_config</code> if/else so I can pass in test_config parameters for testing purposes by creating an instance of the app). One other item I needed to take care of was because I am using the <a href="https://flask.palletsprojects.com/en/2.0.x/patterns/appfactories/">application factory pattern</a> (the primary use case seems to be for either testing or process-sharing purposes), I needed to push an application context so the database could use it. Looks something like this:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><div class="table-wrapper"><table class="rouge-table"><tbody><tr>
+<td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td>
+<td class="rouge-code"><pre><span class="k">with</span> <span class="n">app</span><span class="p">.</span><span class="n">app_context</span><span class="p">():</span>
+    <span class="n">db</span><span class="p">.</span><span class="n">init_app</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+    <span class="n">db</span><span class="p">.</span><span class="n">create_all</span><span class="p">()</span>
+</pre></td>
+</tr></tbody></table></div></code></pre></div></div>
+
+<p>I’m not entirely sure what an app context is, but there is more <a href="https://flask.palletsprojects.com/en/2.0.x/appcontext/">information here</a>. I think more might be revealed as I continue work on the blog and add in tests.</p>
+
+<p>One other item of note is that running against postgres in SQLAlchemy requires some additional binaries, so I needed to updated the <code class="language-plaintext highlighter-rouge">Dockerfile</code> to <a href="https://github.com/mmcintyre1/silently-failing/commit/51e2c807d7bd1f9eadcf5a0337f8c71c6fd587af">install those binaries</a>, and pip installed psycopg2 and psycopg2-binaries.</p>
+
+<p>From here, I can connect to both my local postgres and heroku postgres, and I see that the table is created.</p>
+<h4 id="setting-up-alembic-for-migrations">
+  
+  
+    <a href="#setting-up-alembic-for-migrations" class="anchor-heading" aria-labelledby="setting-up-alembic-for-migrations"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Setting up Alembic for migrations
+  
+  
+</h4>
+    
+<p>Last bit before I can actually work on the app, but I want to use a utility to track database migrations. I don’t anticipate a ton of changes to the database schema, but migrations are a great way to track schema changes and iteratively develop without destroying all your previous data. Alembic is a great library for doing this.</p>
+
+<p>The idea with Alembic is to create a Migration object, associate your app with it, then run the commands <code class="language-plaintext highlighter-rouge">flask db init</code> to create a migrations folder and seed it with some files. Then you can run <code class="language-plaintext highlighter-rouge">flask db migrate</code> to generate a revision file that you manually review. Everything within the migrations folder gets checked in to github. Alembic will essentially compare your models to the database and generate a diff and the SQL statements will be generated and called via python code. Finally, when you deploy, you can add a little command to Heroku (semi-colon delimited) to run all the migrations to get the live database up to date with your newly pushed schema.</p>
+
+<p>I’m starting to get my mind around how these extensions work. <a href="https://stackoverflow.com/questions/19750060/how-to-properly-initialise-the-flask-sqlalchemy-module">This stackoverflow answer</a> is super helpful in breaking down what that <code class="language-plaintext highlighter-rouge">init_app</code> does and when to use it and when not to use it.</p>
+
+<p>I also updated the docker-compose file to handle migrations in a separate container. These migrations run once, then the container is removed. Breaking it out this way makes it easy to modify that particular part of the compose, or remove it as needed. Tidy separation of purposes. Right now the migrations could still just be called as part of the web container by adding the upgrade db call to the command, but this gives me a bit of flexibility in the future.</p>
+
+<p>I ran into a weird problem that I need to investigate though, which is that my configuration file does not seem to be pulling from environment variables I set in the docker-compose. I have my environment set on the docker-compose for my <code class="language-plaintext highlighter-rouge">POSTGRES_HOST</code> to be <code class="language-plaintext highlighter-rouge">postgres</code>, but in the <code class="language-plaintext highlighter-rouge">DevelopmentConfig</code> class in the <code class="language-plaintext highlighter-rouge">config.py</code> file, I am using <code class="language-plaintext highlighter-rouge">os.getenv('POSTGRES_HOST', 'localhost')</code>. When the flask app running in a docker container needs to connect to the postgres database, the internal network docker sets up will have the host be the container name, in this case postgres. But outside of the container, I can connect to it via localhost. All of this is to say that the flask app in the container is pulling the default value, so I must be missing environment variables somewhere.</p>
+
+<p><em>Workaround to the above</em> – I figured out what was happening. I was setting the <code class="language-plaintext highlighter-rouge">POSTGRES_HOST</code> on the db container, not the web container in my docker-compose. Passing in the <code class="language-plaintext highlighter-rouge">POSTGRES_HOST</code> via the .env.dev file, which is only used by docker and the Makefile, means I can set the default to localhost, so I can run the flask server via the command line outside of the container while the database is up inside the container.</p>
+
+<p>Once I run docker-compose, I have 4 services, the <code class="language-plaintext highlighter-rouge">base</code> image, the <code class="language-plaintext highlighter-rouge">web</code> image, the <code class="language-plaintext highlighter-rouge">migrations</code> image and the <code class="language-plaintext highlighter-rouge">postgres</code> image. I can connect to the database just using localhost since I’ve published the ports.</p>
+
+<p>One final item: I added a bit to the docker-compose to ensure that the web and migrations service don’t start until the database is up. The way I achieved this was to add a healthcheck to the db service, then add in a <code class="language-plaintext highlighter-rouge">depends</code> on the db with a condition for the service to be healthy to the web and migrations service. I can’t add to the base service because services with <code class="language-plaintext highlighter-rouge">depends on</code> can’t be extended.</p>
+
+<p>**MM’s note: I seem to use containers and services interchangeably. Need to hammer out that vocabulary.</p>
+<h3 id="building-the-models-and-controllers">
+  
+  
+    <a href="#building-the-models-and-controllers" class="anchor-heading" aria-labelledby="building-the-models-and-controllers"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Building the models and controllers
+  
+  
+</h3>
+    
+<p>I am going to separate presentation entirely from how I get or post data. That way, I can swap out front end easily. You could probably pass python objects directly to the view to render, by I think I’ll prefer to pass json objects to the views.</p>
+
+<p>What I think I need to do here is to create a blog model, a method to get blog objects from the database, and a method to write blog objects to the database. I probably also need a login method, or some way to prove I’m admin and keep me in an authenticated session. I want to wrap that method to write in some sort of authentication. I probably don’t need to store any user info in the database, just check a password against some environment variable.</p>
+<h4 id="setting-up-an-admin-account-and-loginlogout">
+  
+  
+    <a href="#setting-up-an-admin-account-and-loginlogout" class="anchor-heading" aria-labelledby="setting-up-an-admin-account-and-loginlogout"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Setting up an admin account and login/logout
+  
+  
+</h4>
+    
+<p>I want to be able to have a single admin account that is allowed to create, update, and delete blog posts. This means I need to also have a login mechanism, as well as write that username and password to the database.</p>
+
+<p>I am using the flask-login library, which handles session data for logging a user in or out. From what I can see, it provides convenience functions and decorators for setting app state about a user being ‘authenticated’, as well as cookie management for longer sessions. You need to add your own password checking logic. I’ll probably want to replace this in the future, as I’m hashing my own passwords – it looks like <a href="https://pythonhosted.org/Flask-Security/index.html">FlaskSecurity</a> might be a good choice since it threads together a lot of lower level libraries. It also claims it provides easier OAuth integration, which might be good for some use cases.</p>
+
+<p>First thing I did was to create a User class, inheriting both <code class="language-plaintext highlighter-rouge">db.Model</code> and flask-login’s <code class="language-plaintext highlighter-rouge">UserMixIn</code>. The former gives me access to all the query convenience functions, and the latter implements <a href="https://flask-login.readthedocs.io/en/latest/_modules/flask_login/mixins.html">four methods</a> to help flask-login. I also added in my own rudimentary hashing and password checking methods via <code class="language-plaintext highlighter-rouge">set_password</code> and <code class="language-plaintext highlighter-rouge">check_password</code>. It’s important to note that flask-login doesn’t actually seem to handle the checking of passwords, and it’s something you need to do yourself. For example, if I didn’t have the <code class="language-plaintext highlighter-rouge">user.check_password)</code> check below, nothing is stopping the user from being “logged in”.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><div class="table-wrapper"><table class="rouge-table"><tbody><tr>
+<td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td>
+<td class="rouge-code"><pre><span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="p">.</span><span class="n">query</span><span class="p">.</span><span class="n">filter_by</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="n">form</span><span class="p">.</span><span class="n">username</span><span class="p">.</span><span class="n">data</span><span class="p">).</span><span class="n">first</span><span class="p">()</span>
+<span class="k">if</span> <span class="n">user</span> <span class="ow">and</span> <span class="n">user</span><span class="p">.</span><span class="n">check_password</span><span class="p">(</span><span class="n">password</span><span class="o">=</span><span class="n">form</span><span class="p">.</span><span class="n">password</span><span class="p">.</span><span class="n">data</span><span class="p">):</span>
+    <span class="n">login_user</span><span class="p">(</span><span class="n">user</span><span class="p">)</span>
+</pre></td>
+</tr></tbody></table></div></code></pre></div></div>
+
+<p>From there, I created a <code class="language-plaintext highlighter-rouge">routes.py</code> file to hold all my app routes. At some point in the future, you can break out subdomains in your app into separate route files, like <code class="language-plaintext highlighter-rouge">blog_routes.py</code> or within a different directory, but I haven’t yet. No need – I’ll only have 6 or 7 routes. The first thing I did was to initialize the plugin via <code class="language-plaintext highlighter-rouge">LoginManager()</code>. I also added that to my app factory and ran the <code class="language-plaintext highlighter-rouge">init_app</code> method. I also made a blueprint for the routes so I could set the decorator correctly. I don’t want to import my <code class="language-plaintext highlighter-rouge">create_app</code> function to <code class="language-plaintext highlighter-rouge">routes.py</code> there, so I can create a blueprint then register it with the app in my <code class="language-plaintext highlighter-rouge">__init__</code>. Something like this:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><div class="table-wrapper"><table class="rouge-table"><tbody><tr>
+<td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre></td>
+<td class="rouge-code"><pre><span class="c1"># routes.py
+</span><span class="n">sf</span> <span class="o">=</span> <span class="n">flask</span><span class="p">.</span><span class="n">Blueprint</span><span class="p">(</span><span class="s">'sf'</span><span class="p">,</span> <span class="n">__name__</span><span class="p">)</span>
+
+<span class="o">@</span><span class="n">sf</span><span class="p">.</span><span class="n">route</span><span class="p">(</span><span class="s">'/login'</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s">'GET'</span><span class="p">,</span> <span class="s">'POST'</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">login</span><span class="p">():</span>
+
+<span class="c1"># __init__.py
+</span><span class="k">with</span> <span class="n">app</span><span class="p">.</span><span class="n">app_context</span><span class="p">():</span>
+    <span class="c1"># register blueprints
+</span>    <span class="n">app</span><span class="p">.</span><span class="n">register_blueprint</span><span class="p">(</span><span class="n">sf</span><span class="p">)</span>
+</pre></td>
+</tr></tbody></table></div></code></pre></div></div>
+
+<p>After that, I need to implement a few methods:</p>
+<ul>
+  <li>
+<code class="language-plaintext highlighter-rouge">load_user</code>, with <code class="language-plaintext highlighter-rouge">@login_manager.userloader</code> as a decorator -&gt; this is used by flask-login to load the user info on every page load.</li>
+  <li>
+<code class="language-plaintext highlighter-rouge">login</code>, which will allow me to login a user</li>
+  <li>
+<code class="language-plaintext highlighter-rouge">logout</code>, which, you guessed it, logs a user out</li>
+  <li>
+<code class="language-plaintext highlighter-rouge">unauthorized</code>, with a <code class="language-plaintext highlighter-rouge">login_manager.unauthorized_handler</code>, which handles when a user tries to access a resource they are not allowed to access</li>
+</ul>
+
+<p>Most of these methods are straightforward. The first thing I did was to create a <code class="language-plaintext highlighter-rouge">forms.py</code> file to handle the login form. I need to take user input and check it against the database to see if it’s accurate. I used flask_wtf and wtforms for the task. The code was real simple.</p>
+
+<p>Next was some basic html. First I made a base.html file which I will extend for various purposes. This saves a ton of code, of course, and keeps the HTML relatively modular. After base.html, I made a login.html, borrowing a bunch from all sorts of sources. One interesting thing that I found was the command <code class="language-plaintext highlighter-rouge">flask.flash</code> doesn’t really do anything unless you get and display the messages. You need something like the below to display them.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><div class="table-wrapper"><table class="rouge-table"><tbody><tr>
+<td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td>
+<td class="rouge-code"><pre>{% for message in get_flashed_messages() %}
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"alert alert-warning"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"close"</span> <span class="na">data-dismiss=</span><span class="s">"alert"</span><span class="nt">&gt;</span>
+    x
+  <span class="nt">&lt;/button&gt;</span>
+  {{ message }}
+<span class="nt">&lt;/div&gt;</span>
+{% endfor %}
+</pre></td>
+</tr></tbody></table></div></code></pre></div></div>
+
+<p>The final piece of work was to set up an admin account. I set some variables in my environment to pull a username and password to create an admin account if it doesn’t already exist. I wrote out a small function for it, and called it during the creation of my app. One interesting thing I couldn’t figure out, however, was I was running into a null constraint violation. From everything I was reading, if you had a <code class="language-plaintext highlighter-rouge">db.Integer</code> column set as a primary key, you wouldn’t need to pass a value into it for that integer to just auto-increment. That wasn’t seeming to work for me, so I needed to pass in a value myself, like this: <code class="language-plaintext highlighter-rouge">user = User(id=1, username=username)</code>. There is only one admin user anyway, so this is fine. This will protect against the creation of any additional admin users, so it might actually be a feature, not a bug.</p>
+
+<p>One other thing of note is that there is probably a design pattern to pull in data from a form, jsonify it, then pass that into my login (or any function that needs form info). This would allow me to decouple view from route/api logic. Routes shouldn’t expect to be passed form data, but json objects. Nice to have for the future.</p>
+<h4 id="admin-edit-view">
+  
+  
+    <a href="#admin-edit-view" class="anchor-heading" aria-labelledby="admin-edit-view"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Admin edit view
+  
+  
+</h4>
+    
+<p>So, now that I have my admin user, I need to create a handful of items for creating, editing, and displaying blog posts. I need to make the following items:</p>
+<ul>
+  <li>create.html</li>
+  <li>update.html</li>
+  <li>blog_details.html</li>
+  <li>route for create</li>
+  <li>route for update</li>
+  <li>route for detail</li>
+  <li>route for delete</li>
+  <li>a form for create</li>
+  <li>a form for update</li>
+  <li>a blog data model</li>
+</ul>
+
+<p>Need to change way routing is pathed – make slugs and not pull via id from database.</p>
+
+<p>Also something seemed to break with alembic where it wasn’t detecting changes. Seems like it actually can’t detect changes. Turns out I’m an idiot. Played with so many settings to reorganize the application, but it was because I was creating the tables myself via a <code class="language-plaintext highlighter-rouge">create_tables</code> function. flask_migrate should take care of that entirely via <code class="language-plaintext highlighter-rouge">flask db migrate</code> and <code class="language-plaintext highlighter-rouge">flask db upgrade</code>. In live, I can run <code class="language-plaintext highlighter-rouge">flask db upgrade</code> and be done with it.</p>
+
+<p>post detail
+wyswyg/rich text editor for blog post?</p>
+<h3 id="finishing-with-style">
+  
+  
+    <a href="#finishing-with-style" class="anchor-heading" aria-labelledby="finishing-with-style"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Finishing with Style
+  
+  
+</h3>
+    
+<h4 id="adding-a-navbar">
+  
+  
+    <a href="#adding-a-navbar" class="anchor-heading" aria-labelledby="adding-a-navbar"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Adding a navbar
+  
+  
+</h4>
+    
+<h4 id="adding-a-footer">
+  
+  
+    <a href="#adding-a-footer" class="anchor-heading" aria-labelledby="adding-a-footer"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Adding a footer
+  
+  
+</h4>
+    
+<h4 id="making-it-not-so-damn-ugly">
+  
+  
+    <a href="#making-it-not-so-damn-ugly" class="anchor-heading" aria-labelledby="making-it-not-so-damn-ugly"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Making it not so damn ugly
+  
+  
+</h4>
+    
+<h3 id="final-takeaways">
+  
+  
+    <a href="#final-takeaways" class="anchor-heading" aria-labelledby="final-takeaways"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Final Takeaways
+  
+  
+</h3>
+    
+<p>Flask allows a ton of customization, but you could probably be up and running faster with Django.</p>
+<h3 id="useful-commands">
+  
+  
+    <a href="#useful-commands" class="anchor-heading" aria-labelledby="useful-commands"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Useful Commands
+  
+  
+</h3>
+    
+<ul>
+  <li>
+<code class="language-plaintext highlighter-rouge">docker exec -it silentlyfailing bash</code> - start an interactive console in the docker container</li>
+  <li>
+<code class="language-plaintext highlighter-rouge">heroku restart</code> - restarts your current heroku app, which is useful for odd errors</li>
+  <li>
+<code class="language-plaintext highlighter-rouge">heroku logs --tail</code> - check the logs</li>
+  <li>
+<code class="language-plaintext highlighter-rouge">export $(xargs &lt;.env)</code> sets a bunch of env variables</li>
+  <li>
+<code class="language-plaintext highlighter-rouge">docker rm -fv $(docker ps -aq)</code> remove all docker containers</li>
+</ul>
+
+          
+
+          
+        </main>
+        
+
+  <hr>
+  <footer>
+    
+      <p><a href="#top" id="back-to-top">Back to top</a></p>
+    
+
+    <p class="text-small text-grey-dk-100 mb-0">Copyright © 2022 Michael McIntyre. </p>
+
+    
+      <div class="d-flex mt-2">
+        
+          <p class="text-small text-grey-dk-000 mb-0 mr-2">
+            Page last modified: <span class="d-inline-block">Aug 29 2021 at 01:14 PM</span>.
+          </p>
+        
+        
+      </div>
+    
+  </footer>
+
+
+      </div>
+    </div>
+    
+      
+
+<div class="search-overlay"></div>
+
+    
+  </div>
+
+  
+</body>
+</html>

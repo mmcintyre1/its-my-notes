@@ -1,0 +1,1307 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+
+  
+
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+  <link rel="stylesheet" href="/assets/css/just-the-docs-default.css">
+  <link rel="stylesheet" href="/assets/css/native.css">
+
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-M6EEXPRNWS"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-M6EEXPRNWS', { 'anonymize_ip': true });
+  </script>
+
+  
+
+  
+  <script type="text/javascript" src="/assets/js/vendor/lunr.min.js"></script>
+  
+  <script type="text/javascript" src="/assets/js/just-the-docs.js"></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Data Mesh: Delivering Data-Driven Value at Scale | Notes</title>
+<meta name="generator" content="Jekyll v3.9.2">
+<meta property="og:title" content="Data Mesh: Delivering Data-Driven Value at Scale">
+<meta name="author" content="Zhamak Dehghani">
+<meta property="og:locale" content="en_US">
+<meta name="description" content="My Notes">
+<meta property="og:description" content="My Notes">
+<link rel="canonical" href="https://itsmynotes.com/notes/tech_books/data-mesh">
+<meta property="og:url" content="https://itsmynotes.com/notes/tech_books/data-mesh">
+<meta property="og:site_name" content="Notes">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<meta property="twitter:title" content="Data Mesh: Delivering Data-Driven Value at Scale">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Zhamak Dehghani"},"description":"My Notes","headline":"Data Mesh: Delivering Data-Driven Value at Scale","url":"https://itsmynotes.com/notes/tech_books/data-mesh"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+  
+
+</head>
+<body>
+  <a class="skip-to-main" href="#main-content">Skip to main content</a>
+  <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+  <symbol id="svg-link" viewbox="0 0 24 24">
+  <title>Link</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link">
+    <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+  </svg>
+</symbol>
+
+  <symbol id="svg-menu" viewbox="0 0 24 24">
+  <title>Menu</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu">
+    <line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line>
+  </svg>
+</symbol>
+
+  <symbol id="svg-arrow-right" viewbox="0 0 24 24">
+  <title>Expand</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+    <polyline points="9 18 15 12 9 6"></polyline>
+  </svg>
+</symbol>
+
+  <!-- Feather. MIT License: https://github.com/feathericons/feather/blob/master/LICENSE -->
+<symbol id="svg-external-link" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-external-link">
+  <title id="svg-external-link-title">(external link)</title>
+  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line>
+</symbol>
+
+  
+    <symbol id="svg-doc" viewbox="0 0 24 24">
+  <title>Document</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file">
+    <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline>
+  </svg>
+</symbol>
+
+    <symbol id="svg-search" viewbox="0 0 24 24">
+  <title>Search</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search">
+    <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+  </svg>
+</symbol>
+
+  
+  
+    <!-- Bootstrap Icons. MIT License: https://github.com/twbs/icons/blob/main/LICENSE.md -->
+<symbol id="svg-copy" viewbox="0 0 16 16">
+  <title>Copy</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard" viewbox="0 0 16 16">
+    <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"></path>
+    <path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"></path>
+  </svg>
+</symbol>
+<symbol id="svg-copied" viewbox="0 0 16 16">
+  <title>Copied</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard-check-fill" viewbox="0 0 16 16">
+    <path d="M6.5 0A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3Zm3 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3Z"></path>
+    <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1A2.5 2.5 0 0 1 9.5 5h-3A2.5 2.5 0 0 1 4 2.5v-1Zm6.854 7.354-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L7.5 10.793l2.646-2.647a.5.5 0 0 1 .708.708Z"></path>
+  </svg>
+</symbol>
+
+  
+</svg>
+
+  <div class="side-bar">
+  <div class="site-header" role="banner">
+    <a href="/" class="site-title lh-tight">
+  Notes
+
+</a>
+    <button id="menu-button" class="site-button btn-reset" aria-label="Toggle menu" aria-pressed="false">
+      <svg viewbox="0 0 24 24" class="icon" aria-hidden="true"><use xlink:href="#svg-menu"></use></svg>
+    </button>
+  </div>
+
+  <nav aria-label="Main" id="site-nav" class="site-nav">
+  
+  
+    <ul class="nav-list">
+<li class="nav-list-item">
+<button class="nav-list-expander btn-reset" aria-label="toggle items in Projects category" aria-pressed="false">
+      <svg viewbox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+    </button><a href="/notes/projects" class="nav-list-link">Projects</a><ul class="nav-list"></ul>
+</li>
+<li class="nav-list-item">
+<button class="nav-list-expander btn-reset" aria-label="toggle items in Vocabulary category" aria-pressed="false">
+      <svg viewbox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+    </button><a href="/notes/vocabulary" class="nav-list-link">Vocabulary</a><ul class="nav-list"></ul>
+</li>
+<li class="nav-list-item">
+<button class="nav-list-expander btn-reset" aria-label="toggle items in Business Books category" aria-pressed="false">
+      <svg viewbox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+    </button><a href="/notes/business-books" class="nav-list-link">Business Books</a><ul class="nav-list"></ul>
+</li>
+<li class="nav-list-item">
+<button class="nav-list-expander btn-reset" aria-label="toggle items in Other Books category" aria-pressed="false">
+      <svg viewbox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+    </button><a href="/notes/other-books" class="nav-list-link">Other Books</a><ul class="nav-list"></ul>
+</li>
+<li class="nav-list-item">
+<button class="nav-list-expander btn-reset" aria-label="toggle items in Educational Books category" aria-pressed="false">
+      <svg viewbox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+    </button><a href="/notes/educational-books" class="nav-list-link">Educational Books</a><ul class="nav-list"></ul>
+</li>
+<li class="nav-list-item">
+<button class="nav-list-expander btn-reset" aria-label="toggle items in Articles category" aria-pressed="false">
+      <svg viewbox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+    </button><a href="/notes/articles" class="nav-list-link">Articles</a><ul class="nav-list"></ul>
+</li>
+<li class="nav-list-item">
+<button class="nav-list-expander btn-reset" aria-label="toggle items in Quotes category" aria-pressed="false">
+      <svg viewbox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+    </button><a href="/notes/quotes" class="nav-list-link">Quotes</a><ul class="nav-list"></ul>
+</li>
+<li class="nav-list-item">
+<button class="nav-list-expander btn-reset" aria-label="toggle items in Classes category" aria-pressed="false">
+      <svg viewbox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+    </button><a href="/notes/classes" class="nav-list-link">Classes</a><ul class="nav-list"></ul>
+</li>
+<li class="nav-list-item">
+<button class="nav-list-expander btn-reset" aria-label="toggle items in Tech Books category" aria-pressed="false">
+      <svg viewbox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+    </button><a href="/notes/tech-books" class="nav-list-link">Tech Books</a><ul class="nav-list"></ul>
+</li>
+<li class="nav-list-item">
+<button class="nav-list-expander btn-reset" aria-label="toggle items in Podcasts category" aria-pressed="false">
+      <svg viewbox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+    </button><a href="/notes/podcasts" class="nav-list-link">Podcasts</a><ul class="nav-list"></ul>
+</li>
+</ul>
+
+  
+</nav>
+
+
+  
+  
+    <footer class="site-footer">
+      This site uses <a href="https://github.com/just-the-docs/just-the-docs">Just the Docs</a>, a documentation theme for Jekyll.
+    </footer>
+  
+</div>
+
+  <div class="main" id="top">
+    <div id="main-header" class="main-header">
+  
+    
+
+<div class="search" role="search">
+  <div class="search-input-wrap">
+    <input type="text" id="search-input" class="search-input" tabindex="0" placeholder="Search Notes" aria-label="Search Notes" autocomplete="off">
+    <label for="search-input" class="search-label"><svg viewbox="0 0 24 24" class="search-icon"><use xlink:href="#svg-search"></use></svg></label>
+  </div>
+  <div id="search-results" class="search-results"></div>
+</div>
+
+  
+  
+  
+    <nav aria-label="Auxiliary" class="aux-nav">
+  <ul class="aux-nav-list">
+    
+      <li class="aux-nav-list-item">
+        <a href="https://github.com/mmcintyre1/its-my-notes" class="site-button">
+          It's My Notes on GitHub
+        </a>
+      </li>
+    
+  </ul>
+</nav>
+
+  
+</div>
+
+    <div class="main-content-wrap">
+      <nav aria-label="Breadcrumb" class="breadcrumb-nav">
+  <ol class="breadcrumb-nav-list">
+  
+    <li class="breadcrumb-nav-list-item"><a href="/notes/tech-books">Tech Books</a></li>
+  <li class="breadcrumb-nav-list-item"><span>Data Mesh: Delivering Data-Driven Value at Scale</span></li>
+  </ol>
+</nav>
+      <div id="main-content" class="main-content">
+        <main>
+          
+            <h1 class="no_toc" id="data-mesh-delivering-data-driven-value-at-scale">
+  
+  
+    <a href="#data-mesh-delivering-data-driven-value-at-scale" class="anchor-heading" aria-labelledby="data-mesh-delivering-data-driven-value-at-scale"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Data Mesh: Delivering Data-Driven Value at Scale
+  
+  
+</h1>
+    
+
+<details open="">
+  <summary>
+    Table of contents
+  </summary>
+<ol id="markdown-toc">
+  <li><a href="#what-is-data-mesh" id="markdown-toc-what-is-data-mesh">What is Data Mesh?</a></li>
+  <li>
+<a href="#data-principles" id="markdown-toc-data-principles">Data Principles</a>    <ol>
+      <li><a href="#domain-oriented-ownership" id="markdown-toc-domain-oriented-ownership">Domain-Oriented Ownership</a></li>
+      <li><a href="#data-as-a-product" id="markdown-toc-data-as-a-product">Data as a Product</a></li>
+      <li><a href="#self-serve-data-platform" id="markdown-toc-self-serve-data-platform">Self-Serve Data Platform</a></li>
+      <li><a href="#federated-computational-governance" id="markdown-toc-federated-computational-governance">Federated Computational Governance</a></li>
+    </ol>
+  </li>
+  <li><a href="#why-data-mesh" id="markdown-toc-why-data-mesh">Why Data Mesh?</a></li>
+  <li><a href="#progression-of-data-architecture" id="markdown-toc-progression-of-data-architecture">Progression of Data Architecture</a></li>
+  <li>
+<a href="#how-to-design-data-mesh" id="markdown-toc-how-to-design-data-mesh">How to Design Data Mesh</a>    <ol>
+      <li><a href="#data-mesh-architectural-components" id="markdown-toc-data-mesh-architectural-components">Data Mesh Architectural Components</a></li>
+      <li><a href="#data-product-affordances" id="markdown-toc-data-product-affordances">Data Product Affordances</a></li>
+      <li><a href="#getting-started-with-data-mesh" id="markdown-toc-getting-started-with-data-mesh">Getting Started with Data Mesh</a></li>
+      <li><a href="#changing-culture" id="markdown-toc-changing-culture">Changing Culture</a></li>
+    </ol>
+  </li>
+</ol>
+
+</details>
+<h2 id="what-is-data-mesh">
+  
+  
+    <a href="#what-is-data-mesh" class="anchor-heading" aria-labelledby="what-is-data-mesh"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> What is Data Mesh?
+  
+  
+</h2>
+    
+<ul>
+  <li>Data mesh is a decentralized sociotechnical approach to share, access, and manage analytical data in complex and large-scale environments—within or across organizations</li>
+  <li>data mesh looks to achieve these outcomes:
+    <ul>
+      <li>Respond gracefully to change: a business’s essential complexity, volatility, and uncertainty</li>
+      <li>Sustain agility in the face of growth</li>
+      <li>Increase the ratio of value from data to investment1</li>
+    </ul>
+  </li>
+</ul>
+
+<p>organizational shifts required:</p>
+<div style="text-align:center">
+  <a href="/assets/img/data-mesh/shifts.jpg">
+    <img src="/assets/img/data-mesh/shifts.jpg" alt="Shifts required">
+  </a>
+</div>
+
+<p>Data Mesh Model</p>
+<div style="text-align:center">
+  <a href="/assets/img/data-mesh/model.jpg">
+    <img src="/assets/img/data-mesh/model.jpg" alt="Data Mesh Model">
+  </a>
+</div>
+
+<ul>
+  <li>data mesh focuses on analytical data, as opposed to operational data</li>
+  <li>operational data is “data on the inside”, private data of application</li>
+</ul>
+<h2 id="data-principles">
+  
+  
+    <a href="#data-principles" class="anchor-heading" aria-labelledby="data-principles"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Data Principles
+  
+  
+</h2>
+    
+
+<p>Interplay of Four Principles</p>
+<div style="text-align:center">
+  <a href="/assets/img/data-mesh/-principle-interplay.jpg">
+    <img src="/assets/img/data-mesh/principle-interplay.jpg" alt="Principle Interplay">
+  </a>
+</div>
+<h3 id="domain-oriented-ownership">
+  
+  
+    <a href="#domain-oriented-ownership" class="anchor-heading" aria-labelledby="domain-oriented-ownership"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Domain-Oriented Ownership
+  
+  
+</h3>
+    
+<ul>
+  <li>underpinned by domain-driven design to find seams of organizational units to decompose data</li>
+  <li>
+<strong>domain</strong> is a sphere of knowledge, influence, or activity</li>
+  <li>
+<strong>bounded context</strong> - delimited applicability of a particular model that gives team members a clear and shared understanding of what has to be consistent and what can develop independently</li>
+  <li>
+<strong>context mapping</strong> - define relationship between bounded contexts/independent models</li>
+</ul>
+
+<p>three types of domain data</p>
+<ol>
+  <li>
+<strong>Source-aligned domain data</strong>
+    <ul>
+      <li>Analytical data reflecting the business facts generated by the operational systems (native data product)</li>
+    </ul>
+  </li>
+  <li>
+<strong>Aggregate domain data</strong>
+    <ul>
+      <li>Analytical data that is an aggregate of multiple upstream domains.</li>
+    </ul>
+  </li>
+  <li>
+<strong>Consumer-aligned domain data</strong>
+    <ul>
+      <li>Analytical data transformed to fit the needs of one or multiple specific use cases (fit-for-purpose domain data)</li>
+    </ul>
+  </li>
+</ol>
+
+<blockquote class="warn">
+  <p>Exposing analytical data directly from the operational database is an antipattern</p>
+</blockquote>
+
+<ul>
+  <li>work with multiple models of shared entities rather than single source of truth, which is expensive and impediment to scale</li>
+  <li>In data mesh, a data pipeline is simply an internal implementation of the data domain and is handled internally within the domain. It’s an implementation detail that must be abstracted from outside of the domain (26)</li>
+</ul>
+<h3 id="data-as-a-product">
+  
+  
+    <a href="#data-as-a-product" class="anchor-heading" aria-labelledby="data-as-a-product"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Data as a Product
+  
+  
+</h3>
+    
+
+<ul>
+  <li>successful products have three common characteristics: they are feasible, valuable, and usable (from INSPIRED by Marty Cagan)</li>
+  <li>product thinking to internal technology begins with establishing empathy with internal consumers (i.e., fellow developers), collaborating with them on designing the experience, gathering usage metrics, and continuously improving the internal technical solutions over time to maintain ease of use (31)</li>
+</ul>
+
+<p><strong>baseline usability attributes of data product</strong></p>
+<h4 class="no_toc" id="discoverable">
+  
+  
+    <a href="#discoverable" class="anchor-heading" aria-labelledby="discoverable"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> discoverable
+  
+  
+</h4>
+    
+<p>data product itself intentionally provides discoverability information</p>
+<h4 class="no_toc" id="addressable">
+  
+  
+    <a href="#addressable" class="anchor-heading" aria-labelledby="addressable"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> addressable
+  
+  
+</h4>
+    
+<p>provides a permanent and unique address to data user to programmatically or manually access</p>
+<h4 class="no_toc" id="understandable">
+  
+  
+    <a href="#understandable" class="anchor-heading" aria-labelledby="understandable"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> understandable
+  
+  
+</h4>
+    
+<p>data product provides semantically coherent data with specific meaning</p>
+<h4 class="no_toc" id="trustworthy--truthful">
+  
+  
+    <a href="#trustworthy--truthful" class="anchor-heading" aria-labelledby="trustworthy--truthful"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> trustworthy &amp; truthful
+  
+  
+</h4>
+    
+<p>data product represents facts of business properly; need to know how closely data reflects reality of events that have happened
+SLOs:</p>
+<ul>
+  <li>
+<strong>Interval of change</strong>: How often changes in the data are reflected</li>
+  <li>
+<strong>Timeliness</strong>: The skew between the time that a business fact occurs and becomes available to the data users</li>
+  <li>
+<strong>Completeness</strong>: Degree of availability of all the necessary information</li>
+  <li>
+<strong>Statistical shape of data</strong>: Its distribution, range, volume, etc.</li>
+  <li>
+<strong>Lineage</strong>: The data transformation journey from source to here</li>
+  <li>
+<strong>Precision and accuracy over time</strong>: Degree of business truthfulness as time passes</li>
+  <li>
+<strong>Operational qualities</strong>: Freshness, general availability, performance</li>
+</ul>
+<h4 class="no_toc" id="natively-accessible">
+  
+  
+    <a href="#natively-accessible" class="anchor-heading" aria-labelledby="natively-accessible"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> natively accessible
+  
+  
+</h4>
+    
+<ul>
+  <li>a data product needs to make it possible for various data users to access and read its data in their native mode of access</li>
+</ul>
+<h4 class="no_toc" id="interoperable">
+  
+  
+    <a href="#interoperable" class="anchor-heading" aria-labelledby="interoperable"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> interoperable
+  
+  
+</h4>
+    
+<ul>
+  <li>The key for an effective composability of data across domains is following standards and harmonization rules that allow linking data across domains</li>
+</ul>
+
+<p>Some things to standardize</p>
+<ul>
+  <li>
+<strong>Field type</strong>:  A common explicitly defined type system</li>
+  <li>
+<strong>Polysemes identifiers</strong>: Universally identifying entities that cross boundaries of data products</li>
+  <li>
+<strong>Data product global addresses</strong>: A unique global address allocated to each data product, ideally with a uniform scheme for ease of establishing connections to different data products</li>
+  <li>
+<strong>Common metadata fields</strong>: Such as representation of time when data occurs and when data is recorded</li>
+  <li>
+<strong>Schema linking</strong>: Ability to link and reuse schemas—types—defined by other data products</li>
+  <li>
+<strong>Data linking</strong>: Ability to link or map to data in other data products</li>
+  <li>
+<strong>Schema stability</strong>: Approach to evolving schemas that respects backward compatibility</li>
+</ul>
+<h4 class="no_toc" id="valuable-on-its-own">
+  
+  
+    <a href="#valuable-on-its-own" class="anchor-heading" aria-labelledby="valuable-on-its-own"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> valuable on its own
+  
+  
+</h4>
+    
+<ul>
+  <li>data product should be valuable without needing to be correlated or joined with other data products</li>
+</ul>
+<h4 class="no_toc" id="secure">
+  
+  
+    <a href="#secure" class="anchor-heading" aria-labelledby="secure"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> secure
+  
+  
+</h4>
+    
+<ul>
+  <li>
+    <p>Data users access a data product securely and in a confidentiality-respecting manner. Data security is a must.</p>
+  </li>
+  <li>
+<strong>Access control</strong>: Who, what, and how data users—systems and people—can access the data product</li>
+  <li>
+<strong>Encryption</strong>: What kinds of encryption—on disk, in memory, or in transit—using which encryption algorithm, and how to manage keys and minimize the radius of impact in case of breaches</li>
+  <li>
+<strong>Confidentiality</strong> levels: What kinds of confidential information, e.g., personally identifiable information, personal health information, etc., the data product carries</li>
+  <li>
+<strong>Data retention</strong>: How long the information must be kept</li>
+  <li>
+<strong>Regulations and agreements</strong>: GDPR, CCPA, domain-specific regulations, contractual agreements</li>
+</ul>
+
+<p>two new roles needed for data mesh</p>
+<ol>
+  <li>
+<strong>data product developer</strong>: responsible for developing, serving, and maintaining domain data products</li>
+  <li>
+<strong>data product owner</strong>: accountable for success of domain’s data products in delivering value, growing data users, and maintaining life cycle of data products</li>
+</ol>
+
+<ul>
+  <li>reframe receiving upstream data from <em>ingestion</em> to <em>consumption</em> – data is served already cleaned and processed</li>
+  <li>success is measured through the value delivered to the users and not its size</li>
+</ul>
+<h3 id="self-serve-data-platform">
+  
+  
+    <a href="#self-serve-data-platform" class="anchor-heading" aria-labelledby="self-serve-data-platform"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Self-Serve Data Platform
+  
+  
+</h3>
+    
+<p>The data platform is:</p>
+<blockquote>
+  <p>A collection of interoperable domain-agnostic services, tools, and APIs that enable cross-functional domain teams to produce and consume data products with lowered cognitive load and with autonomy.</p>
+</blockquote>
+
+<blockquote>
+  <p>The main responsibility of the data mesh platform is to enable existing or new domain engineering teams with the new and embedded responsibilities of building, sharing, and using data products end to end; capturing data from operational systems and other sources; and transforming and sharing the data as a product with the end data users.</p>
+</blockquote>
+
+<ul>
+  <li>
+<em>platform</em> is used as shorthand for set of underlying data infrastructure capabilities – doesn’t mean single solution or single vendor</li>
+</ul>
+
+<div style="text-align:center">
+  <a href="/assets/img/data-mesh/platform.jpg">
+    <img src="/assets/img/data-mesh/platform.jpg" alt="Data Mesh Platform">
+  </a>
+</div>
+
+<p>shift how we talk about data platform</p>
+<div style="text-align:center">
+  <a href="/assets/img/data-mesh/platform-distinguishing.jpg">
+    <img src="/assets/img/data-mesh/platform-distinguishing.jpg" alt="Data Mesh Data Platform Distinguishing Characteristics">
+  </a>
+</div>
+
+<ul>
+  <li>accommodate generalists (T shape, paint drip) rather than current industry requirement of specialists</li>
+</ul>
+
+<p>key downsides of current data platform thinking</p>
+<ul>
+  <li>cost is estimated and managed monolithically, not per isolated domain resources</li>
+  <li>security and privacy management assume physical resources are shared under same account and don’t scale to isolated security context per data product</li>
+  <li>A central pipeline (DAG) orchestration assumes management of all data pipelines centrally, which conflicts with independent pipeline</li>
+</ul>
+
+<p>data platform objectives:</p>
+<ol>
+  <li>
+<strong>enable autonomous teams to get value from data</strong> - platform enables product developer to concentrate on domain-specific aspects of data product development</li>
+  <li>
+<strong>exchange value with autonomous and interoperable data products</strong> - mesh becomes organizational data marketplace</li>
+  <li>
+<strong>accelerate exchange of value by lowering the cognitive load</strong> - abstracting complexity; should be able to <em>declare</em> structure of data, retention period, potential size, etc. – remove human intervention and manual steps</li>
+  <li>
+<strong>scale out data sharing</strong> - embrace Unix philosophy</li>
+  <li>
+<strong>support a culture of embedded innovation</strong> - rapidly building, testing, and refining ideas; need to free people from unnecessary work and accidental complexity</li>
+</ol>
+
+<p>how to transition to self-servce data mesh platform</p>
+<ul>
+  <li>
+<strong>design APIs and protocols first</strong> - start with interfaces platform exposes to its users</li>
+  <li>
+<strong>prepare for a generalist approach</strong> - favor platform tech that fits better with natural style of programming (not something that creates another DSL)</li>
+  <li>
+<strong>do an inventory and simplify</strong> - take a look at what you already have</li>
+  <li>
+<strong>create higher-level APIs to manage data products</strong> - platform must introduce higher level of APIs that deal with data product as an object</li>
+  <li>
+<strong>build experiences, not mechanisms</strong> - shift articulation of platform from mechanisms it includes to the experiences it enables</li>
+  <li>
+<strong>begin with simplest foundation, then harvest to evolve</strong> - data platform is emergent, designed and brought to life incrementally by many</li>
+</ul>
+<h3 id="federated-computational-governance">
+  
+  
+    <a href="#federated-computational-governance" class="anchor-heading" aria-labelledby="federated-computational-governance"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Federated Computational Governance
+  
+  
+</h3>
+    
+<blockquote>
+  <p><strong>Federated and computational governance</strong> is a decision-making model led by the federation of domain data product owners and data platform product owners, with autonomy and domain-local decision-making power, while creating and adhering to a set of global rules</p>
+</blockquote>
+
+<div style="text-align:center">
+  <a href="/assets/img/data-mesh/elements-of-governance.jpg">
+    <img src="/assets/img/data-mesh/elements-of-governance.jpg" alt="Elements of Data Mesh Federated Governance">
+  </a>
+</div>
+<h4 class="no_toc" id="apply-systems-thinking-to-data-mesh-governance">
+  
+  
+    <a href="#apply-systems-thinking-to-data-mesh-governance" class="anchor-heading" aria-labelledby="apply-systems-thinking-to-data-mesh-governance"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Apply Systems Thinking to Data Mesh Governance
+  
+  
+</h4>
+    
+<ul>
+  <li>data mesh requires a governance model that embraces systems thinking. Systems thinking, as described by Peter Senge, is the discipline of “seeing the whole,” shifting our focus “from parts
+to the organization of parts, recognizing interaction of the parts are not static and constant, but dynamic processes.”</li>
+  <li>mesh is more than the sum of its parts</li>
+  <li>the art of governing a data mesh ecosystem is in maintaining an equilibrium between local (domain) optimization and global (the mesh) optimization</li>
+  <li>need to continuously adjust behavior using <em>leverage points</em> (small change lead to large shift in behavior) and <em>feedback loops</em> (system structures that either balance or reinforce a change in state of system)</li>
+  <li>embrace dynamic topology as default state</li>
+  <li>utilize automation and distributed architecture</li>
+</ul>
+<h4 class="no_toc" id="apply-federation-to-the-governance-model">
+  
+  
+    <a href="#apply-federation-to-the-governance-model" class="anchor-heading" aria-labelledby="apply-federation-to-the-governance-model"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Apply Federation to the Governance Model
+  
+  
+</h4>
+    
+<p><strong>Federated Team</strong> - team that decides policies implemented, how platform supports these policies computationally, how data products adopt policies</p>
+<ul>
+  <li>created of domain representatives, data platform representatives, subject matter experts, and facilitators and managers</li>
+</ul>
+
+<p><strong>Guiding Values</strong> - clarity on value system that guides how decisions are made</p>
+<ul>
+  <li>localize decisions and responsibility close to the source</li>
+  <li>identify cross-cutting concerns that need a global standard</li>
+  <li>globalize decisions that facilitate interoperability</li>
+  <li>identify consistent experiences that need a global standard</li>
+  <li>execute decisions locally</li>
+</ul>
+
+<p><strong>Policies</strong> - output of a system governance, between local and global effect</p>
+
+<p><strong>Incentives</strong> - what incentives to use to motivate as leverage points, can be local or global</p>
+<h4 class="no_toc" id="apply-computation-to-the-governance-model">
+  
+  
+    <a href="#apply-computation-to-the-governance-model" class="anchor-heading" aria-labelledby="apply-computation-to-the-governance-model"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Apply Computation to the Governance Model
+  
+  
+</h4>
+    
+
+<p><strong>Standards as Code</strong> behavior, interfaces, and data structure that is expected to be implemented in a consistent way across all data products</p>
+<ul>
+  <li>data product discovery and observability interfaces</li>
+  <li>data product data interfaces</li>
+  <li>data and query modeling language</li>
+  <li>lineage modeling</li>
+  <li>polysemes identification modeling</li>
+</ul>
+
+<p><strong>Policies as Code</strong></p>
+<ul>
+  <li>data privacy and protection</li>
+  <li>data localization</li>
+  <li>data access control and audit</li>
+  <li>data consent</li>
+  <li>data sovereignty</li>
+  <li>data retention</li>
+</ul>
+
+<p><strong>Automated Tests</strong>
+<strong>Automated Monitoring</strong></p>
+
+<blockquote>
+  <p>data mesh governance heavily relies on embedding the governance policies into each data product in an automated and computational fashion. This of course heavily relies on the elements of the underlying data platform, to make it really easy to do the right thing.</p>
+</blockquote>
+
+<blockquote>
+  <p>The continuous need for trustworthy and useful data across multiple domains to train ML-based solutions will be the ultimate motivator for the adoption of data mesh governance and doing the right thing.</p>
+</blockquote>
+<h2 id="why-data-mesh">
+  
+  
+    <a href="#why-data-mesh" class="anchor-heading" aria-labelledby="why-data-mesh"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Why Data Mesh?
+  
+  
+</h2>
+    
+<ul>
+  <li>
+<strong>great expectations of data</strong> - diverse and wide applications of ML and analytics</li>
+  <li>
+<strong>great divide of data</strong> - complexity risen from fragmentation of operational and analytical data</li>
+  <li>
+<strong>scale</strong> - large scale data source proliferation</li>
+  <li>
+<strong>business complexity and volatility</strong> - continuous change and growth of business</li>
+  <li>
+<strong>discord between data investments and returns</strong> - expensive data solutions lacking impact</li>
+</ul>
+
+<blockquote>
+  <p>Data mesh learns from the past solutions and addresses their shortcomings. It reduces points of centralization that act as coordination bottlenecks. It finds a new way of decomposing the data architecture without slowing the organization down with synchronizations. It removes the gap between where the data originates and where it gets used and removes the accidental complexities—aka pipelines—that happen in between the two planes of data. Data mesh departs from data myths such as a single source of truth, or one tightly controlled canonical data model.</p>
+</blockquote>
+
+<div style="text-align:center">
+  <a href="/assets/img/data-mesh/after-the-inflection.jpg">
+    <img src="/assets/img/data-mesh/after-the-inflection.jpg" alt="Data Mesh, After the Inflection Point">
+  </a>
+</div>
+<h2 id="progression-of-data-architecture">
+  
+  
+    <a href="#progression-of-data-architecture" class="anchor-heading" aria-labelledby="progression-of-data-architecture"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Progression of Data Architecture
+  
+  
+</h2>
+    
+<h3 class="no_toc" id="first-generation-data-warehouse-architecture">
+  
+  
+    <a href="#first-generation-data-warehouse-architecture" class="anchor-heading" aria-labelledby="first-generation-data-warehouse-architecture"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> First Generation: Data Warehouse Architecture
+  
+  
+</h3>
+    
+<ul>
+  <li>Extracted from many operational databases and sources</li>
+  <li>Transformed into a universal schema—represented in a multidimensional and time-variant tabular format</li>
+  <li>Loaded into the warehouse tables</li>
+  <li>Accessed through SQL-like queries</li>
+  <li>Mainly serving data analysts for reporting and analytical visualization use cases</li>
+</ul>
+<h3 class="no_toc" id="second-generation-data-lake-architecture">
+  
+  
+    <a href="#second-generation-data-lake-architecture" class="anchor-heading" aria-labelledby="second-generation-data-lake-architecture"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Second Generation: Data Lake Architecture
+  
+  
+</h3>
+    
+<ul>
+  <li>introduced in 2010 as response to challenge of data warehouse in satisfying data scientists who wanted data in original format</li>
+  <li>Data is extracted from many operational databases and sources.</li>
+  <li>Data represents as much as possible of the original content and structure.</li>
+  <li>Data is minimally transformed to fit the popular storage formats, e.g., Parquet, Avro, etc.</li>
+  <li>Data—as close as possible to the source schema—is loaded to scalable object storage.</li>
+  <li>Data is accessed through the object storage interface—read as files or data frames, a two-dimensional array-like structure.</li>
+  <li>Data scientists mainly access the lake storage for analytical and machine learning model training.</li>
+  <li>Downstream from the lake, lakeshore marts are created as fit-for-purpose data marts.</li>
+  <li>Lakeshore marts are used by applications and analytics use cases.</li>
+  <li>Downstream from the lake, feature stores are created as fit-for-purpose columnar data modeled and stored for machine learning training.</li>
+</ul>
+<h3 class="no_toc" id="third-generation-multimodel-cloud-architecture">
+  
+  
+    <a href="#third-generation-multimodel-cloud-architecture" class="anchor-heading" aria-labelledby="third-generation-multimodel-cloud-architecture"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Third Generation: Multimodel Cloud Architecture
+  
+  
+</h3>
+    
+<ul>
+  <li>Support streaming for near real-time data availability with architectures such as Kappa.</li>
+  <li>Attempt to unify batch and stream processing for data transformation with frameworks such as Apache Beam.</li>
+  <li>Fully embrace cloud-based managed services and use modern cloud-native implementations with isolated compute and storage. They leverage the elasticity of the cloud for cost optimization.</li>
+  <li>Converge the warehouse and lake into one technology, either extending the data warehouse to include embedded ML training, or alternatively building data warehouse integrity, transactionality, and querying systems into data lake solutions.</li>
+</ul>
+<h3 class="no_toc" id="characteristics-of-current-data-architecture">
+  
+  
+    <a href="#characteristics-of-current-data-architecture" class="anchor-heading" aria-labelledby="characteristics-of-current-data-architecture"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Characteristics of Current Data Architecture
+  
+  
+</h3>
+    
+<ul>
+  <li>monolithic architecture - 1) ingest data, 2) cleanse enrich and transform data, and 3) serve data</li>
+  <li>monolithic technology</li>
+  <li>monolithic organization - central data team, conway’s law</li>
+  <li>centrally owned</li>
+  <li>technically partitioned (rather than domain partitioned) – partitioning is orthogonal to axes of change and slows releases</li>
+</ul>
+<h2 id="how-to-design-data-mesh">
+  
+  
+    <a href="#how-to-design-data-mesh" class="anchor-heading" aria-labelledby="how-to-design-data-mesh"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> How to Design Data Mesh
+  
+  
+</h2>
+    
+<h3 id="data-mesh-architectural-components">
+  
+  
+    <a href="#data-mesh-architectural-components" class="anchor-heading" aria-labelledby="data-mesh-architectural-components"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Data Mesh Architectural Components
+  
+  
+</h3>
+    
+<h4 class="no_toc" id="domain">
+  
+  
+    <a href="#domain" class="anchor-heading" aria-labelledby="domain"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Domain
+  
+  
+</h4>
+    
+<ul>
+  <li>Systems, data products, and a cross-functional team aligned to serve a business domain function and outcomes and share its analytical and operational capabilities with the wider business and customers.</li>
+  <li><em>This is a well-established concept.</em></li>
+</ul>
+<h4 class="no_toc" id="domain-analytical-data-interfaces">
+  
+  
+    <a href="#domain-analytical-data-interfaces" class="anchor-heading" aria-labelledby="domain-analytical-data-interfaces"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Domain analytical data interfaces
+  
+  
+</h4>
+    
+<ul>
+  <li>Standardized interfaces that discover, access, and share domain-oriented data products.</li>
+  <li><em>At the time of writing, the implementation of these APIs is custom or platform specific.</em></li>
+  <li>The proprietary platforms need to offer open interfaces to make data sharing more convenient and interoperable with other hosting platforms.</li>
+</ul>
+<h4 class="no_toc" id="domain-operational-interfaces">
+  
+  
+    <a href="#domain-operational-interfaces" class="anchor-heading" aria-labelledby="domain-operational-interfaces"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Domain operational interfaces
+  
+  
+</h4>
+    
+<ul>
+  <li>APIs and applications through which a business domain shares its transactional capabilities and state with the wider organization.</li>
+  <li><em>This concept has mature implementations.</em></li>
+  <li>It is supported by de facto standards such as REST, GraphQL, gRPC, etc.</li>
+</ul>
+
+<div style="text-align:center">
+  <a href="/assets/img/data-mesh/data-product.jpg">
+    <img src="/assets/img/data-mesh/data-product.jpg" alt="Data Mesh, After the Inflection Point">
+  </a>
+</div>
+<h4 class="no_toc" id="data-product-quantum">
+  
+  
+    <a href="#data-product-quantum" class="anchor-heading" aria-labelledby="data-product-quantum"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Data (product) quantum
+  
+  
+</h4>
+    
+<ul>
+  <li>Data product implemented as an architecture quantum that encapsulates all the structural components it needs to do its job —- code, data, infrastructure specifications, and policies.</li>
+  <li>It is referred to in architectural discussions. It is used interchangeably with data products.</li>
+  <li><em>At the time of writing this is an experimental concept with custom implementations.</em></li>
+</ul>
+
+<div style="text-align:center">
+  <a href="/assets/img/data-mesh/structural-elements-of-a-data-product.jpg">
+    <img src="/assets/img/data-mesh/structural-elements-of-a-data-product.jpg" alt="Data Mesh, After the Inflection Point">
+  </a>
+</div>
+<h4 class="no_toc" id="data-product-container">
+  
+  
+    <a href="#data-product-container" class="anchor-heading" aria-labelledby="data-product-container"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Data (product) container
+  
+  
+</h4>
+    
+<ul>
+  <li>A mechanism to bundle all the structural components of a data product, deployed andmrun as a single unit with its sidecar.</li>
+  <li><em>At the time of writing this is an experimental concept with custom implementations.</em></li>
+</ul>
+<h4 class="no_toc" id="data-product-sidecar">
+  
+  
+    <a href="#data-product-sidecar" class="anchor-heading" aria-labelledby="data-product-sidecar"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Data product sidecar
+  
+  
+</h4>
+    
+<p>The accompanying process to the data product. It runs with the context of a data product container and implements cross-functional and standardized behaviors such as global policy execution.</p>
+<ul>
+  <li><em>At the time of writing this is an experimental concept with custom implementations.</em></li>
+</ul>
+<h4 class="no_toc" id="input-data-port">
+  
+  
+    <a href="#input-data-port" class="anchor-heading" aria-labelledby="input-data-port"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Input data port
+  
+  
+</h4>
+    
+<ul>
+  <li>A data product’s mechanisms to continuously receive data from one or multiple upstream sources.</li>
+  <li><em>At the time of writing this has custom implementations with existing event streaming and pipeline management technologies.</em></li>
+</ul>
+<h4 class="no_toc" id="output-data-port">
+  
+  
+    <a href="#output-data-port" class="anchor-heading" aria-labelledby="output-data-port"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Output data port
+  
+  
+</h4>
+    
+<ul>
+  <li>A data product’s standardized APIs to continuously share data.</li>
+  <li><em>At the time of writing this has vendor-specific custom implementations.</em></li>
+  <li>A mature implementation of the concept requires open data sharing standards with support for multiple modes of access to temporal data.</li>
+</ul>
+<h4 class="no_toc" id="discovery-and-observability-apis">
+  
+  
+    <a href="#discovery-and-observability-apis" class="anchor-heading" aria-labelledby="discovery-and-observability-apis"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Discovery and Observability APIs
+  
+  
+</h4>
+    
+<ul>
+  <li>A data product’s standard APIs to provide discoverability information —- to find, address, learn, and explore a data product—and observability information such as lineage, metrics, logs, etc.</li>
+  <li><em>At the time of writing custom implementations of these APIs have been built.</em></li>
+  <li>A mature implementation requires open standards for discoverability and observability information modeling and sharing. Some standards are currently under development.</li>
+</ul>
+<h4 class="no_toc" id="control-port">
+  
+  
+    <a href="#control-port" class="anchor-heading" aria-labelledby="control-port"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Control port
+  
+  
+</h4>
+    
+<ul>
+  <li>A data product’s standard APIs to configure policies or perform highly privileged governance operations.</li>
+  <li><em>At the time of writing this concept is experimental.</em></li>
+</ul>
+
+<div style="text-align:center">
+  <a href="/assets/img/data-mesh/data-mesh-planes.jpg">
+    <img src="/assets/img/data-mesh/data-mesh-planes.jpg" alt="Data Mesh, After the Inflection Point">
+  </a>
+</div>
+<h4 class="no_toc" id="platform-plane">
+  
+  
+    <a href="#platform-plane" class="anchor-heading" aria-labelledby="platform-plane"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Platform plane
+  
+  
+</h4>
+    
+<ul>
+  <li>A group of self-serve platform capabilities with high functional cohesion surfaced through APIs.</li>
+  <li><em>This is a general concept and well established.</em></li>
+</ul>
+<h4 class="no_toc" id="data-infrastructure-utility-plane">
+  
+  
+    <a href="#data-infrastructure-utility-plane" class="anchor-heading" aria-labelledby="data-infrastructure-utility-plane"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Data infrastructure utility plane
+  
+  
+</h4>
+    
+<ul>
+  <li>Atomic services to provision and manage physical resources such as storage, pipeline orchestration, compute, etc.</li>
+  <li><em>At the time of writing the services that constitute the infrastructure plane are mature and provided by many vendors with support for automated provisioning.</em></li>
+</ul>
+<h4 class="no_toc" id="data-product-experience-plane">
+  
+  
+    <a href="#data-product-experience-plane" class="anchor-heading" aria-labelledby="data-product-experience-plane"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Data product experience plane
+  
+  
+</h4>
+    
+<ul>
+  <li>Higher-level abstraction services that operate directly with a data product and enable data product producers and consumers to create, access, and secure a data product, among other operations that run on a data product.</li>
+  <li><em>At the time of writing, custom implementation of services constituting a data product experience plane has been implemented. No reference implementation publicly exists.</em></li>
+</ul>
+<h4 class="no_toc" id="mesh-experience-plane">
+  
+  
+    <a href="#mesh-experience-plane" class="anchor-heading" aria-labelledby="mesh-experience-plane"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Mesh experience plane
+  
+  
+</h4>
+    
+<ul>
+  <li>Services that operate on a mesh of interconnected data products such as searching for data products and observing the data lineage across them.</li>
+  <li><em>At the time of writing, custom implementations of some of the services constituting a mesh experience plane, such as discovery and search services, have been implemented. No reference implementation publicly exists.</em></li>
+</ul>
+
+<p>Data Plane User Journeys/Personas</p>
+<ul>
+  <li>
+<strong>data product developers</strong> - from generalist developers to specialist data engineers who 1) incept, explore, bootstrap, and source, 2) build, test, deploy and 3) maintain, evolve, and retire a data product</li>
+  <li>
+<strong>data product consumers</strong> - they need access and use data to do their job</li>
+  <li>
+<strong>data product owners</strong> - responsible for delivering and evangelizing successful data products for their specific domains</li>
+  <li>
+<strong>data governance members</strong> - have a collective set of responsibilities to assure the optimal and secure operation of the mesh as a whole</li>
+  <li>
+<strong>data platform product owner</strong> - responsible for delivering the platform services as a product with the best user experience</li>
+  <li>
+<strong>data platform developers</strong> - build and operate the data platform (as well as use it)</li>
+</ul>
+<h3 id="data-product-affordances">
+  
+  
+    <a href="#data-product-affordances" class="anchor-heading" aria-labelledby="data-product-affordances"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Data Product Affordances
+  
+  
+</h3>
+    
+
+<blockquote>
+  <p>The term affordance refers to the relationship between a physical object and a person (or for that matter, any interacting agent, whether animal or human, or even machines and robots).
+An affordance is a relationship between the properties of an object and the capabilities of the agent that determine just how the object could possibly be used. A chair affords (“is for”) support and, therefore, affords sitting. Most chairs can also be carried by a single person (they afford lifting), but some can only be lifted by a strong person or by a team of people. If young or relatively weak people cannot lift a chair, then for these people, the chair does not have that affordance, it does not afford lifting.
+The presence of an affordance is jointly determined by the qualities of the object and the abilities of the agent that is interacting. This relational definition of affordance gives considerable difficulty to many people. We are used to thinking that properties are associated with objects. But affordance is not a property. An affordance is a relationship. Whether an affordance exists depends upon the properties of both the object and the agent.</p>
+</blockquote>
+
+<ul>
+  <li>affordances can be thought of as properties of the data product</li>
+</ul>
+
+<div style="text-align:center">
+  <a href="/assets/img/data-mesh/data-product-affordances.jpg">
+    <img src="/assets/img/data-mesh/data-product-affordances.jpg" alt="Data Mesh, After the Inflection Point">
+  </a>
+</div>
+
+<ol>
+  <li>design for change - data products need to respond gracefully to change</li>
+  <li>design for scale - data product must result in a scale-out mesh</li>
+  <li>design for value - data product must put delivering value to its consumers with the least amount of friction at its heart</li>
+</ol>
+
+<ul>
+  <li>there is no central orchestrator of pipelines, aware of global configuration – for globalized behavior the sidecar pattern is used</li>
+</ul>
+<h4 class="no_toc" id="serve-data">
+  
+  
+    <a href="#serve-data" class="anchor-heading" aria-labelledby="serve-data"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Serve Data
+  
+  
+</h4>
+    
+<ul>
+  <li>The data product shares immutable and bitemporal data, available through clearly defined read-only interfaces supporting multiple modes of access.</li>
+  <li>The data product affords a diverse set of data product users to access data for training machine learning models, generating reports, data analysis and exploration, and building data-intensive applications.</li>
+  <li>It does not afford transactional and operational applications that require updating or deleting data to maintain their current state.</li>
+</ul>
+<h4 class="no_toc" id="consume-data">
+  
+  
+    <a href="#consume-data" class="anchor-heading" aria-labelledby="consume-data"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Consume Data
+  
+  
+</h4>
+    
+<ul>
+  <li>The data product consumes data from upstream sources of a variety of types.</li>
+  <li>The data product affords consuming data from its collaborating operational application, other data products, or external systems.</li>
+  <li>The data product only affords consuming data from the sources it identifies and configures through the platform.</li>
+  <li>It does not afford consuming data from sources it does not identify and configure.</li>
+</ul>
+<h4 class="no_toc" id="transform-data">
+  
+  
+    <a href="#transform-data" class="anchor-heading" aria-labelledby="transform-data"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Transform Data
+  
+  
+</h4>
+    
+<ul>
+  <li>The data product processes and transforms input data into new data that it then serves.</li>
+  <li>The data product affords data product developers with multiple modes of transformation computation.</li>
+  <li>The transformation can be program code, a machine learning model, or a complex query running inference.</li>
+  <li>The transformation can generate new data or remodel or improve the quality of input data.</li>
+</ul>
+<h4 class="no_toc" id="discover--understand--explore--trust">
+  
+  
+    <a href="#discover--understand--explore--trust" class="anchor-heading" aria-labelledby="discover--understand--explore--trust"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Discover | Understand | Explore | Trust
+  
+  
+</h4>
+    
+<ul>
+  <li>The data product serves APIs and information that affords data product users to discover, explore, understand, and trust it.</li>
+  <li>data quality metrics – not to signal data is good or bad, just useful to communicate threshold of guarantees
+    <ol>
+      <li>
+<strong>accuracy</strong> - how closely the data represents the true value of the attribute in the real-world context</li>
+      <li>
+<strong>completeness</strong> - the degree of data representing all properties and instances of the real-world context</li>
+      <li>
+<strong>consistency</strong> - the degree of data being free of contradicitons</li>
+      <li>
+<strong>precision</strong> - the degree of attribute fidelity</li>
+    </ol>
+  </li>
+</ul>
+<h4 class="no_toc" id="compose-data">
+  
+  
+    <a href="#compose-data" class="anchor-heading" aria-labelledby="compose-data"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Compose Data
+  
+  
+</h4>
+    
+<ul>
+  <li>The data product affords data product users to compose, correlate, and join its data with other data products.</li>
+  <li>The data quantum affords programmatic data composability by performing set (table or graph) operations computationally.</li>
+  <li>The data product does not afford data composability to systems that demand a single and tightly coupled data schema (e.g., SQL schema) shared across multiple data products.</li>
+</ul>
+<h4 class="no_toc" id="manage-life-cycle">
+  
+  
+    <a href="#manage-life-cycle" class="anchor-heading" aria-labelledby="manage-life-cycle"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Manage Life Cycle
+  
+  
+</h4>
+    
+<ul>
+  <li>The data product affords data product users to manage its life cycle.</li>
+  <li>It provides a set of build-time and runtime configuration and code so that data product developers can build, provision, and maintain it.</li>
+</ul>
+<h4 class="no_toc" id="observe--debug--audit">
+  
+  
+    <a href="#observe--debug--audit" class="anchor-heading" aria-labelledby="observe--debug--audit"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Observe | Debug | Audit
+  
+  
+</h4>
+    
+<ul>
+  <li>The data product affords data product users to monitor its behavior, debug its issues, and audit it.</li>
+  <li>It provides programmatic APIs to provide the necessary information such as data processing logs, lineage, runtime metrics, and access logs.</li>
+  <li>use cases for observability via logs, traces, and metrics:
+    <ol>
+      <li>monitor the operational health of the mesh</li>
+      <li>debug and perform postmortem analysis</li>
+      <li>perform audits</li>
+      <li>understand data lineage</li>
+    </ol>
+  </li>
+</ul>
+<h4 class="no_toc" id="govern">
+  
+  
+    <a href="#govern" class="anchor-heading" aria-labelledby="govern"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Govern
+  
+  
+</h4>
+    
+<ul>
+  <li>The data product affords data users (governance group, data product developers) and the mesh experience plane (administrative and policy controls) a set of APIs and computational policies to self-govern its data.</li>
+  <li>It enables the build-time configuration of its governing policies and runtime execution of them at the point of access to data, read or write. For example, it maintains data security by controlling access to its data and protects privacy and confidentiality through encryption.</li>
+</ul>
+<h3 id="getting-started-with-data-mesh">
+  
+  
+    <a href="#getting-started-with-data-mesh" class="anchor-heading" aria-labelledby="getting-started-with-data-mesh"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Getting Started with Data Mesh
+  
+  
+</h3>
+    
+<div style="text-align:center">
+  <a href="/assets/img/data-mesh/data-mesh-assessment.jpg">
+    <img src="/assets/img/data-mesh/data-mesh-assessment.jpg" alt="Data Mesh, After the Inflection Point">
+  </a>
+</div>
+
+<ul>
+  <li>
+<strong>organizational complexity</strong> - orgs that experience scale and complexity where existing data warehouse or lake solutions are blockers</li>
+  <li>
+<strong>data-oriented strategy</strong> - orgs planning to get value from data at scale</li>
+  <li>
+<strong>executive support</strong> - demands motivating the org to change how people work</li>
+  <li>
+<strong>data technology at core</strong> - orgs that use data and AI as a competitive advantage</li>
+  <li>
+<strong>early adopter</strong> - demand spirit of experimentation, taking risks, failing fast, learning, and evolving</li>
+  <li>
+<strong>modern engineering</strong> - tech that enforce centralized data modeling, control, storage don’t lend themselves well to data mesh</li>
+  <li>
+<strong>domain-oriented organization</strong> - tech organized around business domains</li>
+  <li>
+    <p><strong>long-term commitment</strong> - adoption of data mesh is a transformation and a journey</p>
+  </li>
+  <li>data mesh requires transformational change as a component of a larger data strategy
+business-driven execution has benefits:
+    <ol>
+      <li>continuous delivery and demonstration of value and outcome</li>
+      <li>rapid feedback from the consumers</li>
+      <li>reducing waste - create only whats needed</li>
+    </ol>
+  </li>
+</ul>
+
+<p>challenges:</p>
+<ol>
+  <li>building point-in-time solutions - might develop platform capabilities that are not extensible</li>
+  <li>delivering to tight business deadlines</li>
+  <li>project-based budgeting - projects as sole source of investment for building platform services</li>
+</ol>
+
+<p>guidelines for business-driven execution</p>
+<ol>
+  <li>start with complementary use cases - allows avoiding point solutions</li>
+  <li>know and prioritize the data consumer and provider personas</li>
+  <li>start with use cases that have minimal dependencies on the platform’s missing features</li>
+  <li>create long-term ownership and budgeting for platform services and data products</li>
+</ol>
+
+<ul>
+  <li>works best as a multi-phase evolution, built iteratively (avoid rigid up-front plans)</li>
+  <li>use fitness functions to measure evolution towards goal</li>
+  <li>
+<strong>fitness function</strong> -  an objective function used to summarize how close a prospective design solution is to achieving its set aims.</li>
+</ul>
+<h3 id="changing-culture">
+  
+  
+    <a href="#changing-culture" class="anchor-heading" aria-labelledby="changing-culture"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Changing Culture
+  
+  
+</h3>
+    
+
+<div style="text-align:center">
+  <a href="/assets/img/data-mesh/star-model.jpg">
+    <img src="/assets/img/data-mesh/star-model.jpg" alt="Data Mesh, After the Inflection Point">
+  </a>
+</div>
+
+<ul>
+  <li>Deploy a movement-based organizational change – start small and move fast to show value, get buy-in, and gather momentum toward a sustainable and scaled change</li>
+</ul>
+
+          
+
+          
+        </main>
+        
+
+  <hr>
+  <footer>
+    
+      <p><a href="#top" id="back-to-top">Back to top</a></p>
+    
+
+    <p class="text-small text-grey-dk-100 mb-0">Copyright © 2022 Michael McIntyre. </p>
+
+    
+      <div class="d-flex mt-2">
+        
+          <p class="text-small text-grey-dk-000 mb-0 mr-2">
+            Page last modified: <span class="d-inline-block">Jul 22 2022 at 07:40 PM</span>.
+          </p>
+        
+        
+      </div>
+    
+  </footer>
+
+
+      </div>
+    </div>
+    
+      
+
+<div class="search-overlay"></div>
+
+    
+  </div>
+
+  
+</body>
+</html>

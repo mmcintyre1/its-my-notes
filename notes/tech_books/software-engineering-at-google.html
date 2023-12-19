@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+
+  
+
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+  <link rel="stylesheet" href="/assets/css/just-the-docs-default.css">
+  <link rel="stylesheet" href="/assets/css/native.css">
+
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-M6EEXPRNWS"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-M6EEXPRNWS', { 'anonymize_ip': true });
+  </script>
+
+  
+
+  
+  <script type="text/javascript" src="/assets/js/vendor/lunr.min.js"></script>
+  
+  <script type="text/javascript" src="/assets/js/just-the-docs.js"></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Software Engineering at Google | Notes</title>
+<meta name="generator" content="Jekyll v3.9.2">
+<meta property="og:title" content="Software Engineering at Google">
+<meta property="og:locale" content="en_US">
+<meta name="description" content="My Notes">
+<meta property="og:description" content="My Notes">
+<link rel="canonical" href="https://itsmynotes.com/notes/tech_books/software-engineering-at-google">
+<meta property="og:url" content="https://itsmynotes.com/notes/tech_books/software-engineering-at-google">
+<meta property="og:site_name" content="Notes">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<meta property="twitter:title" content="Software Engineering at Google">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"My Notes","headline":"Software Engineering at Google","url":"https://itsmynotes.com/notes/tech_books/software-engineering-at-google"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+  
+
+</head>
+<body>
+  <a class="skip-to-main" href="#main-content">Skip to main content</a>
+  <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+  <symbol id="svg-link" viewbox="0 0 24 24">
+  <title>Link</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link">
+    <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+  </svg>
+</symbol>
+
+  <symbol id="svg-menu" viewbox="0 0 24 24">
+  <title>Menu</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu">
+    <line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line>
+  </svg>
+</symbol>
+
+  <symbol id="svg-arrow-right" viewbox="0 0 24 24">
+  <title>Expand</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+    <polyline points="9 18 15 12 9 6"></polyline>
+  </svg>
+</symbol>
+
+  <!-- Feather. MIT License: https://github.com/feathericons/feather/blob/master/LICENSE -->
+<symbol id="svg-external-link" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-external-link">
+  <title id="svg-external-link-title">(external link)</title>
+  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line>
+</symbol>
+
+  
+    <symbol id="svg-doc" viewbox="0 0 24 24">
+  <title>Document</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file">
+    <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline>
+  </svg>
+</symbol>
+
+    <symbol id="svg-search" viewbox="0 0 24 24">
+  <title>Search</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search">
+    <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+  </svg>
+</symbol>
+
+  
+  
+    <!-- Bootstrap Icons. MIT License: https://github.com/twbs/icons/blob/main/LICENSE.md -->
+<symbol id="svg-copy" viewbox="0 0 16 16">
+  <title>Copy</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard" viewbox="0 0 16 16">
+    <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"></path>
+    <path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"></path>
+  </svg>
+</symbol>
+<symbol id="svg-copied" viewbox="0 0 16 16">
+  <title>Copied</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard-check-fill" viewbox="0 0 16 16">
+    <path d="M6.5 0A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3Zm3 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3Z"></path>
+    <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1A2.5 2.5 0 0 1 9.5 5h-3A2.5 2.5 0 0 1 4 2.5v-1Zm6.854 7.354-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L7.5 10.793l2.646-2.647a.5.5 0 0 1 .708.708Z"></path>
+  </svg>
+</symbol>
+
+  
+</svg>
+
+  <div class="side-bar">
+  <div class="site-header" role="banner">
+    <a href="/" class="site-title lh-tight">
+  Notes
+
+</a>
+    <button id="menu-button" class="site-button btn-reset" aria-label="Toggle menu" aria-pressed="false">
+      <svg viewbox="0 0 24 24" class="icon" aria-hidden="true"><use xlink:href="#svg-menu"></use></svg>
+    </button>
+  </div>
+
+  <nav aria-label="Main" id="site-nav" class="site-nav">
+  
+  
+    <ul class="nav-list">
+<li class="nav-list-item">
+<button class="nav-list-expander btn-reset" aria-label="toggle items in Projects category" aria-pressed="false">
+      <svg viewbox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+    </button><a href="/notes/projects" class="nav-list-link">Projects</a><ul class="nav-list"></ul>
+</li>
+<li class="nav-list-item">
+<button class="nav-list-expander btn-reset" aria-label="toggle items in Vocabulary category" aria-pressed="false">
+      <svg viewbox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+    </button><a href="/notes/vocabulary" class="nav-list-link">Vocabulary</a><ul class="nav-list"></ul>
+</li>
+<li class="nav-list-item">
+<button class="nav-list-expander btn-reset" aria-label="toggle items in Business Books category" aria-pressed="false">
+      <svg viewbox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+    </button><a href="/notes/business-books" class="nav-list-link">Business Books</a><ul class="nav-list"></ul>
+</li>
+<li class="nav-list-item">
+<button class="nav-list-expander btn-reset" aria-label="toggle items in Other Books category" aria-pressed="false">
+      <svg viewbox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+    </button><a href="/notes/other-books" class="nav-list-link">Other Books</a><ul class="nav-list"></ul>
+</li>
+<li class="nav-list-item">
+<button class="nav-list-expander btn-reset" aria-label="toggle items in Educational Books category" aria-pressed="false">
+      <svg viewbox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+    </button><a href="/notes/educational-books" class="nav-list-link">Educational Books</a><ul class="nav-list"></ul>
+</li>
+<li class="nav-list-item">
+<button class="nav-list-expander btn-reset" aria-label="toggle items in Articles category" aria-pressed="false">
+      <svg viewbox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+    </button><a href="/notes/articles" class="nav-list-link">Articles</a><ul class="nav-list"></ul>
+</li>
+<li class="nav-list-item">
+<button class="nav-list-expander btn-reset" aria-label="toggle items in Quotes category" aria-pressed="false">
+      <svg viewbox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+    </button><a href="/notes/quotes" class="nav-list-link">Quotes</a><ul class="nav-list"></ul>
+</li>
+<li class="nav-list-item">
+<button class="nav-list-expander btn-reset" aria-label="toggle items in Classes category" aria-pressed="false">
+      <svg viewbox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+    </button><a href="/notes/classes" class="nav-list-link">Classes</a><ul class="nav-list"></ul>
+</li>
+<li class="nav-list-item">
+<button class="nav-list-expander btn-reset" aria-label="toggle items in Tech Books category" aria-pressed="false">
+      <svg viewbox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+    </button><a href="/notes/tech-books" class="nav-list-link">Tech Books</a><ul class="nav-list"></ul>
+</li>
+<li class="nav-list-item">
+<button class="nav-list-expander btn-reset" aria-label="toggle items in Podcasts category" aria-pressed="false">
+      <svg viewbox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+    </button><a href="/notes/podcasts" class="nav-list-link">Podcasts</a><ul class="nav-list"></ul>
+</li>
+</ul>
+
+  
+</nav>
+
+
+  
+  
+    <footer class="site-footer">
+      This site uses <a href="https://github.com/just-the-docs/just-the-docs">Just the Docs</a>, a documentation theme for Jekyll.
+    </footer>
+  
+</div>
+
+  <div class="main" id="top">
+    <div id="main-header" class="main-header">
+  
+    
+
+<div class="search" role="search">
+  <div class="search-input-wrap">
+    <input type="text" id="search-input" class="search-input" tabindex="0" placeholder="Search Notes" aria-label="Search Notes" autocomplete="off">
+    <label for="search-input" class="search-label"><svg viewbox="0 0 24 24" class="search-icon"><use xlink:href="#svg-search"></use></svg></label>
+  </div>
+  <div id="search-results" class="search-results"></div>
+</div>
+
+  
+  
+  
+    <nav aria-label="Auxiliary" class="aux-nav">
+  <ul class="aux-nav-list">
+    
+      <li class="aux-nav-list-item">
+        <a href="https://github.com/mmcintyre1/its-my-notes" class="site-button">
+          It's My Notes on GitHub
+        </a>
+      </li>
+    
+  </ul>
+</nav>
+
+  
+</div>
+
+    <div class="main-content-wrap">
+      <nav aria-label="Breadcrumb" class="breadcrumb-nav">
+  <ol class="breadcrumb-nav-list">
+  
+    <li class="breadcrumb-nav-list-item"><a href="/notes/tech-books">Tech Books</a></li>
+  <li class="breadcrumb-nav-list-item"><span>Software Engineering at Google</span></li>
+  </ol>
+</nav>
+      <div id="main-content" class="main-content">
+        <main>
+          
+            <h1 class="no_toc" id="software-engineering-at-google">
+  
+  
+    <a href="#software-engineering-at-google" class="anchor-heading" aria-labelledby="software-engineering-at-google"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Software Engineering at Google
+  
+  
+</h1>
+    
+
+<details open="">
+  <summary>
+    Table of contents
+  </summary>
+<ol id="markdown-toc">
+  <li>
+<a href="#1-what-is-software-engineering" id="markdown-toc-1-what-is-software-engineering">1: What is Software Engineering?</a>    <ol>
+      <li><a href="#chapter-summary" id="markdown-toc-chapter-summary">Chapter Summary</a></li>
+    </ol>
+  </li>
+  <li>
+<a href="#2-how-to-work-well-on-teams" id="markdown-toc-2-how-to-work-well-on-teams">2: How to Work Well on Teams</a>    <ol>
+      <li><a href="#three-pillars-of-social-interaction" id="markdown-toc-three-pillars-of-social-interaction">Three Pillars of Social Interaction</a></li>
+      <li><a href="#being-googley" id="markdown-toc-being-googley">Being “Googley”</a></li>
+      <li><a href="#chapter-summary-1" id="markdown-toc-chapter-summary-1">Chapter Summary</a></li>
+    </ol>
+  </li>
+  <li><a href="#3-knowledge-sharing" id="markdown-toc-3-knowledge-sharing">3: Knowledge Sharing</a></li>
+  <li>
+<a href="#12-unit-testing" id="markdown-toc-12-unit-testing">12: Unit Testing</a>    <ol>
+      <li><a href="#tldr" id="markdown-toc-tldr">TL;DR</a></li>
+    </ol>
+  </li>
+  <li>
+<a href="#13-test-doubles" id="markdown-toc-13-test-doubles">13: Test Doubles</a>    <ol>
+      <li><a href="#tldr-1" id="markdown-toc-tldr-1">TL;DR</a></li>
+    </ol>
+  </li>
+</ol>
+
+</details>
+<h2 id="1-what-is-software-engineering">
+  
+  
+    <a href="#1-what-is-software-engineering" class="anchor-heading" aria-labelledby="1-what-is-software-engineering"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 1: What is Software Engineering?
+  
+  
+</h2>
+    
+
+<blockquote>
+  <p>We see three critical differences between programming and software engineering: time, scale, and the trade-offs at play</p>
+</blockquote>
+
+<ul>
+  <li>need to ask yourself: “What is the expected life span1 of your code?”</li>
+  <li>Your project is sustainable if, for the expected life span of your software, you are capable of reacting to whatever valuable change comes along, for either technical or business reasons.</li>
+  <li>When you are fundamentally incapable of reacting to a change in underlying technology or product direction, you’re placing a high-risk bet on the hope that such a change never becomes critical.</li>
+  <li>Somewhere along the line between a one-off program and a project that lasts for decades, a transition happens: a project must begin to react to changing externalities</li>
+  <li>must be aware of difference between “happens to work” and “is maintainable”</li>
+</ul>
+
+<p><strong>hyrum’s law</strong>: With a sufficient number of users of an API, it does not matter what you promise in the contract: all observable behaviors of your system will be depended on by somebody.</p>
+
+<ul>
+  <li>cannot assume perfect adherence to published contracts or best practices</li>
+</ul>
+
+<blockquote>
+  <p>We’ve taken to saying, “It’s programming if ‘clever’ is a compliment, but it’s software engineering if ‘clever’ is an accusation.”</p>
+</blockquote>
+
+<blockquote>
+  <p>Change is not inherently good. We shouldn’t change just for the sake of change. But we do need to be capable of change</p>
+</blockquote>
+
+<p><strong>churn rule</strong>: policy at google that says infrastructure teams must do the work to move their internal users to new versions themselves or
+do the update in place, in backward-compatible fashion</p>
+
+<p><strong>Beyonce rule</strong>: policy at google: “If a product experiences outages or other problems as a result of infrastructure changes, but the issue wasn’t surfaced by tests in our Continuous Integration (CI) system, it is not the fault of the infrastructure change.”</p>
+
+<blockquote>
+  <p>Knowledge is viral, experts are carriers, and there’s a lot to be said for the value of clearing away the common stumbling blocks for your engineers.</p>
+</blockquote>
+
+<ul>
+  <li>the more you change your infrastructure, the easier it is to do so</li>
+  <li>factors that affect the flexibility of a codebase: expertise, stability, conformity, familiarity, policy</li>
+  <li>
+<strong>shift left</strong> - as with other shift left movements, the earlier you catch bugs, the easier it is to resolve them</li>
+</ul>
+
+<p>types of costs</p>
+<ul>
+  <li>Financial costs (e.g., money)</li>
+  <li>Resource costs (e.g., CPU time)</li>
+  <li>Personnel costs (e.g., engineering effort)</li>
+  <li>Transaction costs (e.g., - what does it cost to take action?)- Opportunity costs (e.g., what does it cost to not take action?)</li>
+  <li>
+    <p>Societal costs (e.g., what impact will this choice have on society at large?)</p>
+  </li>
+  <li>should rely on data, but when there is no data, you have evidence, precedent, and argument</li>
+</ul>
+
+<p><strong>Jevons Paradox</strong> - consumption of a resource may increase as a response to greater efficiency in use</p>
+<h3 id="chapter-summary">
+  
+  
+    <a href="#chapter-summary" class="anchor-heading" aria-labelledby="chapter-summary"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Chapter Summary
+  
+  
+</h3>
+    
+<ul>
+  <li>“Software engineering” differs from “programming” in dimensionality: programming is about producing code. Software engineering extends that to include the maintenance of that code for its useful life span.</li>
+  <li>There is a factor of at least 100,000 times between the life spans of short-lived code and long-lived code. It is silly to assume that the same best practices apply universally on both ends of that spectrum.</li>
+  <li>Software is sustainable when, for the expected life span of the code, we are capable of responding to changes in dependencies, technology, or product requirements. We may choose to not change things, but we need to be capable.</li>
+  <li>Hyrum’s Law: with a sufficient number of users of an API, it does not matter what you promise in the contract: all observable behaviors of your system will be depended on by somebody.</li>
+  <li>Every task your organization has to do repeatedly should be scalable (linear or better) in terms of human input. Policies are a wonderful tool for making process scalable.</li>
+  <li>Process inefficiencies and other software-development tasks tend to scale up slowly. Be careful about boiled-frog problems.</li>
+  <li>Expertise pays off particularly well when combined with economies of scale.</li>
+  <li>“Because I said so” is a terrible reason to do things.</li>
+  <li>Being data driven is a good start, but in reality, most decisions are based on a mix of data, assumption, precedent, and argument. It’s best when objective data makes up the majority of those inputs, but it can rarely be all of them.</li>
+  <li>Being data driven over time implies the need to change directions when the data changes (or when assumptions are dispelled). Mistakes or revised plans are inevitable.</li>
+</ul>
+<h2 id="2-how-to-work-well-on-teams">
+  
+  
+    <a href="#2-how-to-work-well-on-teams" class="anchor-heading" aria-labelledby="2-how-to-work-well-on-teams"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 2: How to Work Well on Teams
+  
+  
+</h2>
+    
+<ul>
+  <li>software dev is a team endeavor</li>
+  <li>The <strong>Genius Myth</strong> is the tendency that we as humans need to ascribe the success of a team to a single person/leader
+    <ul>
+      <li>need to avoid, since best creations are mostly group activities</li>
+    </ul>
+  </li>
+  <li>
+<strong>the bus factor</strong> - the number of people that need to get hit by a bus before your project is completely doomed.
+    <ul>
+      <li>Ensuring that there is at least good documentation in addition to a primary and a secondary owner for each area of responsibility helps future-proof your project’s success and increases your project’s bus factor.</li>
+    </ul>
+  </li>
+  <li>key to software delivery - get feedback as early as possible, test as early as possible, think about security and the production environments as early as possible</li>
+  <li>working alone is inherently riskier than working with others</li>
+</ul>
+<h3 id="three-pillars-of-social-interaction">
+  
+  
+    <a href="#three-pillars-of-social-interaction" class="anchor-heading" aria-labelledby="three-pillars-of-social-interaction"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Three Pillars of Social Interaction
+  
+  
+</h3>
+    
+<p><strong>Pillar 1: Humility</strong></p>
+<ul>
+  <li>You are not the center of the universe (nor is your code!). You’re neither omniscient nor infallible. You’re open to self-improvement.</li>
+</ul>
+
+<p><strong>Pillar 2: Respect</strong></p>
+<ul>
+  <li>You genuinely care about others you work with. You treat them kindly and appreciate their abilities and accomplishments.</li>
+</ul>
+
+<p><strong>Pillar 3: Trust</strong></p>
+<ul>
+  <li>You believe others are competent and will do the right thing, and you’re OK with letting them drive when appropriate.</li>
+</ul>
+
+<blockquote>
+  <p>It’s not about tricking or manipulating people; it’s about creating relationships to get things done.</p>
+</blockquote>
+
+<blockquote>
+  <p>The trick is to make sure you (and those around you) understand the difference between a constructive criticism of someone’s creative output and a flat-out assault against someone’s character.</p>
+</blockquote>
+
+<blockquote>
+  <p>if you’re not failing now and then, you’re not being innovative enough or taking enough risks. Failure is viewed as a golden opportunity to learn and improve for the next go-around</p>
+</blockquote>
+
+<ul>
+  <li>
+<strong>blameless post-mortems</strong> are really important to learning – always need to contain an explanation of what was learned and what is going to change as a result of the learning experience</li>
+</ul>
+
+<blockquote>
+  <p>The more open you are to influence, the more you are able to influence; the more vulnerable you are, the stronger you appear.</p>
+</blockquote>
+<h3 id="being-googley">
+  
+  
+    <a href="#being-googley" class="anchor-heading" aria-labelledby="being-googley"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Being “Googley”
+  
+  
+</h3>
+    
+<p>rubric of behaviors for what is “googley”:</p>
+
+<p><strong>Thrives in ambiguity</strong></p>
+<ul>
+  <li>Can deal with conflicting messages or directions, build consensus, and make progress against a problem, even when the environment is constantly shifting.</li>
+</ul>
+
+<p><strong>Values feedback</strong></p>
+<ul>
+  <li>Has humility to both receive and give feedback gracefully and understands how valuable feedback is for personal (and team) development.</li>
+</ul>
+
+<p><strong>Challenges status quo</strong></p>
+<ul>
+  <li>Is able to set ambitious goals and pursue them even when there might be resistance or inertia from others.</li>
+</ul>
+
+<p><strong>Puts the user first</strong></p>
+<ul>
+  <li>Has empathy and respect for users of Google’s products and pursues actions that are in their best interests.</li>
+</ul>
+
+<p><strong>Cares about the team</strong></p>
+<ul>
+  <li>Has empathy and respect for coworkers and actively works to help them without being asked, improving team cohesion.</li>
+</ul>
+
+<p><strong>Does the right thing</strong></p>
+<ul>
+  <li>Has a strong sense of ethics about everything they do; willing to make difficult or inconvenient decisions to protect the integrity of the team and product.</li>
+</ul>
+<h3 id="chapter-summary-1">
+  
+  
+    <a href="#chapter-summary-1" class="anchor-heading" aria-labelledby="chapter-summary-1"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Chapter Summary
+  
+  
+</h3>
+    
+<ul>
+  <li>Be aware of the trade-offs of working in isolation.</li>
+  <li>Acknowledge the amount of time that you and your team spend communicating and in interpersonal conflict. A small investment in understanding personalities and working styles of yourself and others can go a long way toward improving productivity.</li>
+  <li>If you want to work effectively with a team or a large organization, be aware of your preferred working style and that of others.</li>
+</ul>
+<h2 id="3-knowledge-sharing">
+  
+  
+    <a href="#3-knowledge-sharing" class="anchor-heading" aria-labelledby="3-knowledge-sharing"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 3: Knowledge Sharing
+  
+  
+</h2>
+    
+<h2 id="12-unit-testing">
+  
+  
+    <a href="#12-unit-testing" class="anchor-heading" aria-labelledby="12-unit-testing"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 12: Unit Testing
+  
+  
+</h2>
+    
+<blockquote>
+  <p>After preventing bugs, the most important purpose of a test is to improve engineers’ productivity.</p>
+</blockquote>
+<h3 class="no_toc" id="properties-of-unit-tests">
+  
+  
+    <a href="#properties-of-unit-tests" class="anchor-heading" aria-labelledby="properties-of-unit-tests"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> properties of unit tests
+  
+  
+</h3>
+    
+<ul>
+  <li>tend to be small, which makes them fast and deterministic and can be run often</li>
+  <li>easy to write at the same time as the code they are testing</li>
+  <li>promote high levels of test coverage because they are quick and easy to write</li>
+  <li>easy to understand what is wrong with them when they fail</li>
+  <li>
+    <p>can serve as documentation and examples</p>
+  </li>
+  <li>shoot for a mix of 80% unit tests, 20% broader-scoped tests</li>
+  <li>when writing tests, you want maintainability, and want to avoid:
+    <ul>
+      <li>
+<strong>brittle</strong>: breaking in response to harmless or unrelated changes</li>
+      <li>
+<strong>unclear</strong>: difficult to determine what is wrong and how to fix it</li>
+    </ul>
+  </li>
+  <li>strive for <strong>unchanging</strong> tests – after a test is written, it never needs to change unless the requirements of the system change</li>
+</ul>
+<h3 class="no_toc" id="four-kinds-of-change">
+  
+  
+    <a href="#four-kinds-of-change" class="anchor-heading" aria-labelledby="four-kinds-of-change"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> four kinds of change
+  
+  
+</h3>
+    
+<ol>
+  <li>
+<strong>pure refactorings</strong> – shouldn’t require unit test changes because you shouldn’t be changing the API, just implementation underneath</li>
+  <li>
+<strong>new features</strong> – should just be adding new unit tests, not changing what already exists</li>
+  <li>
+<strong>bug fixes</strong> – an uncaught bug means a test didn’t exist, so additive</li>
+  <li>
+<strong>behavior changes</strong> – only case where you need to update unit tests</li>
+</ol>
+
+<blockquote>
+  <p>write tests that invoke the system being tested in the same way its users would; that is, make calls against its public API rather than its implementation details.</p>
+</blockquote>
+<h3 class="no_toc" id="state-and-interaction-testing">
+  
+  
+    <a href="#state-and-interaction-testing" class="anchor-heading" aria-labelledby="state-and-interaction-testing"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> state and interaction testing
+  
+  
+</h3>
+    
+<ol>
+  <li>state testing: you observe the system itself to see what it looks like after invoking with it</li>
+  <li>interaction testing: check that the system took an expected sequence of actions on its collaborators in response to invoking it</li>
+</ol>
+
+<ul>
+  <li>you should prefer state testing because we generally don’t care how a system arrives at state, just that it is in a particular state</li>
+</ul>
+
+<blockquote>
+  <p>Two high-level properties that help tests achieve clarity are completeness and conciseness. A test is complete when its body contains all of the information a reader needs in order to understand how it arrives at its result. A test is concise when it contains no other distracting or irrelevant information.</p>
+</blockquote>
+<h3 class="no_toc" id="behavior-testing">
+  
+  
+    <a href="#behavior-testing" class="anchor-heading" aria-labelledby="behavior-testing"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> behavior testing
+  
+  
+</h3>
+    
+<ul>
+  <li>rather than write tests for each method, write tests for each behavior</li>
+  <li>a <strong>behavior</strong> is a guarantee that a system makes about how it will respond to a series of inputs while in a particular state</li>
+  <li>behaviors can often be expressed via “given”, “when”, and “then”</li>
+  <li>
+    <p>name and structure tests around the behaviors being tested</p>
+  </li>
+  <li>don’t put logic in tests</li>
+  <li>write clear failure messages</li>
+</ul>
+
+<blockquote>
+  <p>Instead of being completely DRY, test code should often strive to be DAMP—that is, to promote “Descriptive And Meaningful Phrases.” A little bit of duplication is OK in tests so long as that duplication makes the test simpler and clearer.</p>
+</blockquote>
+<h3 id="tldr">
+  
+  
+    <a href="#tldr" class="anchor-heading" aria-labelledby="tldr"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> TL;DR
+  
+  
+</h3>
+    
+<ul>
+  <li>Strive for unchanging tests.</li>
+  <li>Test via public APIs.</li>
+  <li>Test state, not interactions.</li>
+  <li>Make your tests complete and concise.</li>
+  <li>Test behaviors, not methods.</li>
+  <li>Structure tests to emphasize behaviors.</li>
+  <li>Name tests after the behavior being tested.</li>
+  <li>Don’t put logic in tests.</li>
+  <li>Write clear failure messages.</li>
+  <li>Follow DAMP over DRY when sharing code for tests.</li>
+</ul>
+<h2 id="13-test-doubles">
+  
+  
+    <a href="#13-test-doubles" class="anchor-heading" aria-labelledby="13-test-doubles"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 13: Test Doubles
+  
+  
+</h2>
+    
+<ul>
+  <li>
+<strong>test double</strong> - an object or function that can stand in for a real implementation
+    <ul>
+      <li>sometimes referred to as “mocking”, but often mocking refers to more specific type of test double</li>
+    </ul>
+  </li>
+  <li>key concepts:
+    <ol>
+      <li>
+<strong>testability</strong>: it should be possible for tests to swap out real implementations with test doubles</li>
+      <li>
+<strong>applicability</strong>: there is a tradeoff between engineer velocity introduced by applying test doubles, and over-usage resulting in brittle, complex, ineffective tests</li>
+      <li>
+<strong>fidelity</strong>: how closely a behavior a test double tests to the actual implementation</li>
+    </ol>
+  </li>
+  <li>Code is said to be testable if it is written in a way that makes it possible to write unit tests for the code. A <strong>seam</strong> is a way to make code testable by allowing for the use of test doubles—it makes it possible to use different dependencies for the system under test rather than the dependencies used in a production environment.</li>
+  <li>
+<strong>Dependency injection</strong> is a common technique for introducing seams. In short, when a class utilizes dependency injection, any classes it needs to use (i.e., the class’s dependencies) are passed to it rather than instantiated directly, making it possible for these dependencies to be substituted in tests.</li>
+  <li>a <strong>mock</strong> is a test double whose behavior is specified inline in a test</li>
+</ul>
+
+<div style="text-align:center">
+  <a href="/assets/img/software-engineering-at-google/mock.png">
+    <img src="/assets/img/software-engineering-at-google/mock.png" alt="">
+  </a>
+</div>
+
+<ul>
+  <li>a <strong>fake</strong> is a lightweight implementation of an API that behaves similar to the real implementation but isn’t suitable for production</li>
+</ul>
+
+<div style="text-align:center">
+  <a href="/assets/img/software-engineering-at-google/fake.png">
+    <img src="/assets/img/software-engineering-at-google/fake.png" alt="">
+  </a>
+</div>
+
+<ul>
+  <li>a <strong>stub</strong> is the process of giving behavior to a function that otherwise has no behavior on its own</li>
+</ul>
+
+<div style="text-align:center">
+  <a href="/assets/img/software-engineering-at-google/stub.png">
+    <img src="/assets/img/software-engineering-at-google/stub.png" alt="">
+  </a>
+</div>
+
+<ul>
+  <li>
+<strong>interaction testing</strong>: a way to validate <em>how</em> a function is called without actually calling impl. of the function</li>
+  <li>
+<strong>classical testing</strong>: preferring real impl. in tests, and generally a more robust and diagnostic way to test</li>
+  <li>a real implementation is preferred if it is fast, deterministic, and has simple dependencies
+    <ul>
+      <li>a test is <strong>deterministic</strong> if, for a given version of the system under test, running the test always results in the same outcome</li>
+      <li>
+<strong>hermetic</strong>: self-contained; dependencies on external services outside the control of the test means it might not be deterministic</li>
+    </ul>
+  </li>
+</ul>
+<h3 id="tldr-1">
+  
+  
+    <a href="#tldr-1" class="anchor-heading" aria-labelledby="tldr-1"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> TL;DR
+  
+  
+</h3>
+    
+<ul>
+  <li>A real implementation should be preferred over a test double.</li>
+  <li>A fake is often the ideal solution if a real implementation can’t be used in a test.</li>
+  <li>Overuse of stubbing leads to tests that are unclear and brittle.</li>
+  <li>Interaction testing should be avoided when possible: it leads to tests that are brittle because it exposes implementation details of the system under test.</li>
+</ul>
+
+          
+
+          
+        </main>
+        
+
+  <hr>
+  <footer>
+    
+      <p><a href="#top" id="back-to-top">Back to top</a></p>
+    
+
+    <p class="text-small text-grey-dk-100 mb-0">Copyright © 2022 Michael McIntyre. </p>
+
+    
+      <div class="d-flex mt-2">
+        
+          <p class="text-small text-grey-dk-000 mb-0 mr-2">
+            Page last modified: <span class="d-inline-block">Feb 18 2023 at 02:18 PM</span>.
+          </p>
+        
+        
+      </div>
+    
+  </footer>
+
+
+      </div>
+    </div>
+    
+      
+
+<div class="search-overlay"></div>
+
+    
+  </div>
+
+  
+</body>
+</html>

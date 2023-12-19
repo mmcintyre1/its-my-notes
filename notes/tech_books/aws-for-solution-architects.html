@@ -1,0 +1,2509 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+
+  
+
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+  <link rel="stylesheet" href="/assets/css/just-the-docs-default.css">
+  <link rel="stylesheet" href="/assets/css/native.css">
+
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-M6EEXPRNWS"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-M6EEXPRNWS', { 'anonymize_ip': true });
+  </script>
+
+  
+
+  
+  <script type="text/javascript" src="/assets/js/vendor/lunr.min.js"></script>
+  
+  <script type="text/javascript" src="/assets/js/just-the-docs.js"></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>AWS for Solution Architects | Notes</title>
+<meta name="generator" content="Jekyll v3.9.2">
+<meta property="og:title" content="AWS for Solution Architects">
+<meta property="og:locale" content="en_US">
+<meta name="description" content="My Notes">
+<meta property="og:description" content="My Notes">
+<link rel="canonical" href="https://itsmynotes.com/notes/tech_books/aws-for-solution-architects">
+<meta property="og:url" content="https://itsmynotes.com/notes/tech_books/aws-for-solution-architects">
+<meta property="og:site_name" content="Notes">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<meta property="twitter:title" content="AWS for Solution Architects">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"My Notes","headline":"AWS for Solution Architects","url":"https://itsmynotes.com/notes/tech_books/aws-for-solution-architects"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+  
+
+</head>
+<body>
+  <a class="skip-to-main" href="#main-content">Skip to main content</a>
+  <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+  <symbol id="svg-link" viewbox="0 0 24 24">
+  <title>Link</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link">
+    <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+  </svg>
+</symbol>
+
+  <symbol id="svg-menu" viewbox="0 0 24 24">
+  <title>Menu</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu">
+    <line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line>
+  </svg>
+</symbol>
+
+  <symbol id="svg-arrow-right" viewbox="0 0 24 24">
+  <title>Expand</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+    <polyline points="9 18 15 12 9 6"></polyline>
+  </svg>
+</symbol>
+
+  <!-- Feather. MIT License: https://github.com/feathericons/feather/blob/master/LICENSE -->
+<symbol id="svg-external-link" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-external-link">
+  <title id="svg-external-link-title">(external link)</title>
+  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line>
+</symbol>
+
+  
+    <symbol id="svg-doc" viewbox="0 0 24 24">
+  <title>Document</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file">
+    <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline>
+  </svg>
+</symbol>
+
+    <symbol id="svg-search" viewbox="0 0 24 24">
+  <title>Search</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search">
+    <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+  </svg>
+</symbol>
+
+  
+  
+    <!-- Bootstrap Icons. MIT License: https://github.com/twbs/icons/blob/main/LICENSE.md -->
+<symbol id="svg-copy" viewbox="0 0 16 16">
+  <title>Copy</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard" viewbox="0 0 16 16">
+    <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"></path>
+    <path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"></path>
+  </svg>
+</symbol>
+<symbol id="svg-copied" viewbox="0 0 16 16">
+  <title>Copied</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard-check-fill" viewbox="0 0 16 16">
+    <path d="M6.5 0A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3Zm3 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3Z"></path>
+    <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1A2.5 2.5 0 0 1 9.5 5h-3A2.5 2.5 0 0 1 4 2.5v-1Zm6.854 7.354-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L7.5 10.793l2.646-2.647a.5.5 0 0 1 .708.708Z"></path>
+  </svg>
+</symbol>
+
+  
+</svg>
+
+  <div class="side-bar">
+  <div class="site-header" role="banner">
+    <a href="/" class="site-title lh-tight">
+  Notes
+
+</a>
+    <button id="menu-button" class="site-button btn-reset" aria-label="Toggle menu" aria-pressed="false">
+      <svg viewbox="0 0 24 24" class="icon" aria-hidden="true"><use xlink:href="#svg-menu"></use></svg>
+    </button>
+  </div>
+
+  <nav aria-label="Main" id="site-nav" class="site-nav">
+  
+  
+    <ul class="nav-list">
+<li class="nav-list-item">
+<button class="nav-list-expander btn-reset" aria-label="toggle items in Projects category" aria-pressed="false">
+      <svg viewbox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+    </button><a href="/notes/projects" class="nav-list-link">Projects</a><ul class="nav-list"></ul>
+</li>
+<li class="nav-list-item">
+<button class="nav-list-expander btn-reset" aria-label="toggle items in Vocabulary category" aria-pressed="false">
+      <svg viewbox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+    </button><a href="/notes/vocabulary" class="nav-list-link">Vocabulary</a><ul class="nav-list"></ul>
+</li>
+<li class="nav-list-item">
+<button class="nav-list-expander btn-reset" aria-label="toggle items in Business Books category" aria-pressed="false">
+      <svg viewbox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+    </button><a href="/notes/business-books" class="nav-list-link">Business Books</a><ul class="nav-list"></ul>
+</li>
+<li class="nav-list-item">
+<button class="nav-list-expander btn-reset" aria-label="toggle items in Other Books category" aria-pressed="false">
+      <svg viewbox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+    </button><a href="/notes/other-books" class="nav-list-link">Other Books</a><ul class="nav-list"></ul>
+</li>
+<li class="nav-list-item">
+<button class="nav-list-expander btn-reset" aria-label="toggle items in Educational Books category" aria-pressed="false">
+      <svg viewbox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+    </button><a href="/notes/educational-books" class="nav-list-link">Educational Books</a><ul class="nav-list"></ul>
+</li>
+<li class="nav-list-item">
+<button class="nav-list-expander btn-reset" aria-label="toggle items in Articles category" aria-pressed="false">
+      <svg viewbox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+    </button><a href="/notes/articles" class="nav-list-link">Articles</a><ul class="nav-list"></ul>
+</li>
+<li class="nav-list-item">
+<button class="nav-list-expander btn-reset" aria-label="toggle items in Quotes category" aria-pressed="false">
+      <svg viewbox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+    </button><a href="/notes/quotes" class="nav-list-link">Quotes</a><ul class="nav-list"></ul>
+</li>
+<li class="nav-list-item">
+<button class="nav-list-expander btn-reset" aria-label="toggle items in Classes category" aria-pressed="false">
+      <svg viewbox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+    </button><a href="/notes/classes" class="nav-list-link">Classes</a><ul class="nav-list"></ul>
+</li>
+<li class="nav-list-item">
+<button class="nav-list-expander btn-reset" aria-label="toggle items in Tech Books category" aria-pressed="false">
+      <svg viewbox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+    </button><a href="/notes/tech-books" class="nav-list-link">Tech Books</a><ul class="nav-list"></ul>
+</li>
+<li class="nav-list-item">
+<button class="nav-list-expander btn-reset" aria-label="toggle items in Podcasts category" aria-pressed="false">
+      <svg viewbox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+    </button><a href="/notes/podcasts" class="nav-list-link">Podcasts</a><ul class="nav-list"></ul>
+</li>
+</ul>
+
+  
+</nav>
+
+
+  
+  
+    <footer class="site-footer">
+      This site uses <a href="https://github.com/just-the-docs/just-the-docs">Just the Docs</a>, a documentation theme for Jekyll.
+    </footer>
+  
+</div>
+
+  <div class="main" id="top">
+    <div id="main-header" class="main-header">
+  
+    
+
+<div class="search" role="search">
+  <div class="search-input-wrap">
+    <input type="text" id="search-input" class="search-input" tabindex="0" placeholder="Search Notes" aria-label="Search Notes" autocomplete="off">
+    <label for="search-input" class="search-label"><svg viewbox="0 0 24 24" class="search-icon"><use xlink:href="#svg-search"></use></svg></label>
+  </div>
+  <div id="search-results" class="search-results"></div>
+</div>
+
+  
+  
+  
+    <nav aria-label="Auxiliary" class="aux-nav">
+  <ul class="aux-nav-list">
+    
+      <li class="aux-nav-list-item">
+        <a href="https://github.com/mmcintyre1/its-my-notes" class="site-button">
+          It's My Notes on GitHub
+        </a>
+      </li>
+    
+  </ul>
+</nav>
+
+  
+</div>
+
+    <div class="main-content-wrap">
+      <nav aria-label="Breadcrumb" class="breadcrumb-nav">
+  <ol class="breadcrumb-nav-list">
+  
+    <li class="breadcrumb-nav-list-item"><a href="/notes/tech-books">Tech Books</a></li>
+  <li class="breadcrumb-nav-list-item"><span>AWS for Solution Architects</span></li>
+  </ol>
+</nav>
+      <div id="main-content" class="main-content">
+        <main>
+          
+            <h1 class="no_toc" id="aws-for-solution-architects">
+  
+  
+    <a href="#aws-for-solution-architects" class="anchor-heading" aria-labelledby="aws-for-solution-architects"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> AWS for Solution Architects
+  
+  
+</h1>
+    
+
+<details open="">
+  <summary>
+    Table of contents
+  </summary>
+<ol id="markdown-toc">
+  <li><a href="#1-understanding-aws-cloud-principles-and-key-characteristics" id="markdown-toc-1-understanding-aws-cloud-principles-and-key-characteristics">1: Understanding AWS Cloud Principles and Key Characteristics</a></li>
+  <li>
+<a href="#2-leveraging-the-cloud-for-digital-transformation" id="markdown-toc-2-leveraging-the-cloud-for-digital-transformation">2: Leveraging the Cloud for Digital Transformation</a>    <ol>
+      <li><a href="#regions-availability-zones-and-local-zones" id="markdown-toc-regions-availability-zones-and-local-zones">Regions, Availability Zones, and Local Zones</a></li>
+      <li><a href="#implementing-a-digital-transformation-program" id="markdown-toc-implementing-a-digital-transformation-program">Implementing a Digital Transformation Program</a></li>
+    </ol>
+  </li>
+  <li>
+<a href="#3-storage-in-aws" id="markdown-toc-3-storage-in-aws">3: Storage in AWS</a>    <ol>
+      <li><a href="#amazon-elastic-block-storage-ebs" id="markdown-toc-amazon-elastic-block-storage-ebs">Amazon Elastic Block Storage (EBS)</a></li>
+      <li><a href="#amazon-elastic-file-system-efs" id="markdown-toc-amazon-elastic-file-system-efs">Amazon Elastic File System (EFS)</a></li>
+      <li><a href="#simple-storage-service-s3" id="markdown-toc-simple-storage-service-s3">Simple Storage Service (S3)</a></li>
+    </ol>
+  </li>
+  <li><a href="#4-cloud-computing" id="markdown-toc-4-cloud-computing">4: Cloud Computing</a></li>
+  <li><a href="#5-selecting-the-right-database-service" id="markdown-toc-5-selecting-the-right-database-service">5: Selecting the Right Database Service</a></li>
+  <li><a href="#6-amazon-athena" id="markdown-toc-6-amazon-athena">6: Amazon Athena</a></li>
+  <li>
+<a href="#7-aws-glue" id="markdown-toc-7-aws-glue">7: AWS Glue</a>    <ol>
+      <li><a href="#aws-glue-best-practices---apache-spark-ui" id="markdown-toc-aws-glue-best-practices---apache-spark-ui">AWS Glue Best Practices - Apache Spark UI</a></li>
+    </ol>
+  </li>
+  <li><a href="#8-best-practices-for-security-identity-and-compliance" id="markdown-toc-8-best-practices-for-security-identity-and-compliance">8: Best Practices for Security, Identity, and Compliance</a></li>
+  <li><a href="#9-severless-and-container-patterns" id="markdown-toc-9-severless-and-container-patterns">9: Severless and Container Patterns</a></li>
+  <li><a href="#10-microservice-and-event-driven-architectures" id="markdown-toc-10-microservice-and-event-driven-architectures">10: Microservice and Event-Driven Architectures</a></li>
+</ol>
+
+</details>
+<h1 id="1-understanding-aws-cloud-principles-and-key-characteristics">
+  
+  
+    <a href="#1-understanding-aws-cloud-principles-and-key-characteristics" class="anchor-heading" aria-labelledby="1-understanding-aws-cloud-principles-and-key-characteristics"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 1: Understanding AWS Cloud Principles and Key Characteristics
+  
+  
+</h1>
+    
+<p>The cloud is just a bunch of servers and other computing resources managed by a third-party provider in a data center somewhere</p>
+<h2 class="no_toc" id="cloud-elasticity">
+  
+  
+    <a href="#cloud-elasticity" class="anchor-heading" aria-labelledby="cloud-elasticity"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Cloud Elasticity
+  
+  
+</h2>
+    
+<p>One important characteristic of the leading cloud providers is the ability to quickly and frictionlessly provision resources. In a cloud environment, instead of needing potentially months to provision your servers, they can be provisioned in minutes.</p>
+
+<p>Another powerful characteristic of a cloud computing environment is the ability to quickly shut down resources and, importantly, not be charged for that resource while it is down.</p>
+
+<p><strong>elasticity</strong> is the ability of a computing environment to adapt to changes in workload by automatically provisioning or shutting down computing resources to match the capacity needed by the current workload.</p>
+<h2 class="no_toc" id="cloud-virtualization">
+  
+  
+    <a href="#cloud-virtualization" class="anchor-heading" aria-labelledby="cloud-virtualization"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Cloud Virtualization
+  
+  
+</h2>
+    
+<p><strong>Virtualization</strong> is the process of running multiple virtual instances on top of a physical computer system using an abstract layer sitting on top of actual hardware.</p>
+
+<p>A <strong>hypervisor</strong> is a computing layer that enables multiple operating systems to execute in the same physical compute resource. These operating systems running on top of these hypervisors are <strong>Virtual Machines</strong> (VMs).</p>
+<h2 class="no_toc" id="definition-of-the-cloud">
+  
+  
+    <a href="#definition-of-the-cloud" class="anchor-heading" aria-labelledby="definition-of-the-cloud"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Definition of the Cloud
+  
+  
+</h2>
+    
+<p>The <strong>cloud computing</strong> model is one that offers computing services such as compute, storage, databases, networking, software, machine learning, and analytics over the internet and on demand. You generally only pay for the time and services you use.</p>
+<h2 class="no_toc" id="the-five-pillars-of-a-well-architected-framework">
+  
+  
+    <a href="#the-five-pillars-of-a-well-architected-framework" class="anchor-heading" aria-labelledby="the-five-pillars-of-a-well-architected-framework"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> The Five Pillars of a Well-Architected Framework
+  
+  
+</h2>
+    
+<h3 class="no_toc" id="pillar-1-security">
+  
+  
+    <a href="#pillar-1-security" class="anchor-heading" aria-labelledby="pillar-1-security"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Pillar 1: Security
+  
+  
+</h3>
+    
+<ul>
+  <li>Always enable traceability.</li>
+  <li>Apply security at all levels.</li>
+  <li>Implement the principle of least privilege.</li>
+  <li>Secure the system at all levels: application, data, operating system, and hardware.</li>
+  <li>Automate security best practices</li>
+</ul>
+<h3 class="no_toc" id="pillar-2-reliability">
+  
+  
+    <a href="#pillar-2-reliability" class="anchor-heading" aria-labelledby="pillar-2-reliability"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Pillar 2: Reliability
+  
+  
+</h3>
+    
+<ul>
+  <li>Continuously test backup and recovery processes.</li>
+  <li>Design systems so that they can automatically recover from a single component failure.</li>
+  <li>Leverage horizontal scalability whenever possible to enhance overall system availability.</li>
+  <li>Use automation to provision and shutdown resources depending on traffic and usage to minimize resource bottlenecks.</li>
+  <li>Manage change with automation.</li>
+</ul>
+<h3 class="no_toc" id="pillar-3-performance-efficiency">
+  
+  
+    <a href="#pillar-3-performance-efficiency" class="anchor-heading" aria-labelledby="pillar-3-performance-efficiency"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Pillar 3: Performance Efficiency
+  
+  
+</h3>
+    
+<ul>
+  <li>Democratize advanced technologies.</li>
+  <li>Take advantage of AWS’s global infrastructure to deploy your application globally with minimal cost and to provide low latency.</li>
+  <li>Leverage serverless architectures wherever possible.</li>
+  <li>Deploy multiple configurations to see which one delivers better performance.</li>
+</ul>
+<h3 class="no_toc" id="pillar-4-cost-optimization">
+  
+  
+    <a href="#pillar-4-cost-optimization" class="anchor-heading" aria-labelledby="pillar-4-cost-optimization"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Pillar 4: Cost Optimization
+  
+  
+</h3>
+    
+<ul>
+  <li>Use a consumption model.</li>
+  <li>Leverage economies of scale whenever possible.</li>
+  <li>Reduce expenses by limiting the use of company-owned data centers.</li>
+  <li>Constantly analyze and account for infrastructure expenses</li>
+</ul>
+<h3 class="no_toc" id="pillar-5-operational-excellence">
+  
+  
+    <a href="#pillar-5-operational-excellence" class="anchor-heading" aria-labelledby="pillar-5-operational-excellence"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Pillar 5: Operational Excellence
+  
+  
+</h3>
+    
+<p>Measured across three dimensions:</p>
+<ol>
+  <li>Agility</li>
+  <li>Reliability</li>
+  <li>Performance</li>
+</ol>
+
+<ul>
+  <li>Provision infrastructure through code (for example, via CloudFormation).</li>
+  <li>Align operations and applications with business requirements and objectives.</li>
+  <li>Change your systems by making incremental and regular changes.</li>
+  <li>Constantly test both normal and abnormal scenarios.</li>
+  <li>Record lessons learned from operational events and failures.</li>
+  <li>Write down and keep standard operations procedures manual up to date.</li>
+</ul>
+<h1 id="2-leveraging-the-cloud-for-digital-transformation">
+  
+  
+    <a href="#2-leveraging-the-cloud-for-digital-transformation" class="anchor-heading" aria-labelledby="2-leveraging-the-cloud-for-digital-transformation"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 2: Leveraging the Cloud for Digital Transformation
+  
+  
+</h1>
+    
+<h2 id="regions-availability-zones-and-local-zones">
+  
+  
+    <a href="#regions-availability-zones-and-local-zones" class="anchor-heading" aria-labelledby="regions-availability-zones-and-local-zones"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Regions, Availability Zones, and Local Zones
+  
+  
+</h2>
+    
+<p>AWS breaks their infrastructure down into parts:</p>
+<ul>
+  <li>
+<strong>AWS Regions</strong> exist in separate geographic areas, and are made up of several isolated and independent data centers</li>
+  <li>
+<strong>Availability Zones</strong> (AZ) are the data centers within a region</li>
+  <li>
+<strong>Local Zones</strong> are mini AZs that provide core services that are latency sensitive</li>
+</ul>
+
+<div style="text-align:center">
+  <a href="/assets/img/aws-for-solution-architects/infra.jpg">
+    <img src="/assets/img/aws-for-solution-architects/infra.jpg" alt="AWS for Solution Architects Infrastructure">
+  </a>
+</div>
+<h3 class="no_toc" id="regions">
+  
+  
+    <a href="#regions" class="anchor-heading" aria-labelledby="regions"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Regions
+  
+  
+</h3>
+    
+<p>Regions are separate from each other and this promotes availability, fault tolerance, and stability.</p>
+
+<p>Sometimes a service might not be generally available (GA) and is only in one region.</p>
+
+<p>Some services are available globally and aren’t region specific Simple Storage Service (S3), Identity Management Service (IAM), and other services have inter-Region fault tolerance – e.g., RDS with read replicas</p>
+
+<p>AWS has a dedicated region just for the government called AWS GovCloud.</p>
+<h3 class="no_toc" id="availability-zones">
+  
+  
+    <a href="#availability-zones" class="anchor-heading" aria-labelledby="availability-zones"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Availability Zones
+  
+  
+</h3>
+    
+<p>The same as a data center. Have multiple power sources, redundant connectivity, and redundant resources.</p>
+
+<p>AZs within Regions are interconnected, which gives you fully redundant, high bandwith, low latency, scalable, encrypted, and dedicated connections.</p>
+
+<p>Some services allow you to choose AZ while some are automatically assigned.</p>
+<h3 class="no_toc" id="local-zones">
+  
+  
+    <a href="#local-zones" class="anchor-heading" aria-labelledby="local-zones"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Local Zones
+  
+  
+</h3>
+    
+<p>Allow low latency for select services. Like a subset of an AZ, but doesn’t have all the services available in an AZ.</p>
+
+<p>Use Case: Applications which require single-digit millisecond latencies to your end-users, latency-sensitive applications</p>
+<h3 class="no_toc" id="direct-connect">
+  
+  
+    <a href="#direct-connect" class="anchor-heading" aria-labelledby="direct-connect"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Direct Connect
+  
+  
+</h3>
+    
+<p>A low-level infrastructure service that enables AWS customers to set up a dedicated network connection between their on-premise facilities and AWS that allows bypassing public internet.</p>
+
+<p>Does not provide encryption in transit, so a separate service (e.g., AWS Site-to-Site VPN) can be paired to encrypt data in transit.</p>
+
+<p>Uses IEEE 802.1Q (I triple E eight oh two dot 1 Q) to create VLANs.</p>
+
+<p>Can reduce costs when workloads require high bandwith by:</p>
+<ol>
+  <li>transfers data from on-prem to cloud, directly reducing ISP commitments</li>
+  <li>costs to transfer data are billed using AWS Direct Connect transfer rate rather than internet data transfer rates, which is typically lower</li>
+</ol>
+<h2 id="implementing-a-digital-transformation-program">
+  
+  
+    <a href="#implementing-a-digital-transformation-program" class="anchor-heading" aria-labelledby="implementing-a-digital-transformation-program"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Implementing a Digital Transformation Program
+  
+  
+</h2>
+    
+<p>Moving legacy on-prem to cloud
+Some questions to ask:</p>
+<ul>
+  <li>should we do bare minimum, or is it an opportunity to refactor, enhance, and optimize workloads?</li>
+  <li>should the transformation be purely technological, or should we transform business processes too?</li>
+</ul>
+<h3 class="no_toc" id="rehost">
+  
+  
+    <a href="#rehost" class="anchor-heading" aria-labelledby="rehost"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Rehost
+  
+  
+</h3>
+    
+<p><em>lift and shift</em>
+least amount of work, services are simply migrated as is, and any problems with existing applications will come along during the migration.</p>
+
+<p><strong>Use case</strong>: If you are confident your processes and workflows are solid and don’t need to change.</p>
+<h3 class="no_toc" id="refactor">
+  
+  
+    <a href="#refactor" class="anchor-heading" aria-labelledby="refactor"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Refactor
+  
+  
+</h3>
+    
+<p>Not only migrating services, but changing their underlying architecture.</p>
+
+<p><strong>Use case</strong>: You are comfortable with current application but want to take advantage of certain cloud advantages and functionality, such as database failover.</p>
+<h3 class="no_toc" id="revise">
+  
+  
+    <a href="#revise" class="anchor-heading" aria-labelledby="revise"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Revise
+  
+  
+</h3>
+    
+<p>Modify, optimize, and enhance existing applications and code base before migrating, then you can rehost or refactor. Good for maintaining business continuity and creating business enhancements, but sub-optimal sometimes because of cost of changing and testing code upfront.</p>
+
+<p><strong>Use case</strong>: If you know your applications are sub-optimal and need to be revised anyway.</p>
+<h3 class="no_toc" id="rebuild">
+  
+  
+    <a href="#rebuild" class="anchor-heading" aria-labelledby="rebuild"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Rebuild
+  
+  
+</h3>
+    
+<p>Completely rewrite and rearchitect the existing applications, which will be considerable work and considerable cost, and might contribute to vendor lock-in.</p>
+
+<p><strong>Use case</strong>: If the most radical change is needed.</p>
+<h3 class="no_toc" id="replace">
+  
+  
+    <a href="#replace" class="anchor-heading" aria-labelledby="replace"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Replace
+  
+  
+</h3>
+    
+<p>Get rid of applications but replace with SaaS alternatives, which may or may not be more expensive than rebuilding depending on talent pool. Learning curve and development life cycle is shortened, but software will require additional licenses.</p>
+
+<p><strong>Use case</strong>: If there is a commercially available software as a service available and your talent pool is short.</p>
+<h3 class="no_toc" id="migration-assessment-tools">
+  
+  
+    <a href="#migration-assessment-tools" class="anchor-heading" aria-labelledby="migration-assessment-tools"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Migration Assessment Tools
+  
+  
+</h3>
+    
+<ul>
+  <li>
+<strong>AWS Migration Hub</strong>: central repository to keep track of a migration project</li>
+  <li>
+<strong>AWS Application Discovery Service</strong>: automates the discovery and inventory tracking of different infrastructure resources, such as servers, and any dependencies among them</li>
+  <li>
+<strong>AWS Migration Pattern Library</strong>: collection of migration templates and design patterns that can assist in the comparison of migration options and
+alternatives</li>
+  <li>
+<strong>CloudEndure Migration</strong>: simplifies cloud migration by automating many of the steps necessary to migrate to the cloud</li>
+  <li>
+<strong>AWS Data Migration Service</strong>: facilitate the migration of data from your on-premises databases to the cloud, e.g., into Amazon RDS</li>
+</ul>
+
+<p><strong>Digital transformation</strong> involves using the cloud and other advanced technology to create new or change existing business flows. It often involves changing the company culture to adapt to this new way of doing business. The end goal of digital transformation is to enhance the customer experience and to meet ever-changing business and market demand.</p>
+<h3 class="no_toc" id="digital-transformation-tips">
+  
+  
+    <a href="#digital-transformation-tips" class="anchor-heading" aria-labelledby="digital-transformation-tips"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Digital Transformation Tips
+  
+  
+</h3>
+    
+
+<ol>
+  <li>
+<strong>ask the right questions</strong>
+    <ul>
+      <li>how can we be doing what we do, faster and better?</li>
+      <li>how can we change what we do to better serve our customers</li>
+      <li>can we eliminate certain lines of business, departments, and processes</li>
+      <li>what are the desired business outcomes when interfacing with customers</li>
+    </ul>
+  </li>
+  <li>
+<strong>get leadership buy-in</strong>
+    <ul>
+      <li>need buy-in from C-Suite</li>
+      <li>can still do Proof of Concept work to prove value</li>
+    </ul>
+  </li>
+  <li>
+<strong>clearly delineate goals and objectives</strong>
+    <ul>
+      <li>what are you trying to achieve with migration and ruthlessly pursue that</li>
+    </ul>
+  </li>
+  <li>
+<strong>apply agile methodology to digital transformation</strong>
+    <ul>
+      <li>small, iterative improvement to realize value earlier, as opposed to waterfall</li>
+      <li>look for singles, not home runs</li>
+      <li>pick low-hanging fruit and migrate those workloads first, which will build momentum for other, harder tasks later</li>
+    </ul>
+  </li>
+  <li>
+<strong>encourage risk-taking</strong>
+    <ul>
+      <li>fail, but fail fast and try different things</li>
+      <li>it is better to disrupt yourself than someone else do it</li>
+    </ul>
+  </li>
+  <li>
+<strong>clear delineation of roles and responsibilities</strong>
+    <ul>
+      <li>make sure all team members are aligned on their responsibilities</li>
+    </ul>
+  </li>
+</ol>
+<h3 class="no_toc" id="digital-transformation-pitfalls">
+  
+  
+    <a href="#digital-transformation-pitfalls" class="anchor-heading" aria-labelledby="digital-transformation-pitfalls"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Digital Transformation Pitfalls
+  
+  
+</h3>
+    
+<ol>
+  <li>
+<strong>lack of commitment from the C-Suite</strong>
+    <ul>
+      <li>might fail to provide vision and path to success or resources</li>
+    </ul>
+  </li>
+  <li>
+<strong>not having the right team in place</strong>
+    <ul>
+      <li>inexperience with cloud migration, you don’t know what you don’t know</li>
+    </ul>
+  </li>
+  <li>
+<strong>internal resistance from the ranks</strong>
+    <ul>
+      <li>people whose roles may be diminished would resist</li>
+    </ul>
+  </li>
+  <li>
+<strong>going too fast</strong>
+    <ul>
+      <li>moving too much at once without doing any proof of concept work</li>
+    </ul>
+  </li>
+  <li>
+<strong>going too slow</strong>
+    <ul>
+      <li>spending forever planning or migrating small things might make interest wane</li>
+    </ul>
+  </li>
+  <li>
+<strong>outdated rules and regulations</strong>
+    <ul>
+      <li>some industries are difficult to disrupt because older regulations exist, e.g., real estate requiring wet signatures</li>
+    </ul>
+  </li>
+</ol>
+<h1 id="3-storage-in-aws">
+  
+  
+    <a href="#3-storage-in-aws" class="anchor-heading" aria-labelledby="3-storage-in-aws"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 3: Storage in AWS
+  
+  
+</h1>
+    
+<h2 id="amazon-elastic-block-storage-ebs">
+  
+  
+    <a href="#amazon-elastic-block-storage-ebs" class="anchor-heading" aria-labelledby="amazon-elastic-block-storage-ebs"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Amazon Elastic Block Storage (EBS)
+  
+  
+</h2>
+    
+<p>hard drive for a server, and can easily detach from one server and attach to another, and useful for persistent data, in comparison to the ephemeral data of an EC2 instance. replicated by design, so no need to set up a RAID or another redundancy strategy.</p>
+
+<p>Snapshots are iterative and stored on S3. They can be compressed, mirrored, transferred across AWS AZs (by Amazon Data Lifecycle Manager). Stored as Amazon Machine Images (AMI) so they can be used to launch an EC2 instance.</p>
+
+<p>using Elastic File Storage (EFS), you can attach the block storage device to multiple EC2 instances</p>
+
+<p>Amazon provides 99.999% availability</p>
+
+<ul>
+  <li>
+<strong>General-purpose Solid State Devices (SSDs)</strong>
+    <ul>
+      <li>solid balance of cost and performance</li>
+      <li>useful for virtual desktops, development and staging environments, application developmenet</li>
+    </ul>
+  </li>
+  <li>
+<strong>Provisioned IOPS SSD</strong>
+    <ul>
+      <li>provisioned inputs and outputs per second ideal for mission critical apps</li>
+      <li>business applications, production databases</li>
+    </ul>
+  </li>
+  <li>
+<strong>Throughput Optimized HDD</strong>
+    <ul>
+      <li>good value and reasonable cost for workloads that need high performance and high throughput</li>
+      <li>big data, log processing, streaming applications, data warehouse applications</li>
+    </ul>
+  </li>
+  <li>
+<strong>Cold HDD</strong>
+    <ul>
+      <li>optimize cost with large volumes of data</li>
+      <li>data the is infrequently accessed</li>
+    </ul>
+  </li>
+</ul>
+<h2 id="amazon-elastic-file-system-efs">
+  
+  
+    <a href="#amazon-elastic-file-system-efs" class="anchor-heading" aria-labelledby="amazon-elastic-file-system-efs"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Amazon Elastic File System (EFS)
+  
+  
+</h2>
+    
+<p>Implements a fully managed Network File System (NFS), and several EC2 instances can be mounted to an EFS volume at the same time.</p>
+
+<p>Often used for:</p>
+<ul>
+  <li>hosting content management systems</li>
+  <li>hosting CRM applications that need to be hosted within an AWS data center but need to be managed by customer</li>
+</ul>
+<h2 id="simple-storage-service-s3">
+  
+  
+    <a href="#simple-storage-service-s3" class="anchor-heading" aria-labelledby="simple-storage-service-s3"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Simple Storage Service (S3)
+  
+  
+</h2>
+    
+<p>Object storage, and AWS’s second oldest product, right after EC2. Time To First Byte (TTFB) used to measure performance of a service.</p>
+
+<div style="text-align:center">
+  <a href="/assets/img/aws-for-solution-architects/s3-performance.jpg">
+    <img src="/assets/img/aws-for-solution-architects/s3-performance.jpg" alt="S3 Performance Chart">
+  </a>
+</div>
+<h3 class="no_toc" id="comparison-of-storage">
+  
+  
+    <a href="#comparison-of-storage" class="anchor-heading" aria-labelledby="comparison-of-storage"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Comparison of Storage
+  
+  
+</h3>
+    
+
+<div style="text-align:center">
+  <a href="/assets/img/aws-for-solution-architects/storage.png">
+    <img src="/assets/img/aws-for-solution-architects/storage.png" alt="Storage Comparison">
+  </a>
+</div>
+<h3 class="no_toc" id="enhancing-s3-performance">
+  
+  
+    <a href="#enhancing-s3-performance" class="anchor-heading" aria-labelledby="enhancing-s3-performance"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Enhancing S3 performance
+  
+  
+</h3>
+    
+<p>You should be cognizant of where users are going to access content and design around that.</p>
+
+<p>One way is to scale horizontally – S3 allows as many connections to an S3 bucket as possible.</p>
+<h4 class="no_toc" id="cloudfront">
+  
+  
+    <a href="#cloudfront" class="anchor-heading" aria-labelledby="cloudfront"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> CloudFront
+  
+  
+</h4>
+    
+<p>A Content Delivery Network (CDN) that caches S3 content to be served across disperse geographic regions with thousands of Points of Presence (PoP).</p>
+<h4 class="no_toc" id="elasticache">
+  
+  
+    <a href="#elasticache" class="anchor-heading" aria-labelledby="elasticache"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> ElastiCache
+  
+  
+</h4>
+    
+<p>Managed AWS service that allows you to store objects in memory rather than disk. When retrieving objects, need to check the cache first then S3.</p>
+<h4 class="no_toc" id="elemental-mediastore">
+  
+  
+    <a href="#elemental-mediastore" class="anchor-heading" aria-labelledby="elemental-mediastore"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Elemental MediaStore
+  
+  
+</h4>
+    
+<p>Supports transfer of video files.</p>
+<h4 class="no_toc" id="s3-transfer-acceleration">
+  
+  
+    <a href="#s3-transfer-acceleration" class="anchor-heading" aria-labelledby="s3-transfer-acceleration"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> S3 Transfer Acceleration
+  
+  
+</h4>
+    
+<p>Can achieve single-digit millisecond using CloudFront edge locations to accelerate data transfer over long distances. Useful for transferring data over AWS Regions.</p>
+
+<p><a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/security-best-practices.html">S3 best practices</a></p>
+<h1 id="4-cloud-computing">
+  
+  
+    <a href="#4-cloud-computing" class="anchor-heading" aria-labelledby="4-cloud-computing"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 4: Cloud Computing
+  
+  
+</h1>
+    
+<h2 class="no_toc" id="first-computer">
+  
+  
+    <a href="#first-computer" class="anchor-heading" aria-labelledby="first-computer"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> first computer
+  
+  
+</h2>
+    
+<ul>
+  <li>first large-scale electronic general-purpose computer the Electronic Numerical Integrator and Computer (ENIAC)</li>
+  <li>built between 1943 and 1945</li>
+  <li>design proposed by physicist John Mauchly</li>
+</ul>
+<h2 class="no_toc" id="paradigm-shift">
+  
+  
+    <a href="#paradigm-shift" class="anchor-heading" aria-labelledby="paradigm-shift"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> paradigm shift
+  
+  
+</h2>
+    
+<ul>
+  <li>introduced 1962 by Thomas Kuhn in <em>The Structure of Scientific Revolutions</em>
+</li>
+  <li>scientists accept predominant paradigm, but constantly challenge questioning it</li>
+  <li>eventually new paradigm replaces the old paradigm</li>
+  <li>e.g. heliocentric replaced geocentric view of solar system</li>
+</ul>
+
+<div style="text-align:center">
+  <a href="/assets/img/aws-for-solution-architects/resource-mgmt.png">
+    <img src="/assets/img/aws-for-solution-architects/resource-mgmt.png" alt="Service Resources">
+  </a>
+</div>
+<h2 class="no_toc" id="infrastructure-as-a-service">
+  
+  
+    <a href="#infrastructure-as-a-service" class="anchor-heading" aria-labelledby="infrastructure-as-a-service"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> infrastructure as a service
+  
+  
+</h2>
+    
+<ul>
+  <li>
+<strong>advantages</strong>:
+    <ul>
+      <li>most flexibility</li>
+      <li>provisioning of computer, storage, and network resources can be done quickly</li>
+      <li>resources can be used for minutes, hours, or days</li>
+      <li>highly scalable and fault-tolerant</li>
+      <li>more thorough control of the infrastructure</li>
+    </ul>
+  </li>
+  <li>
+<strong>disadvantages</strong>:
+    <ul>
+      <li>security must be managed at all levels, and this is costly and difficult</li>
+      <li>legacy systems might not be able to be migrated to the cloud</li>
+      <li>training costs might be high to onboard new staff to the system</li>
+    </ul>
+  </li>
+  <li>
+<strong>examples</strong>:
+    <ul>
+      <li>Elastic Cloud Compute (EC2)</li>
+      <li>Elastic Block Storage (EBS)</li>
+    </ul>
+  </li>
+  <li>
+<strong>use cases</strong>:
+    <ul>
+      <li>backups and snapshots</li>
+      <li>disaster recovery</li>
+      <li>web hosting</li>
+      <li>software dev environments</li>
+      <li>data analytics</li>
+    </ul>
+  </li>
+</ul>
+<h2 class="no_toc" id="platform-as-a-service">
+  
+  
+    <a href="#platform-as-a-service" class="anchor-heading" aria-labelledby="platform-as-a-service"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> platform as a service
+  
+  
+</h2>
+    
+<ul>
+  <li>
+<strong>advantages</strong>:
+    <ul>
+      <li>cost-effective and can use CI/CD principles</li>
+      <li>high availability</li>
+      <li>scalability</li>
+      <li>straightforward customization and config of app</li>
+      <li>reduction in dev effort and maintenance</li>
+      <li>security policies simplification and automation</li>
+    </ul>
+  </li>
+  <li>
+<strong>disadvantages</strong>:
+    <ul>
+      <li>difficult to integrate on-prem and AWS systems</li>
+      <li>regulations around data security might require securing data (not on third-party environment)</li>
+      <li>vendor lock-in (increasing scale from IaaS to PaaS to SaaS)</li>
+      <li>might be runtime issues because of lack of support for certain application needs</li>
+      <li>legacy systems might be difficult to integrate with AWS</li>
+      <li>can’t customize some layers if needed</li>
+    </ul>
+  </li>
+  <li>
+<strong>examples</strong>:
+    <ul>
+      <li>Elastic Beanstalk</li>
+      <li>RDS</li>
+      <li>Lambda</li>
+      <li>Elastic Kubernetes Service (EKS)</li>
+    </ul>
+  </li>
+  <li>
+<strong>use cases</strong>:
+    <ul>
+      <li>business process management, like time clocks or company portal</li>
+      <li>business analytics/BI for internal data analytics</li>
+      <li>internet of things</li>
+      <li>communications applications</li>
+      <li>databases</li>
+      <li>API dev</li>
+    </ul>
+  </li>
+</ul>
+<h2 class="no_toc" id="master-data-management">
+  
+  
+    <a href="#master-data-management" class="anchor-heading" aria-labelledby="master-data-management"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> master data management
+  
+  
+</h2>
+    
+<ul>
+  <li>used to define and manage company’s critical data, to provide single source of truth</li>
+  <li>manages data throughout its lifecycle</li>
+  <li>clean up data inconsistencies, duplicates, deliver to consumers</li>
+</ul>
+<h2 class="no_toc" id="software-as-a-service">
+  
+  
+    <a href="#software-as-a-service" class="anchor-heading" aria-labelledby="software-as-a-service"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> software as a service
+  
+  
+</h2>
+    
+<ul>
+  <li>
+<strong>advantages</strong>:
+    <ul>
+      <li>reduce time, money, and effort on repetitive tasks</li>
+      <li>shift responsibility for installing, patching, configuring, and upgrading software</li>
+      <li>allow focus on tasks that require personal attention, such as customer service</li>
+    </ul>
+  </li>
+  <li>
+<strong>disadvantages</strong>:
+    <ul>
+      <li>interoperability with other services might not be straightforward</li>
+      <li>vendor lock-in</li>
+      <li>customization is very narrow</li>
+      <li>limited features</li>
+    </ul>
+  </li>
+  <li>
+<strong>examples</strong>:
+    <ul>
+      <li>WorkMail</li>
+      <li>WorkSpaces</li>
+      <li>QuickSight</li>
+      <li>Chime</li>
+    </ul>
+  </li>
+</ul>
+<h2 class="no_toc" id="ec2---general-purpose">
+  
+  
+    <a href="#ec2---general-purpose" class="anchor-heading" aria-labelledby="ec2---general-purpose"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> ec2 - general purpose
+  
+  
+</h2>
+    
+<ul>
+  <li>provides balance of compute, memory, and network resources</li>
+  <li>can be used for variety of diverse worfklows</li>
+  <li>ideal for apps that use compute, memory, and network resources in equal proportion, such as web servers and code repositories</li>
+  <li>T (burstable), A (ARM chip), M (x86 dev)</li>
+</ul>
+<h2 class="no_toc" id="ec2---compute-optimized">
+  
+  
+    <a href="#ec2---compute-optimized" class="anchor-heading" aria-labelledby="ec2---compute-optimized"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> ec2 - compute optimized
+  
+  
+</h2>
+    
+<ul>
+  <li>ideal for compute bound applications that benefit from high performance processors</li>
+  <li>good for batch processing, media transcoding, high performance web servers, high performance computing (HPC), scientific modeling, dedicated gaming servers</li>
+  <li>C</li>
+</ul>
+<h2 class="no_toc" id="ec2---accelerated-computing">
+  
+  
+    <a href="#ec2---accelerated-computing" class="anchor-heading" aria-labelledby="ec2---accelerated-computing"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> ec2 - accelerated computing
+  
+  
+</h2>
+    
+<ul>
+  <li>uses hardware accelerators or co-processors to perform functions</li>
+  <li>floating point calculations, graphics processing, or data pattern matching</li>
+  <li>F (Field Programmable Gate Array - FPGA), G (GPU), P (&gt;$ GPU)</li>
+</ul>
+<h2 class="no_toc" id="ec2---memory-optimized">
+  
+  
+    <a href="#ec2---memory-optimized" class="anchor-heading" aria-labelledby="ec2---memory-optimized"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> ec2 - memory optimized
+  
+  
+</h2>
+    
+<ul>
+  <li>fast performance for workloads that process large data sets in memory</li>
+  <li>R (memory-intensive), X (high ratio of memory to compute)</li>
+</ul>
+<h2 class="no_toc" id="ec2---storage-optimized">
+  
+  
+    <a href="#ec2---storage-optimized" class="anchor-heading" aria-labelledby="ec2---storage-optimized"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> ec2 - storage optimized
+  
+  
+</h2>
+    
+<ul>
+  <li>high sequential read/write access on data sets in local storage</li>
+  <li>deliver tens of thousands of low-latency, random IOPS</li>
+  <li>H (16 TB HDD), D (48 TB HDD), I (16 GB SSD)</li>
+</ul>
+<h2 class="no_toc" id="amazon-machine-images-ami">
+  
+  
+    <a href="#amazon-machine-images-ami" class="anchor-heading" aria-labelledby="amazon-machine-images-ami"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> amazon machine images (ami)
+  
+  
+</h2>
+    
+<ul>
+  <li>different types of amazon images to build EC2 instances off of</li>
+  <li>includes most Linux distros, Windows Server, 32/64 bit</li>
+</ul>
+<h2 class="no_toc" id="ec2-best-practices---security">
+  
+  
+    <a href="#ec2-best-practices---security" class="anchor-heading" aria-labelledby="ec2-best-practices---security"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> ec2 best practices - security
+  
+  
+</h2>
+    
+<ul>
+  <li>important to take advantage of identity federation, policies, and IAM</li>
+  <li>principle of least privilege</li>
+</ul>
+<h2 class="no_toc" id="ec2-best-practices---storage">
+  
+  
+    <a href="#ec2-best-practices---storage" class="anchor-heading" aria-labelledby="ec2-best-practices---storage"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> ec2 best practices - storage
+  
+  
+</h2>
+    
+<ul>
+  <li>when you shut down EC2 instance, you lose any instance storage</li>
+  <li>use EBS mounted storage if you need to persist beyond an instance</li>
+</ul>
+<h2 class="no_toc" id="ec2-best-practices---resource-management">
+  
+  
+    <a href="#ec2-best-practices---resource-management" class="anchor-heading" aria-labelledby="ec2-best-practices---resource-management"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> ec2 best practices - resource management
+  
+  
+</h2>
+    
+<ul>
+  <li>use instance metadata and tags to ensure resources can be tracked</li>
+</ul>
+<h2 class="no_toc" id="ec2-best-practices---resource-limit">
+  
+  
+    <a href="#ec2-best-practices---resource-limit" class="anchor-heading" aria-labelledby="ec2-best-practices---resource-limit"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> ec2 best practices - resource limit
+  
+  
+</h2>
+    
+<ul>
+  <li>default limits:
+    <ul>
+      <li>limit of 20 instances per region</li>
+      <li>5 elastic IPs per region (including unassigned addresses)</li>
+    </ul>
+  </li>
+</ul>
+<h2 class="no_toc" id="ec2-best-practices---backup-snapshots-and-recovery">
+  
+  
+    <a href="#ec2-best-practices---backup-snapshots-and-recovery" class="anchor-heading" aria-labelledby="ec2-best-practices---backup-snapshots-and-recovery"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> ec2 best practices - backup, snapshots, and recovery
+  
+  
+</h2>
+    
+<ul>
+  <li>important to have periodic backup schedule for EBS volumes</li>
+  <li>deploy across multiple AZs for availability and durability</li>
+  <li>make sure architecture can handle failovers</li>
+</ul>
+<h1 id="5-selecting-the-right-database-service">
+  
+  
+    <a href="#5-selecting-the-right-database-service" class="anchor-heading" aria-labelledby="5-selecting-the-right-database-service"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 5: Selecting the Right Database Service
+  
+  
+</h1>
+    
+<h2 class="no_toc" id="history-of-databases">
+  
+  
+    <a href="#history-of-databases" class="anchor-heading" aria-labelledby="history-of-databases"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> history of databases
+  
+  
+</h2>
+    
+<ul>
+  <li>first database created by Edgar Codd in 1970</li>
+  <li>SQL created by IBM researchers Raymond Boyce and Donald Chamberlin in 1970s</li>
+</ul>
+<h2 class="no_toc" id="types-of-databases">
+  
+  
+    <a href="#types-of-databases" class="anchor-heading" aria-labelledby="types-of-databases"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> types of databases
+  
+  
+</h2>
+    
+<ul>
+  <li>relational</li>
+  <li>document</li>
+  <li>key-value</li>
+  <li>graph</li>
+  <li>wide column storage</li>
+</ul>
+<h2 class="no_toc" id="online-transaction-processing-databases">
+  
+  
+    <a href="#online-transaction-processing-databases" class="anchor-heading" aria-labelledby="online-transaction-processing-databases"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> online transaction processing databases
+  
+  
+</h2>
+    
+<ul>
+  <li>useful for workloads that have high writes and low reads</li>
+  <li>multiple transactions per second</li>
+  <li>data heavily normalized</li>
+</ul>
+<h2 class="no_toc" id="third-normal-form-3nf">
+  
+  
+    <a href="#third-normal-form-3nf" class="anchor-heading" aria-labelledby="third-normal-form-3nf"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> third normal form (3NF)
+  
+  
+</h2>
+    
+<ul>
+  <li>method of normalizing data past 1st and 2nd normal form, where every column in a table is dependent on the primary key</li>
+</ul>
+<h2 class="no_toc" id="online-analytics-processing-databases">
+  
+  
+    <a href="#online-analytics-processing-databases" class="anchor-heading" aria-labelledby="online-analytics-processing-databases"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> online analytics processing databases
+  
+  
+</h2>
+    
+<ul>
+  <li>useful for read heavy workflows like large analytics queries</li>
+  <li>doesn’t process many transactions</li>
+  <li>data often not normalized, in star or snowflake schema (fact table and dimension tables)</li>
+</ul>
+<h2 class="no_toc" id="acid-model">
+  
+  
+    <a href="#acid-model" class="anchor-heading" aria-labelledby="acid-model"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> ACID model
+  
+  
+</h2>
+    
+<ul>
+  <li>model for transactions</li>
+  <li>(a)tomicity - transactions either commit or they don’t; there is no partial state</li>
+  <li>(c)onsistency - no transaction violates database invariants (a type of constraint like no account has negative balance)</li>
+  <li>(i)solation - varying models of isolation, but this is generally more like consistency in that one transaction can’t affect another</li>
+  <li>(d)urability - after a commit, changes are permanent (committed to disk)</li>
+</ul>
+<h2 class="no_toc" id="base-model">
+  
+  
+    <a href="#base-model" class="anchor-heading" aria-labelledby="base-model"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> BASE model
+  
+  
+</h2>
+    
+<ul>
+  <li>“opposite” of ACID, although meant as a joke – more applicable to distributed systems or systems where performance hit of adhering to ACID principles is too high</li>
+  <li>(b)asically (a)vailable - data available the majority of the time</li>
+  <li>(s)oft state - database doesn’t have to be write consistent and replicas don’t need to be mutually consistent</li>
+  <li>(e)ventually consistent - data stored is eventually consistent, either via replication or only on retrieval</li>
+</ul>
+<h2 class="no_toc" id="relational-databases">
+  
+  
+    <a href="#relational-databases" class="anchor-heading" aria-labelledby="relational-databases"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> relational databases
+  
+  
+</h2>
+    
+<ul>
+  <li>data stored in rows and columns all within tables, and tables are related via foreign keys</li>
+  <li>Relational Database Service (RDS) is primary AWS service:
+    <ul>
+      <li>open access - Postgres, MySQL, MariaDB</li>
+      <li>Aurora - AWS’s wrapper for Postgres and MySQL, which gives performance increases and replication out of the box</li>
+      <li>commercial - Oracle, SQL Server</li>
+    </ul>
+  </li>
+</ul>
+<h2 class="no_toc" id="document-databases">
+  
+  
+    <a href="#document-databases" class="anchor-heading" aria-labelledby="document-databases"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> document databases
+  
+  
+</h2>
+    
+<ul>
+  <li>records stored as XML, JSON, or BSON</li>
+  <li>good for content management systems, analytics, blogging apps, or e-commerce applications</li>
+  <li>Apache CouchDB, Amazon DocumentDB, MongoDB, Elasticsearch</li>
+  <li>DynamoDB is fully managed NoSQL database which can achieve single-digit millisecond performance</li>
+  <li>if faster performance (like microsecond latency) is needed, can use DynamoDB Accelerator (DAX)</li>
+</ul>
+<h2 class="no_toc" id="key-value-databases">
+  
+  
+    <a href="#key-value-databases" class="anchor-heading" aria-labelledby="key-value-databases"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> key-value databases
+  
+  
+</h2>
+    
+<ul>
+  <li>simply a key and a value stored as a BLOB (binary large objects)</li>
+  <li>memcached and redis</li>
+</ul>
+<h2 class="no_toc" id="wide-column-store-databases">
+  
+  
+    <a href="#wide-column-store-databases" class="anchor-heading" aria-labelledby="wide-column-store-databases"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> wide-column store databases
+  
+  
+</h2>
+    
+<ul>
+  <li>column family databases</li>
+  <li>NoSQL database that can store petabyte-scale amounts of data</li>
+  <li>Amazon Managed Apache Cassandra Service (MCS) or Amazon Keyspaces (a different variant of Cassandra)</li>
+</ul>
+<h2 class="no_toc" id="elasticsearch">
+  
+  
+    <a href="#elasticsearch" class="anchor-heading" aria-labelledby="elasticsearch"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> elasticsearch
+  
+  
+</h2>
+    
+<ul>
+  <li>search engine built off Lucene library</li>
+  <li>full-text search with HTTP web interface and schema-free JSON documents</li>
+  <li>AWS has fully managed AWS Elasticsearch offering</li>
+</ul>
+<h2 class="no_toc" id="kendra">
+  
+  
+    <a href="#kendra" class="anchor-heading" aria-labelledby="kendra"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> kendra
+  
+  
+</h2>
+    
+<ul>
+  <li>enterprise search service fully managed by Amazon that uses machine learning to power it</li>
+  <li>the content can be unstructured (HTML, MS Word, PDF), semi-structured (Excel, DynamoDB), or structured (Redshift, RDS)</li>
+</ul>
+<h2 class="no_toc" id="in-memory-databases">
+  
+  
+    <a href="#in-memory-databases" class="anchor-heading" aria-labelledby="in-memory-databases"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> in memory databases
+  
+  
+</h2>
+    
+<ul>
+  <li>with increase of available RAM, in memory databases are becoming a viable solution</li>
+  <li>additionally, SSDs blur line between volatile and nonvolatile memory in terms of speed</li>
+  <li>ElastiCache is Amazon’s offering of memecached and redis</li>
+</ul>
+<h2 class="no_toc" id="graph-databases">
+  
+  
+    <a href="#graph-databases" class="anchor-heading" aria-labelledby="graph-databases"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> graph databases
+  
+  
+</h2>
+    
+<ul>
+  <li>stores relationships between objects as edges and nodes</li>
+  <li>Amazon Neptune offers full support for property graphs and Resource Description Framework (RDF), as well as the languages Gremlin and SPARQL</li>
+</ul>
+<h2 class="no_toc" id="time-series-databases">
+  
+  
+    <a href="#time-series-databases" class="anchor-heading" aria-labelledby="time-series-databases"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> time-series databases
+  
+  
+</h2>
+    
+<ul>
+  <li>database specifically optimized to store time series data</li>
+  <li>Amazon Timestream is offering</li>
+  <li>RDBMSs can store this data but they are not optimized to</li>
+</ul>
+<h2 class="no_toc" id="ledger-databases">
+  
+  
+    <a href="#ledger-databases" class="anchor-heading" aria-labelledby="ledger-databases"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> ledger databases
+  
+  
+</h2>
+    
+<ul>
+  <li>delivers cryptographically verifiable, immutable, and transparent transaction logs orchestrated by a central authority</li>
+  <li>Amazon Quantum Ledger</li>
+</ul>
+<h2 class="no_toc" id="data-warehouses">
+  
+  
+    <a href="#data-warehouses" class="anchor-heading" aria-labelledby="data-warehouses"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> data warehouses
+  
+  
+</h2>
+    
+<ul>
+  <li>Redshift is Amazon’s data warehouse offering</li>
+  <li>useful for BI</li>
+</ul>
+<h1 id="6-amazon-athena">
+  
+  
+    <a href="#6-amazon-athena" class="anchor-heading" aria-labelledby="6-amazon-athena"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 6: Amazon Athena
+  
+  
+</h1>
+    
+<h2 class="no_toc" id="what-is-amazon-athena">
+  
+  
+    <a href="#what-is-amazon-athena" class="anchor-heading" aria-labelledby="what-is-amazon-athena"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> what is amazon athena
+  
+  
+</h2>
+    
+<ul>
+  <li>a service that treats any file like a database table and allows you to run select statements on it</li>
+  <li>this allows you to skip the ETL and perform queries <em>in situ</em> on data, speeding up processing speeds and lowering costs</li>
+  <li>All you need to do is:
+    <ol>
+      <li>identify the object you want to query in Amazon S3</li>
+      <li>define the schema for the object</li>
+      <li>query the object with standard SQL</li>
+    </ol>
+  </li>
+</ul>
+<h2 class="no_toc" id="athena-supported-formats---json--csv">
+  
+  
+    <a href="#athena-supported-formats---json--csv" class="anchor-heading" aria-labelledby="athena-supported-formats---json--csv"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> athena supported formats - JSON &amp; CSV
+  
+  
+</h2>
+    
+<ul>
+  <li>supports comma-separated value and javascript object notation formats, as well as other delimiters</li>
+  <li>these files are not compressed and so aren’t optimized to be used with Athena</li>
+</ul>
+<h2 class="no_toc" id="athena-supported-formats---orc">
+  
+  
+    <a href="#athena-supported-formats---orc" class="anchor-heading" aria-labelledby="athena-supported-formats---orc"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> athena supported formats - ORC
+  
+  
+</h2>
+    
+<ul>
+  <li>Optimized Row Columnar, originally designed under Apache Hive and Hadoop</li>
+  <li>provides better performance than uncompressed formats for reading, writing, and processing data</li>
+</ul>
+<h2 class="no_toc" id="athena-supported-formats---avro">
+  
+  
+    <a href="#athena-supported-formats---avro" class="anchor-heading" aria-labelledby="athena-supported-formats---avro"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> athena supported formats - Avro
+  
+  
+</h2>
+    
+<ul>
+  <li>designed under Hadoop project</li>
+  <li>uses JSON to store, but allows backward and forward compatibility by allowing the schema to be declared in file</li>
+</ul>
+<h2 class="no_toc" id="athena-supported-formats---parquet">
+  
+  
+    <a href="#athena-supported-formats---parquet" class="anchor-heading" aria-labelledby="athena-supported-formats---parquet"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> athena supported formats - Parquet
+  
+  
+</h2>
+    
+<ul>
+  <li>stores files in a flat columnar storage format, which is different than row-based approach</li>
+  <li>columnar storage is more performant than row-based</li>
+  <li>well-suited for compression and varying data types</li>
+</ul>
+<h2 class="no_toc" id="presto">
+  
+  
+    <a href="#presto" class="anchor-heading" aria-labelledby="presto"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> presto
+  
+  
+</h2>
+    
+<ul>
+  <li>athena uses presto under the hood, which is a general purpose SQL query engine</li>
+  <li>it leverages Apache Hive to create, drop, and alter tables and partitions</li>
+  <li>you write Hive-compliant Data Definition Language (DDL)s and ANSI SQL</li>
+  <li>first developed as an internal project at Facebook on top of large Hadoop/HDFS clusters</li>
+  <li>can also use massively parallel processing (MPP) via a coordinator node and multiple worker nodes</li>
+  <li>presto can be deployed on any Hadoop implementation, and it is bundled with Amazon EMR</li>
+</ul>
+<h2 class="no_toc" id="athena-federated-query">
+  
+  
+    <a href="#athena-federated-query" class="anchor-heading" aria-labelledby="athena-federated-query"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> athena federated query
+  
+  
+</h2>
+    
+<ul>
+  <li>in order to handle the many different database types, you might need a federated query (so beyond just S3)</li>
+  <li>Amazon Athena Federated Query allows you to execute a single SQL query across data stores, simplifying code and getting results faster</li>
+  <li>you can use many connectors supplied by Dremio, or write your own as Lambda functions</li>
+</ul>
+<h2 class="no_toc" id="athena-workgroups">
+  
+  
+    <a href="#athena-workgroups" class="anchor-heading" aria-labelledby="athena-workgroups"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> athena workgroups
+  
+  
+</h2>
+    
+<ul>
+  <li>allows administrators to give different access to different groups of users</li>
+  <li>enables separation of audiences, such as users running ad-hoc queries and users running pre-canned reports</li>
+</ul>
+<h2 class="no_toc" id="optimizing-athena---data-partitions">
+  
+  
+    <a href="#optimizing-athena---data-partitions" class="anchor-heading" aria-labelledby="optimizing-athena---data-partitions"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> optimizing athena - data partitions
+  
+  
+</h2>
+    
+<ul>
+  <li>you can break up data into smaller groups called partitions</li>
+  <li>care needs to be taken to choose the way that partitions are broken up so load is evenly distributed</li>
+</ul>
+<h2 class="no_toc" id="optimizing-athena---data-buckets">
+  
+  
+    <a href="#optimizing-athena---data-buckets" class="anchor-heading" aria-labelledby="optimizing-athena---data-buckets"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> optimizing athena - data buckets
+  
+  
+</h2>
+    
+<ul>
+  <li>you can use buckets within a single partition to group single or multiple columns</li>
+  <li>columns used to filter data are good candidates for bucketing</li>
+  <li>if a column has high cardinality (amount of unique values) it is a good candidate</li>
+</ul>
+<h2 class="no_toc" id="optimizing-athena---file-compression">
+  
+  
+    <a href="#optimizing-athena---file-compression" class="anchor-heading" aria-labelledby="optimizing-athena---file-compression"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> optimizing athena - file compression
+  
+  
+</h2>
+    
+<ul>
+  <li>optimal file sizes for compression are 200 MB - 1 GB</li>
+  <li>can achieve compression easily by using Parquet or ORC, which are Gzip or Bzip2 compressed</li>
+</ul>
+<h2 class="no_toc" id="optimizing-athena---file-size">
+  
+  
+    <a href="#optimizing-athena---file-size" class="anchor-heading" aria-labelledby="optimizing-athena---file-size"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> optimizing athena - file size
+  
+  
+</h2>
+    
+<ul>
+  <li>want files to be a good size, so not too big and not too small</li>
+  <li>file formats that allow splitting are ideal</li>
+</ul>
+<h2 class="no_toc" id="optimizing-athena---columnar-data-store-generation">
+  
+  
+    <a href="#optimizing-athena---columnar-data-store-generation" class="anchor-heading" aria-labelledby="optimizing-athena---columnar-data-store-generation"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> optimizing athena - columnar data store generation
+  
+  
+</h2>
+    
+<ul>
+  <li>if you have columnar storage, you can fine-tune the block size</li>
+  <li>having a larger block/stripe size allows more rows per block</li>
+</ul>
+<h2 class="no_toc" id="optimizing-athena---column-selection">
+  
+  
+    <a href="#optimizing-athena---column-selection" class="anchor-heading" aria-labelledby="optimizing-athena---column-selection"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> optimizing athena - column selection
+  
+  
+</h2>
+    
+<ul>
+  <li>make sure your queries are only returning the columns needed in a query (don’t use <code class="language-plaintext highlighter-rouge">select * from blah</code>)</li>
+</ul>
+<h2 class="no_toc" id="optimizing-athena---predicate-pushdown">
+  
+  
+    <a href="#optimizing-athena---predicate-pushdown" class="anchor-heading" aria-labelledby="optimizing-athena---predicate-pushdown"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> optimizing athena - predicate pushdown
+  
+  
+</h2>
+    
+<ul>
+  <li>pushing the predicate filter down to where the data lives, which allows filtering out data earlier in the process</li>
+  <li>ORC and Parquet support this</li>
+</ul>
+<h2 class="no_toc" id="optimizing-athena---join-order-by-and-group-by">
+  
+  
+    <a href="#optimizing-athena---join-order-by-and-group-by" class="anchor-heading" aria-labelledby="optimizing-athena---join-order-by-and-group-by"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> optimizing athena - join, order by, and group by
+  
+  
+</h2>
+    
+<ul>
+  <li>limit joins unless needed, and make sure left table is larger than right</li>
+  <li>order group by cardinality, so lower cardinality first</li>
+  <li>order by needs to be handled by single worker (that’s the only way to sort) so use <code class="language-plaintext highlighter-rouge">LIMIT</code> if possible</li>
+</ul>
+<h1 id="7-aws-glue">
+  
+  
+    <a href="#7-aws-glue" class="anchor-heading" aria-labelledby="7-aws-glue"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 7: AWS Glue
+  
+  
+</h1>
+    
+<h2 class="no_toc" id="aws-glue">
+  
+  
+    <a href="#aws-glue" class="anchor-heading" aria-labelledby="aws-glue"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> aws glue
+  
+  
+</h2>
+    
+<ul>
+  <li>fully managed ETL service</li>
+  <li>can process tera- and petabyte scale data</li>
+  <li>uses Apache Spark in a serverless environment under the hood</li>
+  <li>useful for:
+    <ul>
+      <li>population of data lakes, warehouses and lake houses</li>
+      <li>event-driven ETL pipelines</li>
+      <li>creation and cleansing of datasets for machine learning</li>
+    </ul>
+  </li>
+</ul>
+<h2 class="no_toc" id="aws-glue-console">
+  
+  
+    <a href="#aws-glue-console" class="anchor-heading" aria-labelledby="aws-glue-console"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> AWS Glue Console
+  
+  
+</h2>
+    
+<ul>
+  <li>used to create, configure, orchestrate, and develop ingestion workflows</li>
+  <li>used to manage all other Glue objects centrally, such as connections, jobs, crawlers, as well as scheduling and job triggers</li>
+</ul>
+<h2 class="no_toc" id="aws-glue-data-catalog">
+  
+  
+    <a href="#aws-glue-data-catalog" class="anchor-heading" aria-labelledby="aws-glue-data-catalog"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> AWS Glue Data Catalog
+  
+  
+</h2>
+    
+<ul>
+  <li>persistent centralized metadata repository</li>
+  <li>operates similarly to Apache Hive metastore</li>
+  <li>many other consumers can read it, such as EMR, Athena, or Spectrum</li>
+  <li>only one per AWS region</li>
+  <li>allows schema version history, data audit, and governance by tracking changes</li>
+  <li>changed using Data Definition Language (DDL) statements or via AWS Management Console</li>
+</ul>
+<h2 class="no_toc" id="aws-glue-crawlers">
+  
+  
+    <a href="#aws-glue-crawlers" class="anchor-heading" aria-labelledby="aws-glue-crawlers"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> AWS Glue Crawlers
+  
+  
+</h2>
+    
+<ul>
+  <li>used to scan files, extract metadata, and populate the AWS Glue Data Catalog</li>
+  <li>once scanned, files can be treated like SQL tables</li>
+  <li>AWS provides crawlers for different source types, including S3, DynamoDB, many RDBMS</li>
+  <li>any restrictions placed on underlying S3 files will persist to data in the catalog</li>
+</ul>
+<h2 class="no_toc" id="aws-glue-classifiers">
+  
+  
+    <a href="#aws-glue-classifiers" class="anchor-heading" aria-labelledby="aws-glue-classifiers"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> AWS Glue Classifiers
+  
+  
+</h2>
+    
+<ul>
+  <li>classifiers recognize the format of data and persist this information</li>
+  <li>provides a certainty score from 0 to 1</li>
+  <li>recognizes Avro, ORC, Parquet, JSON, XML, CSV, and others</li>
+</ul>
+<h2 class="no_toc" id="aws-glue-code-generators">
+  
+  
+    <a href="#aws-glue-code-generators" class="anchor-heading" aria-labelledby="aws-glue-code-generators"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> AWS Glue Code Generators
+  
+  
+</h2>
+    
+<ul>
+  <li>AWS Glue automatically generates python or scala ETL code</li>
+  <li>can be edited in Glue Studio, or directly</li>
+  <li>infrastructure as code</li>
+</ul>
+<h2 class="no_toc" id="aws-glue-streaming-etl">
+  
+  
+    <a href="#aws-glue-streaming-etl" class="anchor-heading" aria-labelledby="aws-glue-streaming-etl"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> AWS Glue Streaming ETL
+  
+  
+</h2>
+    
+<ul>
+  <li>streaming jobs can be created in Glue to process events in real-time</li>
+</ul>
+<h2 class="no_toc" id="aws-glue-best-practices---choosing-the-right-worker">
+  
+  
+    <a href="#aws-glue-best-practices---choosing-the-right-worker" class="anchor-heading" aria-labelledby="aws-glue-best-practices---choosing-the-right-worker"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> AWS Glue Best Practices - choosing the right worker
+  
+  
+</h2>
+    
+<ul>
+  <li>workers are known as Data Processing Units (DPU)</li>
+  <li>choose Standard, G.1X, G.2X depending on workload type (e.g. memory intensive can use G.xX)</li>
+</ul>
+<h2 class="no_toc" id="aws-glue-best-practices---optimized-file-splitting">
+  
+  
+    <a href="#aws-glue-best-practices---optimized-file-splitting" class="anchor-heading" aria-labelledby="aws-glue-best-practices---optimized-file-splitting"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> AWS Glue Best Practices - optimized file splitting
+  
+  
+</h2>
+    
+<ul>
+  <li>files can be split in blocks and processed separately and simultaneously to other files</li>
+  <li>split files can be accessed via S3, deserialized into an AWS Glue DynamicFrame partition, and handled by an Apache Spark task</li>
+  <li>normally a deserialized partition is not brought into memory so there is no memory pressure, but if partition is brought into memory via cache or spills onto disk an out-of-memory exception can occur</li>
+</ul>
+<h2 class="no_toc" id="aws-glue-best-practices--yarns-memory-overhead-allocation">
+  
+  
+    <a href="#aws-glue-best-practices--yarns-memory-overhead-allocation" class="anchor-heading" aria-labelledby="aws-glue-best-practices--yarns-memory-overhead-allocation"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> AWS Glue Best Practices- yarn’s memory overhead allocation
+  
+  
+</h2>
+    
+<ul>
+  <li>Apache Yarn is resource manager used by Glue (Yet Another Resource Negotiator)</li>
+  <li>handles memory allocation and application workloads</li>
+  <li>allocates 10% of the total executor memory for JVM</li>
+</ul>
+<h2 id="aws-glue-best-practices---apache-spark-ui">
+  
+  
+    <a href="#aws-glue-best-practices---apache-spark-ui" class="anchor-heading" aria-labelledby="aws-glue-best-practices---apache-spark-ui"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> AWS Glue Best Practices - Apache Spark UI
+  
+  
+</h2>
+    
+<ul>
+  <li>using Spark UI to inspect, monitory, and optimize Glue jobs</li>
+  <li>can view the jobs as Directed Acyclic Graphs (DAG)</li>
+</ul>
+<h2 class="no_toc" id="aws-glue-best-practices---processing-many-small-files">
+  
+  
+    <a href="#aws-glue-best-practices---processing-many-small-files" class="anchor-heading" aria-labelledby="aws-glue-best-practices---processing-many-small-files"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> AWS Glue Best Practices - processing many small files
+  
+  
+</h2>
+    
+<ul>
+  <li>Apache Spark 2.2 can handle 600,000 files on standard worker</li>
+  <li>to overcome this, you can process in batches</li>
+</ul>
+<h1 id="8-best-practices-for-security-identity-and-compliance">
+  
+  
+    <a href="#8-best-practices-for-security-identity-and-compliance" class="anchor-heading" aria-labelledby="8-best-practices-for-security-identity-and-compliance"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 8: Best Practices for Security, Identity, and Compliance
+  
+  
+</h1>
+    
+<h2 class="no_toc" id="shared-responsibility-model">
+  
+  
+    <a href="#shared-responsibility-model" class="anchor-heading" aria-labelledby="shared-responsibility-model"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Shared Responsibility Model
+  
+  
+</h2>
+    
+<ul>
+  <li>responsibility for keeping apps secure on both AWS and its users</li>
+  <li>AWS responsible for some aspects, like hardware, infrastructure, compute, users for other aspects like customer data, platform and application management, OS config, etc.</li>
+  <li>exact distribution varies depending on service (e.g. fully managed services vs. custom on EC2)</li>
+</ul>
+<h2 class="no_toc" id="identity-access-management-iam">
+  
+  
+    <a href="#identity-access-management-iam" class="anchor-heading" aria-labelledby="identity-access-management-iam"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Identity Access Management (IAM)
+  
+  
+</h2>
+    
+<ul>
+  <li>secures every single service in AWS</li>
+  <li>made up of users, which can be aggregated into groups</li>
+</ul>
+<h2 class="no_toc" id="iam---users">
+  
+  
+    <a href="#iam---users" class="anchor-heading" aria-labelledby="iam---users"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> IAM - Users
+  
+  
+</h2>
+    
+<ul>
+  <li>individuals who need access to AWS data and resources</li>
+</ul>
+<h2 class="no_toc" id="iam---groups">
+  
+  
+    <a href="#iam---groups" class="anchor-heading" aria-labelledby="iam---groups"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> IAM - Groups
+  
+  
+</h2>
+    
+<ul>
+  <li>collection of users</li>
+  <li>can be grouped based on job function, department, persona, etc.</li>
+</ul>
+<h2 class="no_toc" id="iam---roles">
+  
+  
+    <a href="#iam---roles" class="anchor-heading" aria-labelledby="iam---roles"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> IAM - Roles
+  
+  
+</h2>
+    
+<ul>
+  <li>object definition to configure a set of permissions</li>
+  <li>can be assigned to user or group or service or resource (e.g. an EC2 instance)</li>
+  <li>best practice to use roles whenever possible instead of granting permissions directly to user or group</li>
+</ul>
+<h2 class="no_toc" id="iam---policies">
+  
+  
+    <a href="#iam---policies" class="anchor-heading" aria-labelledby="iam---policies"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> IAM - Policies
+  
+  
+</h2>
+    
+<ul>
+  <li>a JSON or YAML document with a set of rules for what actions can be performed</li>
+  <li>these policies can be assigned to users, groups, or roles</li>
+  <li>policies can be:
+    <ul>
+      <li>
+<strong>managed</strong> - created as standalone policies to be attached to multiple entities</li>
+      <li>
+<strong>inline</strong> - created within the definition of an IAM entity and can only be assigned to that entity (they don’t have an Amazon Resource Name (ARN))</li>
+    </ul>
+  </li>
+</ul>
+<h2 class="no_toc" id="iam---permissions">
+  
+  
+    <a href="#iam---permissions" class="anchor-heading" aria-labelledby="iam---permissions"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> IAM - Permissions
+  
+  
+</h2>
+    
+<ul>
+  <li>lists of actions that can be taken on an AWS resource (think of it as applied policies)</li>
+  <li>identity-based policies - attached to users, groups, or roles</li>
+  <li>resource-based policies - attached to AWS resources, e.g., S3 buckets, EC2 instances, etc.</li>
+</ul>
+<h2 class="no_toc" id="aws-organizations">
+  
+  
+    <a href="#aws-organizations" class="anchor-heading" aria-labelledby="aws-organizations"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> AWS Organizations
+  
+  
+</h2>
+    
+<ul>
+  <li>used to manage multiple AWS accounts in centralized location</li>
+  <li>made up of organization, root account, organizational unit, AWS account, and service control policy (SCP)</li>
+</ul>
+<h2 class="no_toc" id="aws-control-tower">
+  
+  
+    <a href="#aws-control-tower" class="anchor-heading" aria-labelledby="aws-control-tower"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> AWS Control Tower
+  
+  
+</h2>
+    
+<ul>
+  <li>enables setting up company-wide policies and apply them across AWS accounts</li>
+  <li>without it, each policy would be applied individually to each account</li>
+</ul>
+<h2 class="no_toc" id="aws-guard-duty">
+  
+  
+    <a href="#aws-guard-duty" class="anchor-heading" aria-labelledby="aws-guard-duty"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> AWS Guard Duty
+  
+  
+</h2>
+    
+<ul>
+  <li>used to detect threats, malicious behavior, and activity from unauthorized actors</li>
+  <li>leverages machine learning to detect threats</li>
+  <li>it is NOT an Intrusion Prevention System (IPS), it is just an Intrusion Detection System</li>
+</ul>
+<h2 class="no_toc" id="aws-shield">
+  
+  
+    <a href="#aws-shield" class="anchor-heading" aria-labelledby="aws-shield"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> AWS Shield
+  
+  
+</h2>
+    
+<ul>
+  <li>managed DDoS protection service</li>
+  <li>Standard provided at no cost, Advanced costs money but provides additional protection</li>
+  <li>can be used on EC2, ELB, CloudFront, Global Accelerator, Route 53</li>
+</ul>
+<h2 class="no_toc" id="aws-web-application-firewall">
+  
+  
+    <a href="#aws-web-application-firewall" class="anchor-heading" aria-labelledby="aws-web-application-firewall"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> AWS Web Application Firewall
+  
+  
+</h2>
+    
+<ul>
+  <li>firewall for web applications</li>
+  <li>control traffic by creating rules</li>
+</ul>
+<h2 class="no_toc" id="aws-firewall-manager">
+  
+  
+    <a href="#aws-firewall-manager" class="anchor-heading" aria-labelledby="aws-firewall-manager"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> AWS Firewall Manager
+  
+  
+</h2>
+    
+<ul>
+  <li>allows users to set up firewall rules in central dashboard, so new applications adhere to global rules</li>
+</ul>
+<h2 class="no_toc" id="amazon-cloud-directory">
+  
+  
+    <a href="#amazon-cloud-directory" class="anchor-heading" aria-labelledby="amazon-cloud-directory"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Amazon Cloud Directory
+  
+  
+</h2>
+    
+<ul>
+  <li>fully managed service that creates directories (for things like org charts, device registries, etc.)</li>
+  <li>allows multiple hierarchies instead of the typical 1 allowed by Active Directory Lightweight Directory Services (AD LDS) and Lightweight Directory Application Protocol (LDAP)</li>
+</ul>
+<h2 class="no_toc" id="amazon-inspector">
+  
+  
+    <a href="#amazon-inspector" class="anchor-heading" aria-labelledby="amazon-inspector"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Amazon Inspector
+  
+  
+</h2>
+    
+<ul>
+  <li>checks application compliance against predefined policies, generating a comprehensive report of flaws and issues sorted by severity level</li>
+</ul>
+<h2 class="no_toc" id="amazon-macie">
+  
+  
+    <a href="#amazon-macie" class="anchor-heading" aria-labelledby="amazon-macie"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Amazon Macie
+  
+  
+</h2>
+    
+<ul>
+  <li>uses AI and ML to find and protect sensitive data in AWS environments</li>
+  <li>helps with General Data Privacy Regulation (GDPR) and Health Insurance Portability and Accountability Act (HIPAA) compliance</li>
+</ul>
+<h2 class="no_toc" id="aws-artifact-reports">
+  
+  
+    <a href="#aws-artifact-reports" class="anchor-heading" aria-labelledby="aws-artifact-reports"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> AWS Artifact Reports
+  
+  
+</h2>
+    
+<ul>
+  <li>simple service to store, manage, and access various compliance reports, e.g., SOC, PCI, NDAs</li>
+</ul>
+<h2 class="no_toc" id="aws-certificate-manager">
+  
+  
+    <a href="#aws-certificate-manager" class="anchor-heading" aria-labelledby="aws-certificate-manager"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> AWS Certificate Manager
+  
+  
+</h2>
+    
+<ul>
+  <li>service to create, maintain, deploy public and private Secure Sockets Layer/Transport Layer Security (SSL/TLS) certs</li>
+</ul>
+<h2 class="no_toc" id="aws-cloudhsm">
+  
+  
+    <a href="#aws-cloudhsm" class="anchor-heading" aria-labelledby="aws-cloudhsm"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> AWS CloudHSM
+  
+  
+</h2>
+    
+<ul>
+  <li>hardware security module (HSM) that allows users to generate their own encryption keys for encrypting data at rest</li>
+</ul>
+<h2 class="no_toc" id="aws-directory-service">
+  
+  
+    <a href="#aws-directory-service" class="anchor-heading" aria-labelledby="aws-directory-service"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> AWS Directory Service
+  
+  
+</h2>
+    
+<ul>
+  <li>fully managed implementation of Microsoft’s AD, using the actual Microsoft AD</li>
+</ul>
+<h2 class="no_toc" id="aws-key-management-service-kms">
+  
+  
+    <a href="#aws-key-management-service-kms" class="anchor-heading" aria-labelledby="aws-key-management-service-kms"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> AWS Key Management Service (KMS)
+  
+  
+</h2>
+    
+<ul>
+  <li>provides ability to create and manage cryptographic keys to encrypt data at rest</li>
+  <li>FIPS 140-2 compliant</li>
+</ul>
+<h2 class="no_toc" id="aws-secrets-manager">
+  
+  
+    <a href="#aws-secrets-manager" class="anchor-heading" aria-labelledby="aws-secrets-manager"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> AWS Secrets Manager
+  
+  
+</h2>
+    
+<ul>
+  <li>used to protect secrets, allowing for rotation, management, and retrieval of all sorts of secrets</li>
+</ul>
+<h2 class="no_toc" id="aws-single-sign-on">
+  
+  
+    <a href="#aws-single-sign-on" class="anchor-heading" aria-labelledby="aws-single-sign-on"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> AWS Single Sign-On
+  
+  
+</h2>
+    
+<ul>
+  <li>used to manage users access and permissions for multiple AWS accounts</li>
+</ul>
+<h2 class="no_toc" id="aws-security-hub">
+  
+  
+    <a href="#aws-security-hub" class="anchor-heading" aria-labelledby="aws-security-hub"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> AWS Security Hub
+  
+  
+</h2>
+    
+<ul>
+  <li>centralized location to see security alerts and security posture</li>
+</ul>
+<h1 id="9-severless-and-container-patterns">
+  
+  
+    <a href="#9-severless-and-container-patterns" class="anchor-heading" aria-labelledby="9-severless-and-container-patterns"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 9: Severless and Container Patterns
+  
+  
+</h1>
+    
+<h2 class="no_toc" id="advantages-of-containers">
+  
+  
+    <a href="#advantages-of-containers" class="anchor-heading" aria-labelledby="advantages-of-containers"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Advantages of Containers
+  
+  
+</h2>
+    
+<ul>
+  <li>containers are more efficient, allowing a loosely coupled architecture where services do not need to know about the implementation of other services, so you can update one without needing to update another</li>
+  <li>stateless, so no state is stored within boundaries</li>
+  <li>leads to less infrastructure waste</li>
+  <li>simple, as they are isolated, autonomous, and independent platforms without needing OS</li>
+  <li>increase productivity – easier to onboard new developers</li>
+</ul>
+<h2 class="no_toc" id="disadvantages-of-containers">
+  
+  
+    <a href="#disadvantages-of-containers" class="anchor-heading" aria-labelledby="disadvantages-of-containers"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Disadvantages of Containers
+  
+  
+</h2>
+    
+<ul>
+  <li>slightly slower compared to bare-metal servers</li>
+  <li>there are ecosystem incompatibilities, for example, Docker is not fully compatible with Kubernetes (needs <code class="language-plaintext highlighter-rouge">dockershim</code>) or RedHat’s OpenShift</li>
+  <li>no graphical interface</li>
+</ul>
+<h2 class="no_toc" id="virtual-machines">
+  
+  
+    <a href="#virtual-machines" class="anchor-heading" aria-labelledby="virtual-machines"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Virtual Machines
+  
+  
+</h2>
+    
+<ul>
+  <li>two types of virtual machines
+    <ul>
+      <li>
+<strong>system virtual machines (SVMs)</strong> - physical machine substitute, leverage hypervisor architecture</li>
+      <li>
+<strong>hypervisor</strong> - can run virtual machines, aka <strong>virtual machine monitors</strong>
+</li>
+    </ul>
+  </li>
+</ul>
+<h2 class="no_toc" id="docker">
+  
+  
+    <a href="#docker" class="anchor-heading" aria-labelledby="docker"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Docker
+  
+  
+</h2>
+    
+<ul>
+  <li>very prominent container software</li>
+  <li>freemium model – released to public in 2013 at PyCon</li>
+</ul>
+<h2 class="no_toc" id="dockerfile">
+  
+  
+    <a href="#dockerfile" class="anchor-heading" aria-labelledby="dockerfile"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Dockerfile
+  
+  
+</h2>
+    
+<ul>
+  <li>text file containing instructions to show how Docker image is built</li>
+  <li>specify things like ports, OS, env vars, mounts, etc</li>
+</ul>
+<h2 class="no_toc" id="docker-images">
+  
+  
+    <a href="#docker-images" class="anchor-heading" aria-labelledby="docker-images"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Docker images
+  
+  
+</h2>
+    
+<ul>
+  <li>container built from a Dockerfile</li>
+  <li>portable across environments and instance types</li>
+</ul>
+<h2 class="no_toc" id="docker-run">
+  
+  
+    <a href="#docker-run" class="anchor-heading" aria-labelledby="docker-run"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Docker run
+  
+  
+</h2>
+    
+<ul>
+  <li>utility where commands can be issued to launch containers (image instances)</li>
+  <li>containers can be stopped, started, restarted</li>
+</ul>
+<h2 class="no_toc" id="docker-hub">
+  
+  
+    <a href="#docker-hub" class="anchor-heading" aria-labelledby="docker-hub"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Docker Hub
+  
+  
+</h2>
+    
+<ul>
+  <li>collection of previously created containers where Docker users share containers</li>
+  <li>can either be a public or private Docker registry</li>
+</ul>
+<h2 class="no_toc" id="docker-engine">
+  
+  
+    <a href="#docker-engine" class="anchor-heading" aria-labelledby="docker-engine"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Docker Engine
+  
+  
+</h2>
+    
+<ul>
+  <li>core of Docker, which instantiates and runs containers</li>
+</ul>
+<h2 class="no_toc" id="docker-compose">
+  
+  
+    <a href="#docker-compose" class="anchor-heading" aria-labelledby="docker-compose"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Docker Compose
+  
+  
+</h2>
+    
+<ul>
+  <li>tool which can configure and instantiate multi-container Docker applications using a YAML file</li>
+</ul>
+<h2 class="no_toc" id="docker-swarm">
+  
+  
+    <a href="#docker-swarm" class="anchor-heading" aria-labelledby="docker-swarm"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Docker Swarm
+  
+  
+</h2>
+    
+<ul>
+  <li>groups virtual or physical machines running Docker Engine into a cluster</li>
+  <li>process of managing nodes is called orchestration</li>
+  <li>same use case as Kubernetes</li>
+</ul>
+<h2 class="no_toc" id="kubernetes">
+  
+  
+    <a href="#kubernetes" class="anchor-heading" aria-labelledby="kubernetes"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Kubernetes
+  
+  
+</h2>
+    
+<ul>
+  <li>open source container orchestration platform used to automate the manual work to deploy, manage, and monitor containerized apps</li>
+  <li>Google open sourced Kubernetes in 2015, donating to Cloud Native Computing Foundation (CNCF)</li>
+  <li>uses many applications and extensions to enhance orchestration
+    <ul>
+      <li>Registration services: Atomic Registry, Docker Registry</li>
+      <li>Security: LDAP, SELinux, RBAC, OAUTH</li>
+      <li>Networking services: OpenvSwitch and intelligent edge routing</li>
+      <li>Telemetry: Kibana, Hawkular, and Elastic</li>
+      <li>Automation: Ansible playbooks</li>
+    </ul>
+  </li>
+</ul>
+<h2 class="no_toc" id="kubernetes-advantages">
+  
+  
+    <a href="#kubernetes-advantages" class="anchor-heading" aria-labelledby="kubernetes-advantages"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Kubernetes Advantages
+  
+  
+</h2>
+    
+<ul>
+  <li>faster development and deployment</li>
+  <li>cost efficiency</li>
+  <li>cloud-agnostic deployments</li>
+  <li>management by cloud provider</li>
+</ul>
+<h2 class="no_toc" id="amazon-elastic-container-service-for-kubernetes-eks">
+  
+  
+    <a href="#amazon-elastic-container-service-for-kubernetes-eks" class="anchor-heading" aria-labelledby="amazon-elastic-container-service-for-kubernetes-eks"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Amazon Elastic Container Service for Kubernetes (EKS)
+  
+  
+</h2>
+    
+<ul>
+  <li>managed wrapper around Kubernetes kernel</li>
+  <li>greatly simplifies restarting and setting up containers, persisting data, etc.</li>
+</ul>
+<h2 class="no_toc" id="amazon-elastic-container-service-ecs">
+  
+  
+    <a href="#amazon-elastic-container-service-ecs" class="anchor-heading" aria-labelledby="amazon-elastic-container-service-ecs"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Amazon Elastic Container Service (ECS)
+  
+  
+</h2>
+    
+<ul>
+  <li>quick solution to host containers at scale, so ideal for simpler workloads</li>
+</ul>
+<h2 class="no_toc" id="aws-fargate">
+  
+  
+    <a href="#aws-fargate" class="anchor-heading" aria-labelledby="aws-fargate"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> AWS Fargate
+  
+  
+</h2>
+    
+<ul>
+  <li>serverless compute engine for container management which can be used with EKS or ECS</li>
+  <li>containers as a service, meaning that the provisioning and management of container infrastructure is managed by AWS</li>
+</ul>
+<h2 class="no_toc" id="aws-batch">
+  
+  
+    <a href="#aws-batch" class="anchor-heading" aria-labelledby="aws-batch"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> AWS Batch
+  
+  
+</h2>
+    
+<ul>
+  <li>great for long-running compute jobs that do not need low latency turn times</li>
+  <li>cheaper than other options, but slower</li>
+  <li>job: unit of work</li>
+  <li>job definitions: description of jobs to be executed (what parameters, cpu, ram, etc.)</li>
+  <li>job queues: list of work to be completed by jobs</li>
+  <li>compute environment: compute resources to run job</li>
+</ul>
+<h1 id="10-microservice-and-event-driven-architectures">
+  
+  
+    <a href="#10-microservice-and-event-driven-architectures" class="anchor-heading" aria-labelledby="10-microservice-and-event-driven-architectures"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 10: Microservice and Event-Driven Architectures
+  
+  
+</h1>
+    
+<h2 class="no_toc" id="microservice">
+  
+  
+    <a href="#microservice" class="anchor-heading" aria-labelledby="microservice"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> microservice
+  
+  
+</h2>
+    
+<ul>
+  <li>a software application that is structured as loosely coupled, easily deployable, and testable, and is organized in a well-defined business domain</li>
+</ul>
+<h2 class="no_toc" id="layered-architecture">
+  
+  
+    <a href="#layered-architecture" class="anchor-heading" aria-labelledby="layered-architecture"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> layered architecture
+  
+  
+</h2>
+    
+<ul>
+  <li>code is implemented in layers as a “separation of concerns”</li>
+  <li>generally, top most layer communicates with users and other systems, middle layer handles business logic, and bottom layer is data persistence</li>
+  <li>allows applications where only the top layer is publicly accessible</li>
+  <li>we can swap out layers for other tech if the layers are loosely coupled</li>
+</ul>
+<h2 class="no_toc" id="event-driven-architecture">
+  
+  
+    <a href="#event-driven-architecture" class="anchor-heading" aria-labelledby="event-driven-architecture"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> event-driven architecture
+  
+  
+</h2>
+    
+<ul>
+  <li>creating, messaging, processing, and storing events are the critical functions of a system</li>
+  <li>an event is any change in the state of the system</li>
+  <li>not all changes are events – only meaningful changes are events</li>
+</ul>
+<h2 class="no_toc" id="event-producer">
+  
+  
+    <a href="#event-producer" class="anchor-heading" aria-labelledby="event-producer"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> event producer
+  
+  
+</h2>
+    
+<ul>
+  <li>detects change in state, then generates the event and notifies others of the change by writing to a queue</li>
+</ul>
+<h2 class="no_toc" id="event-consumer">
+  
+  
+    <a href="#event-consumer" class="anchor-heading" aria-labelledby="event-consumer"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> event consumer
+  
+  
+</h2>
+    
+<ul>
+  <li>fetch events from queue (in async way), then performs action based on event</li>
+</ul>
+<h2 class="no_toc" id="event-streaming">
+  
+  
+    <a href="#event-streaming" class="anchor-heading" aria-labelledby="event-streaming"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> event streaming
+  
+  
+</h2>
+    
+<ul>
+  <li>events are popped off queue as soon as one consumer processes the event</li>
+  <li>useful for workloads that need to be highly scalable and can be highly variable, since scaling is just adding more consumers</li>
+  <li>use case is for events that need to be processed exactly once but order doesn’t matter</li>
+</ul>
+<h2 class="no_toc" id="pub-sub-model">
+  
+  
+    <a href="#pub-sub-model" class="anchor-heading" aria-labelledby="pub-sub-model"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> pub-sub model
+  
+  
+</h2>
+    
+<ul>
+  <li>allows several consumers to process the same message</li>
+  <li>potentially guarantees order of messages received</li>
+  <li>useful for use cases where more than one consumer needs to receive messages</li>
+</ul>
+<h2 class="no_toc" id="benefits-of-event-driven-architecture">
+  
+  
+    <a href="#benefits-of-event-driven-architecture" class="anchor-heading" aria-labelledby="benefits-of-event-driven-architecture"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> benefits of event-driven architecture
+  
+  
+</h2>
+    
+<ul>
+  <li>no need to poll which is expensive, since push mechanism alerts consumers when new event occurs</li>
+  <li>dynamic targeting means there is no need to keep track of data consumers</li>
+  <li>keeps communication between producers and consumers simple</li>
+  <li>allows for decoupling and scalability, as each producer and consumer can adapt to their workload in isolation</li>
+</ul>
+<h2 class="no_toc" id="disadvantages-of-event-driven-architecture">
+  
+  
+    <a href="#disadvantages-of-event-driven-architecture" class="anchor-heading" aria-labelledby="disadvantages-of-event-driven-architecture"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> disadvantages of event-driven architecture
+  
+  
+</h2>
+    
+<ul>
+  <li>can’t solve all problems, and the added complexity of setting up a message queue might not be worth it</li>
+  <li>popular with IoT workflows, but not others</li>
+  <li>difficult to troubleshoot problems because system is asynchronous</li>
+</ul>
+<h2 class="no_toc" id="pluginmicrokernel-architecture">
+  
+  
+    <a href="#pluginmicrokernel-architecture" class="anchor-heading" aria-labelledby="pluginmicrokernel-architecture"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> plugin/microkernel architecture
+  
+  
+</h2>
+    
+<ul>
+  <li>consists of a core system with features added via ‘plugins’ or extensions</li>
+</ul>
+
+          
+
+          
+        </main>
+        
+
+  <hr>
+  <footer>
+    
+      <p><a href="#top" id="back-to-top">Back to top</a></p>
+    
+
+    <p class="text-small text-grey-dk-100 mb-0">Copyright © 2022 Michael McIntyre. </p>
+
+    
+      <div class="d-flex mt-2">
+        
+          <p class="text-small text-grey-dk-000 mb-0 mr-2">
+            Page last modified: <span class="d-inline-block">Aug 11 2021 at 07:40 PM</span>.
+          </p>
+        
+        
+      </div>
+    
+  </footer>
+
+
+      </div>
+    </div>
+    
+      
+
+<div class="search-overlay"></div>
+
+    
+  </div>
+
+  
+</body>
+</html>

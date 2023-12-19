@@ -1,0 +1,2468 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+
+  
+
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+  <link rel="stylesheet" href="/assets/css/just-the-docs-default.css">
+  <link rel="stylesheet" href="/assets/css/native.css">
+
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-M6EEXPRNWS"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-M6EEXPRNWS', { 'anonymize_ip': true });
+  </script>
+
+  
+
+  
+  <script type="text/javascript" src="/assets/js/vendor/lunr.min.js"></script>
+  
+  <script type="text/javascript" src="/assets/js/just-the-docs.js"></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Operating Systems: Three Easy Pieces | Notes</title>
+<meta name="generator" content="Jekyll v3.9.2">
+<meta property="og:title" content="Operating Systems: Three Easy Pieces">
+<meta property="og:locale" content="en_US">
+<meta name="description" content="My Notes">
+<meta property="og:description" content="My Notes">
+<link rel="canonical" href="https://itsmynotes.com/notes/tech_books/operating-systems-three-easy-pieces">
+<meta property="og:url" content="https://itsmynotes.com/notes/tech_books/operating-systems-three-easy-pieces">
+<meta property="og:site_name" content="Notes">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<meta property="twitter:title" content="Operating Systems: Three Easy Pieces">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"My Notes","headline":"Operating Systems: Three Easy Pieces","url":"https://itsmynotes.com/notes/tech_books/operating-systems-three-easy-pieces"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+  
+
+<script>MathJax={"tex":{"inlineMath":[["$","$"],["\\(","\\)"]],"displayMath":[["$$","$$"],["\\[","\\]"]]},"svg":{"fontCache":"global"}}</script><script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+  <a class="skip-to-main" href="#main-content">Skip to main content</a>
+  <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+  <symbol id="svg-link" viewbox="0 0 24 24">
+  <title>Link</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link">
+    <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+  </svg>
+</symbol>
+
+  <symbol id="svg-menu" viewbox="0 0 24 24">
+  <title>Menu</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu">
+    <line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line>
+  </svg>
+</symbol>
+
+  <symbol id="svg-arrow-right" viewbox="0 0 24 24">
+  <title>Expand</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+    <polyline points="9 18 15 12 9 6"></polyline>
+  </svg>
+</symbol>
+
+  <!-- Feather. MIT License: https://github.com/feathericons/feather/blob/master/LICENSE -->
+<symbol id="svg-external-link" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-external-link">
+  <title id="svg-external-link-title">(external link)</title>
+  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line>
+</symbol>
+
+  
+    <symbol id="svg-doc" viewbox="0 0 24 24">
+  <title>Document</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file">
+    <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline>
+  </svg>
+</symbol>
+
+    <symbol id="svg-search" viewbox="0 0 24 24">
+  <title>Search</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search">
+    <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+  </svg>
+</symbol>
+
+  
+  
+    <!-- Bootstrap Icons. MIT License: https://github.com/twbs/icons/blob/main/LICENSE.md -->
+<symbol id="svg-copy" viewbox="0 0 16 16">
+  <title>Copy</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard" viewbox="0 0 16 16">
+    <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"></path>
+    <path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"></path>
+  </svg>
+</symbol>
+<symbol id="svg-copied" viewbox="0 0 16 16">
+  <title>Copied</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard-check-fill" viewbox="0 0 16 16">
+    <path d="M6.5 0A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3Zm3 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3Z"></path>
+    <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1A2.5 2.5 0 0 1 9.5 5h-3A2.5 2.5 0 0 1 4 2.5v-1Zm6.854 7.354-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L7.5 10.793l2.646-2.647a.5.5 0 0 1 .708.708Z"></path>
+  </svg>
+</symbol>
+
+  
+</svg>
+
+  <div class="side-bar">
+  <div class="site-header" role="banner">
+    <a href="/" class="site-title lh-tight">
+  Notes
+
+</a>
+    <button id="menu-button" class="site-button btn-reset" aria-label="Toggle menu" aria-pressed="false">
+      <svg viewbox="0 0 24 24" class="icon" aria-hidden="true"><use xlink:href="#svg-menu"></use></svg>
+    </button>
+  </div>
+
+  <nav aria-label="Main" id="site-nav" class="site-nav">
+  
+  
+    <ul class="nav-list">
+<li class="nav-list-item">
+<button class="nav-list-expander btn-reset" aria-label="toggle items in Projects category" aria-pressed="false">
+      <svg viewbox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+    </button><a href="/notes/projects" class="nav-list-link">Projects</a><ul class="nav-list"></ul>
+</li>
+<li class="nav-list-item">
+<button class="nav-list-expander btn-reset" aria-label="toggle items in Vocabulary category" aria-pressed="false">
+      <svg viewbox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+    </button><a href="/notes/vocabulary" class="nav-list-link">Vocabulary</a><ul class="nav-list"></ul>
+</li>
+<li class="nav-list-item">
+<button class="nav-list-expander btn-reset" aria-label="toggle items in Business Books category" aria-pressed="false">
+      <svg viewbox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+    </button><a href="/notes/business-books" class="nav-list-link">Business Books</a><ul class="nav-list"></ul>
+</li>
+<li class="nav-list-item">
+<button class="nav-list-expander btn-reset" aria-label="toggle items in Other Books category" aria-pressed="false">
+      <svg viewbox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+    </button><a href="/notes/other-books" class="nav-list-link">Other Books</a><ul class="nav-list"></ul>
+</li>
+<li class="nav-list-item">
+<button class="nav-list-expander btn-reset" aria-label="toggle items in Educational Books category" aria-pressed="false">
+      <svg viewbox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+    </button><a href="/notes/educational-books" class="nav-list-link">Educational Books</a><ul class="nav-list"></ul>
+</li>
+<li class="nav-list-item">
+<button class="nav-list-expander btn-reset" aria-label="toggle items in Articles category" aria-pressed="false">
+      <svg viewbox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+    </button><a href="/notes/articles" class="nav-list-link">Articles</a><ul class="nav-list"></ul>
+</li>
+<li class="nav-list-item">
+<button class="nav-list-expander btn-reset" aria-label="toggle items in Quotes category" aria-pressed="false">
+      <svg viewbox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+    </button><a href="/notes/quotes" class="nav-list-link">Quotes</a><ul class="nav-list"></ul>
+</li>
+<li class="nav-list-item">
+<button class="nav-list-expander btn-reset" aria-label="toggle items in Classes category" aria-pressed="false">
+      <svg viewbox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+    </button><a href="/notes/classes" class="nav-list-link">Classes</a><ul class="nav-list"></ul>
+</li>
+<li class="nav-list-item">
+<button class="nav-list-expander btn-reset" aria-label="toggle items in Tech Books category" aria-pressed="false">
+      <svg viewbox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+    </button><a href="/notes/tech-books" class="nav-list-link">Tech Books</a><ul class="nav-list"></ul>
+</li>
+<li class="nav-list-item">
+<button class="nav-list-expander btn-reset" aria-label="toggle items in Podcasts category" aria-pressed="false">
+      <svg viewbox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+    </button><a href="/notes/podcasts" class="nav-list-link">Podcasts</a><ul class="nav-list"></ul>
+</li>
+</ul>
+
+  
+</nav>
+
+
+  
+  
+    <footer class="site-footer">
+      This site uses <a href="https://github.com/just-the-docs/just-the-docs">Just the Docs</a>, a documentation theme for Jekyll.
+    </footer>
+  
+</div>
+
+  <div class="main" id="top">
+    <div id="main-header" class="main-header">
+  
+    
+
+<div class="search" role="search">
+  <div class="search-input-wrap">
+    <input type="text" id="search-input" class="search-input" tabindex="0" placeholder="Search Notes" aria-label="Search Notes" autocomplete="off">
+    <label for="search-input" class="search-label"><svg viewbox="0 0 24 24" class="search-icon"><use xlink:href="#svg-search"></use></svg></label>
+  </div>
+  <div id="search-results" class="search-results"></div>
+</div>
+
+  
+  
+  
+    <nav aria-label="Auxiliary" class="aux-nav">
+  <ul class="aux-nav-list">
+    
+      <li class="aux-nav-list-item">
+        <a href="https://github.com/mmcintyre1/its-my-notes" class="site-button">
+          It's My Notes on GitHub
+        </a>
+      </li>
+    
+  </ul>
+</nav>
+
+  
+</div>
+
+    <div class="main-content-wrap">
+      <nav aria-label="Breadcrumb" class="breadcrumb-nav">
+  <ol class="breadcrumb-nav-list">
+  
+    <li class="breadcrumb-nav-list-item"><a href="/notes/tech-books">Tech Books</a></li>
+  <li class="breadcrumb-nav-list-item"><span>Operating Systems: Three Easy Pieces</span></li>
+  </ol>
+</nav>
+      <div id="main-content" class="main-content">
+        <main>
+          
+            <h1 class="no_toc" id="operating-systems-three-easy-pieces">
+  
+  
+    <a href="#operating-systems-three-easy-pieces" class="anchor-heading" aria-labelledby="operating-systems-three-easy-pieces"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Operating Systems: Three Easy Pieces
+  
+  
+</h1>
+    
+<p>Remzi Arpaci-Dusseau, Andrea Arpaci-Dusseau. 2015</p>
+<h2 class="no_toc" id="key-links">
+  
+  
+    <a href="#key-links" class="anchor-heading" aria-labelledby="key-links"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Key Links
+  
+  
+</h2>
+    
+<ul>
+  <li>https://pages.cs.wisc.edu/~remzi/OSTEP/Homework/homework.html</li>
+  <li>https://pages.cs.wisc.edu/~remzi/OSTEP/</li>
+  <li>https://github.com/remzi-arpacidusseau/ostep-code</li>
+</ul>
+
+<details open="">
+  <summary>
+    Table of contents
+  </summary>
+<ol id="markdown-toc">
+  <li><a href="#4---the-process" id="markdown-toc-4---the-process">4 - The Process</a></li>
+  <li><a href="#5---process-api" id="markdown-toc-5---process-api">5 - Process API</a></li>
+  <li><a href="#6---limited-direct-execution" id="markdown-toc-6---limited-direct-execution">6 - Limited Direct Execution</a></li>
+  <li><a href="#7---scheduling" id="markdown-toc-7---scheduling">7 - Scheduling</a></li>
+  <li><a href="#8---multi-level-feedback-queue" id="markdown-toc-8---multi-level-feedback-queue">8 - Multi-Level Feedback Queue</a></li>
+  <li><a href="#9---scheduling---proportional-share" id="markdown-toc-9---scheduling---proportional-share">9 - Scheduling - Proportional Share</a></li>
+  <li><a href="#10---multiprocessor-scheduling-advanced" id="markdown-toc-10---multiprocessor-scheduling-advanced">10 - Multiprocessor Scheduling (Advanced)</a></li>
+  <li><a href="#13---the-abstraction-address-spaces" id="markdown-toc-13---the-abstraction-address-spaces">13 - The Abstraction: Address Spaces</a></li>
+  <li><a href="#14---memory-api" id="markdown-toc-14---memory-api">14 - Memory API</a></li>
+  <li><a href="#15---mechanism-address-translation" id="markdown-toc-15---mechanism-address-translation">15 - Mechanism: Address Translation</a></li>
+  <li><a href="#16---segmentation" id="markdown-toc-16---segmentation">16 - Segmentation</a></li>
+  <li><a href="#17---free-space-management" id="markdown-toc-17---free-space-management">17 - Free Space Management</a></li>
+  <li><a href="#18---paging" id="markdown-toc-18---paging">18 - Paging</a></li>
+  <li><a href="#18---translation-lookaside-buffers" id="markdown-toc-18---translation-lookaside-buffers">18 - Translation-Lookaside Buffers</a></li>
+  <li><a href="#20---paging-smaller-tables" id="markdown-toc-20---paging-smaller-tables">20 - Paging: Smaller Tables</a></li>
+  <li><a href="#21---beyond-physical-memory-mechanisms" id="markdown-toc-21---beyond-physical-memory-mechanisms">21 - Beyond Physical Memory: Mechanisms</a></li>
+  <li><a href="#22---beyond-physical-memory-policies" id="markdown-toc-22---beyond-physical-memory-policies">22 - Beyond Physical Memory: Policies</a></li>
+  <li><a href="#23---complete-virtual-memory-systems" id="markdown-toc-23---complete-virtual-memory-systems">23 - Complete Virtual Memory Systems</a></li>
+</ol>
+
+</details>
+<h1 id="4---the-process">
+  
+  
+    <a href="#4---the-process" class="anchor-heading" aria-labelledby="4---the-process"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 4 - The Process
+  
+  
+</h1>
+    
+<ul>
+  <li>a <strong>process</strong> is a running program</li>
+  <li>in order to run multiple processes at once, the OS creates the illusion of multiple CPUs by virtualizing the CPU</li>
+  <li>achieves this by:
+    <ul>
+      <li>
+<em>mechanisms</em> - low level methods or protocols that implement a needed piece of functionality</li>
+      <li>
+<em>policies</em> - algorithms for making some kind of decision within the OS</li>
+    </ul>
+  </li>
+  <li>state of a process can be described by:
+    <ul>
+      <li>the contents of memory in its address space,</li>
+      <li>the contents of CPU registers (including the program counter and stack pointer, among others), and</li>
+      <li>information about I/O (such as open files which can be read or written)</li>
+    </ul>
+  </li>
+</ul>
+<h2 class="no_toc" id="sharing">
+  
+  
+    <a href="#sharing" class="anchor-heading" aria-labelledby="sharing"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Sharing
+  
+  
+</h2>
+    
+<ul>
+  <li>
+<em>time sharing</em> - allowing one entity to use a resource for a little while then context switching to allow another entity to use the resource (e.g., CPU, network link)</li>
+  <li>
+    <p><em>space sharing</em> - a resource is divided in space among users (e.g., disk space)</p>
+  </li>
+  <li>understanding process is understanding machine state
+    <ul>
+      <li>memory - where programs instructions live via address space</li>
+      <li>registers - things like program counter/instruction pointer (what the next instruction is)</li>
+      <li>I/O info</li>
+    </ul>
+  </li>
+</ul>
+<h2 class="no_toc" id="process-api">
+  
+  
+    <a href="#process-api" class="anchor-heading" aria-labelledby="process-api"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Process API
+  
+  
+</h2>
+    
+<ul>
+  <li>
+<strong>create</strong> - method to create new processes</li>
+  <li>
+<strong>destroy</strong> - method to destroy running processes</li>
+  <li>
+<strong>wait</strong> - method to pause a running process</li>
+  <li>
+<strong>misc. control</strong> - other special methods, like suspend or resume</li>
+  <li>
+<strong>status</strong> - get status info about process</li>
+</ul>
+
+<div style="text-align:center">
+  <a href="/assets/img/ostep/program-to-process.png">
+    <img src="/assets/img/ostep/program-to-process.png" alt="">
+  </a>
+</div>
+
+<p>programs can either be loaded</p>
+<ul>
+  <li>
+<strong>eagerly</strong>: all at once before running the program</li>
+  <li>
+<strong>lazily</strong>: loading pieces of code or data only as they are needed during program execution</li>
+</ul>
+
+<p>how are programs turned into processes?</p>
+<ol>
+  <li>code and any static data loaded into memory
+    <ol>
+      <li>this used to be done eagerly (load the whole program into memory), now it is typically done lazily (load only needed modules)</li>
+    </ol>
+  </li>
+  <li>stack is provisioned
+    <ol>
+      <li>in C programs, stack is used for variables, function parameters, etc</li>
+    </ol>
+  </li>
+  <li>program might also allocate memory for program’s heap
+    <ol>
+      <li>in C programs, memory for heap gets provisioned with <code class="language-plaintext highlighter-rouge">malloc()</code> and freed with <code class="language-plaintext highlighter-rouge">free()</code>
+</li>
+    </ol>
+  </li>
+  <li>OS will do other initialization tasks such as setting up file descriptors (standard out, standard in, standard err)</li>
+</ol>
+<h2 class="no_toc" id="process-states">
+  
+  
+    <a href="#process-states" class="anchor-heading" aria-labelledby="process-states"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Process States
+  
+  
+</h2>
+    
+<p>RUNNING - the process is using the CPU right now
+READY   - the process could be using the CPU right now
+          but (alas) some other process is
+BLOCKED - the process is waiting on I/O
+          (e.g., it issued a request to a disk)
+DONE    - the process is finished executing
+ZOMBIE  - the process has completed executing but there is still an entry in the process table</p>
+
+<ul>
+  <li>there are potentially other process states, for example</li>
+</ul>
+
+<p><code class="language-plaintext highlighter-rouge">enum proc_state { UNUSED, EMBRYO, SLEEPING, RUNNABLE, RUNNING, ZOMBIE };</code></p>
+
+<div style="text-align:center">
+  <a href="/assets/img/ostep/process-transitions.png">
+    <img src="/assets/img/ostep/process-transitions.png" alt="">
+  </a>
+</div>
+<h2 class="no_toc" id="data-structures">
+  
+  
+    <a href="#data-structures" class="anchor-heading" aria-labelledby="data-structures"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Data Structures
+  
+  
+</h2>
+    
+<ul>
+  <li>
+<strong>process list</strong> - aka task list, keeps track of all running programs</li>
+  <li>
+<strong>process control block</strong> - aka process descriptor, individual structure that stores information about each process, an entry in the process list</li>
+</ul>
+<h1 id="5---process-api">
+  
+  
+    <a href="#5---process-api" class="anchor-heading" aria-labelledby="5---process-api"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 5 - Process API
+  
+  
+</h1>
+    
+<ul>
+  <li>
+<strong>process identifier</strong> - aka PID, used to identify a process</li>
+  <li>the separation of fork and exec enables features like input/output redirection, pipes, and other cool features</li>
+</ul>
+<h2 class="no_toc" id="the-fork-system-call">
+  
+  
+    <a href="#the-fork-system-call" class="anchor-heading" aria-labelledby="the-fork-system-call"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> the fork system call
+  
+  
+</h2>
+    
+<ul>
+  <li>used to create a new process</li>
+  <li>creates <em>almost an exact copy</em> of the parent process as a child process, key difference is PID</li>
+  <li>not <em>deterministic</em>, as the parent or child might finish executing first</li>
+  <li>if you want to implement <em>determinism</em>, you implement a call to wait for the parent</li>
+</ul>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><div class="table-wrapper"><table class="rouge-table"><tbody><tr>
+<td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+</pre></td>
+<td class="rouge-code"><pre><span class="cp">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;unistd.h&gt;
+#include &lt;sys/wait.h&gt;
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span><span class="o">*</span><span class="n">argv</span><span class="p">[])</span> <span class="p">{</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"hello world (pid:%d)</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="n">getpid</span><span class="p">());</span>
+    <span class="kt">int</span> <span class="n">rc</span> <span class="o">=</span> <span class="n">fork</span><span class="p">();</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">rc</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>         <span class="c1">// fork failed; exit</span>
+        <span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">"fork failed</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+        <span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">rc</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// child (new process)</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">"hello, I am child (pid:%d)</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="n">getpid</span><span class="p">());</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>              <span class="c1">// parent goes down this path (main)</span>
+    <span class="kt">int</span> <span class="n">rc_wait</span> <span class="o">=</span> <span class="n">wait</span><span class="p">(</span><span class="nb">NULL</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"hello, I am parent of %d (rc_wait:%d) (pid:%d)</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span>
+    <span class="n">rc</span><span class="p">,</span> <span class="n">rc_wait</span><span class="p">,</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="n">getpid</span><span class="p">());</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></td>
+</tr></tbody></table></div></code></pre></div></div>
+<h2 class="no_toc" id="the-wait-system-call">
+  
+  
+    <a href="#the-wait-system-call" class="anchor-heading" aria-labelledby="the-wait-system-call"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> the wait system call
+  
+  
+</h2>
+    
+<ul>
+  <li>allows a parent to wait for its child to complete execution.</li>
+  <li>a way to introduce determinism into parent/child execution</li>
+</ul>
+<h2 class="no_toc" id="the-exec-system-call">
+  
+  
+    <a href="#the-exec-system-call" class="anchor-heading" aria-labelledby="the-exec-system-call"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> the exec system call
+  
+  
+</h2>
+    
+<ul>
+  <li>useful when you want to run a program that is different from the calling program</li>
+</ul>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><div class="table-wrapper"><table class="rouge-table"><tbody><tr>
+<td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+</pre></td>
+<td class="rouge-code"><pre><span class="cp">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;unistd.h&gt;
+#include &lt;string.h&gt;
+#include &lt;fcntl.h&gt;
+#include &lt;sys/wait.h&gt;
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span><span class="o">*</span><span class="n">argv</span><span class="p">[])</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">rc</span> <span class="o">=</span> <span class="n">fork</span><span class="p">();</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">rc</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// fork failed</span>
+        <span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">"fork failed</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+        <span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">rc</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// child: redirect standard output to a file</span>
+        <span class="n">close</span><span class="p">(</span><span class="n">STDOUT_FILENO</span><span class="p">);</span>
+        <span class="n">open</span><span class="p">(</span><span class="s">"./p4.output"</span><span class="p">,</span> <span class="n">O_CREAT</span><span class="o">|</span><span class="n">O_WRONLY</span><span class="o">|</span><span class="n">O_TRUNC</span><span class="p">,</span> <span class="n">S_IRWXU</span><span class="p">);</span>
+
+        <span class="c1">// now exec "wc"...</span>
+        <span class="kt">char</span><span class="o">*</span><span class="n">myargs</span><span class="p">[</span><span class="mi">3</span><span class="p">];</span>
+        <span class="n">myargs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">strdup</span><span class="p">(</span><span class="s">"wc"</span><span class="p">);</span>   <span class="c1">// program: wc (word count)</span>
+        <span class="n">myargs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">strdup</span><span class="p">(</span><span class="s">"p4.c"</span><span class="p">);</span> <span class="c1">// arg: file to count</span>
+        <span class="n">myargs</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>           <span class="c1">// mark end of array</span>
+        <span class="n">execvp</span><span class="p">(</span><span class="n">myargs</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">myargs</span><span class="p">);</span>  <span class="c1">// runs word count</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="c1">// parent goes down this path (main)</span>
+        <span class="kt">int</span> <span class="n">rc_wait</span> <span class="o">=</span> <span class="n">wait</span><span class="p">(</span><span class="nb">NULL</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></td>
+</tr></tbody></table></div></code></pre></div></div>
+<h2 class="no_toc" id="process-control">
+  
+  
+    <a href="#process-control" class="anchor-heading" aria-labelledby="process-control"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Process Control
+  
+  
+</h2>
+    
+<ul>
+  <li>available in the form of signals which can cause jobs to stop, continue, or terminate</li>
+  <li>which processes can be controlled by whom is encapsulated in the idea of a user – a user can only control their own processes</li>
+  <li>a superuser can control all processes, as well as other privileged actions</li>
+</ul>
+<h1 id="6---limited-direct-execution">
+  
+  
+    <a href="#6---limited-direct-execution" class="anchor-heading" aria-labelledby="6---limited-direct-execution"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 6 - Limited Direct Execution
+  
+  
+</h1>
+    
+<ul>
+  <li>when virtualizing a CPU via time sharing, need to be concerned with
+    <ol>
+      <li>
+<em>performance</em> - how to implement virtualization without excessive overhead</li>
+      <li>
+<em>control</em> - how can run processes while retaining control over CPU</li>
+    </ol>
+  </li>
+</ul>
+
+<p><strong>scheduler</strong> - part of the OS that decides what processes run on the CPU and when</p>
+
+<p><strong>limited direct execution</strong> - run a program directly on the CPU, with limits on how long a process can run on the CPU</p>
+
+<div style="text-align:center">
+  <a href="/assets/img/ostep/lde.png">
+    <img src="/assets/img/ostep/lde.png" alt="">
+  </a>
+</div>
+
+<p>when the OS wants to start a program, it</p>
+<ol>
+  <li>creates a process entry in the process list</li>
+  <li>allocates memory</li>
+  <li>loads the program code into memory</li>
+  <li>locates the entry point</li>
+  <li>jumps to the entry point</li>
+  <li>starts running</li>
+</ol>
+<h2 class="no_toc" id="processor-modes">
+  
+  
+    <a href="#processor-modes" class="anchor-heading" aria-labelledby="processor-modes"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Processor Modes
+  
+  
+</h2>
+    
+<ul>
+  <li>
+<strong>user mode</strong> - code run here is restricted in what it can do</li>
+  <li>
+<strong>kernel mode</strong> - used for privileged operations like I/O or restricted instructions, and is the mode the OS runs in</li>
+</ul>
+
+<p><strong>system calls</strong> - allow the kernel to carefully expose certain key pieces of functionality to user programs
+    - accessing the file system
+    - creating and destroying processes
+    - communicating with other processes
+    - allocating more memory</p>
+
+<ul>
+  <li>a trap saves caller’s registers so it can return correctly by pushing data to the kernel stack; a <strong>return from trap</strong> operation will pop these values off the stack</li>
+  <li>
+<strong>trap instruction</strong> - program must execute this in order execute a system call; instruction jumps into kernel and raises the privilege to kernel mode</li>
+  <li>
+<strong>trap table</strong> - a table of what happens on exceptional events like keyboard interrupts, and is set up at boot time</li>
+</ul>
+<h2 class="no_toc" id="switching-between-processes">
+  
+  
+    <a href="#switching-between-processes" class="anchor-heading" aria-labelledby="switching-between-processes"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Switching Between Processes
+  
+  
+</h2>
+    
+<ul>
+  <li>
+<strong>cooperative</strong> - OS trusts processes to give up control to the CPU periodically</li>
+  <li>
+<strong>non-cooperative</strong> - OS implements a mechanism like a <em>timer interrupt</em> to take back control of CPU</li>
+</ul>
+
+<p><strong>context switch</strong> - low-level technique to switch from one running process to another
+<strong>lmbench</strong> - useful to for measuring how long things take on linux</p>
+<h1 id="7---scheduling">
+  
+  
+    <a href="#7---scheduling" class="anchor-heading" aria-labelledby="7---scheduling"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 7 - Scheduling
+  
+  
+</h1>
+    
+<ul>
+  <li>scheduling is higher level policy for <em>when</em> to apply lower level mechanism (e.g., context switching) when virtualizing resources</li>
+  <li>in order to compare different scheduling policies, need metrics to compare</li>
+</ul>
+<h2 class="no_toc" id="key-metrics">
+  
+  
+    <a href="#key-metrics" class="anchor-heading" aria-labelledby="key-metrics"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Key Metrics
+  
+  
+</h2>
+    
+<p><strong>turnaround time</strong></p>
+<ul>
+  <li>time in which a job completes minus the time a job arrives</li>
+  <li>$ T_{turnaround} = T_{completion} - T_{arrival} $</li>
+</ul>
+
+<p><strong>fairness</strong></p>
+<ul>
+  <li>the equality with which jobs are treated</li>
+  <li>one example is Jain’s Fairness Index</li>
+  <li>often at odds with performance, as most fair way to run jobs isn’t often the most performant</li>
+</ul>
+
+<p><strong>response time</strong></p>
+<ul>
+  <li>time when a job arrives to when it’s first scheduled</li>
+  <li>optimizations for turnaround time might not be helpful for response time</li>
+  <li>$ T_{response} = T_{firstrun} - T_{arrival} $</li>
+</ul>
+
+<p><strong>overlap</strong></p>
+<ul>
+  <li>when dealing with I/O (or any blocking task), it is good to kick off the blocking task then switch, or to overlap executions</li>
+</ul>
+<h2 class="no_toc" id="first-in-first-out-fifo">
+  
+  
+    <a href="#first-in-first-out-fifo" class="anchor-heading" aria-labelledby="first-in-first-out-fifo"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> First In, First Out (FIFO)
+  
+  
+</h2>
+    
+<ul>
+  <li>simplest algo for scheduling – job that arrives is first to be processed</li>
+  <li>suffers from <strong>convoy effect</strong> – large, expensive job blocks small, fast jobs</li>
+  <li>normally only works when all jobs run in same amount of time</li>
+</ul>
+<h2 class="no_toc" id="shortest-job-first-sjf">
+  
+  
+    <a href="#shortest-job-first-sjf" class="anchor-heading" aria-labelledby="shortest-job-first-sjf"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Shortest Job First (SJF)
+  
+  
+</h2>
+    
+<ul>
+  <li>jobs are organized based on job length at arrival</li>
+  <li>optimal if all jobs arrive at the same time, but bad for response time</li>
+  <li>if not all jobs arrive at same time, you need to add <strong>preemption</strong> (like an interrupt for new arrivals), called <strong>Shortest Time-to-Completion First</strong> (STCF)</li>
+  <li>most modern schedulers are preemptive</li>
+</ul>
+<h2 class="no_toc" id="shortest-time-to-completion-first-stcf">
+  
+  
+    <a href="#shortest-time-to-completion-first-stcf" class="anchor-heading" aria-labelledby="shortest-time-to-completion-first-stcf"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Shortest Time-to-Completion First (STCF)
+  
+  
+</h2>
+    
+<ul>
+  <li>adds preemption to shortest job first scheduling</li>
+  <li>any time a new job enters the system, the scheduler determines which job has least time left and schedules that one</li>
+</ul>
+<h2 class="no_toc" id="round-robin">
+  
+  
+    <a href="#round-robin" class="anchor-heading" aria-labelledby="round-robin"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Round Robin
+  
+  
+</h2>
+    
+<ul>
+  <li>aka <em>time slicing</em>
+</li>
+  <li>instead of running job to completion, jobs are run for a <em>time slice</em> (aka scheduling quantum)</li>
+  <li>need to <em>amortize</em> cost (spread cost out over long term) of context switching, so you don’t want to switch context too often or wait too long so as to remove all benefits of round robin algo</li>
+  <li>round robin is more fair and like any policy that is fair will perform more poorly on turnaround time – can run shorter jobs to completion if you are willing to be unfair, which might affect response time</li>
+</ul>
+<h1 id="8---multi-level-feedback-queue">
+  
+  
+    <a href="#8---multi-level-feedback-queue" class="anchor-heading" aria-labelledby="8---multi-level-feedback-queue"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 8 - Multi-Level Feedback Queue
+  
+  
+</h1>
+    
+<ul>
+  <li>for most jobs, we won’t know length of jobs, so
+    <ol>
+      <li>how do we optimize for turnaround time, and</li>
+      <li>how do we make a system feel responsive for interactive users?</li>
+    </ol>
+  </li>
+  <li>multi-level feedback queue has multiple levels of queues, and uses feedback to determine priority of given job</li>
+  <li>instead of demanding <em>a priori</em> knowledge of the nature of a job, it observes the execution of a job and prioritizes it accordingly</li>
+  <li>manages to achieve the best of both worlds: it can deliver excellent overall performance (similar to SJF/STCF) for short-running interactive jobs, and is fair and makes progress for long-running CPU-intensive workloads</li>
+  <li>can be difficult to parameterize: how many queues should there be, how big should the time slice be</li>
+</ul>
+
+<div style="text-align:center">
+  <a href="/assets/img/ostep/mlfq.png">
+    <img src="/assets/img/ostep/mlfq.png" alt="">
+  </a>
+</div>
+
+<ul>
+  <li>many systems, including BSD UNIX derivatives, Solaris, and Windows NT and subsequent Windows operating systems use a form of MLFQ as their base scheduler</li>
+  <li>some schedulers allow you to give <strong>advice</strong> to help set priority (can be used or ignored) - e.g., linux tool <code class="language-plaintext highlighter-rouge">nice</code>
+</li>
+  <li>
+    <p>other schedulers use a <strong>decay-usage</strong> algorithm to adjust priorities (instead of a table or exact rules below)</p>
+  </li>
+  <li>two problems with MLFQ
+    <ol>
+      <li>process <strong>starvation</strong>: interactive jobs will take all the CPU time from non-interactive processes</li>
+      <li>
+<strong>gaming the scheduler</strong> - a process tricking the scheduler into giving more time to the process</li>
+      <li>a process might change its behavior, increasing in interactivity but not treated as such</li>
+    </ol>
+  </li>
+</ul>
+
+<p><strong>priority boosts</strong> helps with process starvation by periodically bumping up the priority of jobs running in lower queues
+<strong>voodoo constants</strong> - constants that require some sort of black magic to set correctly</p>
+
+<p>general rules outlined:</p>
+<ul>
+  <li>
+<strong>Rule 1:</strong> If Priority(A) &gt; Priority(B), A runs (B doesn’t).</li>
+  <li>
+<strong>Rule 2:</strong> If Priority(A) == Priority(B), A &amp; B run in round-robin fashion using the time slice (quantum length) of the given queue.</li>
+  <li>
+<strong>Rule 3:</strong> When a job enters the system, it is placed at the highest priority (the topmost queue).</li>
+  <li>
+<strong>Rule 4:</strong> Once a job uses up its time allotment at a given level (regardless of how many times it has given up the CPU), its priority is reduced (i.e., it moves down one queue).</li>
+  <li>
+<strong>Rule 5:</strong> After some time periodS, move all the jobs in the system to the topmost queue.</li>
+</ul>
+<h1 id="9---scheduling---proportional-share">
+  
+  
+    <a href="#9---scheduling---proportional-share" class="anchor-heading" aria-labelledby="9---scheduling---proportional-share"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 9 - Scheduling - Proportional Share
+  
+  
+</h1>
+    
+<p><strong>proportional share (<em>fair-share</em>) scheduling</strong> - instead of optimizing turnaround time, a scheduler might guarantee that each job obtain a certain percentage of CPU time</p>
+<h2 class="no_toc" id="lottery-scheduling">
+  
+  
+    <a href="#lottery-scheduling" class="anchor-heading" aria-labelledby="lottery-scheduling"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> lottery scheduling
+  
+  
+</h2>
+    
+<ul>
+  <li>a non-deterministic, probabilistic fair share scheduling algorithm</li>
+  <li>every so often, hold a lottery to determine which process runs next</li>
+  <li>
+<strong>tickets</strong> - represent the share of a resource that a process should receive</li>
+</ul>
+<h3 class="no_toc" id="ways-to-manipulate-tickets">
+  
+  
+    <a href="#ways-to-manipulate-tickets" class="anchor-heading" aria-labelledby="ways-to-manipulate-tickets"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> ways to manipulate tickets
+  
+  
+</h3>
+    
+<ul>
+  <li>
+<strong>ticket transfer</strong> - allows a user with a set of tickets to allocate tickets among their own jobs in whatever currency they want, then those tickets are converted to global currency</li>
+  <li>
+<strong>ticket transfer</strong> - a process can temporarily hand off its tickets to another process</li>
+  <li>
+<strong>ticket inflation</strong> - a process can temporarily raise of lower the number of tickets it owns</li>
+</ul>
+
+<p>lottery scheduling uses <em>randomness</em>, which
+    1. often avoids strange corner-cases
+    2. is lightweight, requiring little state to manage
+    3. can be quite fast, as long as number generation is quick</p>
+
+<ul>
+  <li>when job length isn’t very long, lottery isn’t very fair</li>
+</ul>
+
+<div style="text-align:center">
+  <a href="/assets/img/ostep/lottery-fairness.png">
+    <img src="/assets/img/ostep/lottery-fairness.png" alt="">
+  </a>
+</div>
+<h2 class="no_toc" id="stride-scheduling">
+  
+  
+    <a href="#stride-scheduling" class="anchor-heading" aria-labelledby="stride-scheduling"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> stride scheduling
+  
+  
+</h2>
+    
+<ul>
+  <li>a deterministic fair share scheduling algorithm</li>
+  <li>each process has a <strong>stride</strong> value which determines how long they run; as they run, their <strong>pass</strong> value is incremented to track global progress</li>
+  <li>biggest drawback is that there is global state per process to manage; how do you handle new jobs that enter the system – can’t set the pass to 0 or it will monopolize CPU</li>
+</ul>
+
+<div style="text-align:center">
+  <a href="/assets/img/ostep/stride.png">
+    <img src="/assets/img/ostep/stride.png" alt="">
+  </a>
+</div>
+<h2 class="no_toc" id="linuxs-completely-fair-scheduler-cfs">
+  
+  
+    <a href="#linuxs-completely-fair-scheduler-cfs" class="anchor-heading" aria-labelledby="linuxs-completely-fair-scheduler-cfs"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> linux’s completely fair scheduler (CFS)
+  
+  
+</h2>
+    
+<ul>
+  <li>scheduling uses about 5% of overall datacenter CPU time</li>
+  <li>
+<strong>virtual runtime (vruntime)</strong> simple counting-based technique to divide CPU time</li>
+  <li>each processes <em>vruntime</em> increases at the same rate in proportion to real time, and the scheduler will pick the process with the lowest <em>vruntime</em> to run next</li>
+</ul>
+<h3 class="no_toc" id="cfs-parameters">
+  
+  
+    <a href="#cfs-parameters" class="anchor-heading" aria-labelledby="cfs-parameters"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> CFS parameters
+  
+  
+</h3>
+    
+<ul>
+  <li>
+<strong>sched_latency</strong> - determines how long a process should run before considering a switch; typical value is 48 (ms)</li>
+  <li>
+<strong>min_granularity</strong> - CFS will never set the time slice of a process to less than this value; typical value is 6 (ms)</li>
+  <li>
+<strong>niceness</strong> - a way to weight jobs and give priority – positive values imply <em>lower</em> priority</li>
+</ul>
+<h3 class="no_toc" id="red-black-trees">
+  
+  
+    <a href="#red-black-trees" class="anchor-heading" aria-labelledby="red-black-trees"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> red-black trees
+  
+  
+</h3>
+    
+<ul>
+  <li>CFS uses red-black trees (a balanced binary tree) to identify which job to run next</li>
+  <li>this is logarithmic (not linear)</li>
+  <li>only contains running jobs</li>
+</ul>
+
+<div style="text-align:center">
+  <a href="/assets/img/ostep/red-black.png">
+    <img src="/assets/img/ostep/red-black.png" alt="">
+  </a>
+</div>
+<h1 id="10---multiprocessor-scheduling-advanced">
+  
+  
+    <a href="#10---multiprocessor-scheduling-advanced" class="anchor-heading" aria-labelledby="10---multiprocessor-scheduling-advanced"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 10 - Multiprocessor Scheduling (Advanced)
+  
+  
+</h1>
+    
+<h1 id="13---the-abstraction-address-spaces">
+  
+  
+    <a href="#13---the-abstraction-address-spaces" class="anchor-heading" aria-labelledby="13---the-abstraction-address-spaces"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 13 - The Abstraction: Address Spaces
+  
+  
+</h1>
+    
+<ul>
+  <li>in the early days, machines didn’t provide a memory abstraction – one process ran at a time and used all the memory</li>
+  <li>soon, people began to share machines thus beginning <strong>multiprogramming</strong>, where multiple processes were ready to run at any time and the OS would switch between them</li>
+  <li>later, many people wanted to <strong>time share</strong> machines</li>
+</ul>
+<h2 class="no_toc" id="address-space">
+  
+  
+    <a href="#address-space" class="anchor-heading" aria-labelledby="address-space"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Address Space
+  
+  
+</h2>
+    
+<ul>
+  <li>an easy to use abstraction of physical memory</li>
+  <li>the address space of a program contains all of the memory state of a running program</li>
+  <li>
+<strong>stack</strong> - stores where a process is in its function call chain, local variables, and for parameters and return values to and from routines</li>
+  <li>
+<strong>heap</strong> - used for dynamically-allocated, user-managed memory (e.g., <code class="language-plaintext highlighter-rouge">malloc()</code> or <code class="language-plaintext highlighter-rouge">new</code>)</li>
+  <li>stack and heap are placed at opposite ends of the address space to allow for negative and positive growth, although this is just a convention</li>
+</ul>
+
+<div style="text-align:center">
+  <a href="/assets/img/ostep/address-space.png">
+    <img src="/assets/img/ostep/address-space.png" alt="">
+  </a>
+</div>
+
+<ul>
+  <li>
+<strong>virtual addresses</strong> - in virtualizing the memory, a process never has a physical address, just the virtual - every address you see is virtual</li>
+</ul>
+<h3 class="no_toc" id="goals-of-the-address-space">
+  
+  
+    <a href="#goals-of-the-address-space" class="anchor-heading" aria-labelledby="goals-of-the-address-space"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Goals of the Address Space
+  
+  
+</h3>
+    
+<ul>
+  <li>
+<strong>transparency</strong> - OS should implement virtual memory in a way that is invisible to the running program</li>
+  <li>
+<strong>efficiency</strong> - OS should make the virtualization efficient in time (not making programs run much more slowly) and space (not using too much memory for structures needed to support virtualization)</li>
+  <li>
+<strong>protection</strong> - OS should make sure to protect processes from one another as well as the OS – only a process should be allowed to change what it has stored in memory; important to delivery concept of <strong>isolation</strong>
+</li>
+</ul>
+<h1 id="14---memory-api">
+  
+  
+    <a href="#14---memory-api" class="anchor-heading" aria-labelledby="14---memory-api"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 14 - Memory API
+  
+  
+</h1>
+    
+<h2 class="no_toc" id="types-of-memory">
+  
+  
+    <a href="#types-of-memory" class="anchor-heading" aria-labelledby="types-of-memory"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Types of Memory
+  
+  
+</h2>
+    
+<h3 class="no_toc" id="stack">
+  
+  
+    <a href="#stack" class="anchor-heading" aria-labelledby="stack"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> stack
+  
+  
+</h3>
+    
+<ul>
+  <li>allocations and deallocations of stack memory are handled <em>implicitly</em> by the compiler</li>
+  <li>sometimes called automatic memory for this reason</li>
+  <li>when you return from function, the compiler deallocates this memory, so if you need data to survive the invocation of a function, don’t leave it on the stack</li>
+</ul>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><div class="table-wrapper"><table class="rouge-table"><tbody><tr>
+<td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td>
+<td class="rouge-code"><pre><span class="kt">void</span> <span class="nf">func</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">x</span><span class="p">;</span> <span class="c1">// declares an integer on the stack</span>
+<span class="p">...</span>
+<span class="p">}</span>
+</pre></td>
+</tr></tbody></table></div></code></pre></div></div>
+<h3 class="no_toc" id="heap">
+  
+  
+    <a href="#heap" class="anchor-heading" aria-labelledby="heap"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> heap
+  
+  
+</h3>
+    
+<ul>
+  <li>more long-lived memory</li>
+  <li>allocations and deallocations are handled <em>explicitly</em> by the programmer</li>
+</ul>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><div class="table-wrapper"><table class="rouge-table"><tbody><tr>
+<td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td>
+<td class="rouge-code"><pre><span class="kt">void</span> <span class="nf">func</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="o">*</span><span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int</span> <span class="o">*</span><span class="p">)</span> <span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">));</span>
+<span class="p">...</span>
+<span class="p">}</span>
+</pre></td>
+</tr></tbody></table></div></code></pre></div></div>
+<h2 class="no_toc" id="malloc">
+  
+  
+    <a href="#malloc" class="anchor-heading" aria-labelledby="malloc"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> malloc()
+  
+  
+</h2>
+    
+<ul>
+  <li>you pass the function a size of some room on the heap, it either succeeds and gives you a pointer to the newly-allocated space or fails and returns <code class="language-plaintext highlighter-rouge">NULL</code>
+</li>
+  <li>pass in <code class="language-plaintext highlighter-rouge">size_t</code> which describes how many bytes you need</li>
+  <li>
+<code class="language-plaintext highlighter-rouge">NULL</code> in C is just a macro for 0</li>
+  <li>need to include header file <code class="language-plaintext highlighter-rouge">stdlib.h</code>
+</li>
+</ul>
+
+<p><code class="language-plaintext highlighter-rouge">double *d = (double *) malloc(sizeof(double));</code></p>
+
+<ul>
+  <li>using <code class="language-plaintext highlighter-rouge">sizeof()</code> is a compile-time operator and not a run-time function and is considered best practice because size of various primitives change on a per-system basis (most systems <code class="language-plaintext highlighter-rouge">int</code> is 4 bytes and <code class="language-plaintext highlighter-rouge">double</code> is 8, but not all)</li>
+  <li>for strings, use <code class="language-plaintext highlighter-rouge">malloc(strlen(s) + 1)</code>, the + 1 for an end-of-string character</li>
+</ul>
+<h2 class="no_toc" id="free">
+  
+  
+    <a href="#free" class="anchor-heading" aria-labelledby="free"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> free()
+  
+  
+</h2>
+    
+<ul>
+  <li>takes one argument, a pointer returned by malloc</li>
+  <li>size of allocated region is tracked by the memory-allocation library itself</li>
+</ul>
+<h2 class="no_toc" id="common-memory-errors">
+  
+  
+    <a href="#common-memory-errors" class="anchor-heading" aria-labelledby="common-memory-errors"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Common Memory Errors
+  
+  
+</h2>
+    
+<ul>
+  <li>many new languages are <strong>garbage collected</strong>, meaning there is a process to reclaim/free memory that is no longer in use – this is an example of <strong>automatic memory management</strong>
+</li>
+  <li>
+<strong>segmentation fault</strong> - an error raised when you manage memory wrong</li>
+  <li>
+<strong>forgetting to allocate memory</strong> - if you don’t allocate, you’ll run into a segfault and the process will die, even if the program compiled correctly</li>
+  <li>
+<strong>not allocating enough memory</strong> - often called a <em>buffer overflow</em>; sometimes this won’t break a program but will cause some data to be unexpectedly overwritten</li>
+  <li>
+<strong>forgetting to initialize allocated memory</strong> - this will cause an <strong>uninitialized read</strong> where a program will read some unknown data from the heap</li>
+  <li>
+<strong>forgetting to free memory</strong> - also known as a memory leak, and affects GC languages too</li>
+  <li>
+<strong>freeing memory before you are done with it</strong> - aka a <strong>dangling pointer</strong> and can cause overwritten memory or a program crash</li>
+  <li>
+<strong>freeing memory repeatedly</strong> - aka a <strong>double free</strong> and the effects are undefined but often results in crashes</li>
+  <li>
+    <p><strong>calling free() incorrectly</strong> - aka an <strong>invalid free</strong> and occurs when you pass free an unexpected value</p>
+  </li>
+  <li>
+<strong>purify</strong> and <strong>valgrind</strong> are good tools for finding memory-related problems</li>
+  <li>
+<strong>break</strong> - the location of the end of the heap for a program and is changed via the system call <code class="language-plaintext highlighter-rouge">sbrk</code> or <code class="language-plaintext highlighter-rouge">brk</code>, but should never be done manually</li>
+  <li>
+<code class="language-plaintext highlighter-rouge">calloc()</code> allocates memory and zeroes it before returning</li>
+  <li>
+<code class="language-plaintext highlighter-rouge">realloc()</code> is useful when you’ve allocated space (e.g., for an array) and need to add something to it</li>
+</ul>
+<h1 id="15---mechanism-address-translation">
+  
+  
+    <a href="#15---mechanism-address-translation" class="anchor-heading" aria-labelledby="15---mechanism-address-translation"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 15 - Mechanism: Address Translation
+  
+  
+</h1>
+    
+<p><strong>hardware-based address translation</strong> - hardware <strong>interposes</strong> on each memory access (e.g., an instruction fetch, load, or store) changing the <em>virtual</em> address to a <em>physical</em> address where the data actually resides</p>
+<ul>
+  <li>OS must be involved to set up hardware to manage memory</li>
+  <li>
+<code class="language-plaintext highlighter-rouge">objdump</code> on Linux allows us to disassemble C to assembly</li>
+</ul>
+<h2 class="no_toc" id="base-and-bounds-dynamic-relocation">
+  
+  
+    <a href="#base-and-bounds-dynamic-relocation" class="anchor-heading" aria-labelledby="base-and-bounds-dynamic-relocation"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> base and bounds (dynamic) relocation
+  
+  
+</h2>
+    
+<ul>
+  <li>two hardware registers, a base register and a bounds/limit register</li>
+  <li>this relocation happens at runtime and is thus dynamic (rather than static)</li>
+  <li><code class="language-plaintext highlighter-rouge">physical address = virtual address + base</code></li>
+  <li>if a process generates a virtual address that is greater than the bounds or one that is negative, the CPU will raise an exception</li>
+  <li>
+<strong>memory management unit</strong> - the part of the processor that helps with address translation</li>
+</ul>
+<h3 class="no_toc" id="hardware-support">
+  
+  
+    <a href="#hardware-support" class="anchor-heading" aria-labelledby="hardware-support"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> hardware support
+  
+  
+</h3>
+    
+<div style="text-align:center">
+  <a href="/assets/img/ostep/hardware-reqs.png">
+    <img src="/assets/img/ostep/hardware-reqs.png" alt="">
+  </a>
+</div>
+<h3 class="no_toc" id="os-support">
+  
+  
+    <a href="#os-support" class="anchor-heading" aria-labelledby="os-support"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> os support
+  
+  
+</h3>
+    
+<div style="text-align:center">
+  <a href="/assets/img/ostep/os-reqs.png">
+    <img src="/assets/img/ostep/os-reqs.png" alt="">
+  </a>
+</div>
+
+<p><strong>free list</strong> - a data structure that lists free space available
+<strong>internal fragmentation</strong> - base and bounds leads to wasted space within the allocated unit</p>
+
+<div style="text-align:center">
+  <a href="/assets/img/ostep/dynamic-relocation.png">
+    <img src="/assets/img/ostep/dynamic-relocation.png" alt="">
+  </a>
+</div>
+<h1 id="16---segmentation">
+  
+  
+    <a href="#16---segmentation" class="anchor-heading" aria-labelledby="16---segmentation"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 16 - Segmentation
+  
+  
+</h1>
+    
+<ul>
+  <li>approach of using base and bounds is wasteful</li>
+  <li>how can we support a large address space with free space between heap and stack?</li>
+  <li>we can have base and bounds pair per logical <strong>segment</strong> of address space</li>
+  <li>
+<strong>segment</strong> is a contiguous portion of address space of a particular length</li>
+  <li>
+<strong>sparse address spaces</strong> - large amounts of unused address space in a large address space</li>
+  <li>
+<strong>segmentation fault</strong> - violation from memory access on a segmented machine to an illegal address</li>
+</ul>
+
+<p>two approaches for hardware to determine which segment an address is in</p>
+<ol>
+  <li>
+<strong>explicit</strong>
+    <ul>
+      <li>chop up address space into segments based on top few bits of virtual address</li>
+      <li>first two bits are segment, remaining are offset into segment</li>
+      <li>using two bits leaves one segment unused (00, 01, 10, 11 &lt;- unused), so some systems put code in same section as heap and only use one bit to select</li>
+    </ul>
+  </li>
+</ol>
+
+<div style="text-align:center">
+  <a href="/assets/img/ostep/offset.png">
+    <img src="/assets/img/ostep/offset.png" alt="">
+  </a>
+</div>
+
+<ol>
+  <li>
+<strong>implicit</strong>
+    <ul>
+      <li>hardware determines how the address was formed, e.g., addresses from program counter (instruction fetch) then address is within code segment</li>
+    </ul>
+  </li>
+</ol>
+
+<ul>
+  <li>hardware also needs to know which way segment grows to accommodate stack in addition to base and bounds registers</li>
+  <li>to save memory, sometimes its useful to share memory segments between address spaces
+    <ul>
+      <li>need protection bits to to indicate read or write permissions</li>
+    </ul>
+  </li>
+</ul>
+
+<div style="text-align:center">
+  <a href="/assets/img/ostep/registers.png">
+    <img src="/assets/img/ostep/registers.png" alt="">
+  </a>
+</div>
+
+<p><strong>fine-grained segementation</strong> - many smaller segments, but requires a segment table as a map
+<strong>course-grained segmentation</strong> - only a few segments, i.e., code, stack, heap</p>
+<ul>
+  <li>
+    <p>fine-grained segmentation gives more flexibility for more use cases</p>
+  </li>
+  <li>
+<strong>external fragmentation</strong> - physical memory becomes full of little holes of free space, making it difficult to allocate or grow segments</li>
+  <li>
+<strong>compact physical memory</strong> - rearrange existing segments to ease fragmentation</li>
+  <li>
+<strong>compaction</strong> is expensive and copying segments is memory-intensive and uses a fair amount of processor time</li>
+  <li>
+<strong>free list management algorithm</strong> - keep large extents of memory available for allocation</li>
+  <li>other algorithms like best-fit, worst-fit, first-fit, buddy algorithm</li>
+</ul>
+<h1 id="17---free-space-management">
+  
+  
+    <a href="#17---free-space-management" class="anchor-heading" aria-labelledby="17---free-space-management"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 17 - Free Space Management
+  
+  
+</h1>
+    
+<ul>
+  <li>managing space is easier if the space is divided into fixed-size units</li>
+  <li>much harder when sizes are variable, such as user-level memory-allocation libraries like <code class="language-plaintext highlighter-rouge">malloc</code>
+</li>
+  <li>problems are with <strong>external fragmentation</strong>
+</li>
+  <li>
+<code class="language-plaintext highlighter-rouge">sbrk</code> system call grows heap</li>
+</ul>
+<h2 class="no_toc" id="low-level-mechanisms">
+  
+  
+    <a href="#low-level-mechanisms" class="anchor-heading" aria-labelledby="low-level-mechanisms"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Low-Level Mechanisms
+  
+  
+</h2>
+    
+<ul>
+  <li>
+<strong>splitting</strong> - memory allocator will find a free chunk of memory that can satisfy request and split in two</li>
+  <li>
+    <p><strong>coalescing</strong> - when memory is freed, the memory allocator looks at adjacent chunks to see if freed space can be merged to an existing chunk</p>
+  </li>
+  <li>
+<code class="language-plaintext highlighter-rouge">free()</code> doesn’t take a <code class="language-plaintext highlighter-rouge">size</code> parameter, so a <strong>header</strong> block is used to track that extra information</li>
+  <li>
+<strong>header</strong> takes up a small amount of space on its own
+    <ul>
+      <li>when a user requests <em>N</em> bytes of memory, the memory library searches for a free chunk of <em>N</em> bytes plus the header</li>
+    </ul>
+  </li>
+</ul>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><div class="table-wrapper"><table class="rouge-table"><tbody><tr>
+<td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre></td>
+<td class="rouge-code"><pre><span class="k">typedef</span> <span class="k">struct</span> <span class="p">{</span>
+  <span class="kt">int</span> <span class="n">size</span><span class="p">;</span>
+  <span class="kt">int</span> <span class="n">magic</span><span class="p">;</span> <span class="c1">// for integrity checking</span>
+<span class="p">}</span> <span class="n">header_t</span><span class="p">;</span>
+</pre></td>
+</tr></tbody></table></div></code></pre></div></div>
+
+<ul>
+  <li>a free list is created within the free space itself</li>
+</ul>
+
+<div style="text-align:center">
+  <a href="/assets/img/ostep/free-space.png">
+    <img src="/assets/img/ostep/free-space.png" alt="">
+  </a>
+</div>
+
+<ul>
+  <li>if you need to grow the heap, one option is to just fail and return NULL</li>
+  <li>most traditional allocators start with a small heap and grow via <code class="language-plaintext highlighter-rouge">sbrk</code> in most UNIX systems</li>
+</ul>
+<h2 class="no_toc" id="basic-strategies">
+  
+  
+    <a href="#basic-strategies" class="anchor-heading" aria-labelledby="basic-strategies"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Basic Strategies
+  
+  
+</h2>
+    
+<ul>
+  <li>ideal memory allocation strategy is fast and minimizes fragmentation</li>
+</ul>
+<h3 class="no_toc" id="best-fit">
+  
+  
+    <a href="#best-fit" class="anchor-heading" aria-labelledby="best-fit"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Best Fit
+  
+  
+</h3>
+    
+<ul>
+  <li>search through free list and find chunks that are as big or bigger than request, and return smallest of those</li>
+  <li>downsides are that you need to search the whole list</li>
+</ul>
+<h3 class="no_toc" id="worst-fit">
+  
+  
+    <a href="#worst-fit" class="anchor-heading" aria-labelledby="worst-fit"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Worst Fit
+  
+  
+</h3>
+    
+<ul>
+  <li>search through free list and find the largest chunk and break off the requested amount</li>
+  <li>downsides are that you need to search the whole list, and most studies show it performs poorly and leads to excess fragmentation</li>
+</ul>
+<h3 class="no_toc" id="first-fit">
+  
+  
+    <a href="#first-fit" class="anchor-heading" aria-labelledby="first-fit"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> First Fit
+  
+  
+</h3>
+    
+<ul>
+  <li>search through free list and find the first block that is big enough</li>
+  <li>fast, but can pollute the beginning of the free list with small objects</li>
+  <li>
+<strong>address-based ordering</strong> helps keep the beginning of the list clear by ordering the free list by address of free space
+    <ul>
+      <li>coalescing is easier and fragmentation is reduced</li>
+    </ul>
+  </li>
+</ul>
+<h3 class="no_toc" id="next-fit">
+  
+  
+    <a href="#next-fit" class="anchor-heading" aria-labelledby="next-fit"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Next Fit
+  
+  
+</h3>
+    
+<ul>
+  <li>keep an extra pointer to last location searched</li>
+  <li>searches through free space are more uniform</li>
+  <li>similar performance to first fit</li>
+</ul>
+
+<div style="text-align:center">
+  <a href="/assets/img/ostep/example-memory.png">
+    <img src="/assets/img/ostep/example-memory.png" alt="">
+  </a>
+</div>
+
+<p>if searching for 15 bytes</p>
+<ul>
+  <li>best fit picks 20</li>
+  <li>worst picks 30</li>
+  <li>first fit picks 30</li>
+</ul>
+<h3 class="no_toc" id="segregated-lists">
+  
+  
+    <a href="#segregated-lists" class="anchor-heading" aria-labelledby="segregated-lists"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Segregated Lists
+  
+  
+</h3>
+    
+<ul>
+  <li>if application has popular-sized requests, keep a separate list to manage objects of that size</li>
+  <li>an example is <strong>slab allocator</strong>
+    <ul>
+      <li>allocates object caches for kernel objects that are likely to be requested ferquently (e.g., locks, file-system inodes, etc)</li>
+      <li>when cache is running low, it asks for some slabs of memory from a general allocator</li>
+      <li>freed memory will go back to general memory</li>
+      <li>objects are kept in a pre-initialized state, as initialization and destruction of data structures is costly</li>
+    </ul>
+  </li>
+</ul>
+<h3 class="no_toc" id="buddy-allocation">
+  
+  
+    <a href="#buddy-allocation" class="anchor-heading" aria-labelledby="buddy-allocation"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Buddy Allocation
+  
+  
+</h3>
+    
+<ul>
+  <li>memory is one big space, and when memory is requested, space is divided by two until a suitable block is found</li>
+  <li>key is that when memory is freed, allocator will check its buddies to see if it can be coalesced all the way up the tree</li>
+</ul>
+
+<div style="text-align:center">
+  <a href="/assets/img/ostep/buddy-heap.png">
+    <img src="/assets/img/ostep/buddy-heap.png" alt="">
+  </a>
+</div>
+
+<ul>
+  <li>most of these approaches have difficulty scaling, as searching can be quite slow</li>
+  <li>glibc allocator is an example of a C allocator in real use</li>
+</ul>
+<h1 id="18---paging">
+  
+  
+    <a href="#18---paging" class="anchor-heading" aria-labelledby="18---paging"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 18 - Paging
+  
+  
+</h1>
+    
+<ul>
+  <li>
+<strong>segmentation</strong> chops up data into <em>variable-sized</em> chunks, leading to <strong>fragmentation</strong>
+</li>
+  <li>
+<strong>paging</strong> divides memory into <em>fixed-sized</em> chunks, each called a <strong>page</strong>
+</li>
+  <li>physical memory is then an array of fixed-sized slots called <strong>page frames</strong>
+</li>
+  <li>paging has several benefits:
+    <ul>
+      <li>
+<em>flexibility</em> - the address space abstraction is fully supported, and no assumptions about how stack and heap grow need to be handled</li>
+      <li>
+<em>simplicity</em> - just need to find free pages to use for address space</li>
+    </ul>
+  </li>
+</ul>
+<h2 class="no_toc" id="translation">
+  
+  
+    <a href="#translation" class="anchor-heading" aria-labelledby="translation"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> translation
+  
+  
+</h2>
+    
+<ul>
+  <li>split virtual address into <strong>virtual page number (VPN)</strong> and <strong>offset</strong>
+</li>
+  <li>replace the virtual page number with the <strong>physical frame number (PFN)</strong> (sometimes called the <strong>physical page number (PPN)</strong>)</li>
+  <li>offset tells us which byte within the page we want</li>
+</ul>
+
+<div style="text-align:center">
+  <a href="/assets/img/ostep/translation.png">
+    <img src="/assets/img/ostep/translation.png" alt="">
+  </a>
+</div>
+<h2 class="no_toc" id="page-tables">
+  
+  
+    <a href="#page-tables" class="anchor-heading" aria-labelledby="page-tables"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> page tables
+  
+  
+</h2>
+    
+<ul>
+  <li>
+<strong>page table</strong> - per process data structure that the OS keeps to store <strong>address translations</strong>, which lets OS know where in physical memory a page resides</li>
+  <li>
+<strong>page table entry (PTE)</strong> - stores actual physical translation
+    <ul>
+      <li>20 bit VPN implies 2^20 translations, and at 4 bytes per PTE that is 4MB for each page table, and if there are 100 processes, thats 400MB</li>
+    </ul>
+  </li>
+  <li>they can get much larger than a small segment table or base/bounds pair</li>
+  <li>simplest form is a <strong>linear page table</strong>, which is just an array
+    <ul>
+      <li>OS indexes array by virtual page number and looks up the page-table entry at that index to find the physical frame number</li>
+    </ul>
+  </li>
+  <li>many different bits to to dictate behavior:
+    <ul>
+      <li>
+<strong>valid bit</strong> - common to indicate whether the particular translation is valid</li>
+      <li>
+<strong>protection bit</strong> - can the page be read from, written to, or executed from</li>
+      <li>
+<strong>present bit</strong> - whether this page is in physical memory or on disk (i.e., has been <strong>swapped</strong>)</li>
+      <li>
+<strong>dirty bit</strong> - whether page has been modified since brought into memory</li>
+      <li>
+<strong>reference bit (accessed bit)</strong> - whether page has been accessed</li>
+    </ul>
+  </li>
+  <li>without careful design of both hardware and software, page tables cause system to run too slowly and take up too much memory</li>
+</ul>
+<h1 id="18---translation-lookaside-buffers">
+  
+  
+    <a href="#18---translation-lookaside-buffers" class="anchor-heading" aria-labelledby="18---translation-lookaside-buffers"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 18 - Translation-Lookaside Buffers
+  
+  
+</h1>
+    
+<ul>
+  <li>going to paging table for every address translation is costly</li>
+  <li>
+<strong>translation-lookaside buffer (TLB)</strong> - part of the chip’s <strong>memory management unit (MMU)</strong> and is a hardware cache of popular virtual-to-physical address translations</li>
+</ul>
+
+<p>TLB control flow algo</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><div class="table-wrapper"><table class="rouge-table"><tbody><tr>
+<td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+</pre></td>
+<td class="rouge-code"><pre><span class="n">VPN</span> <span class="o">=</span> <span class="p">(</span><span class="n">VirtualAddress</span> <span class="o">&amp;</span> <span class="n">VPN_MASK</span><span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="n">SHIFT</span>
+<span class="p">(</span><span class="n">Success</span><span class="p">,</span> <span class="n">TlbEntry</span><span class="p">)</span> <span class="o">=</span> <span class="n">TLB_Lookup</span><span class="p">(</span><span class="n">VPN</span><span class="p">)</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">Success</span> <span class="o">==</span> <span class="n">True</span><span class="p">)</span> <span class="c1">// TLB Hit</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">CanAccess</span><span class="p">(</span><span class="n">TlbEntry</span><span class="p">.</span><span class="n">ProtectBits</span><span class="p">)</span> <span class="o">==</span> <span class="n">True</span><span class="p">)</span>
+        <span class="n">Offset</span> <span class="o">=</span> <span class="n">VirtualAddress</span> <span class="o">&amp;</span> <span class="n">OFFSET_MASK</span>
+        <span class="n">PhysAddr</span> <span class="o">=</span> <span class="p">(</span><span class="n">TlbEntry</span><span class="p">.</span><span class="n">PFN</span> <span class="o">&lt;&lt;</span> <span class="n">SHIFT</span><span class="p">)</span> <span class="o">|</span> <span class="n">Offset</span>
+        <span class="n">Register</span> <span class="o">=</span> <span class="n">AccessMemory</span><span class="p">(</span><span class="n">PhysAddr</span><span class="p">)</span>
+    <span class="k">else</span>
+        <span class="n">RaiseException</span><span class="p">(</span><span class="n">PROTECTION_FAULT</span><span class="p">)</span>
+<span class="k">else</span> <span class="c1">// TLB Miss</span>
+    <span class="n">PTEAddr</span> <span class="o">=</span> <span class="n">PTBR</span> <span class="o">+</span> <span class="p">(</span><span class="n">VPN</span> <span class="o">*</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">PTE</span><span class="p">))</span>
+    <span class="n">PTE</span> <span class="o">=</span> <span class="n">AccessMemory</span><span class="p">(</span><span class="n">PTEAddr</span><span class="p">)</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">PTE</span><span class="p">.</span><span class="n">Valid</span> <span class="o">==</span> <span class="n">False</span><span class="p">)</span>
+        <span class="n">RaiseException</span><span class="p">(</span><span class="n">SEGMENTATION_FAULT</span><span class="p">)</span>
+    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">CanAccess</span><span class="p">(</span><span class="n">PTE</span><span class="p">.</span><span class="n">ProtectBits</span><span class="p">)</span> <span class="o">==</span> <span class="n">False</span><span class="p">)</span>
+        <span class="n">RaiseException</span><span class="p">(</span><span class="n">PROTECTION_FAULT</span><span class="p">)</span>
+    <span class="k">else</span>
+        <span class="n">TLB_Insert</span><span class="p">(</span><span class="n">VPN</span><span class="p">,</span> <span class="n">PTE</span><span class="p">.</span><span class="n">PFN</span><span class="p">,</span> <span class="n">PTE</span><span class="p">.</span><span class="n">ProtectBits</span><span class="p">)</span>
+        <span class="n">RetryInstruction</span><span class="p">()</span>
+</pre></td>
+</tr></tbody></table></div></code></pre></div></div>
+
+<ol>
+  <li>extract virtual page number (VPN) from virtual address</li>
+  <li>check if VPN in TLB</li>
+  <li>if yes:
+    <ol>
+      <li>extract page frame number (PFN)</li>
+      <li>concatenate onto the offset from the virtual address</li>
+      <li>access memory at physical address</li>
+    </ol>
+  </li>
+  <li>if no:
+    <ol>
+      <li>check the page table for translation</li>
+      <li>if not valid, raise exception</li>
+      <li>update TLB</li>
+      <li>retry from step 2</li>
+    </ol>
+  </li>
+</ol>
+
+<div style="text-align:center">
+  <a href="/assets/img/ostep/memory-access-example.png">
+    <img src="/assets/img/ostep/memory-access-example.png" alt="">
+  </a>
+</div>
+
+<ul>
+  <li>hardware caches take advantage of spatial and temporal locality</li>
+  <li>
+<strong>spatial locality</strong> - if a program accesses memory at address <em>x</em>, it will likely soon access memory near <em>x</em>.</li>
+  <li>
+<strong>temporal locality</strong> - an instruction or data item that has been recently accessed will likely be re-accessed soon in the future</li>
+</ul>
+<h2 class="no_toc" id="who-handles-a-tlb-miss">
+  
+  
+    <a href="#who-handles-a-tlb-miss" class="anchor-heading" aria-labelledby="who-handles-a-tlb-miss"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Who handles a TLB miss?
+  
+  
+</h2>
+    
+<ul>
+  <li>either hardware or OS</li>
+</ul>
+
+<p><strong>hardware</strong></p>
+<ul>
+  <li>in older systems, hardware had a complex set of instruction sets (<strong>complex-instruction set computers CISC</strong>)</li>
+  <li>hardware needs to know exactly where in memory a page table is via a <strong>page-table base register</strong>
+</li>
+  <li>on miss, hardware walks page table, finds the relevant page table entry, updates TLB, and tires again</li>
+  <li>example is Intel x86, which uses a <strong>multi-level page table</strong>
+</li>
+</ul>
+
+<p><strong>software</strong></p>
+<ul>
+  <li>more modern systems have limited instruction sets</li>
+  <li><strong>reduced-instruction set computers (RISC)</strong></li>
+  <li>on miss, hardware raises exception, traps into kernel and jumps to a trap handler</li>
+  <li>unlike other traps which resume program excecution after the trap, when OS returns from trap it needs to start at where the call to memory started</li>
+  <li>also needs to prevent infinite TLB calls – could use wired translations or unmapped handlers</li>
+  <li>benefits are simplicity and flexibility</li>
+</ul>
+
+<p><strong>fully-associative cache</strong> - any given translation can be anywhere in the TLB (compared to direct-mapped cache entries, which are indexed, or less permissive set-associative caches)</p>
+<h2 class="no_toc" id="how-to-handle-context-switches">
+  
+  
+    <a href="#how-to-handle-context-switches" class="anchor-heading" aria-labelledby="how-to-handle-context-switches"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> How to handle context switches
+  
+  
+</h2>
+    
+<ul>
+  <li>when a process is context switched, the TLB entries will be incorrect for the new process’s page table</li>
+  <li>can simply flush the TLB, but this is expensive and not performance</li>
+  <li>system can provide an address space identifer (ASID) to associate a TLB entry with process</li>
+  <li>processes can share code and thus point to same physical frame number</li>
+</ul>
+<h2 class="no_toc" id="cache-replacement">
+  
+  
+    <a href="#cache-replacement" class="anchor-heading" aria-labelledby="cache-replacement"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Cache replacement
+  
+  
+</h2>
+    
+<ul>
+  <li><strong>least recently used (LRU)</strong></li>
+  <li>
+<strong>random</strong> - simpler, avoidance of corner-cases</li>
+</ul>
+
+<div style="text-align:center">
+  <a href="/assets/img/ostep/tlb-entry.png">
+    <img src="/assets/img/ostep/tlb-entry.png" alt="">
+  </a>
+</div>
+
+<p><strong>exceeding TLB coverage</strong> - if number of pages a program access exceeds number of pages that fit into TLB, many misses will occur</p>
+<h1 id="20---paging-smaller-tables">
+  
+  
+    <a href="#20---paging-smaller-tables" class="anchor-heading" aria-labelledby="20---paging-smaller-tables"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 20 - Paging: Smaller Tables
+  
+  
+</h1>
+    
+<ul>
+  <li>page tables without any optimizations are too large and consume too much memory</li>
+  <li>simple solution: use bigger tables, but this leads to waste within each page (<strong>internal fragmentation</strong>, as waste is <strong>internal</strong> to the unit of allocation)</li>
+</ul>
+<h2 class="no_toc" id="hybrid-paging-and-segments">
+  
+  
+    <a href="#hybrid-paging-and-segments" class="anchor-heading" aria-labelledby="hybrid-paging-and-segments"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Hybrid: Paging and Segments
+  
+  
+</h2>
+    
+<ul>
+  <li>have a page table for each logical segment instead of the whole address space</li>
+  <li>base (from <strong>base and bounds/limits</strong>) points to the physical address of the page table (rather than where in physical memory address space begins)</li>
+</ul>
+<h3 class="no_toc" id="cost-of-paging-and-segments">
+  
+  
+    <a href="#cost-of-paging-and-segments" class="anchor-heading" aria-labelledby="cost-of-paging-and-segments"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> cost of paging and segments
+  
+  
+</h3>
+    
+<ul>
+  <li>segmentation is not as flexible as possible as it assumes a certain usage pattern of the address space</li>
+  <li>also causes external fragmentation to occur</li>
+</ul>
+<h2 class="no_toc" id="multi-level-page-tables">
+  
+  
+    <a href="#multi-level-page-tables" class="anchor-heading" aria-labelledby="multi-level-page-tables"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Multi-level Page Tables
+  
+  
+</h2>
+    
+<ul>
+  <li>turns the linear page table into something like a tree</li>
+  <li>chop up page table into page-sized units, then, if entire page-table entries (PTE) is invalid, don’t allocate that page</li>
+  <li>introduces a <strong>page directory</strong> which holds whether page table is valid and where it is in physical memory</li>
+</ul>
+
+<div style="text-align:center">
+  <a href="/assets/img/ostep/multi-level-page-table.png">
+    <img src="/assets/img/ostep/multi-level-page-table.png" alt="">
+  </a>
+</div>
+
+<ul>
+  <li>
+<strong>page directory</strong> contains one entry per page of the page table (<strong>page directory entries (PDE)</strong>)</li>
+  <li>a <strong>page directory entry</strong> has a <strong>valid bit</strong> and a <strong>page frame number (PFN)</strong>
+</li>
+  <li>for a large page table, it is difficult to find continguous memory, but page directory allows for level of indirection where we can put page-tables anywhere in physical memory</li>
+  <li>you can also have more than two levels, but you need to increase VPN size
+    <ul>
+      <li>how many page table entires fit within a page, and use that as index</li>
+    </ul>
+  </li>
+</ul>
+<h3 class="no_toc" id="cost-of-multi-level-page-tables">
+  
+  
+    <a href="#cost-of-multi-level-page-tables" class="anchor-heading" aria-labelledby="cost-of-multi-level-page-tables"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> cost of multi-level page tables
+  
+  
+</h3>
+    
+<ul>
+  <li>time-space trade-off: less time equals more space, and vice versa – on TLB miss, two loads from memory will be required (one for page directory, and one for page table entry (PTE))</li>
+  <li>adds complexity in OS or hardware handling lookup</li>
+</ul>
+
+<div style="text-align:center">
+  <a href="/assets/img/ostep/page-directory-example.png">
+    <img src="/assets/img/ostep/page-directory-example.png" alt="">
+  </a>
+</div>
+
+<p><code class="language-plaintext highlighter-rouge">PDEAddr = PageDirBase + (PDIndex * sizeof(PDE))</code></p>
+
+<p><code class="language-plaintext highlighter-rouge">PTEAddr = (PDE.PFN &lt;&lt; SHIFT) + (PTIndex * sizeof(PTE))</code></p>
+
+<p>multi-level page table control flow</p>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><div class="table-wrapper"><table class="rouge-table"><tbody><tr>
+<td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+</pre></td>
+<td class="rouge-code"><pre><span class="n">VPN</span> <span class="o">=</span> <span class="p">(</span><span class="n">VirtualAddress</span> <span class="o">&amp;</span> <span class="n">VPN_MASK</span><span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="n">SHIFT</span>
+<span class="p">(</span><span class="n">Success</span><span class="p">,</span> <span class="n">TlbEntry</span><span class="p">)</span> <span class="o">=</span> <span class="n">TLB_Lookup</span><span class="p">(</span><span class="n">VPN</span><span class="p">)</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">Success</span> <span class="o">==</span> <span class="n">True</span><span class="p">)</span> <span class="c1">// TLB Hit</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">CanAccess</span><span class="p">(</span><span class="n">TlbEntry</span><span class="p">.</span><span class="n">ProtectBits</span><span class="p">)</span> <span class="o">==</span> <span class="n">True</span><span class="p">)</span>
+        <span class="n">Offset</span> <span class="o">=</span> <span class="n">VirtualAddress</span> <span class="o">&amp;</span> <span class="n">OFFSET_MASK</span>
+        <span class="n">PhysAddr</span> <span class="o">=</span> <span class="p">(</span><span class="n">TlbEntry</span><span class="p">.</span><span class="n">PFN</span> <span class="o">&lt;&lt;</span> <span class="n">SHIFT</span><span class="p">)</span> <span class="o">|</span> <span class="n">Offset</span>
+        <span class="n">Register</span> <span class="o">=</span> <span class="n">AccessMemory</span><span class="p">(</span><span class="n">PhysAddr</span><span class="p">)</span>
+    <span class="k">else</span>
+        <span class="n">RaiseException</span><span class="p">(</span><span class="n">PROTECTION_FAULT</span><span class="p">)</span>
+<span class="k">else</span> <span class="c1">// TLB Miss</span>
+<span class="c1">// first, get page directory entry</span>
+    <span class="n">PDIndex</span> <span class="o">=</span> <span class="p">(</span><span class="n">VPN</span> <span class="o">&amp;</span> <span class="n">PD_MASK</span><span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="n">PD_SHIFT</span>
+    <span class="n">PDEAddr</span> <span class="o">=</span> <span class="n">PDBR</span> <span class="o">+</span> <span class="p">(</span><span class="n">PDIndex</span> <span class="o">*</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">PDE</span><span class="p">))</span>
+    <span class="n">PDE</span> <span class="o">=</span> <span class="n">AccessMemory</span><span class="p">(</span><span class="n">PDEAddr</span><span class="p">)</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">PDE</span><span class="p">.</span><span class="n">Valid</span> <span class="o">==</span> <span class="n">False</span><span class="p">)</span>
+        <span class="n">RaiseException</span><span class="p">(</span><span class="n">SEGMENTATION_FAULT</span><span class="p">)</span>
+    <span class="k">else</span>
+    <span class="c1">// PDE is valid: now fetch PTE from page table</span>
+        <span class="n">PTIndex</span> <span class="o">=</span> <span class="p">(</span><span class="n">VPN</span> <span class="o">&amp;</span> <span class="n">PT_MASK</span><span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="n">PT_SHIFT</span>
+        <span class="n">PTEAddr</span> <span class="o">=</span> <span class="p">(</span><span class="n">PDE</span><span class="p">.</span><span class="n">PFN</span> <span class="o">&lt;&lt;</span> <span class="n">SHIFT</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">PTIndex</span> <span class="o">*</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">PTE</span><span class="p">))</span>
+        <span class="n">PTE</span> <span class="o">=</span> <span class="n">AccessMemory</span><span class="p">(</span><span class="n">PTEAddr</span><span class="p">)</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">PTE</span><span class="p">.</span><span class="n">Valid</span> <span class="o">==</span> <span class="n">False</span><span class="p">)</span>
+            <span class="n">RaiseException</span><span class="p">(</span><span class="n">SEGMENTATION_FAULT</span><span class="p">)</span>
+        <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">CanAccess</span><span class="p">(</span><span class="n">PTE</span><span class="p">.</span><span class="n">ProtectBits</span><span class="p">)</span> <span class="o">==</span> <span class="n">False</span><span class="p">)</span>
+            <span class="n">RaiseException</span><span class="p">(</span><span class="n">PROTECTION_FAULT</span><span class="p">)</span>
+        <span class="k">else</span>
+            <span class="n">TLB_Insert</span><span class="p">(</span><span class="n">VPN</span><span class="p">,</span> <span class="n">PTE</span><span class="p">.</span><span class="n">PFN</span><span class="p">,</span> <span class="n">PTE</span><span class="p">.</span><span class="n">ProtectBits</span><span class="p">)</span>
+            <span class="n">RetryInstruction</span><span class="p">()</span>
+</pre></td>
+</tr></tbody></table></div></code></pre></div></div>
+<h2 class="no_toc" id="inverted-page-tables">
+  
+  
+    <a href="#inverted-page-tables" class="anchor-heading" aria-labelledby="inverted-page-tables"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Inverted Page Tables
+  
+  
+</h2>
+    
+<ul>
+  <li>instead of having many page tables (one per process), use a single page table that has an entry for each physical page of the system</li>
+</ul>
+<h1 id="21---beyond-physical-memory-mechanisms">
+  
+  
+    <a href="#21---beyond-physical-memory-mechanisms" class="anchor-heading" aria-labelledby="21---beyond-physical-memory-mechanisms"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 21 - Beyond Physical Memory: Mechanisms
+  
+  
+</h1>
+    
+<ul>
+  <li>in order to support larger address spaces, OS needs a place to stash additional portions of address space that isn’t in great demand</li>
+  <li>modern systems use hard disk drive for this</li>
+  <li>older systems used  <strong>memory overlays</strong>, which required programmers to manually move pieces of code or data in and out of memory</li>
+</ul>
+<h2 class="no_toc" id="swap-space">
+  
+  
+    <a href="#swap-space" class="anchor-heading" aria-labelledby="swap-space"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Swap Space
+  
+  
+</h2>
+    
+<ul>
+  <li>allows OS to support the illusion of large virtual memory for multiple concurrently-running processes</li>
+  <li>swap pages out of memory to a space, and swap pages into memory from it</li>
+</ul>
+
+<div style="text-align:center">
+  <a href="/assets/img/ostep/swap-space.png">
+    <img src="/assets/img/ostep/swap-space.png" alt="">
+  </a>
+</div>
+
+<ul>
+  <li>
+<strong>present bit</strong> - additional piece of data in the page-table entry (PTE) that says whether data is in memory or in swap space
+    <ul>
+      <li>if set to 1, the page is present in physical memory; 0, it is not in memory but on disk somewhere</li>
+    </ul>
+  </li>
+</ul>
+<h2 class="no_toc" id="page-faults">
+  
+  
+    <a href="#page-faults" class="anchor-heading" aria-labelledby="page-faults"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Page Faults
+  
+  
+</h2>
+    
+<ul>
+  <li>accessing a page that is not in physical memory triggers a page fault, and resolution is handled via a <strong>page-fault handler</strong>
+</li>
+  <li>page faults typically handled by operating system (rather than hardware) because:
+    <ol>
+      <li>page faults to disk are slow, so additional overhead of OS instructions are minimal</li>
+      <li>hardware would need to understand swap space, how to issue I/Os to the disk, and other details</li>
+    </ol>
+  </li>
+</ul>
+
+<p><strong>3 cases when a TLB miss occurs</strong></p>
+<ol>
+  <li>page present and valid -&gt; update TLB, try again</li>
+  <li>page not present -&gt; page-fault handler</li>
+  <li>page not valid -&gt; seg fault</li>
+</ol>
+<h3 class="no_toc" id="page-fault-control-flow-algorithm-hardware">
+  
+  
+    <a href="#page-fault-control-flow-algorithm-hardware" class="anchor-heading" aria-labelledby="page-fault-control-flow-algorithm-hardware"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Page-Fault Control Flow Algorithm (Hardware)
+  
+  
+</h3>
+    
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><div class="table-wrapper"><table class="rouge-table"><tbody><tr>
+<td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+</pre></td>
+<td class="rouge-code"><pre><span class="n">VPN</span> <span class="o">=</span> <span class="p">(</span><span class="n">VirtualAddress</span> <span class="o">&amp;</span> <span class="n">VPN_MASK</span><span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="n">SHIFT</span>
+<span class="p">(</span><span class="n">Success</span><span class="p">,</span> <span class="n">TlbEntry</span><span class="p">)</span> <span class="o">=</span> <span class="n">TLB_Lookup</span><span class="p">(</span><span class="n">VPN</span><span class="p">)</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">Success</span> <span class="o">==</span> <span class="n">True</span><span class="p">)</span> <span class="c1">// TLB Hit</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">CanAccess</span><span class="p">(</span><span class="n">TlbEntry</span><span class="p">.</span><span class="n">ProtectBits</span><span class="p">)</span> <span class="o">==</span> <span class="n">True</span><span class="p">)</span>
+        <span class="n">Offset</span> <span class="o">=</span> <span class="n">VirtualAddress</span> <span class="o">&amp;</span> <span class="n">OFFSET_MASK</span>
+        <span class="n">PhysAddr</span> <span class="o">=</span> <span class="p">(</span><span class="n">TlbEntry</span><span class="p">.</span><span class="n">PFN</span> <span class="o">&lt;&lt;</span> <span class="n">SHIFT</span><span class="p">)</span> <span class="o">|</span> <span class="n">Offset</span>
+        <span class="n">Register</span> <span class="o">=</span> <span class="n">AccessMemory</span><span class="p">(</span><span class="n">PhysAddr</span><span class="p">)</span>
+    <span class="k">else</span>
+        <span class="n">RaiseException</span><span class="p">(</span><span class="n">PROTECTION_FAULT</span><span class="p">)</span>
+<span class="k">else</span> <span class="c1">// TLB Miss</span>
+    <span class="n">PTEAddr</span> <span class="o">=</span> <span class="n">PTBR</span> <span class="o">+</span> <span class="p">(</span><span class="n">VPN</span> <span class="o">*</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">PTE</span><span class="p">))</span>
+    <span class="n">PTE</span> <span class="o">=</span> <span class="n">AccessMemory</span><span class="p">(</span><span class="n">PTEAddr</span><span class="p">)</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">PTE</span><span class="p">.</span><span class="n">Valid</span> <span class="o">==</span> <span class="n">False</span><span class="p">)</span>
+        <span class="n">RaiseException</span><span class="p">(</span><span class="n">SEGMENTATION_FAULT</span><span class="p">)</span>
+    <span class="k">else</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">CanAccess</span><span class="p">(</span><span class="n">PTE</span><span class="p">.</span><span class="n">ProtectBits</span><span class="p">)</span> <span class="o">==</span> <span class="n">False</span><span class="p">)</span>
+            <span class="n">RaiseException</span><span class="p">(</span><span class="n">PROTECTION_FAULT</span><span class="p">)</span>
+    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">PTE</span><span class="p">.</span><span class="n">Present</span> <span class="o">==</span> <span class="n">True</span><span class="p">)</span>
+        <span class="c1">// assuming hardware-managed TLB</span>
+        <span class="n">TLB_Insert</span><span class="p">(</span><span class="n">VPN</span><span class="p">,</span> <span class="n">PTE</span><span class="p">.</span><span class="n">PFN</span><span class="p">,</span> <span class="n">PTE</span><span class="p">.</span><span class="n">ProtectBits</span><span class="p">)</span>
+        <span class="n">RetryInstruction</span><span class="p">()</span>
+    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">PTE</span><span class="p">.</span><span class="n">Present</span> <span class="o">==</span> <span class="n">False</span><span class="p">)</span>
+        <span class="n">RaiseException</span><span class="p">(</span><span class="n">PAGE_FAULT</span><span class="p">)</span>
+</pre></td>
+</tr></tbody></table></div></code></pre></div></div>
+<h3 class="no_toc" id="page-fault-control-flow-algorithm-software">
+  
+  
+    <a href="#page-fault-control-flow-algorithm-software" class="anchor-heading" aria-labelledby="page-fault-control-flow-algorithm-software"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Page-Fault Control Flow Algorithm (Software)
+  
+  
+</h3>
+    
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><div class="table-wrapper"><table class="rouge-table"><tbody><tr>
+<td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td>
+<td class="rouge-code"><pre><span class="n">PFN</span> <span class="o">=</span> <span class="n">FindFreePhysicalPage</span><span class="p">()</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">PFN</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="c1">// no free page found</span>
+    <span class="n">PFN</span> <span class="o">=</span> <span class="n">EvictPage</span><span class="p">()</span> <span class="c1">// run replacement algorithm</span>
+<span class="n">DiskRead</span><span class="p">(</span><span class="n">PTE</span><span class="p">.</span><span class="n">DiskAddr</span><span class="p">,</span> <span class="n">PFN</span><span class="p">)</span> <span class="c1">// sleep (waiting for I/O)</span>
+<span class="n">PTE</span><span class="p">.</span><span class="n">present</span> <span class="o">=</span> <span class="n">True</span> <span class="c1">// update page table with present</span>
+<span class="n">PTE</span><span class="p">.</span><span class="n">PFN</span> <span class="o">=</span> <span class="n">PFN</span> <span class="c1">// bit and translation (PFN)</span>
+<span class="n">RetryInstruction</span><span class="p">()</span> <span class="c1">// retry instruction</span>
+</pre></td>
+</tr></tbody></table></div></code></pre></div></div>
+<h3 class="no_toc" id="page-replacement-policy">
+  
+  
+    <a href="#page-replacement-policy" class="anchor-heading" aria-labelledby="page-replacement-policy"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Page-Replacement Policy
+  
+  
+</h3>
+    
+<ul>
+  <li>if memory is full, need a way to evict/replace pages</li>
+  <li>typically an active process, handled by a swap/page daemon
+    <ul>
+      <li>high watermark and low watermark – if there are fewer than LW pages, a background process evicts pages until there is HW pages available</li>
+    </ul>
+  </li>
+  <li>many replacements happen at once, which allows for performance optimizations by clustering (which reduces seek and rotational overheads of a disk)</li>
+</ul>
+<h1 id="22---beyond-physical-memory-policies">
+  
+  
+    <a href="#22---beyond-physical-memory-policies" class="anchor-heading" aria-labelledby="22---beyond-physical-memory-policies"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 22 - Beyond Physical Memory: Policies
+  
+  
+</h1>
+    
+<h2 class="no_toc" id="cache-management">
+  
+  
+    <a href="#cache-management" class="anchor-heading" aria-labelledby="cache-management"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Cache Management
+  
+  
+</h2>
+    
+<p>main memory holds some subset of all pages, can be though of as a cache for virtual memory pages in system
+goal is to minimize number of cache misses (how many times fetch a page from disk)
+<strong>average memory access time (AMAT)</strong> - AMAT = Tm + (Pmiss * Td)
+    - Tm: cost of accessing memory
+    - Pmiss: probability of cache miss
+    - Td: the cost of accessing disk</p>
+
+<p>3 types of cache misses:</p>
+<ol>
+  <li>
+<strong>cold-start/compulsory</strong> - cache is empty to begin with, and this is first reference to item</li>
+  <li>
+<strong>capacity</strong> - cache ran out of space and had to evict an item</li>
+  <li>
+<strong>conflict</strong> - results in hardware because of limits on where an item can be placed in hardware cache (due to set-associativity) – OS page cache is fully-associative so no conflict misses happen</li>
+</ol>
+<h2 class="no_toc" id="optimal-replacement-policy">
+  
+  
+    <a href="#optimal-replacement-policy" class="anchor-heading" aria-labelledby="optimal-replacement-policy"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Optimal Replacement Policy
+  
+  
+</h2>
+    
+<ul>
+  <li>replace/evict page that will be accessed <em>furthest in the future</em> results in fewest cache misses, unfortunately really hard to implement</li>
+  <li>
+<strong>FIFO</strong> - performs poorly compared to optimal – doesn’t determine importance of blocks</li>
+  <li>
+<strong>Random</strong> - a little better than FIFO but worse than optimal</li>
+</ul>
+<h3 class="no_toc" id="using-history-least-recently-used">
+  
+  
+    <a href="#using-history-least-recently-used" class="anchor-heading" aria-labelledby="using-history-least-recently-used"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Using History: Least Recently Used
+  
+  
+</h3>
+    
+<ul>
+  <li>use history like <strong>frequency</strong> (how often a page is accessed) or <strong>recency</strong> (how recently a page was accessed)</li>
+  <li>
+<strong>principle of locality</strong> - programs tend to access certain code sequences and data structures quite frequently, and we should use history to determine what pages are or aren’t important
+    <ul>
+      <li>
+<strong>spatial locality</strong> (data tends to be accessed in clusters)</li>
+      <li>
+<strong>temporal locality</strong> (data tends to be accessed close in time)</li>
+    </ul>
+  </li>
+  <li>
+<strong>least frequently used (LFU)</strong> - how often a page is accessed</li>
+  <li>
+<strong>least recently used (LRU)</strong> - when a page was most recently used</li>
+</ul>
+<h3 class="no_toc" id="no-locality-workload">
+  
+  
+    <a href="#no-locality-workload" class="anchor-heading" aria-labelledby="no-locality-workload"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> No Locality Workload
+  
+  
+</h3>
+    
+<ul>
+  <li>each access is to a random page</li>
+  <li>when there is no locality in workload or the cache is large enough to fit all data, lru, lfu, random, and fifo perform the same</li>
+</ul>
+
+<div style="text-align:center">
+  <a href="/assets/img/ostep/no-locality.png">
+    <img src="/assets/img/ostep/no-locality.png" alt="">
+  </a>
+</div>
+<h3 class="no_toc" id="80-20-workload">
+  
+  
+    <a href="#80-20-workload" class="anchor-heading" aria-labelledby="80-20-workload"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 80-20 Workload
+  
+  
+</h3>
+    
+<ul>
+  <li>80% of accesses to 20% of pages (hot pages), 20% to the remaining 80% (cold pages)</li>
+  <li>LRU does the best, and while improvement might seem minor it would lead to substantial performance gains</li>
+</ul>
+
+<div style="text-align:center">
+  <a href="/assets/img/ostep/80-20.png">
+    <img src="/assets/img/ostep/80-20.png" alt="">
+  </a>
+</div>
+<h3 class="no_toc" id="looping-sequential-workload">
+  
+  
+    <a href="#looping-sequential-workload" class="anchor-heading" aria-labelledby="looping-sequential-workload"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Looping Sequential Workload
+  
+  
+</h3>
+    
+<ul>
+  <li>refer to <em>n</em> pages in sequence, then start again</li>
+  <li>common workload for databases</li>
+  <li>worst case for LRU and FIFO, random performs best</li>
+</ul>
+
+<div style="text-align:center">
+  <a href="/assets/img/ostep/looping-sequential.png">
+    <img src="/assets/img/ostep/looping-sequential.png" alt="">
+  </a>
+</div>
+<h3 class="no_toc" id="lru-performance">
+  
+  
+    <a href="#lru-performance" class="anchor-heading" aria-labelledby="lru-performance"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> LRU performance
+  
+  
+</h3>
+    
+<ul>
+  <li>to implement LRU perfectly, you’d need a data structure that stores when a page was last accessed, and it would need to be updated every memory reference – this can be bad performance; even if you get hardware support to store last access, scanning all pages would take a long time</li>
+  <li>more performance algorithms are <strong>scan resistant</strong> - don’t need to scan entire data structure to find relevant data</li>
+  <li>can approximate LRU using a <strong>use bit</strong> - on page access, use bit is set to 1, and when searching for a page to evict, the OS checks each page and if use bit is set to 1, it sets it to 0 and moves on until it finds a page with a use bit set to 0</li>
+  <li>also could consider dirty (modified) pages, as if memory structure has been modified, it needs to be written back to disk to evict, which is costly – could prefer clean pages to evict</li>
+</ul>
+<h2 class="no_toc" id="other-memory-policies">
+  
+  
+    <a href="#other-memory-policies" class="anchor-heading" aria-labelledby="other-memory-policies"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Other Memory Policies
+  
+  
+</h2>
+    
+<ul>
+  <li>
+<strong>demand paging</strong> - OS brings page into memory when it is accessed, compared to <strong>prefetching</strong>, where an OS guesses when a page might be accessed before it is demanded</li>
+  <li>when to write page to disk – clustering/grouping of writes is more performant</li>
+</ul>
+<h2 class="no_toc" id="thrashing">
+  
+  
+    <a href="#thrashing" class="anchor-heading" aria-labelledby="thrashing"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Thrashing
+  
+  
+</h2>
+    
+<ul>
+  <li>when memory demands of running process exceeds available system memory, the system will be constantly paging</li>
+  <li>
+<strong>admission control</strong> - a system might decide not to run a subset of processes, with the idea that reducing a processes’s working sets would fit into memory – do less but better</li>
+  <li>
+<strong>out-of-memory killer</strong> - some Linux machines just kill off a memory-intensive process</li>
+</ul>
+<h1 id="23---complete-virtual-memory-systems">
+  
+  
+    <a href="#23---complete-virtual-memory-systems" class="anchor-heading" aria-labelledby="23---complete-virtual-memory-systems"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 23 - Complete Virtual Memory Systems
+  
+  
+</h1>
+    
+<h2 class="no_toc" id="vaxvms-virtual-memory">
+  
+  
+    <a href="#vaxvms-virtual-memory" class="anchor-heading" aria-labelledby="vaxvms-virtual-memory"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> VAX/VMS Virtual Memory
+  
+  
+</h2>
+    
+<ul>
+  <li>introduced in late 1970s by Digital Equipment Corporation (DEC)</li>
+  <li>uses a hybrid of paging and segmentation</li>
+</ul>
+<h3 class="no_toc" id="address-space-1">
+  
+  
+    <a href="#address-space-1" class="anchor-heading" aria-labelledby="address-space-1"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Address Space
+  
+  
+</h3>
+    
+<ul>
+  <li>lower half of address space called “process space” and is unique to each process
+    <ul>
+      <li>first half of process space (P0) contains user program and heap data and grows downwards</li>
+      <li>second half (P1) contains stack and grows upwards</li>
+    </ul>
+  </li>
+  <li>upper half of address space called system space (S)
+    <ul>
+      <li>only half used</li>
+      <li>contains OS data, and is shared across processes</li>
+    </ul>
+  </li>
+  <li>page 0 is reserved to aid in finding NULL pointer accesses</li>
+  <li>because page tables can be allocated from kernel memory, translation is difficult – hopefully TLB handles each translation</li>
+</ul>
+
+<div style="text-align:center">
+  <a href="/assets/img/ostep/vax-vms-memory.png">
+    <img src="/assets/img/ostep/vax-vms-memory.png" alt="">
+  </a>
+</div>
+<h3 class="no_toc" id="page-replacement">
+  
+  
+    <a href="#page-replacement" class="anchor-heading" aria-labelledby="page-replacement"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Page Replacement
+  
+  
+</h3>
+    
+<ul>
+  <li>page table entry contains
+    <ul>
+      <li>a valid bit</li>
+      <li>a protection field (4 bits)</li>
+      <li>a modify bit</li>
+      <li>an OS-reserved field (5 bits)</li>
+      <li>a physical frame number (PFN) to store location of page in physical memory</li>
+      <li>NO REFERENCE BIT!</li>
+    </ul>
+  </li>
+  <li>uses a segmented FIFO policy
+    <ul>
+      <li>each process has max pages it can keep in memory (resident set size RSS)</li>
+      <li>there is a second-chance list where pages that have fallen off the queue go (clean-page free list and dirty-page list)</li>
+      <li>if new process needs a page, it takes it off clean list (unless original process needs that page again first)</li>
+      <li>the bigger the second-chance lists are, the closer FIFO performs to LRU</li>
+    </ul>
+  </li>
+</ul>
+<h3 class="no_toc" id="other-optimizations">
+  
+  
+    <a href="#other-optimizations" class="anchor-heading" aria-labelledby="other-optimizations"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Other Optimizations
+  
+  
+</h3>
+    
+<ul>
+  <li>
+<strong>demand zeroing</strong> - instead of clearing out a page immediately for another process to use, this happens lazily upon demand, which saves effort if the page is never read or written</li>
+  <li>
+<strong>copy-on-write</strong> - when OS needs to copy one page from one address to another, it maps it and marks as read-only – if it only needs to be read, it saves effort</li>
+</ul>
+<h2 class="no_toc" id="linux">
+  
+  
+    <a href="#linux" class="anchor-heading" aria-labelledby="linux"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Linux
+  
+  
+</h2>
+    
+<ul>
+  <li>divided between user and kernel portions of address space</li>
+  <li>two types of kernel virtual addresses
+    <ol>
+      <li>kernel logical addresses - contains most kernel data structures like page tables, per-process kernel stacks, apportioned by <code class="language-plaintext highlighter-rouge">kmalloc</code> and cannot be swapped to disk</li>
+      <li>kernel virtual address - usually not contiguous, apportioned by <code class="language-plaintext highlighter-rouge">vmalloc</code> and used to allow the kernel to address more than ~1GB of memory (limitation of 32 bit system not much relevant anymore)</li>
+    </ol>
+  </li>
+</ul>
+
+<div style="text-align:center">
+  <a href="/assets/img/ostep/linux-memory.png">
+    <img src="/assets/img/ostep/linux-memory.png" alt="">
+  </a>
+</div>
+<h3 class="no_toc" id="page-tables-1">
+  
+  
+    <a href="#page-tables-1" class="anchor-heading" aria-labelledby="page-tables-1"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Page Tables
+  
+  
+</h3>
+    
+<ul>
+  <li>provides hardware-managed, multi-level page table structure – one page table per process</li>
+  <li>OS sets up mappings in memory and points register at the start of the page directory, hardware handles the rest</li>
+  <li>OS is involved in process creation, deletion, context switches</li>
+  <li>support for <strong>huge pages</strong> beyond the typical 4KB page
+    <ul>
+      <li>useful for certain workloads like databases</li>
+      <li>limits TLB misses and makes TLB allocation faster</li>
+      <li>could lead to large internal fragmentation, and swapping doesn’t work well as I/O is expensive</li>
+    </ul>
+  </li>
+</ul>
+<h3 class="no_toc" id="page-cache">
+  
+  
+    <a href="#page-cache" class="anchor-heading" aria-labelledby="page-cache"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Page Cache
+  
+  
+</h3>
+    
+<ul>
+  <li>unified, and keeps pages in memory from three sources
+    <ol>
+      <li>memory-mapped files</li>
+      <li>file data and metadata from devices (tracked from read() or write() calls)</li>
+      <li>heap and stack pages for processes (called anonymous memory because no named file backing store)</li>
+    </ol>
+  </li>
+  <li>uses a 2Q replacement algorithm
+    <ul>
+      <li>keeps two lists and divides memory between</li>
+      <li>first time pages are put into <strong>inactive</strong> list</li>
+      <li>when page is re-referenced, it is promoted to <strong>active</strong> list</li>
+      <li>replacements are pulled from inactive list</li>
+      <li>not typically managed in perfect LRU order, but typically uses a clock algo to prevent full scans</li>
+    </ul>
+  </li>
+</ul>
+<h2 class="no_toc" id="security">
+  
+  
+    <a href="#security" class="anchor-heading" aria-labelledby="security"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Security
+  
+  
+</h2>
+    
+<ul>
+  <li>
+<strong>buffer overflow</strong> - allows attacker to insert arbitrary data into target’s address space, and usually occurs when developer assumes input won’t be overly long and inserts into a buffer – can trigger a <strong>privilege escalation</strong>, which gives attacker access to privileged mode</li>
+  <li>
+<strong>return-oriented programming</strong> - lots of pieces of code (gadgets) in program’s address space, and by changing return address, attacker can string together gadgets to execute arbitrary code – combatted by address space layout randomization (ASLR) which randomizes virtual address layout</li>
+</ul>
+
+          
+
+          
+        </main>
+        
+
+  <hr>
+  <footer>
+    
+      <p><a href="#top" id="back-to-top">Back to top</a></p>
+    
+
+    <p class="text-small text-grey-dk-100 mb-0">Copyright © 2022 Michael McIntyre. </p>
+
+    
+      <div class="d-flex mt-2">
+        
+          <p class="text-small text-grey-dk-000 mb-0 mr-2">
+            Page last modified: <span class="d-inline-block">Feb 22 2022 at 12:24 PM</span>.
+          </p>
+        
+        
+      </div>
+    
+  </footer>
+
+
+      </div>
+    </div>
+    
+      
+
+<div class="search-overlay"></div>
+
+    
+  </div>
+
+  
+</body>
+</html>

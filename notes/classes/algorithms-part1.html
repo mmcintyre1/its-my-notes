@@ -1,0 +1,1576 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+
+  
+
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+  <link rel="stylesheet" href="/assets/css/just-the-docs-default.css">
+  <link rel="stylesheet" href="/assets/css/native.css">
+
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-M6EEXPRNWS"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-M6EEXPRNWS', { 'anonymize_ip': true });
+  </script>
+
+  
+
+  
+  <script type="text/javascript" src="/assets/js/vendor/lunr.min.js"></script>
+  
+  <script type="text/javascript" src="/assets/js/just-the-docs.js"></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Algorithms - Part 1 | Notes</title>
+<meta name="generator" content="Jekyll v3.9.2">
+<meta property="og:title" content="Algorithms - Part 1">
+<meta property="og:locale" content="en_US">
+<meta name="description" content="My Notes">
+<meta property="og:description" content="My Notes">
+<link rel="canonical" href="https://itsmynotes.com/notes/classes/algorithms-part1">
+<meta property="og:url" content="https://itsmynotes.com/notes/classes/algorithms-part1">
+<meta property="og:site_name" content="Notes">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<meta property="twitter:title" content="Algorithms - Part 1">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"My Notes","headline":"Algorithms - Part 1","url":"https://itsmynotes.com/notes/classes/algorithms-part1"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+  
+
+<script>MathJax={"tex":{"inlineMath":[["$","$"],["\\(","\\)"]],"displayMath":[["$$","$$"],["\\[","\\]"]]},"svg":{"fontCache":"global"}}</script><script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+  <a class="skip-to-main" href="#main-content">Skip to main content</a>
+  <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+  <symbol id="svg-link" viewbox="0 0 24 24">
+  <title>Link</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link">
+    <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+  </svg>
+</symbol>
+
+  <symbol id="svg-menu" viewbox="0 0 24 24">
+  <title>Menu</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu">
+    <line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line>
+  </svg>
+</symbol>
+
+  <symbol id="svg-arrow-right" viewbox="0 0 24 24">
+  <title>Expand</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+    <polyline points="9 18 15 12 9 6"></polyline>
+  </svg>
+</symbol>
+
+  <!-- Feather. MIT License: https://github.com/feathericons/feather/blob/master/LICENSE -->
+<symbol id="svg-external-link" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-external-link">
+  <title id="svg-external-link-title">(external link)</title>
+  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line>
+</symbol>
+
+  
+    <symbol id="svg-doc" viewbox="0 0 24 24">
+  <title>Document</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file">
+    <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline>
+  </svg>
+</symbol>
+
+    <symbol id="svg-search" viewbox="0 0 24 24">
+  <title>Search</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search">
+    <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+  </svg>
+</symbol>
+
+  
+  
+    <!-- Bootstrap Icons. MIT License: https://github.com/twbs/icons/blob/main/LICENSE.md -->
+<symbol id="svg-copy" viewbox="0 0 16 16">
+  <title>Copy</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard" viewbox="0 0 16 16">
+    <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"></path>
+    <path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"></path>
+  </svg>
+</symbol>
+<symbol id="svg-copied" viewbox="0 0 16 16">
+  <title>Copied</title>
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard-check-fill" viewbox="0 0 16 16">
+    <path d="M6.5 0A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3Zm3 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3Z"></path>
+    <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1A2.5 2.5 0 0 1 9.5 5h-3A2.5 2.5 0 0 1 4 2.5v-1Zm6.854 7.354-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L7.5 10.793l2.646-2.647a.5.5 0 0 1 .708.708Z"></path>
+  </svg>
+</symbol>
+
+  
+</svg>
+
+  <div class="side-bar">
+  <div class="site-header" role="banner">
+    <a href="/" class="site-title lh-tight">
+  Notes
+
+</a>
+    <button id="menu-button" class="site-button btn-reset" aria-label="Toggle menu" aria-pressed="false">
+      <svg viewbox="0 0 24 24" class="icon" aria-hidden="true"><use xlink:href="#svg-menu"></use></svg>
+    </button>
+  </div>
+
+  <nav aria-label="Main" id="site-nav" class="site-nav">
+  
+  
+    <ul class="nav-list">
+<li class="nav-list-item">
+<button class="nav-list-expander btn-reset" aria-label="toggle items in Projects category" aria-pressed="false">
+      <svg viewbox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+    </button><a href="/notes/projects" class="nav-list-link">Projects</a><ul class="nav-list"></ul>
+</li>
+<li class="nav-list-item">
+<button class="nav-list-expander btn-reset" aria-label="toggle items in Vocabulary category" aria-pressed="false">
+      <svg viewbox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+    </button><a href="/notes/vocabulary" class="nav-list-link">Vocabulary</a><ul class="nav-list"></ul>
+</li>
+<li class="nav-list-item">
+<button class="nav-list-expander btn-reset" aria-label="toggle items in Business Books category" aria-pressed="false">
+      <svg viewbox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+    </button><a href="/notes/business-books" class="nav-list-link">Business Books</a><ul class="nav-list"></ul>
+</li>
+<li class="nav-list-item">
+<button class="nav-list-expander btn-reset" aria-label="toggle items in Other Books category" aria-pressed="false">
+      <svg viewbox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+    </button><a href="/notes/other-books" class="nav-list-link">Other Books</a><ul class="nav-list"></ul>
+</li>
+<li class="nav-list-item">
+<button class="nav-list-expander btn-reset" aria-label="toggle items in Educational Books category" aria-pressed="false">
+      <svg viewbox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+    </button><a href="/notes/educational-books" class="nav-list-link">Educational Books</a><ul class="nav-list"></ul>
+</li>
+<li class="nav-list-item">
+<button class="nav-list-expander btn-reset" aria-label="toggle items in Articles category" aria-pressed="false">
+      <svg viewbox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+    </button><a href="/notes/articles" class="nav-list-link">Articles</a><ul class="nav-list"></ul>
+</li>
+<li class="nav-list-item">
+<button class="nav-list-expander btn-reset" aria-label="toggle items in Quotes category" aria-pressed="false">
+      <svg viewbox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+    </button><a href="/notes/quotes" class="nav-list-link">Quotes</a><ul class="nav-list"></ul>
+</li>
+<li class="nav-list-item">
+<button class="nav-list-expander btn-reset" aria-label="toggle items in Classes category" aria-pressed="false">
+      <svg viewbox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+    </button><a href="/notes/classes" class="nav-list-link">Classes</a><ul class="nav-list"></ul>
+</li>
+<li class="nav-list-item">
+<button class="nav-list-expander btn-reset" aria-label="toggle items in Tech Books category" aria-pressed="false">
+      <svg viewbox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+    </button><a href="/notes/tech-books" class="nav-list-link">Tech Books</a><ul class="nav-list"></ul>
+</li>
+<li class="nav-list-item">
+<button class="nav-list-expander btn-reset" aria-label="toggle items in Podcasts category" aria-pressed="false">
+      <svg viewbox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+    </button><a href="/notes/podcasts" class="nav-list-link">Podcasts</a><ul class="nav-list"></ul>
+</li>
+</ul>
+
+  
+</nav>
+
+
+  
+  
+    <footer class="site-footer">
+      This site uses <a href="https://github.com/just-the-docs/just-the-docs">Just the Docs</a>, a documentation theme for Jekyll.
+    </footer>
+  
+</div>
+
+  <div class="main" id="top">
+    <div id="main-header" class="main-header">
+  
+    
+
+<div class="search" role="search">
+  <div class="search-input-wrap">
+    <input type="text" id="search-input" class="search-input" tabindex="0" placeholder="Search Notes" aria-label="Search Notes" autocomplete="off">
+    <label for="search-input" class="search-label"><svg viewbox="0 0 24 24" class="search-icon"><use xlink:href="#svg-search"></use></svg></label>
+  </div>
+  <div id="search-results" class="search-results"></div>
+</div>
+
+  
+  
+  
+    <nav aria-label="Auxiliary" class="aux-nav">
+  <ul class="aux-nav-list">
+    
+      <li class="aux-nav-list-item">
+        <a href="https://github.com/mmcintyre1/its-my-notes" class="site-button">
+          It's My Notes on GitHub
+        </a>
+      </li>
+    
+  </ul>
+</nav>
+
+  
+</div>
+
+    <div class="main-content-wrap">
+      <nav aria-label="Breadcrumb" class="breadcrumb-nav">
+  <ol class="breadcrumb-nav-list">
+  
+    <li class="breadcrumb-nav-list-item"><a href="/notes/classes">Classes</a></li>
+  <li class="breadcrumb-nav-list-item"><span>Algorithms - Part 1</span></li>
+  </ol>
+</nav>
+      <div id="main-content" class="main-content">
+        <main>
+          
+            <h1 class="no_toc" id="algorithms---part-1">
+  
+  
+    <a href="#algorithms---part-1" class="anchor-heading" aria-labelledby="algorithms---part-1"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Algorithms - Part 1
+  
+  
+</h1>
+    
+
+<ul>
+  <li>Princeton’s Algorithms, Part 1 course from <a href="https://www.coursera.org/learn/algorithms-part1/home/welcome">Coursera</a>
+</li>
+  <li><a href="https://github.com/mmcintyre1/algorithms-part1">GitHub Repository for class exercises</a></li>
+</ul>
+
+<details open="">
+  <summary>
+    Table of contents
+  </summary>
+<ol id="markdown-toc">
+  <li>
+<a href="#dynamic-connectivity" id="markdown-toc-dynamic-connectivity">Dynamic Connectivity</a>    <ol>
+      <li><a href="#union-find" id="markdown-toc-union-find">Union Find</a></li>
+      <li><a href="#quick-find" id="markdown-toc-quick-find">Quick Find</a></li>
+      <li><a href="#quick-union" id="markdown-toc-quick-union">Quick Union</a></li>
+      <li><a href="#quick-union-improvements" id="markdown-toc-quick-union-improvements">Quick Union Improvements</a></li>
+      <li><a href="#union-find-applications" id="markdown-toc-union-find-applications">Union Find Applications</a></li>
+    </ol>
+  </li>
+  <li>
+<a href="#analysis-of-algorithms" id="markdown-toc-analysis-of-algorithms">Analysis of Algorithms</a>    <ol>
+      <li><a href="#3-sum" id="markdown-toc-3-sum">3-Sum</a></li>
+      <li><a href="#mathematical-model" id="markdown-toc-mathematical-model">Mathematical Model</a></li>
+      <li><a href="#common-order-of-growth-classifications" id="markdown-toc-common-order-of-growth-classifications">Common Order of Growth Classifications</a></li>
+      <li><a href="#binary-search" id="markdown-toc-binary-search">Binary Search</a></li>
+      <li><a href="#questions" id="markdown-toc-questions">questions</a></li>
+    </ol>
+  </li>
+  <li>
+<a href="#bags-stacks--queues" id="markdown-toc-bags-stacks--queues">Bags, Stacks &amp; Queues</a>    <ol>
+      <li><a href="#stacks" id="markdown-toc-stacks">Stacks</a></li>
+      <li><a href="#queues" id="markdown-toc-queues">Queues</a></li>
+      <li><a href="#bags" id="markdown-toc-bags">Bags</a></li>
+      <li><a href="#implementations-of-stacks" id="markdown-toc-implementations-of-stacks">Implementations of Stacks</a></li>
+      <li><a href="#questions-1" id="markdown-toc-questions-1">Questions</a></li>
+    </ol>
+  </li>
+</ol>
+
+</details>
+
+<p>Steps to develop a usable algorithm (scientific method)</p>
+<ol>
+  <li>model the problem</li>
+  <li>find an algorithm to solve it</li>
+  <li>fast enough? fits in memory?</li>
+  <li>if not, figure out why</li>
+  <li>find a way to address the problem</li>
+  <li>iterate until satisfied</li>
+</ol>
+<h2 id="dynamic-connectivity">
+  
+  
+    <a href="#dynamic-connectivity" class="anchor-heading" aria-labelledby="dynamic-connectivity"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Dynamic Connectivity
+  
+  
+</h2>
+    
+<h3 id="union-find">
+  
+  
+    <a href="#union-find" class="anchor-heading" aria-labelledby="union-find"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Union Find
+  
+  
+</h3>
+    
+<p>Given a set of N objects</p>
+<ul>
+  <li>union command: connect two objects</li>
+  <li>find/connected query: is there a path connecting the two objects</li>
+</ul>
+
+<p>Larger example: is there a path connecting <code class="language-plaintext highlighter-rouge">p</code> and <code class="language-plaintext highlighter-rouge">q</code> in a larger path-finding exercise</p>
+
+<p>Some applications of this algorithm:</p>
+<ul>
+  <li>pixels in a digital photo</li>
+  <li>computers in a network</li>
+  <li>friends in a social network</li>
+  <li>transistors in a computer chip</li>
+  <li>elements in a math set</li>
+  <li>variable names in a Fortran program</li>
+  <li>metallic sites in a composite system</li>
+</ul>
+
+<p>Modeling the connection:
+We assume “is connected to” is an equivalence relation</p>
+<ul>
+  <li>reflexic: p is connected to q</li>
+  <li>symmetric: if p is connect to q then q is connected to p</li>
+  <li>transitive: if p is connect to q and q is connected to r, then p is connect to r</li>
+</ul>
+
+<p>Connected Components: Maximal set of ojbects that are mutually connected</p>
+
+<p>To implement:
+find query: check if two objects are in same component
+union command: replace components containing two objects with their union</p>
+
+<p>Union-find data type (API)
+Goal: design efficient data structure for union-find</p>
+<ul>
+  <li>number of objects N can be huge</li>
+  <li>number of operations can be huge</li>
+  <li>find queries and union commands may be intermixed</li>
+</ul>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><div class="table-wrapper"><table class="rouge-table"><tbody><tr>
+<td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td>
+<td class="rouge-code"><pre><span class="kd">public</span> <span class="kd">class</span> <span class="nc">UF</span> <span class="o">{</span>
+  <span class="no">UF</span><span class="o">(</span><span class="kt">int</span> <span class="no">N</span><span class="o">)</span> <span class="o">{};</span>
+  <span class="kt">void</span> <span class="nf">union</span><span class="o">(</span><span class="kt">int</span> <span class="n">p</span><span class="o">,</span> <span class="kt">int</span> <span class="n">q</span><span class="o">)</span> <span class="o">{};</span>
+  <span class="kt">boolean</span> <span class="nf">connected</span><span class="o">(</span><span class="kt">int</span> <span class="n">p</span><span class="o">,</span> <span class="kt">int</span> <span class="n">q</span><span class="o">)</span> <span class="o">{};</span>
+  <span class="kt">int</span> <span class="nf">find</span><span class="o">(</span><span class="kt">int</span> <span class="n">p</span><span class="o">)</span> <span class="o">{};</span>
+  <span class="kt">int</span> <span class="nf">count</span><span class="o">()</span> <span class="o">{};</span>
+<span class="o">}</span>
+</pre></td>
+</tr></tbody></table></div></code></pre></div></div>
+<h3 id="quick-find">
+  
+  
+    <a href="#quick-find" class="anchor-heading" aria-labelledby="quick-find"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Quick Find
+  
+  
+</h3>
+    
+<p>eager approach (compute before call)</p>
+
+<p>each index in array stores reference to its group, so union(1, 2) is rendered like [0, 2, 2], and connected(1, 2) is 2 == 2.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><div class="table-wrapper"><table class="rouge-table"><tbody><tr>
+<td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+</pre></td>
+<td class="rouge-code"><pre><span class="kd">public</span> <span class="kd">class</span> <span class="nc">QuickFindUF</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="kt">int</span><span class="o">[]</span> <span class="n">id</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="nf">QuickFindUF</span><span class="o">(</span><span class="kt">int</span> <span class="no">N</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">id</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="no">N</span><span class="o">];</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="no">N</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="n">id</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="n">i</span><span class="o">;</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">connected</span><span class="o">(</span><span class="kt">int</span> <span class="n">p</span><span class="o">,</span> <span class="kt">int</span> <span class="n">q</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">id</span><span class="o">[</span><span class="n">p</span><span class="o">]</span> <span class="o">==</span> <span class="n">id</span><span class="o">[</span><span class="n">q</span><span class="o">];</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">union</span><span class="o">(</span><span class="kt">int</span> <span class="n">p</span><span class="o">,</span> <span class="kt">int</span> <span class="n">q</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">pid</span> <span class="o">=</span> <span class="n">id</span><span class="o">[</span><span class="n">p</span><span class="o">];</span>
+        <span class="kt">int</span> <span class="n">qid</span> <span class="o">=</span> <span class="n">id</span><span class="o">[</span><span class="n">q</span><span class="o">];</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">id</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">id</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">==</span> <span class="n">pid</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">id</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="n">qid</span><span class="o">;</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></td>
+</tr></tbody></table></div></code></pre></div></div>
+
+<p>quick find is too slow – union is n<sup>2</sup>
+n<sup>2</sup> (quadratic) operations are too slow. As computers get larger, these quadratic algorithms don’t scale with new computers.</p>
+
+<p><strong>Rough standard (for now)</strong></p>
+<ul>
+  <li>109 operations per second</li>
+  <li>109 words of main memory</li>
+  <li>Touch all words in approximately 1 second</li>
+</ul>
+
+<p><strong>Huge problem for quick-find</strong>
+109 union commands on 109 objects
+Quick-find takes more than 1018 operations
+30+ years of computer time!</p>
+
+<p><strong>Quadratic algorithms don’t scale with technology</strong></p>
+<ul>
+  <li>New computer may be 10x as fast</li>
+  <li>But, has 10x as much memory ⇒want to solve a problem that is 10x as big</li>
+  <li>With quadratic algorithm, takes 10x as long!</li>
+</ul>
+<h3 id="quick-union">
+  
+  
+    <a href="#quick-union" class="anchor-heading" aria-labelledby="quick-union"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Quick Union
+  
+  
+</h3>
+    
+<p>lazy approach (compute as needed)
+integer array, but instead of storing a reference to its tree node</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><div class="table-wrapper"><table class="rouge-table"><tbody><tr>
+<td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+</pre></td>
+<td class="rouge-code"><pre><span class="kd">public</span> <span class="kd">class</span> <span class="nc">QuickUnionUF</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="kt">int</span><span class="o">[]</span> <span class="n">id</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="nf">QuickUnionUF</span><span class="o">(</span><span class="kt">int</span> <span class="no">N</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// same constructor as QuickFind</span>
+        <span class="n">id</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="no">N</span><span class="o">];</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="no">N</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="n">id</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="n">i</span><span class="o">;</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+
+    <span class="kd">private</span> <span class="kt">int</span> <span class="nf">root</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">while</span> <span class="o">(</span><span class="n">i</span> <span class="o">!=</span> <span class="n">id</span><span class="o">[</span><span class="n">i</span><span class="o">])</span> <span class="o">{</span>
+            <span class="n">i</span> <span class="o">=</span> <span class="n">id</span><span class="o">[</span><span class="n">i</span><span class="o">];</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="n">i</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">connected</span><span class="o">(</span><span class="kt">int</span> <span class="n">p</span><span class="o">,</span> <span class="kt">int</span> <span class="n">q</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="nf">root</span><span class="o">(</span><span class="n">p</span><span class="o">)</span> <span class="o">==</span> <span class="n">root</span><span class="o">(</span><span class="n">q</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">union</span><span class="o">(</span><span class="kt">int</span> <span class="n">p</span><span class="o">,</span> <span class="kt">int</span> <span class="n">q</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">root</span><span class="o">(</span><span class="n">p</span><span class="o">);</span>
+        <span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="n">root</span><span class="o">(</span><span class="n">q</span><span class="o">);</span>
+        <span class="n">id</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="n">j</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></td>
+</tr></tbody></table></div></code></pre></div></div>
+
+<p>cost model: initialize, union, find all linear
+defect: trees can get tall, and find is too expensive</p>
+<h3 id="quick-union-improvements">
+  
+  
+    <a href="#quick-union-improvements" class="anchor-heading" aria-labelledby="quick-union-improvements"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Quick Union Improvements
+  
+  
+</h3>
+    
+<p><strong>weighted quick union</strong></p>
+<ul>
+  <li>modify quick union to avoid tall trees</li>
+  <li>keep track of size of each tree (number of objects)</li>
+  <li>balance by linking root of smaller tree to root of larger tree</li>
+</ul>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><div class="table-wrapper"><table class="rouge-table"><tbody><tr>
+<td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+</pre></td>
+<td class="rouge-code"><pre><span class="c1">// initialize a sz array</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">union</span><span class="o">(</span><span class="kt">int</span> <span class="n">p</span><span class="o">,</span> <span class="kt">int</span> <span class="n">q</span><span class="o">)</span> <span class="o">{</span>
+      <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">root</span><span class="o">(</span><span class="n">p</span><span class="o">);</span>
+      <span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="n">root</span><span class="o">(</span><span class="n">q</span><span class="o">);</span>
+      <span class="k">if</span> <span class="o">(</span><span class="n">i</span> <span class="o">==</span> <span class="n">j</span><span class="o">)</span> <span class="o">{</span>
+          <span class="k">return</span><span class="o">;</span>
+      <span class="o">}</span>
+      <span class="k">if</span> <span class="o">(</span><span class="n">sz</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">&lt;</span> <span class="n">sz</span><span class="o">[</span><span class="n">j</span><span class="o">])</span> <span class="o">{</span>
+          <span class="n">id</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="n">j</span><span class="o">;</span>
+          <span class="n">sz</span><span class="o">[</span><span class="n">j</span><span class="o">]</span> <span class="o">+=</span> <span class="n">sz</span><span class="o">[</span><span class="n">i</span><span class="o">];</span>
+      <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+          <span class="n">id</span><span class="o">[</span><span class="n">j</span><span class="o">]</span> <span class="o">=</span> <span class="n">i</span><span class="o">;</span>
+          <span class="n">sz</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">+=</span> <span class="n">sz</span><span class="o">[</span><span class="n">j</span><span class="o">];</span>
+      <span class="o">}</span>
+  <span class="o">}</span>
+</pre></td>
+</tr></tbody></table></div></code></pre></div></div>
+
+<p>running time for weighted quick union is at most lg <em>N</em> (log base 2)</p>
+
+<p><strong>weighted quick union with path compression</strong></p>
+
+<p>after computer the root of p, set the id of each examined node to the root</p>
+
+<p>We might use a two pass variant, which is to add a second loop to <code class="language-plaintext highlighter-rouge">root()</code> to set <code class="language-plaintext highlighter-rouge">id[]</code> to node, or we can do single pass like this:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><div class="table-wrapper"><table class="rouge-table"><tbody><tr>
+<td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td>
+<td class="rouge-code"><pre><span class="kd">private</span> <span class="kt">int</span> <span class="nf">root</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">)</span> <span class="o">{</span>
+  <span class="k">while</span> <span class="o">(</span><span class="n">i</span> <span class="o">!=</span> <span class="n">id</span><span class="o">[</span><span class="n">i</span><span class="o">])</span> <span class="o">{</span>
+    <span class="n">id</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="n">id</span><span class="o">[</span><span class="n">id</span><span class="o">[</span><span class="n">i</span><span class="o">]];</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="n">id</span><span class="o">[</span><span class="n">i</span><span class="o">];</span>
+  <span class="o">}</span>
+  <span class="k">return</span> <span class="n">i</span><span class="o">;</span>
+<span class="o">}</span>
+</pre></td>
+</tr></tbody></table></div></code></pre></div></div>
+<p>this halves path length, but in practice it works just as well</p>
+
+<p>in theory, weight quick union with path compression is not quite linear, but in practice it is. In fact no linear-time algorithm exists for quick union.</p>
+
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th>algorithm</th>
+      <th>worst-case time</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>quick find</td>
+      <td>n</td>
+    </tr>
+    <tr>
+      <td>quick union</td>
+      <td>n</td>
+    </tr>
+    <tr>
+      <td>weighted quick union</td>
+      <td>log(n)</td>
+    </tr>
+    <tr>
+      <td>quick union with path compression</td>
+      <td>log(n)</td>
+    </tr>
+    <tr>
+      <td>weighted quick union with path compression</td>
+      <td>log * n</td>
+    </tr>
+  </tbody>
+</table></div>
+<h3 id="union-find-applications">
+  
+  
+    <a href="#union-find-applications" class="anchor-heading" aria-labelledby="union-find-applications"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Union Find Applications
+  
+  
+</h3>
+    
+<p>Percolation</p>
+<ul>
+  <li>
+<em>n</em> X <em>n</em> grid of sites</li>
+  <li>each site is open with probability <em>p</em> or blocked with probability <em>p</em> - 1</li>
+  <li>system percolates iff (if and only if) top and bottom are connected by open sites</li>
+</ul>
+
+<p>percolates</p>
+
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th>x</th>
+      <th>x</th>
+      <th> </th>
+      <th> </th>
+      <th>x</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td> </td>
+      <td>x</td>
+      <td> </td>
+      <td>x</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>x</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td> </td>
+      <td>x</td>
+      <td> </td>
+      <td>x</td>
+    </tr>
+  </tbody>
+</table></div>
+
+<p>doesn’t percolate</p>
+
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th>x</th>
+      <th>x</th>
+      <th> </th>
+      <th> </th>
+      <th>x</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td> </td>
+      <td>x</td>
+      <td> </td>
+      <td>x</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>x</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td> </td>
+      <td>x</td>
+      <td>x</td>
+      <td>x</td>
+    </tr>
+  </tbody>
+</table></div>
+
+<p>many models for physical systems:</p>
+
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th>model</th>
+      <th>system</th>
+      <th>open</th>
+      <th>closed</th>
+      <th>percolates</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>electricity</td>
+      <td>material</td>
+      <td>conductor</td>
+      <td>insulated</td>
+      <td>conducts</td>
+    </tr>
+    <tr>
+      <td>fluid flow</td>
+      <td>material</td>
+      <td>empty</td>
+      <td>blocked</td>
+      <td>porous</td>
+    </tr>
+    <tr>
+      <td>social interaction</td>
+      <td>population</td>
+      <td>person</td>
+      <td>empty</td>
+      <td>communicates</td>
+    </tr>
+  </tbody>
+</table></div>
+
+<p>likelihood of percolation depends on probability, and we cannot figure this out mathematically, but we can computationally (by running millions of simulations)</p>
+
+<p>monte carlo simulations (relies on repeated random siumlation to get numerical results) can be used to add random open sites (increasing p) until top connects to bottom. One way to check is to check all top against all bottom, but this is n<sup>2</sup>. A more performant way would be to create a simulated ‘top’ spot and a simulated bottom, and check only those two (top could be 0, bottom is <em>n</em> * <em>n</em> + 1)</p>
+
+<p>percolation threshold ends up being 0.592746 for large lattices.</p>
+<h2 id="analysis-of-algorithms">
+  
+  
+    <a href="#analysis-of-algorithms" class="anchor-heading" aria-labelledby="analysis-of-algorithms"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Analysis of Algorithms
+  
+  
+</h2>
+    
+<p><a href="https://algs4.cs.princeton.edu/14analysis/">more information</a></p>
+
+<p>Why do we analyze algorithms?</p>
+<ul>
+  <li>predict performance</li>
+  <li>compare algorithms</li>
+  <li>provide guarantees</li>
+  <li>understand theoretical basis</li>
+  <li>
+<strong>primary practical purpose</strong> - avoidance of performance bugs</li>
+</ul>
+<h3 class="no_toc" id="some-algorithmic-successes">
+  
+  
+    <a href="#some-algorithmic-successes" class="anchor-heading" aria-labelledby="some-algorithmic-successes"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Some algorithmic successes
+  
+  
+</h3>
+    
+<h4 class="no_toc" id="discrete-fournier-transforms">
+  
+  
+    <a href="#discrete-fournier-transforms" class="anchor-heading" aria-labelledby="discrete-fournier-transforms"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Discrete Fournier transforms
+  
+  
+</h4>
+    
+<ul>
+  <li>break down waveform of <em>N</em> samples into periodic components</li>
+  <li>brute force is n<sup>2</sup>
+</li>
+  <li>FFT algorithm is <em>N</em> <em>log</em> <em>N</em>
+</li>
+  <li>works for DVD, JPEG, MRI, astrophysics</li>
+</ul>
+<h4 class="no_toc" id="n-body-simulation">
+  
+  
+    <a href="#n-body-simulation" class="anchor-heading" aria-labelledby="n-body-simulation"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> n-body simulation
+  
+  
+</h4>
+    
+<ul>
+  <li>simulate gravitational interactions among <em>N</em> bodies</li>
+  <li>brute force is n<sup>2</sup>
+</li>
+  <li>Barnes-Hut algorithm <em>N</em> <em>log</em> <em>N</em>
+</li>
+</ul>
+<h3 class="no_toc" id="scientific-method">
+  
+  
+    <a href="#scientific-method" class="anchor-heading" aria-labelledby="scientific-method"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Scientific Method
+  
+  
+</h3>
+    
+<ul>
+  <li>
+<strong>Observe</strong> some feature of the natural world</li>
+  <li>
+<strong>Hypothesize</strong> a model that is consistent with the observations</li>
+  <li>
+<strong>Predict</strong> events using the hypothesis</li>
+  <li>
+<strong>Verify</strong> the predictions by making further observations</li>
+  <li>
+<strong>Validate</strong> by repeating until the hypothesis and observations agree</li>
+</ul>
+
+<p>Principles:</p>
+<ul>
+  <li>Experiments must be <strong>reproducible</strong>
+</li>
+  <li>Hypotheses must be <strong>falsifiable</strong>
+</li>
+</ul>
+<h3 id="3-sum">
+  
+  
+    <a href="#3-sum" class="anchor-heading" aria-labelledby="3-sum"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> 3-Sum
+  
+  
+</h3>
+    
+<p>Given <em>N</em> distinct integers, how many triples sum to exactly zero?</p>
+
+<p>brute force method:</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><div class="table-wrapper"><table class="rouge-table"><tbody><tr>
+<td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+</pre></td>
+<td class="rouge-code"><pre><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ThreeSum</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">count</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">a</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="no">N</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="no">N</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="no">N</span><span class="o">;</span> <span class="n">j</span><span class="o">++)</span> <span class="o">{</span>
+                <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">k</span> <span class="o">=</span> <span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span> <span class="n">k</span> <span class="o">&lt;</span> <span class="no">N</span><span class="o">;</span> <span class="n">k</span><span class="o">++)</span> <span class="o">{</span>
+                    <span class="k">if</span> <span class="o">(</span><span class="n">a</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">+</span> <span class="n">a</span><span class="o">[</span><span class="n">j</span><span class="o">]</span> <span class="o">+</span> <span class="n">a</span><span class="o">[</span><span class="n">k</span><span class="o">]</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+                        <span class="n">count</span><span class="o">++;</span>
+                    <span class="o">}</span>
+                <span class="o">}</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="n">count</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">a</span> <span class="o">=</span> <span class="nc">In</span><span class="o">.</span><span class="na">readInts</span><span class="o">(</span><span class="n">args</span><span class="o">[</span><span class="mi">0</span><span class="o">]);</span>
+        <span class="nc">StdOut</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">count</span><span class="o">(</span><span class="n">a</span><span class="o">));</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></td>
+</tr></tbody></table></div></code></pre></div></div>
+
+<p>How to time a program?</p>
+<ul>
+  <li>manually</li>
+  <li>automatically - <code class="language-plaintext highlighter-rouge">StopWatch()</code> in Java standard library</li>
+</ul>
+
+<p>You can plot on a log-log plot, then run a regression (fit a straight line through data points)</p>
+<h3 id="mathematical-model">
+  
+  
+    <a href="#mathematical-model" class="anchor-heading" aria-labelledby="mathematical-model"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Mathematical Model
+  
+  
+</h3>
+    
+<p>total running time is sum of cost X frequency for all operations</p>
+
+<p>we can test cost of operations, which varies by computer, but more interesting to the study of algorithms is frequency of operations.</p>
+
+<p>Simplifications
+cost model
+Turing recommended only counting the number of multiplications and recordings (the operations that are most expensive)</p>
+
+<p>tilde notation
+ignore lower order terms</p>
+<ul>
+  <li>when N is large, terms are negligible</li>
+  <li>when N is small, we don’t care</li>
+</ul>
+<h3 id="common-order-of-growth-classifications">
+  
+  
+    <a href="#common-order-of-growth-classifications" class="anchor-heading" aria-labelledby="common-order-of-growth-classifications"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Common Order of Growth Classifications
+  
+  
+</h3>
+    
+
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th>order of growth</th>
+      <th>name</th>
+      <th>typical code framework</th>
+      <th>description</th>
+      <th>example</th>
+      <th>T(2N) / T(N)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>constant</td>
+      <td><code class="language-plaintext highlighter-rouge">a = b + c</code></td>
+      <td>statement</td>
+      <td>add two numbers</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>logN</td>
+      <td>logarithmic</td>
+      <td>while (N  &gt; 1)<br>   { N = N / 2; …  }</td>
+      <td>divide in half</td>
+      <td>binary search</td>
+      <td>~1</td>
+    </tr>
+    <tr>
+      <td>N</td>
+      <td>linear</td>
+      <td>for (int i = 0; i &lt; N; i++)<br> { … }</td>
+      <td>loop</td>
+      <td>find the maximum</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>N log N</td>
+      <td>linearithmic</td>
+      <td>mergesort</td>
+      <td>divide and conquer</td>
+      <td>mergesort</td>
+      <td>~2</td>
+    </tr>
+    <tr>
+      <td>N<sup>2</sup>
+</td>
+      <td>quadratic</td>
+      <td>for (int i = 0; i &lt; N; i++)<br> for (int j = 0; j &lt; N; j++) <br> { … }</td>
+      <td>double loop</td>
+      <td>check all pairs</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td>N<sup>3</sup>
+</td>
+      <td>cubic</td>
+      <td>for (int i = 0; i &lt; N; i++)<br> for (int j = 0; j &lt; N; j++)<br>  for (int k = 0; k &lt; N; k++)<br>   { … }</td>
+      <td>triple loop</td>
+      <td>check all triples</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <td>2&lt;supN&lt;/sup&gt;</td>
+      <td>exponential</td>
+      <td>combinatorial search</td>
+      <td>exhaustive search</td>
+      <td>check all subsets</td>
+      <td>T(N)</td>
+    </tr>
+  </tbody>
+</table></div>
+
+<p>For practical implications, we need linear or linearithmic algorithms to keep pace with Moore’s Law.</p>
+
+<p>We can look at binary search for an example.</p>
+<h3 id="binary-search">
+  
+  
+    <a href="#binary-search" class="anchor-heading" aria-labelledby="binary-search"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Binary Search
+  
+  
+</h3>
+    
+<p>Given a sorted aray and a key, find the index of the key in the array.</p>
+
+<p>Interesting tidbit, but there was a bug discovered in Java’s implementation of binary search in 2006.</p>
+
+<p>recursive implementation:</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><div class="table-wrapper"><table class="rouge-table"><tbody><tr>
+<td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre></td>
+<td class="rouge-code"><pre><span class="kt">int</span> <span class="nf">binarySearch</span><span class="o">(</span><span class="kt">int</span> <span class="n">arr</span><span class="o">[],</span> <span class="kt">int</span> <span class="n">l</span><span class="o">,</span> <span class="kt">int</span> <span class="n">r</span><span class="o">,</span> <span class="kt">int</span> <span class="n">x</span><span class="o">)</span>
+<span class="o">{</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">r</span> <span class="o">&gt;=</span> <span class="n">l</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">mid</span> <span class="o">=</span> <span class="n">l</span> <span class="o">+</span> <span class="o">(</span><span class="n">r</span> <span class="o">-</span> <span class="n">l</span><span class="o">)</span> <span class="o">/</span> <span class="mi">2</span><span class="o">;</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">arr</span><span class="o">[</span><span class="n">mid</span><span class="o">]</span> <span class="o">==</span> <span class="n">x</span><span class="o">)</span> <span class="k">return</span> <span class="n">mid</span><span class="o">;</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">arr</span><span class="o">[</span><span class="n">mid</span><span class="o">]</span> <span class="o">&gt;</span> <span class="n">x</span><span class="o">)</span> <span class="k">return</span> <span class="n">binarySearch</span><span class="o">(</span><span class="n">arr</span><span class="o">,</span> <span class="n">l</span><span class="o">,</span> <span class="n">mid</span> <span class="o">-</span> <span class="mi">1</span><span class="o">,</span> <span class="n">x</span><span class="o">);</span>
+        <span class="k">return</span> <span class="nf">binarySearch</span><span class="o">(</span><span class="n">arr</span><span class="o">,</span> <span class="n">mid</span> <span class="o">+</span> <span class="mi">1</span><span class="o">,</span> <span class="n">r</span><span class="o">,</span> <span class="n">x</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="o">;</span>
+<span class="o">}</span>
+</pre></td>
+</tr></tbody></table></div></code></pre></div></div>
+
+<p>We can also use binary search to speed up the 3 sum problem to n<sup>2</sup> log <em>n</em> speed, as so:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><div class="table-wrapper"><table class="rouge-table"><tbody><tr>
+<td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+</pre></td>
+<td class="rouge-code"><pre>    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">int</span> <span class="nf">count</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">a</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>
+        <span class="nc">Arrays</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">a</span><span class="o">);</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">containsDuplicates</span><span class="o">(</span><span class="n">a</span><span class="o">))</span> <span class="k">throw</span> <span class="k">new</span> <span class="nc">IllegalArgumentException</span><span class="o">(</span><span class="s">"array contains duplicate integers"</span><span class="o">);</span>
+        <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="o">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">;</span> <span class="n">j</span><span class="o">++)</span> <span class="o">{</span>
+                <span class="kt">int</span> <span class="n">k</span> <span class="o">=</span> <span class="nc">Arrays</span><span class="o">.</span><span class="na">binarySearch</span><span class="o">(</span><span class="n">a</span><span class="o">,</span> <span class="o">-(</span><span class="n">a</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">+</span> <span class="n">a</span><span class="o">[</span><span class="n">j</span><span class="o">]));</span>
+                <span class="k">if</span> <span class="o">(</span><span class="n">k</span> <span class="o">&gt;</span> <span class="n">j</span><span class="o">)</span> <span class="n">count</span><span class="o">++;</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="n">count</span><span class="o">;</span>
+    <span class="o">}</span>
+</pre></td>
+</tr></tbody></table></div></code></pre></div></div>
+<h3 class="no_toc" id="types-of-analyses">
+  
+  
+    <a href="#types-of-analyses" class="anchor-heading" aria-labelledby="types-of-analyses"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> types of analyses
+  
+  
+</h3>
+    
+<ul>
+  <li>
+<strong>best case</strong> lower bound on cost</li>
+  <li>
+<strong>worst case</strong> upper bound on cost</li>
+  <li>
+<strong>average case</strong> expected cost for random input</li>
+</ul>
+
+<p>how to choose input model?</p>
+<ul>
+  <li>design for worst case</li>
+  <li>OR randomize input</li>
+</ul>
+
+<p>goals: establish difficulty of problem and develop optimal algorithms
+approach: suppress details in analysis and eliminate variability in input model by focusing on worst case</p>
+<h3 class="no_toc" id="algorithm-models">
+  
+  
+    <a href="#algorithm-models" class="anchor-heading" aria-labelledby="algorithm-models"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> algorithm models
+  
+  
+</h3>
+    
+
+<ul>
+  <li>
+<strong>Tilde</strong> – provide approximate model</li>
+  <li>
+<strong>Big Theta</strong> – classify algorithms</li>
+  <li>
+<strong>Big Oh</strong>– develop upper bounds</li>
+  <li>
+<strong>Big Omega</strong> – develop lower bounds</li>
+</ul>
+<h3 class="no_toc" id="memory-usage">
+  
+  
+    <a href="#memory-usage" class="anchor-heading" aria-labelledby="memory-usage"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> memory usage
+  
+  
+</h3>
+    
+
+<p><strong>primitives</strong></p>
+
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th>type</th>
+      <th>bytes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>boolean</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>byte</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>char</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>int</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td>float</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td>long</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <td>double</td>
+      <td>8</td>
+    </tr>
+  </tbody>
+</table></div>
+
+<p><strong>one-dimensional arrays</strong></p>
+
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th>type</th>
+      <th>bytes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>char[]</td>
+      <td>2N +  24</td>
+    </tr>
+    <tr>
+      <td>int[]</td>
+      <td>4N +  24</td>
+    </tr>
+    <tr>
+      <td>double[]</td>
+      <td>8N +  24</td>
+    </tr>
+  </tbody>
+</table></div>
+
+<p><strong>two-dimensional arrays</strong></p>
+
+<div class="table-wrapper"><table>
+  <thead>
+    <tr>
+      <th>type</th>
+      <th>bytes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>char[][]</td>
+      <td>~2 M N</td>
+    </tr>
+    <tr>
+      <td>int[][]</td>
+      <td>~4 M N</td>
+    </tr>
+    <tr>
+      <td>double[][]</td>
+      <td>~8 M N</td>
+    </tr>
+  </tbody>
+</table></div>
+
+<p>objects take up 16 bytes, references 8 bytes, and each object has padding so it is a multiple of 8 bytes.</p>
+
+<p>e.g., a Date object uses 32 bytes (4 x 3 for int, 16 object, rounded up to 32)
+e.g., a String uses 2N + 64 (16 for object, 8 for reference to array, 2N + 24 for char array, 12 for offset, count, and hash, and 4 for padding)</p>
+<h3 id="questions">
+  
+  
+    <a href="#questions" class="anchor-heading" aria-labelledby="questions"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> questions
+  
+  
+</h3>
+    
+
+<ol>
+  <li>
+    <p><strong>3-SUM in quadratic time</strong> Design an algorithm for the 3-SUM problem that takes time proportional to n<sup>2</sup> 2 in the worst case. You may assume that you can sort the nn integers in time proportional to n<sup>2</sup> or better.</p>
+  </li>
+  <li>
+    <p><strong>Search in a bitonic array.</strong> An array is bitonic if it is comprised of an increasing sequence of integers followed immediately by a decreasing sequence of integers. Write a program that, given a bitonic array of nn distinct integer values, determines whether a given integer is in the array.</p>
+  </li>
+</ol>
+
+<ul>
+  <li>Standard version: Use ~ 3 lg <em>n</em> compares in the worst case.</li>
+  <li>Signing bonus: Use ~ 2 lg <em>n_compares in the worst case (and prove that no algorithm can guarantee to perform fewer than ~ 2 lg _n</em> compares in the worst case).</li>
+</ul>
+
+<ol>
+  <li>
+<strong>Egg drop.</strong> Suppose that you have an nn-story building (with floors 1 through <em>n</em>) and plenty of eggs. An egg breaks if it is dropped from floor <em>T</em> or higher and does not break otherwise. Your goal is to devise a strategy to determine the value of  <em>T</em> given the following limitations on the number of eggs and tosses:</li>
+</ol>
+
+<ul>
+  <li>Version 0: 1 egg, $ T \le T $ tosses.</li>
+  <li>Version 1:  $ \sim 1 \lg n $ eggs and $ \sim 1 \lg $ tosses.</li>
+  <li>Version 2: $ \sim \lg T $ eggs and  $$\sim 2 \lg T $ tosses.</li>
+  <li>Version 3: 22 eggs and $ \sim 2 \sqrt n $ tosses.</li>
+  <li>Version 4: 22 eggs and  $ \le c \sqrt T $ tosses for some fixed constant c.</li>
+</ul>
+<h2 id="bags-stacks--queues">
+  
+  
+    <a href="#bags-stacks--queues" class="anchor-heading" aria-labelledby="bags-stacks--queues"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Bags, Stacks &amp; Queues
+  
+  
+</h2>
+    
+<p>fundamental data types, operations of <em>insert</em>, <em>remove</em>, <em>iterate</em>.</p>
+
+<p>Stack - last in, first out (push, pop)
+Queue - first in,  first out (enqueue, dequeue)</p>
+<h3 id="stacks">
+  
+  
+    <a href="#stacks" class="anchor-heading" aria-labelledby="stacks"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Stacks
+  
+  
+</h3>
+    
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><div class="table-wrapper"><table class="rouge-table"><tbody><tr>
+<td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+</pre></td>
+<td class="rouge-code"><pre><span class="kd">public</span> <span class="kd">class</span> <span class="nc">LinkedStack</span><span class="o">&lt;</span><span class="nc">Item</span><span class="o">&gt;</span> <span class="o">{</span>
+  <span class="kd">private</span> <span class="nc">Node</span> <span class="n">first</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+
+  <span class="kd">private</span> <span class="kd">class</span> <span class="nc">Node</span> <span class="o">{</span>
+    <span class="nc">Item</span> <span class="n">item</span><span class="o">;</span>
+    <span class="nc">Node</span> <span class="n">next</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isEmpty</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="n">first</span> <span class="o">==</span> <span class="kc">null</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">push</span><span class="o">(</span><span class="nc">Item</span> <span class="n">item</span><span class="o">)</span> <span class="o">{</span>
+    <span class="nc">Node</span> <span class="n">oldfirst</span> <span class="o">=</span> <span class="n">first</span><span class="o">;</span>
+    <span class="n">first</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Node</span><span class="o">();</span>
+    <span class="n">first</span><span class="o">.</span><span class="na">item</span> <span class="o">=</span> <span class="n">item</span><span class="o">;</span>
+    <span class="n">first</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="n">oldfirst</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="kd">public</span> <span class="nc">Item</span> <span class="nf">pop</span><span class="o">()</span> <span class="o">{</span>
+    <span class="nc">Item</span> <span class="n">item</span> <span class="o">=</span> <span class="n">first</span><span class="o">.</span><span class="na">item</span><span class="o">;</span>
+    <span class="n">first</span> <span class="o">=</span> <span class="n">first</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
+    <span class="k">return</span> <span class="n">item</span><span class="o">;</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre></td>
+</tr></tbody></table></div></code></pre></div></div>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><div class="table-wrapper"><table class="rouge-table"><tbody><tr>
+<td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+</pre></td>
+<td class="rouge-code"><pre><span class="n">pulbic</span> <span class="kd">class</span> <span class="nc">FixedCapacityStackOfStrings</span> <span class="o">{</span>
+  <span class="kd">private</span> <span class="nc">String</span><span class="o">[]</span> <span class="n">s</span><span class="o">;</span>
+  <span class="kd">private</span> <span class="kt">int</span> <span class="no">N</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+
+  <span class="kd">public</span> <span class="nf">FixedCapacityStackOfStrings</span><span class="o">(</span><span class="kt">int</span> <span class="n">capacity</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">String</span><span class="o">[</span><span class="n">capacity</span><span class="o">];</span>
+  <span class="o">}</span>
+
+  <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isEmpty</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="no">N</span> <span class="o">==</span> <span class="mi">0</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">push</span><span class="o">(</span><span class="nc">String</span> <span class="n">item</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">s</span><span class="o">[</span><span class="no">N</span><span class="o">++]</span> <span class="o">=</span> <span class="n">item</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="c1">// prevents loitering</span>
+  <span class="kd">public</span> <span class="nc">String</span> <span class="nf">pop</span><span class="o">()</span> <span class="o">{</span>
+    <span class="nc">String</span> <span class="n">item</span> <span class="o">=</span> <span class="n">s</span><span class="o">[--</span><span class="no">N</span><span class="o">];</span>
+    <span class="n">s</span><span class="o">[</span><span class="no">N</span><span class="o">]</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+    <span class="k">return</span> <span class="n">item</span><span class="o">;</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre></td>
+</tr></tbody></table></div></code></pre></div></div>
+
+<p>how do you prevent array capacity overflow?</p>
+
+<p><strong>repeated doubling</strong> – when array hits capacity, create a new one of twice the length. You can add a custom <code class="language-plaintext highlighter-rouge">resize()</code> function when the original stack is full.</p>
+
+<p>If array is 1/4 full, you can shrink to half the size.</p>
+
+<p>For stacks, should we use linked list or resizing array?</p>
+
+<p>linked list: every operation takes constant time in the worst case but uses extra time and space to deal with the links</p>
+
+<p>resizing array: every operation takes constant amortized time and less wasted space</p>
+<h3 id="queues">
+  
+  
+    <a href="#queues" class="anchor-heading" aria-labelledby="queues"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Queues
+  
+  
+</h3>
+    
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><div class="table-wrapper"><table class="rouge-table"><tbody><tr>
+<td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+</pre></td>
+<td class="rouge-code"><pre><span class="kd">public</span> <span class="kd">class</span> <span class="nc">LinkedQueueOfStrings</span> <span class="o">{</span>
+  <span class="kd">private</span> <span class="nc">Node</span> <span class="n">first</span><span class="o">,</span> <span class="n">last</span><span class="o">;</span>
+
+  <span class="kd">private</span> <span class="kd">class</span> <span class="nc">Node</span> <span class="o">{</span>
+    <span class="nc">String</span> <span class="n">item</span><span class="o">;</span>
+    <span class="nc">Node</span> <span class="n">next</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isEmpty</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="n">first</span> <span class="o">==</span> <span class="kc">null</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">enqueue</span><span class="o">(</span><span class="nc">String</span> <span class="n">item</span><span class="o">)</span> <span class="o">{</span>
+    <span class="nc">Node</span> <span class="n">oldlast</span> <span class="o">=</span> <span class="n">last</span><span class="o">;</span>
+    <span class="n">last</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Node</span><span class="o">();</span>
+    <span class="n">last</span><span class="o">.</span><span class="na">item</span> <span class="o">=</span> <span class="n">item</span><span class="o">;</span>
+    <span class="n">last</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">isEmpty</span><span class="o">())</span> <span class="n">first</span> <span class="o">=</span> <span class="n">last</span><span class="o">;</span>
+    <span class="k">else</span>           <span class="n">oldlast</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="n">last</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="kd">public</span> <span class="nc">String</span> <span class="nf">dequeue</span><span class="o">()</span> <span class="o">{</span>
+    <span class="nc">String</span> <span class="n">item</span> <span class="o">=</span> <span class="n">first</span><span class="o">.</span><span class="na">item</span><span class="o">;</span>
+    <span class="n">first</span> <span class="o">=</span> <span class="n">first</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
+    <span class="k">if</span> <span class="nf">isEmpty</span><span class="o">()</span> <span class="n">last</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+    <span class="k">return</span> <span class="n">item</span><span class="o">;</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre></td>
+</tr></tbody></table></div></code></pre></div></div>
+<h3 id="bags">
+  
+  
+    <a href="#bags" class="anchor-heading" aria-labelledby="bags"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Bags
+  
+  
+</h3>
+    
+<p>Like queue and stack, but no <code class="language-plaintext highlighter-rouge">pop()</code> or <code class="language-plaintext highlighter-rouge">dequeue()</code> methods, as order doesn’t matter.</p>
+<h3 id="implementations-of-stacks">
+  
+  
+    <a href="#implementations-of-stacks" class="anchor-heading" aria-labelledby="implementations-of-stacks"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Implementations of Stacks
+  
+  
+</h3>
+    
+<h3 id="questions-1">
+  
+  
+    <a href="#questions-1" class="anchor-heading" aria-labelledby="questions-1"><svg viewbox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Questions
+  
+  
+</h3>
+    
+<ol>
+  <li>
+    <p>Question 1
+Queue with two stacks. Implement a queue with two stacks so that each queue operations takes a constant amortized number of stack operations.</p>
+  </li>
+  <li>
+    <p>Question 2
+Stack with max. Create a data structure that efficiently supports the stack operations (push and pop) and also a return-the-maximum operation. Assume the elements are real numbers so that you can compare them.</p>
+  </li>
+  <li>
+    <p>Question 3
+Java generics. Explain why Java prohibits generic array creation.</p>
+  </li>
+</ol>
+
+          
+
+          
+        </main>
+        
+
+  <hr>
+  <footer>
+    
+      <p><a href="#top" id="back-to-top">Back to top</a></p>
+    
+
+    <p class="text-small text-grey-dk-100 mb-0">Copyright © 2022 Michael McIntyre. </p>
+
+    
+      <div class="d-flex mt-2">
+        
+          <p class="text-small text-grey-dk-000 mb-0 mr-2">
+            Page last modified: <span class="d-inline-block">Aug 29 2021 at 01:14 PM</span>.
+          </p>
+        
+        
+      </div>
+    
+  </footer>
+
+
+      </div>
+    </div>
+    
+      
+
+<div class="search-overlay"></div>
+
+    
+  </div>
+
+  
+</body>
+</html>
